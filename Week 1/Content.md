@@ -28,9 +28,17 @@ Java is a programming language that makes use of classes. A class is similar to 
 
 As you can see this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console.
 
-Another important part of the class is the *constructor*. In Java, in order to use classes like the `Student` class, they need to be instantiated before they can be used. The `Student` class can be seen as a blueprint. It exists, but before we can use the properties or methods inside, we first need to create an *instance* of the class. The constructor is used to do so. Often the constructor is used to set the properties of the class to meaningful values, in this case we want to set the values of the name, the program the student is attending and the student number. The constructor of the class is made with this in mind, allowing us to insert these values.
+### The constructor
+An important part of the class is the *constructor*. It is a special method inside the class that we can call to create instances of that class. In Java, in order to use classes like the `Student` class, they need to be instantiated before they can be used. The `Student` class can be seen as a blueprint. It exists, but before we can use the properties or methods inside, we first need to create an *instance* of the class. The constructor is used to do so. 
 
-Suppose we wanted to create a new student object for the student Ada Lovelace and store it in the variable `al`:
+Often the constructor is used to set the properties of the class to meaningful values, in this case we want to set the values of the name, the program the student is attending and the student number. The constructor of the class is made with this in mind, allowing us to insert these values. 
+
+### Parameters
+You can see in the method declaration of the constructor that it takes three parameters: two strings and an integer. 
+
+         public Student(String aName, String aProgram, int aStudentNumber)
+
+When creating a method in Java, this is the way in which you specify if and which values should be passed on to that method when it is called. Suppose we wanted to create a new student object for the student Ada Lovelace and store it in the variable `al`:
 
         Student al = new Student("Ada Lovelace", "Computer Science", 61283);
 
@@ -38,7 +46,31 @@ Now, the variable `al` contains the values we initialized it with, because insid
 
         Student ik = new Student("Immanuel Kant", "Philosophy", 81148);
 
-The variables `al` and `ik` can be seen as references to the respective objects. They each use the `Student` blueprint, but the contents of the properties are different. 
+The variables `al` and `ik` can be seen as references to the respective objects. They each use the `Student` blueprint, but the contents of the properties are different.
+
+
+### Return values
+When taking a look at the printInfo() method, another aspect is important: the return type. Methods in Java specify the kind of value they return at the end. In this case, `printInfo()` is preceded by the word `void` which indicates that the method does not return any value. This is true, as it just prints anything but does not return a value to the caller. 
+
+Suppose we had a different structure of the class in mind, which separates the tasks that are going on a bit more. Let's say we would want to split the task of building the string to be printed and the actual printing itself. Our methods could then look something like this:
+
+        // Creates and returns a string with all info
+        public String createInfoString() {
+            String infoString = "This student is called " + name + 
+                "they are studying " + program + " and their student number is " + studentNumber;
+            return infoString;
+        }
+
+        // Prints the string info to the terminal
+        public void printInfo() {
+            String toPrint = createInfoString();
+            System.out.println(toPrint);
+        }
+
+Now, all the `printInfo()` method does is call another method, `createInfoString()` and print the results from calling this method instead. This works because the `createInfoString()` method is defined to return a `String`. In Java, methods can return all kinds of variables and even instances of classes like `Student`! 
+
+However, the kind of variable to be returned must be specified in the method declaration. We can clearly see this, as the declaration of `createInfoString()` is preceded by the keyword `String`. When a method does not return anything, like `printInfo()` we use `void`. An exception to this is the constructor: no return type keyword is used in its declaration. 
+
 
 ## Practice
 You can try this out by grabbing the following file [LINK NAAR BESTAND]. It contains the code we have seen this far, though the strucure in which we present it in order to be able to run it is slightly different. 
@@ -51,10 +83,14 @@ From this main method, we can access the `Student` class and create instances of
 
 2) Add a property that represents ECTS (studiepunten) to the student class, and make sure this property is correctly initialized when you create instances of the student object.
 
-3) Create a method inside the student class, which checks how many ECTS a certain student has and prints to the console whether they can ask for their diploma (which you need 180 for), or they still have to study some more!
+3) Create a method inside the student class, which both checks how many ECTS a certain student has and prints to the console whether they can ask for their diploma (which you need 180 for), or they still have to study some more!
+
+4) Rewrite the method created at 3 so that instead of just printing everything directly, it makes a call to another method which handles the EC checking part and returns true or false, depending on whether the student is eligible for their diploma. 
+
+Be sure to save your final file, as you will need to show us later.
 
 
-## Classes in Android
+## Classes in Android Studio
 In Android Studio, you will see classes as well, though the way in which they are used is slightly different. In your app, the different screens are represented by `Activities`. These activities are actually classes as well! 
 
 However, instead of having a `main` method associated with them as in the example above, they make use of the method `onCreate()` which is called when the respective activity is (surprise) created. Inside this method, the corresponding layout for the activity is set, after which you can start adding your own code.
@@ -71,6 +107,7 @@ However, instead of having a `main` method associated with them as in the exampl
             
         }
 
+Of course, Android Studio allows for you to create custom classes that depict something tangible, like the `Student` one as well. However throughout an app you will see classes that take many other shapes. All runnable code you write for your app will be contained inside a class of some kind. 
 
 
 
