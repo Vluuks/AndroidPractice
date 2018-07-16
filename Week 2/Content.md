@@ -57,7 +57,7 @@ Consider the `Student` class once again, with some adjustments:
             }
         }
 
-Often when a class has private properties that does not mean they should never be accessed at all. Most of the time this is done through get- and set methods. This is also called encapsulation.
+Often when a class has private properties that does not mean they should never be accessed at all. Most of the time this is done through getter and setter methods. This is also called *encapsulation*.
 
 A benefit of encapsulation is that instead of allowing someone to edit properties of an object using the dot operator, this must be done through a set method. This method takes as an argument the new value to be set, but can of course also check whether this value makes sense at all. 
 
@@ -99,9 +99,9 @@ Instead of having the `EC` property be public, we could set it to `private` inst
         }
     }
 
-The point is that through this method, the handling of the EC property is much more foolproof. It is managed through its respective getter and setter method. By keeping the access inside the class, you have much more control over which values should be adjustable from outside the class and which ones shouldn't.
+The point is that through this method, the handling of the EC property is much more foolproof. It is managed through its respective getter and setter methods. By keeping the access inside the class, you have much more control over which values should be adjustable from outside the class and which ones shouldn't.
 
-Of course, to be able to get and set all of the other properties now that their access is also set to `private`, extra getter and setter methods would have to be added.
+Of course, to be able to get and set all of the other properties of the `Student` class now that their access is also set to `private`, extra getter and setter methods would have to be added.
 
 
 <a name="practice"></a>
