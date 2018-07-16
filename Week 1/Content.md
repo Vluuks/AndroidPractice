@@ -82,7 +82,7 @@ When taking a look at the printInfo() method, another aspect is important: the r
 Suppose we had a different structure of the class in mind, which separates the tasks that are going on a bit more. Let's say we would want to split the task of building the string to be printed and the actual printing itself. Our methods could then look something like this:
 
         // Creates and returns a string with all info
-        public String createInfoString() {
+        private String createInfoString() {
             String infoString = "This student is called " + name + 
                 "they are studying " + program + " and their student number is " + studentNumber;
             return infoString;
@@ -184,7 +184,7 @@ Another structure that is often present in Android code is a click handler that 
 
 This method also gets a parameter, a `View` object called `view`. This object refers to the element in the layout, which are called views in Android, that triggered the method. This `View` object is available in the scope of the `buttonClicked` method, which means that we can use methods associated with the `view` object. 
 
-Objects like `View` in Android studio often have a lot of such methods, which are accessed by the dot operator, just like in Exercise 1. Usually the IDE will provide you with a list of these methods once you add a dot after the object and begin typing, like for example to access the `getId()` method, which returns the associated id number of the view in question:
+Objects like `View` in Android studio often have a lot of such methods, which are accessed by the dot operator, just like in Exercise 1. Usually the IDE will provide you with a list of these methods once you add a dot after the object and begin typing, like for example to access the `getId()` method, which returns the associated id number (an integer) of the view in question (see the gif below). Many methods like this return a specific type of value, which in turn can be used to determine your program's logic or perform other operations. Luckily, the return value of the methods is also shown on the right side of the dropdown menu in the IDE.
 
 ![A gif depicting a user starting to type,  placing a dot after the View object which prompts the IDE to supply the list of available methods beloning to the View class.](view-methods-ide.gif)
 
