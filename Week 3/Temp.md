@@ -1,0 +1,5 @@
+Grab the following file [LINK NAAR FILE]. This time we will not practice in the IDE but instead practice with the different access methods in Android Studio itself. The file contains a familiar class depicting a student. Open up a new Android Studio project, and copy the file from your downloads directory into your main package folder located under `app > java > com.example.yourname.yourappname` so that it is alongside your `MainActivity.java` file:
+
+![An image depicting the file tree as shown in Android Studio, with the package folder highlighted](paste-location.png)
+
+> The IDE allows for different depictions of the files representing your app. If yours does look different, try switching the mode to 'Android' instead by using the dropdown in the top left corner as shown in the image above.

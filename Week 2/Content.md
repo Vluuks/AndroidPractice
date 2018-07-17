@@ -11,7 +11,6 @@ In this course, we will use the programming language Java to create our Android 
 	 * [Wrapping it up](#wrapup)
 - [Practice](#practice)
 	 * [Exercises](#exercises)
-	 * [Tips](#tips)
 - [Plain Java vs Android Studio](#java-vs-android)
 
 
@@ -223,30 +222,12 @@ We have seen three types of modifiers related to the way variables are accessed.
 
         public static final String UNIVERSITY_NAME = "University of Amsterdam";
 
+We also saw that to define multiple constants, the `enum` is an elegant solution that helps avoid wrong assignments, simplifies iteration of the possible values and is easy to use inside a `Switch` statement. 
+
 <a name="practice"></a>
 
 ## Practice
-Grab the following file [LINK NAAR FILE]. This time we will not practice in the IDE but instead practice with the different access methods in Android Studio itself. The file contains a familiar class depicting a student. Open up a new Android Studio project, and copy the file from your downloads directory into your main package folder located under `app > java > com.example.yourname.yourappname` so that it is alongside your `MainActivity.java` file:
-
-![An image depicting the file tree as shown in Android Studio, with the package folder highlighted](paste-location.png)
-
-> The IDE allows for different depictions of the files representing your app. If yours does look different, try switching the mode to 'Android' instead by using the dropdown in the top left corner.
-
-We will use this file to try out and play with the various access rights of variables, methods and the class itself. 
-
-<a name="exercises"></a>
-
-### Exercises
-
-1) Create the getters and setters for the other properties in the `Student` class.
-
-2) You can imagine that for EC it might not be the most useful to set the value every time. A method that increments them makes way more sense. Add a method to your Student class that increments a student's current EC by a given amount. Does this interfere with the getters and setters, why (not)?
-
-3) 
-
-<a name="tips"></a>
-
-### Tips
+Grab the following file [LINK NAAR BESTAND]. It contains the Student class once again, in addition to the `getEC` and `setEC` methods. You can add the file to your CS50 IDE. If you are not sure anymore how to set this up, refer to the practice section of [Week 1](SOME URL TODO). 
 
 To compile your Java file to a .class file, use this command on the terminal:
 
@@ -260,6 +241,22 @@ If you have trouble getting your Java programs to run in the IDE, run `update50`
 
         sudo apt-get update
         sudo apt-get install default-jdk
+
+<a name="exercises"></a>
+
+### Exercises
+
+1) Create the getters and setters for the other properties in the `Student` class.
+
+2) You can imagine that for EC it might not be the most useful to set the value every time. A method that increments them makes way more sense. Add a method to your Student class that increments a student's current EC by a given amount. Does this interfere with the getters and setters, why (not)?
+
+3) Implement a counter that keeps track of how many student objects have been instantiated, but without incrementing it manually like in the *Static vs. non-static* section! 
+
+4) Set the access of the count variable to `private` and define a method that returns the count of students. Bear in mind we want this method to be accessible even when we do not have an instance of a `Student` present. 
+
+5) Implement an `enum` that represents the various levels that exist: bachelor, master, PhD or some other set of constants you feel is appropriate to represent in an `enum`. 
+
+5) Add a method to the `Student` class that uses the `Switch` statement to print something to the terminal.
 
 <a name="java-vs-android"></a>
 
