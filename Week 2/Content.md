@@ -111,7 +111,7 @@ Of course, to be able to get and set all of the other properties of the `Student
 ### Static vs. non-static
 Another modifier that can be added to the declaration of a method or variable is the `static` keyword. This modifier also has to do with access, but has to do with whether a class is instantiated or not. 
 
-In our `Student` class, we have different variables that represent properties of a student, these are called instance variables (`name`, `program`, `studentNumber`, `EC`). They differ across instances of the Student object, as every time we create a new one, we supply new values for these variables to the constructor. These variables are unique for every instance of the class, as it makes sense that not all students have the same name, student number etc.
+In our `Student` class, we have different variables that represent properties of a student, these are called instance variables (`name`, `program`, `studentNumber`, `EC`). They differ across instances of the Student object, as every time we create a new one, we supply new values for these variables to the constructor. These variables are unique for every instance of the class, as it makes sense that not all students have the same name, student number etc. The class says: all students have a name, but the instance says: "This specific student's name is Ada Lovelace".
 
 In some cases it is beneficial to have another variable that is not unique for every instance, but instead applies to all instances of the class. Imagine we want to keep track of how many students there are in total. It would not make sense to keep a unique copy of that number for every student object we create, because that would be a waste of memory. Instead, we want one variable that can keep track of this count. To do this, we use a `static` variable that is common to all instances of the class.
 
@@ -261,3 +261,21 @@ If you have trouble getting your Java programs to run in the IDE, run `update50`
 <a name="java-vs-android"></a>
 
 ## Plain Java vs Android Studio
+All above concepts are applicable in Android Studio as well. Most auto-generated classes and methods have some kind of access modifier specified. A specific error related to this that you might see in Android studio is:
+
+"Non-static method cannot be referenced from a static context"
+
+This means that you are probably invoking a method as if it were a static method, but it is actually an instance method instead! This is clearly illustrated by the following example that would invoke this error:
+
+    TextView.setText("nice");
+
+While `setText()` can indeed be called on objects of the type `TextView`, the above line of code does not refer to an instance of `TextView`, but rather to the class as a whole. It does not know what `TextView` in the layout you are referring to at all.
+
+Another things that you need to pay attention to is the location of your files. When working with your own classes in Android, it's important that you place them in the same package as the rest of your code for ease of access. Your Java files will be contained in the directory located under `app > java > com.example.yourname.yourappname`. This is where your `Activity` Java files are located, but model classes like `Student` can be placed here as well! This directory is also visible in Android studio in the menu on the left:
+
+![An image depicting the file tree as shown in Android Studio, with the package folder highlighted](paste-location.png)
+
+The IDE allows for different depictions of the files representing your app. If yours does look different, try switching the mode to 'Android' instead by using the dropdown in the top left corner as shown in the image above. 
+
+When right clicking this directory, you can easily create a new Java class, which after allows you to to select `enum` in a dropdown as well. For activities however, it's best to go with `New > Activity > Empty Activity` since this also generates the required layout files and standard methods for you. 
+
