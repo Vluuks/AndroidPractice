@@ -6,7 +6,7 @@ In this course, we will use the programming language Java to create our Android 
     * [Access](#access)
     * [Getters and setters](#getters-setters)
     * [Static vs. non-static](#static)
-    * [Enums](#enums)
+    * [Constants and enums](#enums)
 - [Practice](#practice)
 	* [Exercises](#exercises)
 - [Plain Java vs. Android Studio](#java-vs-android)
@@ -122,6 +122,7 @@ In some cases it is beneficial to have another variable that is not unique for e
             private String program;
             private int studentNumber;
             private int EC;
+            
             ...
 
         }
@@ -146,13 +147,13 @@ Because the variable `studentCount` is `static`, we can also access through the 
 
         Student.studentCount = 2;
 
-You can ([compile and run this snippet](http://bit.ly/2NiBDdZ)) to see the above in action. Feel free to play around with it a bit. 
+You can [compile and run this snippet](http://bit.ly/2NiBDdZ) to see the above in action. Feel free to play around with it a bit. 
 
 
 <a name="enums"></a>
 
-### Enums
-...
+### Constants and enums
+Let's say you want to use variables that really do not have to change at all. 
 
 <a name="practice"></a>
 

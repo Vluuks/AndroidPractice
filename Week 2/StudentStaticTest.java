@@ -1,4 +1,11 @@
-// The class depicting a Student
+/* 
+     Native App Studio Course UvA
+     The class depicting a Student demonstrating the behaviour of a static variable.
+     
+     To compile: javac StudentTest.java
+     To run: java StudentTest
+     
+*/
 class Student {
 
     static int studentCount;
