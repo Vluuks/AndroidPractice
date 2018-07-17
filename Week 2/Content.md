@@ -188,6 +188,22 @@ To solve this problem (among other things) we can use the `enum` feature of Java
             RECTANGLE, CIRCLE, TRIANGLE, SQUARE
         }
 
+Now that the options are contained within the `enum`, we can use it to declare and modify variables. The main difference is that now we can only assign values that are part of the `Shape` `enum`. 
+
+        Shape shapeToShow = Shape.TRIANGLE;
+
+Using `enum` has other benefits as well. Because all values are contained within `Shape`, it's much easier to iterate over them. They can also easily be incorporated into a `Switch` statement, which executes different code depending on the value of the variable supplied. You can see this in action in [this snippet](http://bit.ly/2JuN9R2);
+
+        switch(shapeToShow) {
+            case RECTANGLE: System.out.println("It's a rectangle!");     
+                            break;
+            case CIRCLE:    System.out.println("It's a circle!");
+                            break;
+            case TRIANGLE:  System.out.println("It's a triangle!");
+                            break;
+            case SQUARE:    System.out.println("It's a square!");
+                            break;
+        }
 
 <a name="wrapping it up"></a>
 
