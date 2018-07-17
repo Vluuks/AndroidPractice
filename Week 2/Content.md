@@ -165,6 +165,29 @@ Notice how in the snippet linked above, `UNIVERSITY_NAME` is both `static` and `
 <a name="enums"></a>
 
 ### Enums
+Sometimes you have a program that requires multiple constants. Let's say you need to define a set of shapes. You could of course define them using the `final` keyword:
+
+        public static final int RECTANGLE = 0;
+        public static final int CIRCLE = 1;
+        public static final int TRIANGLE = 2;
+        public static final int SQUARE = 3;
+
+While it does the job, it is not the best solution. Because the constants are integers, nothing stops us from assigning another integer that does not represent a shape:
+
+This is valid:
+
+        int shapeToShow = TRIANGLE;
+
+But this, although illogical, is not illegal and will compile:
+
+        int shapeToShow = -22;
+
+To solve this problem (among other things) we can use the `enum` feature of Java. Defining an `enum` is somewhat similar to defining a class. You will have to determine the access modifier, a name for your Enum and of course the possible values that it can take. If we were to translate the constants from earlier into an enum, it would look like this:
+
+        public enum Shape { 
+            RECTANGLE, CIRCLE, TRIANGLE, SQUARE
+        }
+
 
 <a name="wrapping it up"></a>
 
@@ -180,11 +203,6 @@ We have seen three types of modifiers related to the way variables are accessed.
  These three can be combined to fit your specific needs. This for example, is valid syntax:
 
         public static final String UNIVERSITY_NAME = "University of Amsterdam";
-
-
-
-
-
 
 <a name="practice"></a>
 
