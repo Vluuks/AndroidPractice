@@ -3,14 +3,17 @@ In this course, we will use the programming language Java to create our Android 
 
 ## Table of contents
 - [Concepts](#concepts)
-    * [Access](#access)
-    * [Getters and setters](#getters-setters)
-    * [Static vs. non-static](#static)
-    * [Constants and enums](#enums)
+	 * [Access](#access)
+	 * [Getters and setters](#getters-setters)
+	 * [Static vs. non-static](#static)
+	 * [Constants](#constants)
+	 * [Enums](#enums)
+	 * [Wrapping it up](#wrapup)
 - [Practice](#practice)
-	* [Exercises](#exercises)
-- [Plain Java vs. Android Studio](#java-vs-android)
-    * ...
+	 * [Exercises](#exercises)
+	 * [Tips](#tips)
+- [Plain Java vs Android Studio](#java-vs-android)
+
 
 <a name="concepts"></a>
 
@@ -192,7 +195,7 @@ Now that the options are contained within the `enum`, we can use it to declare a
 
         Shape shapeToShow = Shape.TRIANGLE;
 
-Using `enum` has other benefits as well. Because all values are contained within `Shape`, it's much easier to iterate over them. They can also easily be incorporated into a `Switch` statement, which executes different code depending on the value of the variable supplied. You can see this in action in [this snippet](http://bit.ly/2JuN9R2);
+Using `enum` has other benefits as well. Because all values are contained within `Shape`, it's much easier to iterate over them. They can also easily be incorporated into a `Switch` statement, which executes different code depending on the value of the variable supplied. You can see this in action in [this snippet](http://bit.ly/2JuN9R2).
 
         switch(shapeToShow) {
             case RECTANGLE: System.out.println("It's a rectangle!");     
@@ -205,7 +208,7 @@ Using `enum` has other benefits as well. Because all values are contained within
                             break;
         }
 
-<a name="wrapping it up"></a>
+<a name="wrapup"></a>
 
 ### Wrapping it up
 We have seen three types of modifiers related to the way variables are accessed. Each of these concepts came with its own keywords.
