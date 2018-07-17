@@ -4,7 +4,7 @@ In this course, we will use the programming language Java to create our Android 
 ## Table of contents
 - [Concepts](#concepts)
     * [Classses](#classes)
-    * [The Constructor](#constructor)
+    * [The constructor](#constructor)
     * [Parameters](#parameters)
     * [Return values](#return-values)
 - [Practice](#practice)
@@ -110,7 +110,7 @@ From this main method, we can access the `Student` class and create instances of
 <a name="getting-started"></a>
 
 ### Getting started
-To run Java programs, you need to have Java installed. You might already have it on your own computer, but if not, use the following instructions to be able to use Java online:
+To run Java programs, you need to have Java installed. You might already have it on your own computer, but if not, use the following instructions to be able to use Java online. If you already have a CS50 IDE, you can just create a new folder in your workspace and start there!
 
 1. First, register for an account on edx.org, which will provide you with an account to log on to the CS50 IDE. If you already have an edX account, it’s no problem to use that one.
 
@@ -189,14 +189,3 @@ Objects like `View` in Android studio often have a lot of such methods, which ar
 ![A gif depicting a user starting to type,  placing a dot after the View object which prompts the IDE to supply the list of available methods beloning to the View class.](view-methods-ide.gif)
 
 However, sometimes it's useful to see all of them to understand what they do and which one you need. For this, [Android's official documentation](https://developer.android.com/reference/) is your best friend! For example, [this page](https://developer.android.com/reference/android/view/View) contains information about the `View` class. Useful!
-
-
-
-
-
-
-
-
-
-
-

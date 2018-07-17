@@ -3,15 +3,14 @@ In this course, we will use the programming language Java to create our Android 
 
 ## Table of contents
 - [Concepts](#concepts)
-    * [Access](#classes)
-    * [Static Variables](#constructor)
-    * [Enums](#parameters)
+    * [Access](#access)
+    * [Getters and setters](#getters-setters)
+    * [Static vs. non-static](#static)
+    * [Enums](#enums)
 - [Practice](#practice)
-	* [Getting started](#getting-started)
 	* [Exercises](#exercises)
 - [Plain Java vs. Android Studio](#java-vs-android)
-    * [Classes](#android-classes)
-    * [Parameters and return values](#android-params)
+    * ...
 
 <a name="concepts"></a>
 
@@ -35,6 +34,8 @@ You might have noticed that many of the variables and methods used in your code 
 In general, it is good practice to keep the access of your variables and methods as limited as possible, ensuring that only the parts of the program that really *need* access are getting it. 
 
 Most of the time we will make use of `private` and `public` for the classes and variables we construct ourselves, as during this course we do not make a lot of use of different packages, since the apps are rather small.
+
+<a name="getters-setters"></a>
 
 ### Getters and setters
 
@@ -103,6 +104,55 @@ The point is that through this method, the handling of the EC property is much m
 
 Of course, to be able to get and set all of the other properties of the `Student` class now that their access is also set to `private`, extra getter and setter methods would have to be added.
 
+<a name="static"></a>
+
+### Static vs. non-static
+Another keyword that can be added to the declaration of a method or variable is the `static` keyword. This keyword also has to do with access, but has to do with whether a class is instantiated or not. 
+
+In our `Student` class, we have different variables that represent properties of a student, these are called instance variables (`name`, `program`, `studentNumber`, `EC`). They differ across instances of the Student object, as every time we create a new one, we supply new values for these variables to the constructor. These variables are unique for every instance of the class, as it makes sense that not all students have the same name, student number etc.
+
+In some cases it is beneficial to have another variable that is not unique for every instance, but instead applies to all instances of the class. Imagine we want to keep track of how many students there are in total. It would not make sense to keep a unique copy of that number for every student object we create, because that would be a waste of memory. Instead, we want one variable that can keep track of this count. To do this, we use a `static` variable that is common to all instances of the class.
+
+        class Student {
+
+            static int studentCount;
+
+            // Properties of the class
+            private String name;
+            private String program;
+            private int studentNumber;
+            private int EC;
+            ...
+
+        }
+
+Now that we have this variable, we of course also want to do something with it. Let's say we use this (admittedly inefficient) way of updating the student count every time we create a new student object:
+
+        Student al = new Student("Ada Lovelace", "Computer Science", 61283, 180);
+        al.studentCount = 1;
+        
+        Student ik = new Student("Immanuel Kant", "Philosophy", 81148, 180);
+        ik.studentCount = 2;
+        
+        Student ja = new Student("Jeanne d'Arc", "History", 90382, 40);
+        ja.studentCount = 3;
+
+
+If we were to print the value of `al.studentCount` after running all of this, it would say 3. This is because `studentCount` is a static variable and thus even though we refer to it using the specific `Student` references, it is updated for the class as a whole! 
+
+The counter works as intended, keeping track of the number for all instances of the class. In the example above, we used the instances `al`, `ik` and `ja` to refer to the static variable, which looks confusing because it seems as if we are updating values for every instance, rather than an overarching value that applies to the class as a whole. 
+
+Because the variable `studentCount` is `static`, we can also access through the `Student` class itself, without needing an instance. This makes it clear at one glance that the studentCount variable is overarching all instances and is generally the advised notation.
+
+        Student.studentCount = 2;
+
+You can ([compile and run this snippet](http://bit.ly/2NiBDdZ)) to see the above in action. Feel free to play around with it a bit. 
+
+
+<a name="enums"></a>
+
+### Enums
+...
 
 <a name="practice"></a>
 
