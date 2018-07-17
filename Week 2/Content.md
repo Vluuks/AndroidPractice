@@ -261,7 +261,8 @@ If you have trouble getting your Java programs to run in the IDE, run `update50`
 <a name="java-vs-android"></a>
 
 ## Plain Java vs Android Studio
-All above concepts are applicable in Android Studio as well. Most auto-generated classes and methods have some kind of access modifier specified. A specific error related to this that you might see in Android studio is:
+All above concepts are applicable in Android Studio as well. Most auto-generated classes and methods have some kind of access modifier specified. 
+A specific error related to this that you might see in Android studio is:
 
 "Non-static method cannot be referenced from a static context"
 
@@ -269,7 +270,7 @@ This means that you are probably invoking a method as if it were a static method
 
     TextView.setText("nice");
 
-While `setText()` can indeed be called on objects of the type `TextView`, the above line of code does not refer to an instance of `TextView`, but rather to the class as a whole. It does not know what `TextView` in the layout you are referring to at all.
+While `setText()` can indeed be called on objects of the type `TextView`, the above line of code does not refer to an instance of `TextView`, but rather to the class as a whole. It does not know what `TextView` in the layout you are referring to at all. Invocations of this kind and similar cause the error above. So when using methods associated with a certain class, pay attention to whether you are using an instance method or a static method!
 
 Another things that you need to pay attention to is the location of your files. When working with your own classes in Android, it's important that you place them in the same package as the rest of your code for ease of access. Your Java files will be contained in the directory located under `app > java > com.example.yourname.yourappname`. This is where your `Activity` Java files are located, but model classes like `Student` can be placed here as well! This directory is also visible in Android studio in the menu on the left:
 
