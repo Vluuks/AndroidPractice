@@ -107,7 +107,7 @@ Of course, to be able to get and set all of the other properties of the `Student
 <a name="static"></a>
 
 ### Static vs. non-static
-Another keyword that can be added to the declaration of a method or variable is the `static` keyword. This keyword also has to do with access, but has to do with whether a class is instantiated or not. 
+Another modifier that can be added to the declaration of a method or variable is the `static` keyword. This modifier also has to do with access, but has to do with whether a class is instantiated or not. 
 
 In our `Student` class, we have different variables that represent properties of a student, these are called instance variables (`name`, `program`, `studentNumber`, `EC`). They differ across instances of the Student object, as every time we create a new one, we supply new values for these variables to the constructor. These variables are unique for every instance of the class, as it makes sense that not all students have the same name, student number etc.
 
@@ -122,7 +122,7 @@ In some cases it is beneficial to have another variable that is not unique for e
             private String program;
             private int studentNumber;
             private int EC;
-            
+
             ...
 
         }
@@ -149,11 +149,42 @@ Because the variable `studentCount` is `static`, we can also access through the 
 
 You can [compile and run this snippet](http://bit.ly/2NiBDdZ) to see the above in action. Feel free to play around with it a bit. 
 
+<a name="constants"></a>
+
+### Constants
+Let's say you want to use variables that really do not have to change at all during the runtime of your program. For this, we can use a constant. A constant in Java is denoted using the keyword `final`. If we were for example to define the name of the university as a constant within the student class, it would look like this:
+
+    final String UNIVERSITY_NAME = "University of Amsterdam";
+
+It is customary to use uppercase letters and underscores for the names of your constants, a concept you might be familiar with from C's `#define` functionality.
+
+Now, the `UNIVERSITY_NAME` string is immutable. This means that any attempts to alter it at runtime will make the compiler complain. You can try this out in [the following snippet](http://bit.ly/2NXgGGO). 
+
+Notice how in the snippet linked above, `UNIVERSITY_NAME` is both `static` and `final` in this example? This means that even though it's immutable, we still want it to be accessible without having to instantiate any students, because we assume the university is the same for all of them.
 
 <a name="enums"></a>
 
-### Constants and enums
-Let's say you want to use variables that really do not have to change at all. 
+### Enums
+
+<a name="wrapping it up"></a>
+
+### Wrapping it up
+We have seen three types of modifiers related to the way variables are accessed. Each of these concepts came with its own keywords.
+
+- The location from which classes, variables or methods can be accessed it determined through the absence of a keyword, `public`, `protected` or `private`. 
+
+- Determining whether a variable is an instance variable or belongs to the class as a whole is done using the `static` keyword.
+
+- Denoting a constant is done using the `final` keyword, which makes the variable immutable and comes with its own naming conventions.  
+
+ These three can be combined to fit your specific needs. This for example, is valid syntax:
+
+        public static final String UNIVERSITY_NAME = "University of Amsterdam";
+
+
+
+
+
 
 <a name="practice"></a>
 
