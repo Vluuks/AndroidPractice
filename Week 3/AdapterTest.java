@@ -6,6 +6,12 @@
      To run: java AdapterTest
      
 */
+
+
+/*
+    A class depicting a student. For this example it contains only getters since we do not
+    actually need to set values.
+*/
 class Student {
 
     static final String UNIVERSITY_NAME = "University of Amsterdam";
@@ -44,10 +50,20 @@ class Student {
     }
 }
 
+/*
+    Enum to hold the constants that users can pick to determine what the borders of the
+    data printed to the console look like.
+*/
 enum LayoutType {
         DASH, CIRCLE, STAR;
 }
 
+
+/* 
+    This class holds the functionality of the "adapter", which takes in an array and the layout
+    type to show (the enum). It then iterates over the array and prints out the appropriate layout
+    for every student object in the array.
+*/
 class ArrayAdapter {
     
     private Student[] studentArray;
@@ -95,7 +111,9 @@ class ArrayAdapter {
     }
 }
 
-// The class used to contain the main method
+/*
+    The class containing the main method.
+*/
 class AdapterTest {
     
     // The main method is the start of the program
