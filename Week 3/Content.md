@@ -94,3 +94,4 @@ Because the Android API `Adapter` class can be overwhelming at first glance, we 
             }
         }
 
+The class above can be instantiated using the constructor, which creates the `ArrayAdapter` object. After that, we can call `start()` to start iterating over the entries of the list we supplied to the constructor earlier. During this iteration, the `createRow()` method will be called for each entry in the list, with that specific entry as its argument. This method then creates the "layout" in this case just a multiline string, and adds the correct data. This is all very similar to what the actual adapter class does in Android Studio.
