@@ -127,7 +127,7 @@ Our class does not have a constructor yet, which is the first thing we need. So 
             super(context, resource, objects);
         }
 
-- `@NonNull Context context` The context contains information about the global application environment. This part is very Android specific and we haven't seen it in our Java example. However, it is not adapter-specific and is used for a lot of things in the Android platform so you will often see it. A lot of classes need a reference to the context to function properly.
+- `@NonNull Context context` The context contains information about the global application environment. This part is very Android specific and we haven't seen it in our Java example. However, it is not adapter-specific and is used for a lot of things in the Android platform so you will often see it. A lot of classes need a reference to the context to function properly. Needless to say, it can't be null.
 
 - `int resource` The resource id refers to a layout file so that the adapter knows what template to use to create the appropriate layout for each list entry. Remember how in the plain Java example, we told the adapter what kind of border we wanted? Instead of just defining what border string to print, we can do much more layout wise in Android! This resource id will refer to an XML file that will contain information on what each row in the list should look like. 
 
@@ -136,7 +136,7 @@ Our class does not have a constructor yet, which is the first thing we need. So 
 > Most adapter classes have many different constructors. They also have variations that take a regular array as an argument instead of a `List`. In this explanation we focus on this particular constructor but it goes without saying that different circumstances might require a different constructor.
 
 ### Specifing the layout
-As specified before, the constructor needs a reference to a resource id before the adapter can be created. We can define an XML that determines what it looks like, just like activities have layout files. However, whereas the activity layout is used once, the layout we define for the row is reused as many times as there are items in the list. We can add a new layout file by going to the `layout` directory and through right click `new > layout resource file` a layout XML file can be added.
+As specified before, the constructor needs a reference to a resource id before the adapter can be created. We can define an XML that determines what it looks like, just like activities have layout files. However, whereas the activity layout is used once, the layout we define for the row is reused as many times as there are items in the list. We can add a new layout file by going to the `layout` directory and through right click `New > Layout resource file` a layout XML file can be added.
 
 This XML is the blueprint that will be used to construct the layout/row for every item, so if we just want to show the student name and student number, we could for example define a very simple layout with two `TextView` elements:
 
