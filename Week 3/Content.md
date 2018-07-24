@@ -32,9 +32,12 @@ The type between the `<>` tells the compiler what the type of the elements you w
 
 > While you can declare regular arrays with primitive types such as `int` and `boolean`, the `List` interface requires you to use their respective wrapper classes `Integer` and `Boolean`. All primitive types have such a wrapper class, should you need it.
 
-The class contains many functionalities. Below is a list of ones you will use a lot, but it is by no means exhaustive! Refer to [the documentation](https://developer.android.com/reference/java/util/ArrayList) for a full overview of the available methods. 
+The class contains many functionalities. Below is a list of ones that will be used throughout this course, but it is by no means exhaustive! Refer to [the documentation](https://developer.android.com/reference/java/util/ArrayList) for a full overview of the available methods. 
 
-- `add()`
-- `size()`
-- `clear()`
-- `contains()`
+- `add(int index)` and `add(int index, Element e)` can be used to add an element to the end of the list, or at a specific index.
+- `get(int index)` returns the element at the specified position in this list.
+- `remove(int index)` removes the element at the specified position in this list.
+- `size()` returns the number of elements in this list.
+- `clear()` removes all elements from the list.
+- `contains(Object o)` returns true if this list contains the specified element.
+- `indexOf(Object o)` returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
