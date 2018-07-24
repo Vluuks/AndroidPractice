@@ -24,6 +24,44 @@ class Student {
         studentNumber = aStudentNumber;
         EC = someEC;
     }
+
+    // Getters and setters
+    public void setEC(int someEC) {
+        if(someEC > 0) {
+            this.EC = someEC;
+        }
+        else {
+            this.EC = 0;
+        }
+    }
+
+    public int getEC() {
+        return EC;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getProgram() {
+        return program;
+    }
+
+    public void setProgram(String program) {
+        this.program = program;
+    }
+
+    public int getStudentNumber() {
+        return studentNumber;
+    }
+
+    public void setStudentNumber(int studentNumber) {
+        this.studentNumber = studentNumber;
+    }
 }
 
 enum LayoutType {
@@ -45,14 +83,38 @@ class ArrayAdapter {
     public void start() {
         for (int i = 0; i < studentArray.length; i++) {
             Student currentStudent = studentArray[i];
-            createRow(currentStudent);
+            String currentRow = createRow(currentStudent);
+            System.out.println(currentRow);
         }
     }
     
-    private void createRow(Student aStudent) {
-        
-        
-        System.out.println("woehoe");
+    private String createRow(Student student) {
+
+
+        String horizontalBorder, verticalBorder;
+
+        // Determine layout type
+        switch(layoutType) {
+            case DASH:
+                horizontalBorder = "\n---------------------\n";
+                verticalBorder = "|";
+                break;
+            case CIRCLE:
+                horizontalBorder = "\no 0 o 0 o 0 o 0 o 0 o\n";
+                verticalBorder = "0";
+                break;
+            case STAR:
+                horizontalBorder = "\n*********************\n";
+                verticalBorder = "*";
+                break;
+            default:
+                horizontalBorder = "\n---------------------\n";
+                verticalBorder = "|";
+                break;
+        }
+
+        return horizontalBorder + verticalBorder + " " + student.getName() + " " + horizontalBorder;
+
     }
 }
 
