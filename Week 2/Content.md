@@ -1,5 +1,5 @@
 # Java Basics for Android
-In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you.  Additionally, these concepts will be related to actual "Android" code, showing you how these plain Java concepts are relevant all throughout your app! This will be done using written text and mini exercises.
+This week we focus on concepts that have to do with the way variables and methods are accessed and modified. We will also pay attention to what is good practice in regards to structuring your variables and illustrate how these concepts are visible in the Android API. 
 
 ## Table of contents
 - [Concepts](#concepts)
