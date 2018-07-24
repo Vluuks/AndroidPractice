@@ -40,13 +40,14 @@ The class contains many functionalities. Below is a list of ones that will be us
 - `contains(Object o)` returns true if this list contains the specified element.
 - `indexOf(Object o)` returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
 
+<a name="from list to layout"></a>
 
 ### From list to layout
 In Android, you often want to display your lists of data in an appropriate way. Imagine a restaurant's menu, a list of contacts, a playlist in a video app... There are countless applications for lists that require some layout to display them in. 
 
 This is where the `Adapter` class comes into play. Its prime functionality is that it can take in a list of data, either an array or `ArrayList` and usually some kind of layout definition, it then combines these two to generate the appropriate layout for each element in the list. 
 
-Because the Android API `Adapter` class can be overwhelming at first glance, we have created a plain Java adapter that kind of does the same thing, but without all the extra boiler plate code attached:
+Because the Android API `Adapter` class can be overwhelming at first glance, we have created a plain Java adapter that kind of does the same thing, but takes it down to the basics.
 
         class ArrayAdapter {
             
@@ -94,4 +95,14 @@ Because the Android API `Adapter` class can be overwhelming at first glance, we 
             }
         }
 
-The class above can be instantiated using the constructor, which creates the `ArrayAdapter` object. After that, we can call `start()` to start iterating over the entries of the list we supplied to the constructor earlier. During this iteration, the `createRow()` method will be called for each entry in the list, with that specific entry as its argument. This method then creates the "layout" in this case just a multiline string, and adds the correct data. This is all very similar to what the actual adapter class does in Android Studio.
+The class above can be instantiated using the constructor, which creates the `ArrayAdapter` object. After that, we can call `start()` to start iterating over the entries of the list we supplied to the constructor earlier. In this example, we created a list of `Student` objects. During this iteration, the `createRow()` method will be called for each entry in the list, with that specific entry as its argument. This method then creates the "layout" in this case just a multiline string, and adds the correct data. 
+
+What is essential is that there is some kind of information on what the layout should look like (what kind of border to use), and there is a list (the student objects). This information is then combined by the adapter, which iterates over the list and generates the appropriate layout  for every item. In essence, this is all very similar to what the actual adapter class does in Android Studio. But more on that later!
+
+<a name="practice"></a>
+
+## Practice
+
+<a name="exercise"></a>
+
+### Exercise
