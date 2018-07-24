@@ -25,16 +25,6 @@ class Student {
         EC = someEC;
     }
 
-    // Getters and setters
-    public void setEC(int someEC) {
-        if(someEC > 0) {
-            this.EC = someEC;
-        }
-        else {
-            this.EC = 0;
-        }
-    }
-
     public int getEC() {
         return EC;
     }
@@ -43,24 +33,14 @@ class Student {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getProgram() {
         return program;
     }
 
-    public void setProgram(String program) {
-        this.program = program;
-    }
 
     public int getStudentNumber() {
         return studentNumber;
-    }
-
-    public void setStudentNumber(int studentNumber) {
-        this.studentNumber = studentNumber;
     }
 }
 
@@ -71,12 +51,10 @@ enum LayoutType {
 class ArrayAdapter {
     
     private Student[] studentArray;
-    private int dataToShow;
     private LayoutType layoutType;
     
-    public ArrayAdapter(Student[] studentArray, int dataToShow, LayoutType layoutType) {
+    public ArrayAdapter(Student[] studentArray, LayoutType layoutType) {
         this.studentArray = studentArray;
-        this.dataToShow = dataToShow;
         this.layoutType = layoutType;
     }
     
@@ -89,7 +67,6 @@ class ArrayAdapter {
     }
     
     private String createRow(Student student) {
-
 
         String horizontalBorder, verticalBorder;
 
@@ -140,7 +117,7 @@ class AdapterTest {
         };
         
         // Constructing the adapter and starting it
-        ArrayAdapter adapter = new ArrayAdapter(students, 1, LayoutType.DASH);
+        ArrayAdapter adapter = new ArrayAdapter(students, LayoutType.DASH);
         adapter.start();
     }
 }
