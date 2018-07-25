@@ -54,9 +54,11 @@ The class contains many functionalities. Below is a list of ones that will be us
 ### From list to layout
 In Android, you often want to display your lists of data in an appropriate way. Imagine a restaurant's menu, a list of contacts, a playlist in a video app... There are countless applications for lists that require some layout to display them in. 
 
-This is where the `Adapter` class comes into play. Its prime functionality is that it can take in a list of data, either an array or `ArrayList` and usually some kind of layout definition, it then combines these two to generate the appropriate layout for each element in the list. 
+This is where the `Adapter` class comes into play. Because the Android API `Adapter` class can be overwhelming at first glance, we have created a plain Java adapter that kind of does the same thing, but takes it down to the basics.  Its prime functionality is that it can take in a list of data, either a regular array or an `ArrayList` and usually some kind of layout definition. 
 
-Because the Android API `Adapter` class can be overwhelming at first glance, we have created a plain Java adapter that kind of does the same thing, but takes it down to the basics.
+It then combines these two to generate the appropriate layout for each element in the list. This layout is then shown in a container of some sort. In this example we just use the terminal, but we have still constructed a container class to represent the idea of a container.
+
+The adapter class can be instantiated using the constructor, which creates the `ArrayAdapter` object. In this example, we created an adapter that can create a (very simple) graphical representation of `Student` objects, but many kinds of adapters are of course possible! 
 
         class ArrayAdapter {
             
@@ -68,43 +70,63 @@ Because the Android API `Adapter` class can be overwhelming at first glance, we 
                 this.layoutType = layoutType;
             }
             
-            public void start() {
-                for (int i = 0; i < studentArray.length; i++) {
-                    Student currentStudent = studentArray[i];
-                    String currentRow = createRow(currentStudent);
-                    System.out.println(currentRow);
-                }
+            public String createRow(int index) {
+
+                String row;
+                String horizontalBorder, verticalBorder;
+                
+                Student currentStudent = studentArray[index];
+
+                horizontalBorder = layoutType.horizontalBorder;
+                verticalBorder = layoutType.verticalBorder;
+
+                row = horizontalBorder + verticalBorder + " " + currentStudent.getName() + " " + horizontalBorder;
+                return row;
             }
             
-            private String createRow(Student student) {
-
-                String horizontalBorder, verticalBorder;
-
-                switch(layoutType) {
-                    case DASH:
-                        horizontalBorder = "\n---------------------\n";
-                        verticalBorder = "|";
-                        break;
-                    case CIRCLE:
-                        horizontalBorder = "\no 0 o 0 o 0 o 0 o 0 o\n";
-                        verticalBorder = "0";
-                        break;
-                    case STAR:
-                        horizontalBorder = "\n*********************\n";
-                        verticalBorder = "*";
-                        break;
-                    default:
-                        horizontalBorder = "\n---------------------\n";
-                        verticalBorder = "|";
-                        break;
-                }
-
-                return horizontalBorder + verticalBorder + " " + student.getName() + " " + horizontalBorder;
-
+            public int getItemCount() {
+                return studentArray.length;
             }
         }
 
-The class above can be instantiated using the constructor, which creates the `ArrayAdapter` object. After that, we can call `start()` to start iterating over the entries of the list we supplied to the constructor earlier. In this example, we created a list of `Student` objects. During this iteration, the `createRow()` method will be called for each entry in the list, with that specific entry as its argument. This method then creates the "layout" in this case just a multiline string, and adds the correct data. 
+The following enum contains the information about the layout. It does not much, except determine that certain string patterns belong with a certain name. This avoids having to define the options as constants elsewhere in the code and keeps everything layout related neatly together.
+
+        enum LayoutType {
+            DASH("\n---------------------\n", "|"), 
+            CIRCLE("\no 0 o 0 o 0 o 0 o 0 o\n", "0"), 
+            STAR("\n*********************\n", "*");
+            
+            String horizontalBorder, verticalBorder;
+            
+            // Constructor
+            private LayoutType(String horizontalBorder, String verticalBorder) {
+                this.horizontalBorder = horizontalBorder;
+                this.verticalBorder = verticalBorder;
+            }
+        }
+
+As mentioned before, the adapter is not used on its own, it is paired with a list container. This list container is in control how much room there is on the screen, or how many rows we actually want to show. On a screen with limited space, like a phone, you don't want to do unnecessary work, thus you only want to ask the adapter to do things for the items you have room for. We simulate this in the terminal by having a predetermined number of rows that we want to show. 
+
+        class ListContainer {
+            
+            private int rowsToShow;
+
+            public ListContainer(int rowsToShow) {
+                this.rowsToShow = rowsToShow;
+            }
+            
+            public void setAdapter(ArrayAdapter adapter) {
+                for (int i = 0; i < Math.min(adapter.getItemCount(), rowsToShow); i++) {
+                    String currentRow = adapter.createRow(i);
+                    System.out.println(currentRow);
+                }
+            }
+        }
+
+Because the container class is in control of the amount of rows shown, it is also the one that is used to iterate over the items in the list inside the `setAdapter()` method. 
+
+Through the instance of `ArrayAdapter`, it calls the `createRow()` method which then creates the "layout" using the strings defined in the `enum`. The method then uses the index it received from the container class to get the right `Student` object out of the array. With this object, the correct data can be displayed in the row. This string representing the row is returned to the instance of `ListContainer` that called it, which then prints the result to the terminal.
+
 
 What is essential is that there is some kind of information on what the layout should look like (what kind of border to use), and there is a list (the student objects). This information is then combined by the adapter, which iterates over the list and generates the appropriate layout  for every item. In essence, this is all very similar to what the actual adapter class does in Android Studio. But more on that later!
 

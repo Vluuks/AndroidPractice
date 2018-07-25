@@ -70,7 +70,7 @@ A good example could be the EC property. In this case its access is public so th
 
 However, nothing really stops us from supplying a bogus value, like `-30` or some other integer that does not make sense. This is the case for many other properties classes could have, even for something as simple as a `Student` class!
 
-Instead of having the `EC` property be public, we could set it to `private` instead.By doing this, it can only be accessed from within the class, thus we are required to call the `setEC()` method if we want to modify it. This method does not just adjust the EC, but also verify that the number makes sense and act appropriately. In this case we check if it's above zero and only then set the new value, otherwise we keep it at zero. 
+Instead of having the `EC` property be public, we could set it to `private` instead. By doing this, it can only be accessed from within the class, thus we are required to call the `setEC()` method if we want to modify it. This method does not just adjust the EC, but also verify that the number makes sense and act appropriately. In this case we check if it's above zero and only then set the new value, otherwise we keep it at zero. 
 
     class Student {
 
