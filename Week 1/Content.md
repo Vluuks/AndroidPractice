@@ -170,6 +170,10 @@ However, instead of having a `main` method associated with them as in the exampl
 
 Of course, Android Studio allows for you to create custom classes that depict something tangible, like the `Student` one as well. However throughout an app you will see classes that take many other shapes. All runnable code you write for your app will be contained inside a method of some kind, which is in turn containde inside a class.
 
+These classes are often depicted in what is called an UML diagram. They are helpful because they give a quick overview of what classes, variables and methods are present in the program's architecture. In the image below, we can see the `Student` model class with its fields and method and a hypothetical `MainActivity` containing a field to hold a `Student` object, a click handler for a button of some sort and of course `onCreate()`.
+
+![A UML diagram showing MainActivity and the Student model class](mini-uml-classes.png)
+
 <a name="android-params"></a>
 
 ## Parameters and return values in Android Studio

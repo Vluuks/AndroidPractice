@@ -127,8 +127,9 @@ Because the container class is in control of the amount of rows shown, it is als
 
 Through the instance of `ArrayAdapter`, it calls the `createRow()` method which then creates the "layout" using the strings defined in the `enum`. The method then uses the index it received from the container class to get the right `Student` object out of the array. With this object, the correct data can be displayed in the row. This string representing the row is returned to the instance of `ListContainer` that called it, which then prints the result to the terminal.
 
+What is essential is that there is some kind of information on what the layout should look like (what kind of border to use), and there is a list (the student objects). To determine how many elements are shown, there is also a container. This information is then combined, having the container determine what index should be rendered, which is then passed on to the adapter, which generates the appropriate layout for every item. 
 
-What is essential is that there is some kind of information on what the layout should look like (what kind of border to use), and there is a list (the student objects). This information is then combined by the adapter, which iterates over the list and generates the appropriate layout  for every item. In essence, this is all very similar to what the actual adapter class does in Android Studio. But more on that later!
+This is all very similar to what the actual adapter class does in Android Studio. But more on that later!
 
 <a name="practice"></a>
 
@@ -140,11 +141,11 @@ This time we will not write that much new code ourselves, but mostly use existin
 
 ### Exercise
 
-1. [Get this file](AdapterTest.java) and read through the code in the adapter class carefully. As you can see, it has not been commented. Add a comment explaining the purpose for at least every method and the class itself. If you think some lines of code are in need of extra explanation, comment those as well. Also add a header comment for the `enum` that explains what it does.
+1.  [Get this file](AdapterTest.java) and read through the code in the adapter class carefully. As you can see, it has not been commented. Add a header comment to each of the three adapter-related classes explaining their purpose. Also add header comments to the methods inside the classes. If you think some lines of code are in need of extra explanation, comment those as well. 
 
-2. Although the adapter class is given to you, it is not called yet in our plain Java example. Think about what the adapter needs to be instantiated and pass the correct parameters to it. Then, run the adapter. What is printed to the console?
+2. Although the adapter class is given to you, it is not called yet in our plain Java example. Think about what the adapter needs to be instantiated and pass the correct parameters to it. Since the adapter goes together with the `ListContainer`, you need to instantiate this one as well. After instantiating both, call `setAdapter()`.
 
-3. Rerun the adapter but with a different `enum` as a parameter. What happens when you do this?
+3. Reset the adapter, but with a different `enum` as a parameter. What happens when you do this?
 
 4. Instead of printing just the student's name, add another variable that is printed for every student as well.
 
