@@ -117,7 +117,7 @@ This time we will not write that much new code ourselves, but mostly use existin
 
 ### Exercise
 
-1. Read through the code in the adapter class carefully. As you can see, it has not been commented. Add a comment explaining the purpose for at least every method and the class itself. If you think some lines of code are in need of extra explanation, comment those as well. Also add a header comment for the `enum` that explains what it does.
+1. [Get this file](AdapterTest.java) and read through the code in the adapter class carefully. As you can see, it has not been commented. Add a comment explaining the purpose for at least every method and the class itself. If you think some lines of code are in need of extra explanation, comment those as well. Also add a header comment for the `enum` that explains what it does.
 
 2. Although the adapter class is given to you, it is not called yet in our plain Java example. Think about what the adapter needs to be instantiated and pass the correct parameters to it. Then, run the adapter. What is printed to the console?
 
