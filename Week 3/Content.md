@@ -141,13 +141,17 @@ This time we will not write that much new code ourselves, but mostly use existin
 
 ### Exercise
 
-1.  [Get this file](AdapterTest.java) and read through the code in the adapter class carefully. As you can see, it has not been commented. Add a header comment to each of the three adapter-related classes explaining their purpose. Also add header comments to the methods inside the classes. If you think some lines of code are in need of extra explanation, comment those as well. 
+[Get this file](AdapterTest.java) and read through the code in the adapter class carefully. As you can see, it has not been commented. 
+
+1. Add a header comment to each of the three adapter-related classes explaining their purpose. Also add header comments to the methods inside the classes. If you think some lines of code are in need of extra explanation, comment those as well. 
+
+You are encouraged to discuss the purpose of the code with others (without completely spoiling the answer of course) and asking the TA's if in doubt! Adapters are a recurring topic in the course so a good understanding of them will go a long way!
 
 2. Although the adapter class is given to you, it is not called yet in our plain Java example. Think about what the adapter needs to be instantiated and pass the correct parameters to it. Since the adapter goes together with the `ListContainer`, you need to instantiate this one as well. After instantiating both, call `setAdapter()`.
 
 3. Reset the adapter, but with a different `enum` as a parameter. What happens when you do this?
 
-4. Instead of printing just the student's name, add another variable that is printed for every student as well.
+4. Instead of printing just the student's name, add another variable that is printed for every student as well. You can also add another layout variation to the `enum`, if you wish.
 
 <a name="java-vs-android"></a>
 
@@ -157,7 +161,7 @@ This time we will not write that much new code ourselves, but mostly use existin
 
 ### Adapter in Android Studio
 
-Now that we have seen what an adapter is supposed to do, we can take a look at the `ArrayAdapter` class in Android studio! You can create one yourself by generating a new Java file. 
+Now that we have seen what an adapter is supposed to do, we can take a look at the `ArrayAdapter` class in Android studio! You can create one yourself by generating a new Java file. You can do this while reading this guide, but you are not required to. There will be examples provided in this text where necessary.
 
 ![An image depicting the menu in Android studio allowing users to enter a class name and select a superclass. The currently selected superclass is ArrayAdapter.](adapter-superclass.png)
 
