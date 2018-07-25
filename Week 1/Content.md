@@ -3,7 +3,7 @@ In this course, we will use the programming language Java to create our Android 
 
 ## Table of contents
 - [Concepts](#concepts)
-    * [Classses](#classes)
+    * [Classes](#classes)
     * [The constructor](#constructor)
     * [Parameters](#parameters)
     * [Return values](#return-values)

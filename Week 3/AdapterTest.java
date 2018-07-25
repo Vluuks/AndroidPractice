@@ -17,11 +17,13 @@ class Student {
     static final String UNIVERSITY_NAME = "University of Amsterdam";
     static int studentCount;
     
+    // Properties of the class
     private String name;
     private String program;
     private int studentNumber;
     private int EC;
 
+    // Constructor of the class
     public Student(String aName, String aProgram, int aStudentNumber, int someEC) {
         name = aName;
         program = aProgram;
@@ -49,15 +51,43 @@ class Student {
 }
 
 /*
-    ....
+    ...
 */
-enum LayoutType {
-        DASH, CIRCLE, STAR;
+class ListContainer {
+    
+    private int rowsToShow;
+
+    public ListContainer(int rowsToShow) {
+        this.rowsToShow = rowsToShow;
+    }
+    
+    public void setAdapter(ArrayAdapter adapter) {
+         for (int i = 0; i < Math.min(adapter.getItemCount(), rowsToShow); i++) {
+            String currentRow = adapter.createRow(i);
+            System.out.println(currentRow);
+        }
+    }
 }
 
+/*
+    ...
+*/
+enum LayoutType {
+    DASH("\n---------------------\n", "|"), 
+    CIRCLE("\no 0 o 0 o 0 o 0 o 0 o\n", "0"), 
+    STAR("\n*********************\n", "*");
+    
+    String horizontalBorder, verticalBorder;
+    
+    // Constructor
+    private LayoutType(String horizontalBorder, String verticalBorder) {
+        this.horizontalBorder = horizontalBorder;
+        this.verticalBorder = verticalBorder;
+    }
+}
 
 /* 
-    ....
+    ...
 */
 class ArrayAdapter {
     
@@ -69,39 +99,22 @@ class ArrayAdapter {
         this.layoutType = layoutType;
     }
     
-    public void start() {
-        for (int i = 0; i < studentArray.length; i++) {
-            Student currentStudent = studentArray[i];
-            String currentRow = createRow(currentStudent);
-            System.out.println(currentRow);
-        }
+    public String createRow(int index) {
+
+        String row;
+        String horizontalBorder, verticalBorder;
+        
+        Student currentStudent = studentArray[index];
+
+        horizontalBorder = layoutType.horizontalBorder;
+        verticalBorder = layoutType.verticalBorder;
+
+        row = horizontalBorder + verticalBorder + " " + currentStudent.getName() + " " + horizontalBorder;
+        return row;
     }
     
-    private String createRow(Student student) {
-
-        String horizontalBorder, verticalBorder;
-
-        switch(layoutType) {
-            case DASH:
-                horizontalBorder = "\n---------------------\n";
-                verticalBorder = "|";
-                break;
-            case CIRCLE:
-                horizontalBorder = "\no 0 o 0 o 0 o 0 o 0 o\n";
-                verticalBorder = "0";
-                break;
-            case STAR:
-                horizontalBorder = "\n*********************\n";
-                verticalBorder = "*";
-                break;
-            default:
-                horizontalBorder = "\n---------------------\n";
-                verticalBorder = "|";
-                break;
-        }
-
-        return horizontalBorder + verticalBorder + " " + student.getName() + " " + horizontalBorder;
-
+    public int getItemCount() {
+        return studentArray.length;
     }
 }
 
@@ -112,7 +125,6 @@ class AdapterTest {
     
     // The main method is the start of the program
     public static void main(String[] args) {
-
+        
     }
-
 }

@@ -50,14 +50,39 @@ class Student {
     }
 }
 
+class ListContainer {
+    
+    private int rowsToShow;
+
+    public ListContainer(int rowsToShow) {
+        this.rowsToShow = rowsToShow;
+    }
+    
+    public void setAdapter(ArrayAdapter adapter) {
+         for (int i = 0; i < Math.min(adapter.getItemCount(), rowsToShow); i++) {
+            String currentRow = adapter.createRow(i);
+            System.out.println(currentRow);
+        }
+    }
+}
+
 /*
     Enum to hold the constants that users can pick to determine what the borders of the
     data printed to the console look like.
 */
 enum LayoutType {
-        DASH, CIRCLE, STAR;
+    DASH("\n---------------------\n", "|"), 
+    CIRCLE("\no 0 o 0 o 0 o 0 o 0 o\n", "0"), 
+    STAR("\n*********************\n", "*");
+    
+    String horizontalBorder, verticalBorder;
+    
+    // Constructor
+    private LayoutType(String horizontalBorder, String verticalBorder) {
+        this.horizontalBorder = horizontalBorder;
+        this.verticalBorder = verticalBorder;
+    }
 }
-
 
 /* 
     This class holds the functionality of the "adapter", which takes in an array and the layout
@@ -74,40 +99,23 @@ class ArrayAdapter {
         this.layoutType = layoutType;
     }
     
-    public void start() {
-        for (int i = 0; i < studentArray.length; i++) {
-            Student currentStudent = studentArray[i];
-            String currentRow = createRow(currentStudent);
-            System.out.println(currentRow);
-        }
-    }
-    
-    private String createRow(Student student) {
+    public String createRow(int index) {
 
+        String row;
         String horizontalBorder, verticalBorder;
+        
+        Student currentStudent = studentArray[index];
 
         // Determine layout type
-        switch(layoutType) {
-            case DASH:
-                horizontalBorder = "\n---------------------\n";
-                verticalBorder = "|";
-                break;
-            case CIRCLE:
-                horizontalBorder = "\no 0 o 0 o 0 o 0 o 0 o\n";
-                verticalBorder = "0";
-                break;
-            case STAR:
-                horizontalBorder = "\n*********************\n";
-                verticalBorder = "*";
-                break;
-            default:
-                horizontalBorder = "\n---------------------\n";
-                verticalBorder = "|";
-                break;
-        }
+        horizontalBorder = layoutType.horizontalBorder;
+        verticalBorder = layoutType.verticalBorder;
 
-        return horizontalBorder + verticalBorder + " " + student.getName() + " " + horizontalBorder;
-
+        row = horizontalBorder + verticalBorder + " " + currentStudent.getName() + " " + horizontalBorder;
+        return row;
+    }
+    
+    public int getItemCount() {
+        return studentArray.length;
     }
 }
 
@@ -119,23 +127,22 @@ class AdapterTest {
     // The main method is the start of the program
     public static void main(String[] args) {
         
-
         // Creation of the array containing student objects
         Student[] students = {
             new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
+            new Student("Wouter Vrielink", "AI? Of iets dergelijks", 98319811, 90),
             new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
             new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
             new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
             new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
             new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
-            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
-            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
-            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
-            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
+            new Student("Tim Meijer", "Business Information Systems", 11153431, 90)
         };
         
         // Constructing the adapter and starting it
         ArrayAdapter adapter = new ArrayAdapter(students, LayoutType.DASH);
-        adapter.start();
+        ListContainer container = new ListContainer(12);
+        
+        container.setAdapter(adapter);
     }
 }

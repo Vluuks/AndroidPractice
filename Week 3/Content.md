@@ -134,22 +134,22 @@ This time we will not write that much new code ourselves, but mostly use existin
 
 ### Adapter in Android Studio
 
-Now that we have seen what an adapter is supposed to do, we can take a look at the `ArrayAdapter` class in Android studio! You can create one yourself by generating a new Java file and choosing `ArrayAdapter` as its superclass. This should leave you with an empty class file.
+Now that we have seen what an adapter is supposed to do, we can take a look at the `ArrayAdapter` class in Android studio! You can create one yourself by generating a new Java file. 
+
+![An image depicting the menu in Android studio allowing users to enter a class name and select a superclass. The currently selected superclass is ArrayAdapter.](adapter-superclass.png)
+
+Because we use the Android API and not just plain Java, a lot of functionality is already there for you, so you do not need to do everything. Because of this we can choose to extend the class `ArrayAdapter` by entering this class as our superclass. If you start typing `ArrayAdapter` Android will only show you the available superclasses that match this search. This should leave you with an empty class file.
 
         public class StudentAdapter extends ArrayAdapter {
 
         }
 
-Because we use the Android API and not just plain Java, a lot of functionality is already there for you, so you do not need to do everything. Because of this we can choose to extend the class `ArrayAdapter` by entering this class as our superclass. If you start typing `ArrayAdapter` Android will only show you the available superclasses that match this search.
-
-![An image depicting the menu in Android studio allowing users to enter a class name and select a superclass. The currently selected superclass is ArrayAdapter.](adapter-superclass.png)
-
-This will leave us with some things to take care of: we need to be able to instantiate our adapter and we need to define what should be rendered for every entry in our list. 
+This will leave us with some things to take care of: we need to be able to instantiate our adapter and we need to define what should be rendered for every entry in our list. This is similar to the functionalities of the plain Java adapter class, which also had some representation of a layout (the `enum`)
 
 <a name="adding-constructor"></a>
 
 ### Adding the constructor
-Our class does not have a constructor yet, which is the first thing we need. So hit `CTRL+O` (Windows) or [MAC SNELTOETS] to open the override dialog and choose the constructor that takes the following three arguments: the context, a resource id, and a list of objects. It should look like this once overridden:
+Our class does not have a constructor yet, which is the first thing we need. Just like in the Java example, we need a way to instantiate our `StudentAdapter` class. So hit `CTRL+O` (Windows) or [MAC SNELTOETS] to open the override dialog and choose the constructor that takes the following three arguments: the context, a resource id, and a list of objects. It should look like this once overridden:
 
         public StudentAdapter(@NonNull Context context, int resource, @NonNull List objects) {
             super(context, resource, objects);

@@ -46,10 +46,10 @@ Consider the `Student` class once again, with some adjustments:
         class Student {
 
             // Properties of the class
-            public String name;
-            public String program;
-            public int studentNumber;
-            public int EC;
+            private String name;
+            private String program;
+            private int studentNumber;
+            private int EC;
 
             // Constructor of the class
             public Student(String aName, String aProgram, int aStudentNumber, int someEC) {
