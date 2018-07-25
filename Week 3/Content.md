@@ -2,7 +2,15 @@
 This week, we will focus on an important part of Android: the adapter. Android's `Adapter` class helps you translate lists of data to layout objects on the screen. To help you understand how it works, we will first take a look at different kinds of arrays and lists in Java and then provide a very barebones example of what an adapter does in plain Java. Finally, we will use this knowledge to use Android's actual `Adapter` class effectively. 
 
 ## Table of contents
-
+- [Concepts](#concepts)
+	 * [Arrays and lists](#arrays and lists)
+	 * [From list to layout](#from list to layout)
+- [Practice](#practice)
+	 * [Exercise](#exercise)
+- [Adapter in Android Studio](#adapter in android studio)
+	 * [Adding the constructor](#adding the constructor)
+	 * [Specifying the layout](#specifying the layout)
+	 * [Dynamic content](#dynamic content)
 
 <a name="concepts"></a>
 
@@ -32,7 +40,7 @@ The type between the `<>` tells the compiler what the type of the elements you w
 
 The class contains many functionalities. Below is a list of ones that will be used throughout this course, but it is by no means exhaustive! Refer to [the documentation](https://developer.android.com/reference/java/util/ArrayList) for a full overview of the available methods. 
 
-- `add(int index)` and `add(int index, Element e)` can be used to add an element to the end of the list, or at a specific index.
+- `add(Element e)` and `add(int index, Element e)` can be used to add an element to the end of the list, or at a specific index.
 - `get(int index)` returns the element at the specified position in this list.
 - `remove(int index)` removes the element at the specified position in this list.
 - `size()` returns the number of elements in this list.
@@ -103,13 +111,21 @@ What is essential is that there is some kind of information on what the layout s
 
 ## Practice
 
+This time we will not write that much new code ourselves, but mostly use existing functionality. This is in line with the idea that the Adapter provided by the Android API does already a lot of the work for us as well. However, sometimes code that is given to you can be complex and its purpose not clear at first glance. In such a case, it's important to look at every part of the code and think about what it does.
+
 <a name="exercise"></a>
 
 ### Exercise
 
-1. comment elke method
-2. maak een lijst met dummy data, maak de adapter aan en activeer deze
+1. Read through the code in the adapter class carefully. As you can see, it has not been commented. Add a comment explaining the purpose for at least every method and the class itself. If you think some lines of code are in need of extra explanation, comment those as well. Also add a header comment for the `enum` that explains what it does.
 
+2. Although the adapter class is given to you, it is not called yet in our plain Java example. Think about what the adapter needs to be instantiated and pass the correct parameters to it. Then, run the adapter. What is printed to the console?
+
+3. Rerun the adapter but with a different `enum` as a parameter. What happens when you do this?
+
+4. Instead of printing just the student's name, add another variable that is printed for every student as well.
+
+<a name="adapter in android studio"></a>
 
 ## Adapter in Android Studio
 Now that we have seen what an adapter is supposed to do, we can take a look at the `ArrayAdapter` class in Android studio! You can create one yourself by generating a new Java file and choosing `ArrayAdapter` as its superclass. This should leave you with an empty class file.
@@ -118,7 +134,13 @@ Now that we have seen what an adapter is supposed to do, we can take a look at t
 
         }
 
-A lot of functionality is already there for you, so you do not need to do everything. Because of this we can extend `ArrayAdapter`. This will leave us with some things to take care of: we need to be able to instantiate our adapter and we need to define what should be rendered for every entry in our list. 
+Because we use the Android API and not just plain Java, a lot of functionality is already there for you, so you do not need to do everything. Because of this we can choose to extend the class `ArrayAdapter` by entering this class as our superclass. If you start typing `ArrayAdapter` Android will only show you the available superclasses that match this search.
+
+![An image depicting the menu in Android studio allowing users to enter a class name and select a superclass. The currently selected superclass is ArrayAdapter.](adapter-superclass.png)
+
+This will leave us with some things to take care of: we need to be able to instantiate our adapter and we need to define what should be rendered for every entry in our list. 
+
+<a name="adding the constructor"></a>
 
 ### Adding the constructor
 Our class does not have a constructor yet, which is the first thing we need. So hit `CTRL+O` (Windows) or [MAC SNELTOETS] to open the override dialog and choose the constructor that takes the following three arguments: the context, a resource id, and a list of objects. It should look like this once overridden:
@@ -135,7 +157,9 @@ Our class does not have a constructor yet, which is the first thing we need. So 
 
 > Most adapter classes have many different constructors. They also have variations that take a regular array as an argument instead of a `List`. In this explanation we focus on this particular constructor but it goes without saying that different circumstances might require a different constructor.
 
-### Specifing the layout
+<a name="specifying the layout"></a>
+
+### Specifying the layout
 As specified before, the constructor needs a reference to a resource id before the adapter can be created. We can define an XML that determines what it looks like, just like activities have layout files. However, whereas the activity layout is used once, the layout we define for the row is reused as many times as there are items in the list. We can add a new layout file by going to the `layout` directory and through right click `New > Layout resource file` a layout XML file can be added.
 
 This XML is the blueprint that will be used to construct the layout/row for every item, so if we just want to show the student name and student number, we could for example define a very simple layout with two `TextView` elements:
@@ -159,4 +183,10 @@ This XML is the blueprint that will be used to construct the layout/row for ever
         </LinearLayout>
 
 We can later access these layout elements in our adapter class, so that we can dynamically generate the content that should go into these `TextView` elements as we iterate through our list. Any static things that you (probably) want to be the same for every entry in your list can best be defined here, like for example margins, font size and padding. 
+
+
+<a name="dynamic content"></a>
+
+### Dynamic content
+... TODO
 

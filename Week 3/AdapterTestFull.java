@@ -17,11 +17,13 @@ class Student {
     static final String UNIVERSITY_NAME = "University of Amsterdam";
     static int studentCount;
     
+    // Properties of the class
     private String name;
     private String program;
     private int studentNumber;
     private int EC;
 
+    // Constructor of the class
     public Student(String aName, String aProgram, int aStudentNumber, int someEC) {
         name = aName;
         program = aProgram;
@@ -49,7 +51,8 @@ class Student {
 }
 
 /*
-    ....
+    Enum to hold the constants that users can pick to determine what the borders of the
+    data printed to the console look like.
 */
 enum LayoutType {
         DASH, CIRCLE, STAR;
@@ -57,7 +60,9 @@ enum LayoutType {
 
 
 /* 
-    ....
+    This class holds the functionality of the "adapter", which takes in an array and the layout
+    type to show (the enum). It then iterates over the array and prints out the appropriate layout
+    for every student object in the array.
 */
 class ArrayAdapter {
     
@@ -81,6 +86,7 @@ class ArrayAdapter {
 
         String horizontalBorder, verticalBorder;
 
+        // Determine layout type
         switch(layoutType) {
             case DASH:
                 horizontalBorder = "\n---------------------\n";
@@ -112,7 +118,24 @@ class AdapterTest {
     
     // The main method is the start of the program
     public static void main(String[] args) {
+        
 
+        // Creation of the array containing student objects
+        Student[] students = {
+            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
+            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
+            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
+            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
+            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
+            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
+            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
+            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
+            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
+            new Student("Tim Meijer", "Business Information Systems", 11153431, 90),
+        };
+        
+        // Constructing the adapter and starting it
+        ArrayAdapter adapter = new ArrayAdapter(students, LayoutType.DASH);
+        adapter.start();
     }
-
 }
