@@ -1,6 +1,0 @@
-- [Concepts](#Concepts)
-	 * [Access](#Access)
-- [Practice](#Practice)
-	 * [Exercises](#Exercises)
-	 * [Tips](#Tips)
-- [Plain Java vs Android Studio](#Plain Java vs Android Studio)
