@@ -1,5 +1,9 @@
 # Java Basics for Android
-This week, we will focus on an important part of Android: the adapter. Android's `Adapter` class helps you translate lists of data to layout objects on the screen. To help you understand how it works, we will first take a look at different kinds of arrays and lists in Java and then provide a very barebones example of what an adapter does in plain Java. Finally, we will use this knowledge to use Android's actual `Adapter` class effectively. 
+This week, we will focus on an important part of Android: the adapter. Android's `Adapter` class helps you translate lists of data to layout objects on the screen. Lists are everywhere in apps, the most classic example perhaps being an inbox:
+
+![An image depicting a mail inbox showing a list of emails.](screenshot-list.png)
+
+To help you understand how it works, we will first take a look at different kinds of arrays and lists in Java and then provide a very barebones example of what an adapter does in plain Java. Finally, we will use this knowledge to use Android's actual `Adapter` class effectively and practice with this as well.
 
 ## Table of contents
 - [Concepts](#concepts)
@@ -12,6 +16,10 @@ This week, we will focus on an important part of Android: the adapter. Android's
 	 * [Adding the constructor](#adding-constructor)
 	 * [Specifying the layout](#layout)
 	 * [Dynamic content](#dynamic-content)
+     * [Setting everything up](#setup)
+- [Practice with Android](#practice-android)
+	 * [Exercise](#exercise-android)
+- [Wrapping it up](#wrapup)
 
 <a name="concepts"></a>
 
@@ -236,7 +244,9 @@ The method `getView()` takes a few arguments, all of which will be explained:
 
 - `int position` refers to the list index of the item that needs to be shown. This means that you can use this integer to grab the correct item from your list, in order to display the properties of that item, for example.
 
-- `@Nullable View convertView` refers to a View object that is reusable. When scrolling, it is not necessary to reinflate complete views if they look similar and only the text inside changes, for example. The `convertView` allows for reuse of existing views, thus improving performance! This `convertView` can be null, however (hence the tag `@Nullable`, because in some cases (like the first time the adapter renders), there is no `View` object to reuse. 
+- `@Nullable View convertView` refers to a View object that is reusable. When scrolling, it is not necessary to reinflate complete views if they look similar and only the text inside changes, for example. The `convertView` allows for reuse of existing views, thus improving performance (see the image below)! This `convertView` can be null, however (hence the tag `@Nullable`, because in some cases (like the first time the adapter renders), there is no `View` object to reuse.
+
+![An image depicting the reuse of views in an adapter.](adapter-recycling.png)
 
 - `@NonNull ViewGroup parent` the parent refers to the encapsulating layout that a view should be contained in. This can for example be the `ListView` used to display the items. 
 
@@ -261,7 +271,7 @@ Using these arguments the most common way to set up the `getView()` method is:
             }
 
             // Access the right student in the list
-            Student currentStudent = objects.get(position);
+            Student currentStudent = (Student) objects.get(position);
 
             // Make changes to the convertView, such as displaying a certain text
             TextView studentName = convertView.findViewById(R.id.tvStudentName);
@@ -274,8 +284,48 @@ Using these arguments the most common way to set up the `getView()` method is:
 
         }
 
-Using this method, we now made sure that the name and student number of the students will be displayed inside the view. The contents are dynamically altered based on what item of the list is to be rendered, thanks to the position parameter that is passed as an argument. This, combined with the fact that iteration is handled by the view container and the reusability of views, makes adapters a very powerful tool.  
+
+Notice that we return the altered `convertView`? Using this method, we now made sure that the name and student number of the students will be displayed inside the view. The contents are dynamically altered based on what item of the list is to be rendered, thanks to the position parameter that is passed as an argument. 
 
 > Due to method overloading, calling `setText()` with an integer as its parameter does something different. It searches for the resource with that integer id. Thus if you want to set a specific number as the text, you will need to convert it to a `String` first!
 
+<a name="setup"></a>
+
+### Setting everything up
+Now that the adapter has been defined and the methods inside as well, we can couple it with a list container. This, again, is similar to the plain Java example. The container is initialized at some point, then the adapter is created using its constructor. Finally, the adapter is passed to the container.
+
+        StudentAdapter adapter = new StudentAdapter(this, R.layout.row_item, studentList);
+        listView.setAdapter(adapter);
+
+If you do not set your adapter on the container, nothing will happen on the screen yet. The actual rendering of list items only starts once the adapter is connected to the container using `setAdapter()`. 
+
+
+<a name="practice"></a>
+
+## Practice
+
+This time we will also practice with code in Android Studio, to try and make the principles of the adapter more clear. Grab the following files and insert them into the appropriate folders, `java` and `res` of a new Android Studio project. MainActivity and the associated layout will have to replace the default generated ones. Don't forget to adjust the package atop each file to your own package. This package is usually your username on the PC and the name of your project. If in doubt just create a new empty Java file which generates it for you atop the file, and then copy and paste it as necessary.
+
+1. [`MainActivity.java`](Android/MainActivity.java)
+2. [`activity_main.xml`](Android/activity_main.xml)
+3. [`Plant.java`](Android/MainActivity.java)
+4. [`PlantAdapter.java`](Android/MainActivity.java)
+5. [`row_item.xml`](Android/row_item.xml)
+
+<a name="exercise"></a>
+
+### Exercise
+
+1. Set the provided adapter on the `ListView`. What would be an appropriate place to do this? 
+
+2. Check the contents of the `Plant` class. Adjust `row_item.xml` to add views to display this content.
+
+3. Inside the adapter, access the right `Plant` item and adjust the views defined in `row_item.xml` accordingly.
+
+<a name="wrapup"></a>
+
+## Wrapping it up
+The adapter sees a lot of use in various apps, not just in this course. A lot of apps use lists of items, whether horizontally, vertically or on a grid. The items shown in the adapter can contain all kinds of view: text, images, buttons, checkboxes, etc. Different variations of adapters exist, but the basic principles are the same. 
+
+Adapters can be used to render lists of custom objects, like the `Student` object, which requires you to create your custom adapter class and define the contents of `getView()`. In this tutorial, we saw what an adapter and list container do behind the scenes, using a plain Java example. The tasks boil down to iterating over the list, which is handled by the list container, and rendering the correct contents, which is handled by the adapter. The adapter and the container are strongly connected, because the container dictates what items need to be shown and thus what items should be created by the adapter. 
 
