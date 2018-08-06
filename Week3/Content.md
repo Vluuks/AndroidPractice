@@ -256,7 +256,7 @@ Using these arguments the most common way to set up the `getView()` method is:
 
 2. If not, inflate a new `View` object using a layout XML. Remember the XML we defined a few steps earlier? This is where we inflate it. 
 
-3. Use the position to grab the correct item from the list. The list that was passed in the constructor (in this case called `objects`) should of course have class wide scope for this to work. 
+3. Use the position to grab the correct item from the list. The list that was passed in the constructor (in this case called `objects`) should of course have class wide scope for this to work. Due to the unspecified contents of the `objects` list, we need to explicitly cast the result from `get()` back to a `Student` object before it can be stored inside a variable of the type `Student`. 
 
 4. Find the right layout elements inside the `convertView` and adjust them accordingly. In this case we want to display the name and student number. 
 
@@ -286,7 +286,9 @@ Using these arguments the most common way to set up the `getView()` method is:
 
 Notice that we return the altered `convertView`? Using this method, we now made sure that the name and student number of the students will be displayed inside the view. The contents are dynamically altered based on what item of the list is to be rendered, thanks to the position parameter that is passed as an argument. 
 
-> Due to method overloading, calling `setText()` with an integer as its parameter does something different. It searches for the resource with that integer id. Thus if you want to set a specific number as the text, you will need to convert it to a `String` first!
+> Notice the `Integer.toString()` call? Due to [method overloading](https://beginnersbook.com/2013/05/method-overloading/), calling `setText()` with an integer as its parameter does something different. It searches for the resource with that integer id. Thus if you want to set a specific number as the text, you will need to convert it to a `String` first!
+
+
 
 <a name="setup"></a>
 
