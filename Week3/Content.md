@@ -10,7 +10,7 @@ To help you understand how it works, we will first take a look at different kind
 	 * [Arrays and lists](#arrays-lists)
 	 * [From list to layout](#list-layout)
 - [Practice](#practice)
-	 * [Exercise](#exercise)
+	 * [Exercises](#exercise)
 - [Plain Java vs Android Studio](#java-vs-android)
      * [Adapter in Android Studio](#adapter-android)
 	 * [Adding the constructor](#adding-constructor)
@@ -147,7 +147,7 @@ This time we will not write that much new code ourselves, but mostly use existin
 
 <a name="exercise"></a>
 
-### Exercise
+### Exercises
 
 [Get this file](AdapterTest.java) and read through the code in the adapter class carefully. As you can see, it has not been commented. 
 
@@ -246,7 +246,7 @@ The method `getView()` takes a few arguments, all of which will be explained:
 
 - `@Nullable View convertView` refers to a View object that is reusable. When scrolling, it is not necessary to reinflate complete views if they look similar and only the text inside changes, for example. The `convertView` allows for reuse of existing views, thus improving performance (see the image below)! This `convertView` can be null, however (hence the tag `@Nullable`, because in some cases (like the first time the adapter renders), there is no `View` object to reuse.
 
-![An image depicting the reuse of views in an adapter.](adapter-recycling.png)
+    ![An image depicting the reuse of views in an adapter.](adapter-recycling.png)
 
 - `@NonNull ViewGroup parent` the parent refers to the encapsulating layout that a view should be contained in. This can for example be the `ListView` used to display the items. 
 
@@ -313,13 +313,15 @@ This time we will also practice with code in Android Studio, to try and make the
 
 <a name="exercise"></a>
 
-### Exercise
+### Exercises
 
 1. Set the provided adapter on the `ListView`. What would be an appropriate place to do this? 
 
 2. Check the contents of the `Plant` class. Adjust `row_item.xml` to add views to display this content.
 
 3. Inside the adapter, access the right `Plant` item and adjust the views defined in `row_item.xml` accordingly.
+
+4. Verify that your adapter works by running the app!
 
 <a name="wrapup"></a>
 
