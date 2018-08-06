@@ -1,12 +1,8 @@
 // Change this to your own package
-package com.example.renske.nativeapppractice;
+package com.example.renske.adaptermegatestwoehoe;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.ListView;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 

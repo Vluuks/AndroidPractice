@@ -305,7 +305,7 @@ If you do not set your adapter on the container, nothing will happen on the scre
 
 ## Practice
 
-This time we will also practice with code in Android Studio, to try and make the principles of the adapter more clear. Grab the following files and insert them into the appropriate folders, `java` and `res` of a new Android Studio project. MainActivity and the associated layout will have to replace the default generated ones. Don't forget to adjust the package atop each file to your own package. This package is usually your username on the PC and the name of your project. If in doubt just create a new empty Java file which generates it for you atop the file, and then copy and paste it as necessary.
+This time we will also practice with code in Android Studio, to try and make the principles of the adapter more clear. Grab the following files and insert them into the appropriate folders, `java` and `res/layout` of a new Android Studio project. MainActivity and the associated layout will have to replace the default generated ones. Don't forget to adjust the package atop each file to your own package. This package is usually your username on the PC and the name of your project. If in doubt just create a new empty Java file which generates it for you atop the file, and then copy and paste it as necessary.
 
 1. [`MainActivity.java`](Android/MainActivity.java)
 2. [`activity_main.xml`](Android/activity_main.xml)
