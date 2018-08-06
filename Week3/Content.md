@@ -252,7 +252,7 @@ The method `getView()` takes a few arguments, all of which will be explained:
 
 Using these arguments the most common way to set up the `getView()` method is:
 
-1. Check whether there is a convertView to reuse.
+1. Check whether there is a `convertView` to reuse.
 
 2. If not, inflate a new `View` object using a layout XML. Remember the XML we defined a few steps earlier? This is where we inflate it. 
 
@@ -284,7 +284,6 @@ Using these arguments the most common way to set up the `getView()` method is:
 
         }
 
-
 Notice that we return the altered `convertView`? Using this method, we now made sure that the name and student number of the students will be displayed inside the view. The contents are dynamically altered based on what item of the list is to be rendered, thanks to the position parameter that is passed as an argument. 
 
 > Due to method overloading, calling `setText()` with an integer as its parameter does something different. It searches for the resource with that integer id. Thus if you want to set a specific number as the text, you will need to convert it to a `String` first!
@@ -308,8 +307,8 @@ This time we will also practice with code in Android Studio, to try and make the
 
 1. [`MainActivity.java`](Android/MainActivity.java)
 2. [`activity_main.xml`](Android/activity_main.xml)
-3. [`Plant.java`](Android/MainActivity.java)
-4. [`PlantAdapter.java`](Android/MainActivity.java)
+3. [`Plant.java`](Android/Plant.java)
+4. [`PlantAdapter.java`](Android/PlantAdapter.java)
 5. [`row_item.xml`](Android/row_item.xml)
 
 <a name="exercise"></a>
