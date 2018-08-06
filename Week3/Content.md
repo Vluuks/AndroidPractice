@@ -171,7 +171,9 @@ Because we use the Android API and not just plain Java, a lot of functionality i
 
         }
 
-This will leave us with some things to take care of: we need to be able to instantiate our adapter and we need to define what should be rendered for every entry in our list. This is similar to the functionalities of the plain Java adapter class, which also had some representation of a layout (the `enum`)
+This will leave us with some things to take care of: we need to be able to instantiate our adapter and we need to define what should be rendered for every entry in our list. This is similar to the functionalities of the plain Java adapter class, which also had some representation of a layout (the `enum`) and of course a constructor.
+
+Like with our plain Java class, the actual iteration is handled behind the scenes. In the plain Java example, the `ListContainer` class handled making calls to the adapter's `createRow()` method. In Android, the iteration is handled by the list container as well. This means that there is no need to iterate over your list inside the adapter class.  
 
 <a name="adding-constructor"></a>
 
@@ -188,12 +190,12 @@ Our class does not have a constructor yet, which is the first thing we need. Jus
 
 - `@NonNull List objects` Finally, the constructor requires the list that we want the adapter to work with. An adapter can actually be called on an empty list without problems (in that case, it will simply not show anything), but the list itself must of course exist: it can't be null. Because objects of the  `List` type can hold both `ArrayList` and `LinkedList`, you are not forced to change the type to `ArrayList`, even if you pass one as an argument to the constructor. 
 
-> Most adapter classes have many different constructors. They also have variations that take a regular array as an argument instead of a `List`. In this explanation we focus on this particular constructor but it goes without saying that different circumstances might require a different constructor.
+> Most adapter classes have many different constructors. They also have variations that take a regular array as an argument instead of a `List`. In this explanation we focus on this particular constructor, but it goes without saying that different circumstances might require a different constructor.
 
 <a name="layout"></a>
 
 ### Specifying the layout
-As specified before, the constructor needs a reference to a resource id before the adapter can be created. We can define an XML that determines what it looks like, just like activities have layout files. However, whereas the activity layout is used once, the layout we define for the row is reused as many times as there are items in the list. We can add a new layout file by going to the `layout` directory and through right click `New > Layout resource file` a layout XML file can be added.
+As specified before, the constructor needs a reference to a resource id before the adapter can be created. We can define an XML that determines what it looks like, just like activities have layout files. However, whereas the activity layout is used once, the layout we define for the row is reused as many times as there are items in the list. We can add a new layout file by going to the `layout` directory and through right click `New > Layout resource file` a layout XML file can be added. Let's assume we called it `row_layout.xml`.
 
 This XML is the blueprint that will be used to construct the layout/row for every item, so if we just want to show the student name and student number, we could for example define a very simple layout with two `TextView` elements:
 
@@ -217,9 +219,58 @@ This XML is the blueprint that will be used to construct the layout/row for ever
 
 We can later access these layout elements in our adapter class, so that we can dynamically generate the content that should go into these `TextView` elements as we iterate through our list. Any static things that you (probably) want to be the same for every entry in your list can best be defined here, like for example margins, font size and padding. 
 
-
 <a name="dynamic-content"></a>
 
 ### Dynamic content
-... TODO
+Of course we also want our adapter to render dynamic content for us (which is the whole point of an adapter). The adapter class contains a method  `getView()` which is called for the items in the list that need to be rendered (i.e. will need to have a `View` created for them). 
+
+This means that if there are 10 items visible on the screen, the method will be called 10 times. If you were scroll down slightly, it would need to be called again to show the new item appearing at the bottom of the screen.
+
+The method `getView()` takes a few arguments, all of which will be explained:
+
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            
+            return super.getView(position, convertView, parent);
+        }
+
+- `int position` refers to the list index of the item that needs to be shown. This means that you can use this integer to grab the correct item from your list, in order to display the properties of that item, for example.
+
+- `@Nullable View convertView` refers to a View object that is reusable. When scrolling, it is not necessary to reinflate complete views if they look similar and only the text inside changes, for example. The `convertView` allows for reuse of existing views, thus improving performance! This `convertView` can be null, however (hence the tag `@Nullable`, because in some cases (like the first time the adapter renders), there is no `View` object to reuse. 
+
+- `@NonNull ViewGroup parent` the parent refers to the encapsulating layout that a view should be contained in. This can for example be the `ListView` used to display the items. 
+
+Using these arguments the most common way to set up the `getView()` method is:
+
+1. Check whether there is a convertView to reuse.
+
+2. If not, inflate a new `View` object using the provided layout XML.
+
+3. If there is a convertView, reuse it.
+
+4. Use the position to grab the correct item from the list and adjust the `View` contents accordingly.
+
+5. Return the generated and adjusted `View` object.
+
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            
+            // A new view must be inflated
+            if(convertView == null) {
+               convertView = LayoutInflater.from(getContext()).inflate(R.layout.row_item, parent, false);
+            }
+
+            // Access the right student object
+            ...
+
+            // Make changes to the convertView, such as displaying a certain text
+            TextView studentName = convertView.findViewById(R.id.tvStudentName);
+            TextView studentNumber = convertView.findViewById(R.id.tvStudentNumber);
+
+            studentName.setText("....");
+            studentNumber.setText("1234590");
+            
+            return convertView;
+
+        }
 
