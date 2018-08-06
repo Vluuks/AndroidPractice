@@ -244,11 +244,11 @@ Using these arguments the most common way to set up the `getView()` method is:
 
 1. Check whether there is a convertView to reuse.
 
-2. If not, inflate a new `View` object using the provided layout XML.
+2. If not, inflate a new `View` object using a layout XML. Remember the XML we defined a few steps earlier? This is where we inflate it. 
 
-3. If there is a convertView, reuse it.
+3. Use the position to grab the correct item from the list. The list that was passed in the constructor (in this case called `objects`) should of course have class wide scope for this to work. 
 
-4. Use the position to grab the correct item from the list and adjust the `View` contents accordingly.
+4. Find the right layout elements inside the `convertView` and adjust them accordingly. In this case we want to display the name and student number. 
 
 5. Return the generated and adjusted `View` object.
 
@@ -260,17 +260,22 @@ Using these arguments the most common way to set up the `getView()` method is:
                convertView = LayoutInflater.from(getContext()).inflate(R.layout.row_item, parent, false);
             }
 
-            // Access the right student object
-            ...
+            // Access the right student in the list
+            Student currentStudent = objects.get(position);
 
             // Make changes to the convertView, such as displaying a certain text
             TextView studentName = convertView.findViewById(R.id.tvStudentName);
             TextView studentNumber = convertView.findViewById(R.id.tvStudentNumber);
 
-            studentName.setText("....");
-            studentNumber.setText("1234590");
-            
+            studentName.setText(currentStudent.getName());
+            studentNumber.setText(Integer.toString(currentStudent.getStudentNumber());
+
             return convertView;
 
         }
+
+Using this method, we now made sure that the name and student number of the students will be displayed inside the view. The contents are dynamically altered based on what item of the list is to be rendered, thanks to the position parameter that is passed as an argument. This, combined with the fact that iteration is handled by the view container and the reusability of views, makes adapters a very powerful tool.  
+
+> Due to method overloading, calling `setText()` with an integer as its parameter does something different. It searches for the resource with that integer id. Thus if you want to set a specific number as the text, you will need to convert it to a `String` first!
+
 
