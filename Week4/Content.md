@@ -70,7 +70,25 @@ While the generic catch might seem a great solution, catching all exceptions eve
 <a name="practice"></a>
 
 ## Practice
-Oh no! A very sloppy programmer has made a weird class with a method inside that throws all kind of exceptions and thus crashes almost every time it is run. Luckily, we now know what to do about that. 
+Oh no! A very sloppy programmer has made a weird class with a method inside that throws all kind of exceptions and thus crashes almost every time it is run. Luckily, we now know what to do about that. Grab the [following file](Java/ExceptionTest.java) and the sloppily programmed [class file](Java/SomeClass.class). This file is already compiled, so you might see a warning upon downloading it. After downloading, you can add these file to your CS50 IDE. If you are not sure anymore how to set this IDE up, refer to the practice section of [Week 1](SOME URL TODO). 
+
+To compile your Java file to a .class file, use this command on the terminal:
+
+        javac YourJavaFileName.java
+
+After compilation, you can run your program using:
+
+        java YourJavaFileName
+
+If you have trouble getting your Java programs to run in the IDE, run `update50`. If that does not work try:
+
+        sudo apt-get update
+        sudo apt-get install default-jdk
+
+
+<a name="exercises"></a>
+
+### Exercises 
 
 1. Add a `try catch` block to the code that catches all exceptions, so that instead of crashing at runtime, it will continue.
 

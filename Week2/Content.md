@@ -227,7 +227,7 @@ We also saw that to define multiple constants, the `enum` is an elegant solution
 <a name="practice"></a>
 
 ## Practice
-Grab the following file [LINK NAAR BESTAND]. It contains the Student class once again, in addition to the `getEC` and `setEC` methods. You can add the file to your CS50 IDE. If you are not sure anymore how to set this up, refer to the practice section of [Week 1](SOME URL TODO). 
+Grab the [following file](Java/StudentTest.java). It contains the Student class once again, in addition to the `getEC` and `setEC` methods. You can add the file to your CS50 IDE. If you are not sure anymore how to set this IDE up, refer to the practice section of [Week 1](SOME URL TODO). 
 
 To compile your Java file to a .class file, use this command on the terminal:
 
