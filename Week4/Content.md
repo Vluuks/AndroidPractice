@@ -52,9 +52,9 @@ Because exceptions are objects, we can do more things with them. A common struct
 
 In the first part between the curly braces, code is run as usual. The difference is that when an exception is encountered, instead of crashing, the catch block will be executed instead. In this case we are catching the `ArrayIndexOutOfBoundsException`. 
 
-The catch block should then of course do something to alleviate the problem and/or alert the user that something went wrong. Chances are that if the app would have crashed otherwise, something is amiss and you might want to notify the user that something unexpected happened. In this example, you might want to set `i` to another number if index 10 does not exist because it is out of bounds. The program can continue running, even if an otherwise fatal error occured. 
+The catch block should then of course do something to alleviate the problem and/or alert the user that something went wrong. Chances are that if the app would have crashed otherwise, something is amiss and you might want to notify the user that something unexpected happened. In this example, you might want to set `i` to another number if index 10 does not exist because it is out of bounds. The program can continue running, even if an otherwise fatal error occured. You can try this out yourself in the [following snippet](http://bit.ly/2voT5Hc).
 
-Then, why not just wrap everything in try-catch structures and be safe from exceptions? Some solution to that might be to just catch everything:
+If the catch can prevent crashes, why not just wrap everything in try-catch structures and be safe from exceptions? Some solution to that might be to just catch everything:
 
         try {
 
@@ -67,4 +67,14 @@ While the generic catch might seem a great solution, catching all exceptions eve
 
 
 
+<a name="practice"></a>
+
+## Practice
+Oh no! A very sloppy programmer has made a weird class with a method inside that throws all kind of exceptions and thus crashes almost every time it is run. Luckily, we now know what to do about that. 
+
+1. Add a `try catch` block to the code that catches all exceptions, so that instead of crashing at runtime, it will continue.
+
+2. Inside the catch block, find a way to discover what kind of exceptions are thrown by the method. Remember that exceptions were in fact objects? This means they have methods associated with them as well. Use [the documentation](https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Exception.html) to your advantage!
+
+3. When you have discovered the different errors the `doSomething()` method produces, change your generic catch block to multiple catch blocks that each handle a specific exception.
 

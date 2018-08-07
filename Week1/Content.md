@@ -101,7 +101,7 @@ However, the kind of variable to be returned must be specified in the method dec
 <a name="practice"></a>
 
 ## Practice
-You can try this out by grabbing the following file [LINK NAAR BESTAND]. It contains the code we have seen this far, though the strucure in which we present it in order to be able to run it is slightly different. 
+You can try this out by grabbing the [following file](Java/StudentTest.java). It contains the code we have seen this far, though the strucure in which we present it in order to be able to run it is slightly different. 
 
 Note that in regular Java, the point of entry of the program is the `main` method (just like we are used to in C!). The main method needs to be contained in a class as well, which we have called `StudentTest`. 
 
