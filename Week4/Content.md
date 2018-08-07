@@ -41,3 +41,30 @@ A lot of times the Java Virtual Machine (which takes care of running the code) i
 <a name="try-catch"></a>
 
 ### Try Catch
+Because exceptions are objects, we can do more things with them. A common structure to prevent runtime crashes but still be aware that things went wrong is the `try catch` block. This block consists of two parts:
+
+        try {
+            int i = integerArray[10];
+        }
+        catch(ArrayIndexOutOfBoundsException e) {
+            ...
+        }
+
+In the first part between the curly braces, code is run as usual. The difference is that when an exception is encountered, instead of crashing, the catch block will be executed instead. In this case we are catching the `ArrayIndexOutOfBoundsException`. 
+
+The catch block should then of course do something to alleviate the problem and/or alert the user that something went wrong. Chances are that if the app would have crashed otherwise, something is amiss and you might want to notify the user that something unexpected happened. In this example, you might want to set `i` to another number if index 10 does not exist because it is out of bounds. The program can continue running, even if an otherwise fatal error occured. 
+
+Then, why not just wrap everything in try-catch structures and be safe from exceptions? Some solution to that might be to just catch everything:
+
+        try {
+
+        }
+        catch(Exception e) {
+
+        }
+
+While the generic catch might seem a great solution, catching all exceptions ever with just one, it is actually bad practice. In almost all cases, different exceptions should not be treated the same way, especially as applications get bigger. In large projects, new exceptions might be added and you would never know, due to the super generic catch. 
+
+
+
+
