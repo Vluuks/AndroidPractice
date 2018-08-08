@@ -3,15 +3,14 @@ This week the focus will be on exceptions. You probably already have encoutered 
 
 ## Table of contents
 - [Concepts](#concepts)
-    * [Exceptions](#classes)
-    * [Try Catch](#constructor)
-    * [Parameters](#parameters)
+	 * [Exceptions](#exceptions)
+	 * [Try Catch](#try-catch)
 - [Practice](#practice)
-	* [Getting started](#getting-started)
-	* [Exercises](#exercises)
-- [Plain Java vs. Android Studio](#java-vs-android)
-    * [Classes](#android-classes)
-    * [Parameters and return values](#android-params)
+	 * [Exercises](#exercises)
+- [Plain Java vs. Android Studio](#plain-java-vs.-android-studio)
+	 * [Unraveling exceptions](#unraveling-exceptions)
+	 * [Logcat tips](#logcat-tips)
+	 * [When to use try catch](#when-to-use-try-catch)
 
 <a name="concepts"></a>
 
