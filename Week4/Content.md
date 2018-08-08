@@ -66,11 +66,10 @@ If the catch can prevent crashes, why not just wrap everything in try-catch stru
 While the generic catch might seem a great solution, catching all exceptions ever with just one, it is actually bad practice. In almost all cases, different exceptions should not be treated the same way, especially as applications get bigger. In large projects, new exceptions might be added and you would never know, due to the super generic catch. 
 
 
-
 <a name="practice"></a>
 
 ## Practice
-Oh no! A very sloppy programmer has made a weird class with a method inside that throws all kind of exceptions and thus crashes almost every time it is run. Luckily, we now know what to do about that. Grab the [following file](Java/ExceptionTest.java) and the sloppily programmed [class file](Java/SomeClass.class). This file is already compiled, so you might see a warning upon downloading it. After downloading, you can add these file to your CS50 IDE. If you are not sure anymore how to set this IDE up, refer to the practice section of [Week 1](SOME URL TODO). 
+ Oh no! A very sloppy programmer has made a weird class with a method inside that throws all kind of exceptions and thus crashes almost every time it is run. When it runs succesfully, it prints "Success!" to the console, but as of now the program usually crashes before that ever happens. Luckily, we now know what to do about that. [Grab the following zipped files](Java/ExceptionTest.zip).  After downloading, you can add these file to your CS50 IDE. If you are not sure anymore how to set this IDE up, refer to the practice section of [Week 1](SOME URL TODO). 
 
 To compile your Java file to a .class file, use this command on the terminal:
 
@@ -90,9 +89,54 @@ If you have trouble getting your Java programs to run in the IDE, run `update50`
 
 ### Exercises 
 
-1. Add a `try catch` block to the code that catches all exceptions, so that instead of crashing at runtime, it will continue.
+1. Compile and run `ExceptionTest.java`. What happens? Does it run `doSomething()` the expected 50 times? 
 
-2. Inside the catch block, find a way to discover what kind of exceptions are thrown by the method. Remember that exceptions were in fact objects? This means they have methods associated with them as well. Use [the documentation](https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Exception.html) to your advantage!
+2. Add a `try catch` block to the code that catches all exceptions. What does catching all exceptions do in this case?
 
-3. When you have discovered the different errors the `doSomething()` method produces, change your generic catch block to multiple catch blocks that each handle a specific exception.
+3. Inside the catch block, find a way to discover what kind of exceptions are thrown by the method. Remember that exceptions were in fact objects? This means they have methods associated with them as well. Use [the documentation](https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Exception.html) to your advantage!
 
+4. When you have discovered the different errors the `doSomething()` method produces, change your generic catch block to multiple catch blocks that each handle a specific exception.
+
+<a name="java-vs-android"></a>
+
+## Plain Java vs. Android Studio
+Naturally, you will encounter different kinds of exceptions in Android Studio as well. These exceptions will be printed to the console. To accurately solve them it is important to understand why they happen and where they come from. Sometimes the content of these exceptions gets very long, which makes them rather cryptic. In this section we will look at a few common exceptions and explain what to look for and how to discover where they came from.
+
+Most of the times the exception starts with a timestamp and the keywords `FATAL EXCEPTION: main` indicating that it occured on the main thread and caused the app to crash. This is followed by a lot of information like below, which can be hard to read. 
+
+        08-07 09:10:30.091 14777-14777/com.example.renske.nativeapppractice E/AndroidRuntime: FATAL EXCEPTION: main
+            Process: com.example.renske.nativeapppractice, PID: 14777
+            java.lang.RuntimeException: Unable to start activity ComponentInfo{com.example.renske.nativeapppractice/com.example.renske.nativeapppractice.MainActivity}: java.lang.NullPointerException: Attempt to invoke virtual method 'void android.widget.ListView.setAdapter(android.widget.ListAdapter)' on a null object reference
+                at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2778)
+                at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2856)
+                at android.app.ActivityThread.-wrap11(Unknown Source:0)
+                at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1589)
+                at android.os.Handler.dispatchMessage(Handler.java:106)
+                at android.os.Looper.loop(Looper.java:164)
+                at android.app.ActivityThread.main(ActivityThread.java:6494)
+                at java.lang.reflect.Method.invoke(Native Method)
+                at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:438)
+                at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:807)
+            Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'void android.widget.ListView.setAdapter(android.widget.ListAdapter)' on a null object reference
+                at com.example.renske.nativeapppractice.MainActivity.onCreate(MainActivity.java:34)
+                at android.app.Activity.performCreate(Activity.java:7009)
+                at android.app.Activity.performCreate(Activity.java:7000)
+                at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1214)
+                at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2731)
+                at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2856) 
+                at android.app.ActivityThread.-wrap11(Unknown Source:0) 
+                at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1589) 
+                at android.os.Handler.dispatchMessage(Handler.java:106) 
+                at android.os.Looper.loop(Looper.java:164) 
+                at android.app.ActivityThread.main(ActivityThread.java:6494) 
+                at java.lang.reflect.Method.invoke(Native Method) 
+                at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:438) 
+                at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:807) 
+
+When confronted with this, there are a few things to look out for. 
+
+1) The kind of exception that occured.
+
+2) The offending file.
+
+3) The line inside that file that caused the exception. 
