@@ -171,12 +171,13 @@ With the information we know, `setAdapter()` being called on something that is a
 
 - You can filter the logcat output by using the dropdowns on top. By setting it to "Error", it will only show messages that fit this description, like exceptions. Additionally, you can use the search function as well. (Don't forget to unset the filter/search if you are looking for other things that do not fit this category later!)
 
+    ![A short gif showing the different purposes and effects of the logcat dropdowns.](logcat-dropdowns.gif)
+
 - These dropdowns also distinguish between different devices (for example the emulator and your phone) and processes. Sometimes a process is indicated as dead and does not update the log anymore. Usually when you rerun the app, the log automatically restarts, but sometimes it stays on the dead process. This means that if you rerun the app, you need to switch to the other, active process if it is not doing so automatically.
 
-- 
+- To free up some space (especially on smaller monitors), you can go to the logcat settings. These are behind the cogwheel icon ![An icon showing the cogwheel logo.](settings-icon.png) , which is sometimes hidden behind a small arrow icon if your logcat's height is too small. In these settings, you can uncheck "show process and thread ID" and "show package" as these are not important to us in this course. This frees up some space.
 
-
-
+- To increase readability and avoid scrolling, you can turn on wraparound, which has its own icon on the left bar. ![An icon showing the wraparound logo.](wraparound-icon.png)
 
 
 <a name="when-to-use-try-catch"></a>
