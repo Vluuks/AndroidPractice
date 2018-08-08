@@ -140,3 +140,5 @@ When confronted with this, there are a few things to look out for.
 2) The offending file.
 
 3) The line inside that file that caused the exception. 
+
+The kind of exception can be spotted two times in this case, it is the least indented line preceded by "Caused by:". In this case we are dealing with the infamous `java.lang.NullPointerException`. 
