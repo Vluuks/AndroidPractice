@@ -177,19 +177,21 @@ These classes are often depicted in what is called an UML diagram. They are help
 <a name="android-params"></a>
 
 ## Parameters and return values in Android Studio
-The concept of parameters and return values applies in Android Studio as well. What is important here is that we do not have to call *some* methods ourselves. These are called automatically by the app itself. A good example of this is `onCreate`, this method is run when the app starts, but we do not have to call it. It still gets something passed as a parameter however: `Bundle saveInstanceState`. This `Bundle` object can be accessed all throughout the scope of the `onCreate` method. 
-
-Another structure that is often present in Android code is a click handler that responds to click events on some element of the UI, for example a button:
+The concept of parameters and return values applies in Android Studio as well. A structure that is often present in Android code is a click handler that responds to click events on some element of the UI, for example a button:
 
         // This method will be called when the button inside the activity is clicked
         public void buttonClicked(View view) {
             System.out.println("Clicked!");
         }
 
-This method also gets a parameter, a `View` object called `view`. This object refers to the element in the layout, which are called views in Android, that triggered the method. This `View` object is available in the scope of the `buttonClicked` method, which means that we can use methods associated with the `view` object. 
+This method gets a parameter, a `View` object called `view`. This object refers to the element in the layout, which are called views in Android, that triggered the method. This `View` object is available in the scope of the `buttonClicked` method, which means that we can use methods associated with the `view` object. 
 
-Objects like `View` in Android studio often have a lot of such methods, which are accessed by the dot operator, just like in Exercise 1. Usually the IDE will provide you with a list of these methods once you add a dot after the object and begin typing, like for example to access the `getId()` method, which returns the associated id number (an integer) of the view in question (see the gif below). Many methods like this return a specific type of value, which in turn can be used to determine your program's logic or perform other operations. Luckily, the return value of the methods is also shown on the right side of the dropdown menu in the IDE.
+Classes like `View` in Android studio often have a lot of such methods, which are accessed by the dot operator, just like in Exercise 1. Usually the IDE will provide you with a list of these methods once you add a dot after the object and begin typing, like for example to access the `getId()` method, which returns the associated id number (an integer) of the view in question (see the gif below). Many methods like this return a specific type of value, which in turn can be used to determine your program's logic or perform other operations. The return value of the methods is also shown on the right side of the dropdown menu in the IDE.
 
 ![A gif depicting a user starting to type,  placing a dot after the View object which prompts the IDE to supply the list of available methods beloning to the View class.](view-methods-ide.gif)
 
 However, sometimes it's useful to see all of them to understand what they do and which one you need. For this, [Android's official documentation](https://developer.android.com/reference/) is your best friend! For example, [this page](https://developer.android.com/reference/android/view/View) contains information about the `View` class. Useful!
+
+ In addition to methods that we write ourselves and methods that handle events like a click, some methods are called by the app itself automatically when needed. A good example of this is `onCreate`, this method is run when the app starts, but we do not have to call it. 
+ 
+ Even though the method is called automatically, it still gets something passed as a parameter: `Bundle saveInstanceState`. This `Bundle` object can be accessed all throughout the scope of the `onCreate` method, and contains information about the state of the app if it was restored from an earlier time. There are many such methods that are called automatically, a lot of which are part of the [activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle#java) which handles the different states of different screens inside an app throughout time. This week we will use `onCreate()` (of course) and `onSaveInstanceState()` in our app. 
