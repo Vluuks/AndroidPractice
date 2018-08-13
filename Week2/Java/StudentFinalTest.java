@@ -15,14 +15,14 @@ class Student {
     private String name;
     private String program;
     private int studentNumber;
-    private int EC;
+    private int credits;
 
     // Constructor of the class
-    public Student(String aName, String aProgram, int aStudentNumber, int someEC) {
+    public Student(String aName, String aProgram, int aStudentNumber, int someCredits) {
         name = aName;
         program = aProgram;
         studentNumber = aStudentNumber;
-        EC = someEC;
+        credits = someCredits;
     }
 }
 

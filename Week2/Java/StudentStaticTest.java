@@ -14,14 +14,14 @@ class Student {
     private String name;
     private String program;
     private int studentNumber;
-    private int EC;
+    private int credits;
 
     // Constructor of the class
-    public Student(String aName, String aProgram, int aStudentNumber, int someEC) {
+    public Student(String aName, String aProgram, int aStudentNumber, int someCredits) {
         name = aName;
         program = aProgram;
         studentNumber = aStudentNumber;
-        EC = someEC;
+        credits = someCredits;
     }
 }
 
@@ -42,8 +42,7 @@ class StudentStaticTest {
         Student ja = new Student("Jeanne d'Arc", "History", 90382, 40);
         ja.studentCount = 3;
         
-        // What is the value of studentCount using different ways to access it?
-        System.out.println("The value of studentCount:  " + al.studentCount);
+        // What is the value of studentCount?
         System.out.println("The value of studentCount: " + Student.studentCount);
     }
 }

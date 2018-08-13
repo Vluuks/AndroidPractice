@@ -4,27 +4,27 @@ class Student {
     private String name;
     private String program;
     private int studentNumber;
-    private int EC;
+    private int credits;
 
     // Constructor of the class
-    public Student(String aName, String aProgram, int aStudentNumber, int someEC) {
+    public Student(String aName, String aProgram, int aStudentNumber, int someCredits) {
         name = aName;
         program = aProgram;
         studentNumber = aStudentNumber;
-        EC = someEC;
+        credits = someCredits;
     }
 
     // Method of the class
-    public void setEC(int someEC) {
-        if(someEC > 0) {
-            EC = someEC;
+    public void setCredits(int someCredits) {
+        if(someCredits > 0) {
+            credits = someCredits;
         }
         else {
-            EC = 0;
+            credits = 0;
         }
     }
 
-    public int getEC() {
-        return EC;
+    public int getCredits() {
+        return credits;
     }
 }

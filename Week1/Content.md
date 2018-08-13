@@ -103,6 +103,8 @@ The constructor is defined by using the name of the class as the name of the met
 <a name="parameters"></a>
 
 ### Parameters of the constructor
+Parameters determine what kind of information can be passed on to a method. You are probably familiar with this concept as it exists in other languages as well. In Java, they are specified between the `()` of the method declaration, stating the name of the parameter and its type. 
+
 You can see in the method declaration of the constructor that it takes three parameters: two strings and an integer. 
 
          public Student(String aName, String aProgram, int aStudentNumber)
@@ -189,13 +191,16 @@ If you have trouble getting your Java programs to run in the IDE, run `update50`
 <a name="exercises"></a>
 
 ### Exercises 
-1) Make calls to the method `printInfo()` so that the information of both students is printed to the terminal. 
 
-2) Add a property that represents ECTS (studiepunten) to the student class, and make sure this property is correctly initialized when you create instances of the student object.
+0) Instantiate a third student.
 
-3) Create a method inside the student class, which both checks how many ECTS a certain student has and prints to the console whether they can ask for their diploma (which you need 180 for), or they still have to study some more!
+1) Make calls to the method `printInfo()` so that the information of all three students is printed to the terminal. 
 
-4) Rewrite the method created at 3 so that instead of just printing everything directly, it makes a call to another method which handles the EC checking part and returns true or false, depending on whether the student is eligible for their diploma. 
+2) Add a property that represents study credits to the student class, and make sure this property is correctly initialized when you create instances of the student object.
+
+3) Create a method inside the student class, which both checks how many credits a certain student has and prints to the console whether they can ask for their diploma (which you need 180 for), or they still have to study some more!
+
+4) Rewrite the method created at 3 so that instead of just printing everything directly, it makes a call to another method which handles the credit checking part and returns true or false, depending on whether the student is eligible for their diploma. 
 
 Be sure to save your final file, as you will need to show us later.
 

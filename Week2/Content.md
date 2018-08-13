@@ -132,22 +132,16 @@ In some cases it is beneficial to have another variable that is not unique for e
 Now that we have this variable, we of course also want to do something with it. Let's say we use this (admittedly inefficient) way of updating the student count every time we create a new student object:
 
         Student al = new Student("Ada Lovelace", "Computer Science", 61283, 180);
-        al.studentCount = 1;
+        Student.studentCount = 1;
         
         Student ik = new Student("Immanuel Kant", "Philosophy", 81148, 180);
-        ik.studentCount = 2;
+        Student.studentCount = 2;
         
         Student ja = new Student("Jeanne d'Arc", "History", 90382, 40);
-        ja.studentCount = 3;
+        Student.studentCount = 3;
 
 
-If we were to print the value of `al.studentCount` after running all of this, it would say 3. This is because `studentCount` is a static variable and thus even though we refer to it using the specific `Student` references, it is updated for the class as a whole! 
-
-The counter works as intended, keeping track of the number for all instances of the class. In the example above, we used the instances `al`, `ik` and `ja` to refer to the static variable, which looks confusing because it seems as if we are updating values for every instance, rather than an overarching value that applies to the class as a whole. 
-
-Because the variable `studentCount` is `static`, we can also access through the `Student` class itself, without needing an instance. This makes it clear at one glance that the studentCount variable is overarching all instances and is generally the advised notation.
-
-        Student.studentCount = 2;
+If we were to print the value of `Student.studentCount` after running all of this, it would say 3. This is because `studentCount` is a static variable and thus it is updated for the class as a whole! Because the variable `studentCount` is `static`, we can also access through the `Student` class itself, without needing an instance. For things like counters that keep track how many instances have been made, this is very practical. By referring to static variables through the class name like `Student.studentCount` it clear at one glance that the `studentCount` variable is overarching all instances and does not belong to one specific object.
 
 You can [compile and run this snippet](http://bit.ly/2NiBDdZ) to see the above in action. Feel free to play around with it a bit. 
 
