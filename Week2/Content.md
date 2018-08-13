@@ -29,7 +29,7 @@ You might have noticed that many of the variables and methods used in your code 
 
 - `public` is quite the opposite, allowing access from outside the class, as well as from other [packages](https://docs.oracle.com/javase/tutorial/java/concepts/package.html). This is the least restrictive access modifier. Basically, the variable or method is usable all throughout your app.
 
-- `protected` is a term we often see in Android Studio as well, it refers to a more toned down version of `public`. This modifier allows for access from within a package and subclasses that are located in other packages, but not for access from unrelated classes in other packages. 
+- `protected` is a term we sometimes see in Android Studio as well, it refers to a more toned down version of `public`. This modifier allows for access from within a package and subclasses that are located in other packages, but not for access from unrelated classes in other packages. In practice, you will rarely use this one yourself, but it can be seen in pre-generated code and libraries.
 
 - If you omit the access keyword, the variable or method is accessible within its own package only. Subclasses in other packages do not get access, as opposed to the `protected` keyword.
 
@@ -49,14 +49,14 @@ Consider the `Student` class once again, with some adjustments:
             private String name;
             private String program;
             private int studentNumber;
-            private int EC;
+            private int credits;
 
             // Constructor of the class
-            public Student(String aName, String aProgram, int aStudentNumber, int someEC) {
+            public Student(String aName, String aProgram, int aStudentNumber, int someCredits) {
                 name = aName;
                 program = aProgram;
                 studentNumber = aStudentNumber;
-                EC = someEC;
+                credits = someCredits;
             }
         }
 
@@ -64,13 +64,13 @@ Often when a class has private properties that does not mean they should never b
 
 A benefit of encapsulation is that instead of allowing someone to edit properties of an object using the dot operator, this must be done through a set method. This method takes as an argument the new value to be set, but can of course also check whether this value makes sense at all. 
 
-A good example could be the EC property. In this case its access is public so that means we can access it through the dot operator. Imagine we want to adjust the EC for the student object `s`. Using the dot operator we might do something like this:
+A good example could be the `credits` property. In this case its access is public so that means we can access it through the dot operator. Imagine we want to adjust the credits for the student object `s`. Using the dot operator we might do something like this:
 
-        s.EC = 40;
+        s.credits = 40;
 
 However, nothing really stops us from supplying a bogus value, like `-30` or some other integer that does not make sense. This is the case for many other properties classes could have, even for something as simple as a `Student` class!
 
-Instead of having the `EC` property be public, we could set it to `private` instead. By doing this, it can only be accessed from within the class, thus we are required to call the `setEC()` method if we want to modify it. This method does not just adjust the EC, but also verify that the number makes sense and act appropriately. In this case we check if it's above zero and only then set the new value, otherwise we keep it at zero. 
+Instead of having the `credits` property be public, we could set it to `private` instead. By doing this, it can only be accessed from within the class, thus we are required to call the `setCredits()` method if we want to modify it. This method does not just adjust the credits, but also verify that the number makes sense and act appropriately. In this case we check if it's above zero and only then set the new value, otherwise we keep it at zero. 
 
     class Student {
 
@@ -78,31 +78,31 @@ Instead of having the `EC` property be public, we could set it to `private` inst
         private String name;
         private String program;
         private int studentNumber;
-        private int EC;
+        private int credits;
 
         // Constructor of the class
-        public Student(String aName, String aProgram, int aStudentNumber, int someEC) {
+        public Student(String aName, String aProgram, int aStudentNumber, int someCredits) {
             name = aName;
             program = aProgram;
             studentNumber = aStudentNumber;
-            EC = someEC;
+            credits = someCredits;
         }
 
-        public void setEC(int someEC) {
-            if(someEC > 0) {
-                EC = someEC;
+        public void setCredits(int someCredits) {
+            if(someCredits > 0) {
+                credits = someCredits;
             }
             else {
-                EC = 0;
+                credits = 0;
             }
         }
 
-        public int getEC() {
-            return EC;
+        public int getCredits() {
+            return credits;
         }
     }
 
-The point is that through this method, the handling of the EC property is much more foolproof. It is managed through its respective getter and setter methods. By keeping the access inside the class, you have much more control over which values should be adjustable from outside the class and which ones shouldn't.
+The point is that through this method, the handling of the `credits` property is much more foolproof. It is managed through its respective getter and setter methods. By keeping the access inside the class, you have much more control over which values should be adjustable from outside the class and which ones shouldn't.
 
 Of course, to be able to get and set all of the other properties of the `Student` class now that their access is also set to `private`, extra getter and setter methods would have to be added.
 
@@ -111,7 +111,7 @@ Of course, to be able to get and set all of the other properties of the `Student
 ### Static vs. non-static
 Another modifier that can be added to the declaration of a method or variable is the `static` keyword. This modifier also has to do with access, but has to do with whether a class is instantiated or not. 
 
-In our `Student` class, we have different variables that represent properties of a student, these are called instance variables (`name`, `program`, `studentNumber`, `EC`). They differ across instances of the Student object, as every time we create a new one, we supply new values for these variables to the constructor. These variables are unique for every instance of the class, as it makes sense that not all students have the same name, student number etc. The class says: all students have a name, but the instance says: "This specific student's name is Ada Lovelace".
+In our `Student` class, we have different variables that represent properties of a student, these are called instance variables (`name`, `program`, `studentNumber`, `credits`). They differ across instances of the Student object, as every time we create a new one, we supply new values for these variables to the constructor. These variables are unique for every instance of the class, as it makes sense that not all students have the same name, student number etc. The class says: all students have a name, but the instance says: "This specific student's name is Ada Lovelace".
 
 In some cases it is beneficial to have another variable that is not unique for every instance, but instead applies to all instances of the class. Imagine we want to keep track of how many students there are in total. It would not make sense to keep a unique copy of that number for every student object we create, because that would be a waste of memory. Instead, we want one variable that can keep track of this count. To do this, we use a `static` variable that is common to all instances of the class.
 
