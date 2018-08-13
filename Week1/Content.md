@@ -4,6 +4,7 @@ In this course, we will use the programming language Java to create our Android 
 ## Table of contents
 - [Concepts](#concepts)
     * [Classes](#classes)
+    * [Classes and instances](#classes-instances)
     * [The constructor](#constructor)
     * [Parameters](#parameters)
     * [Return values](#return-values)
@@ -40,7 +41,14 @@ Java is a programming language that makes use of classes. A class is similar to 
 
 As you can see this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console.
 
-In Java, in order to use classes like the `Student` class, they need to be instantiated before they can be used. The `Student` class can be seen as a blueprint. It exists, but before we can use the properties or methods inside, we first need to create an *instance* of the class. An instance of a class is often called an object. 
+<a name="classes-instances"></a>
+
+### Classes and instances
+In Java, in order to use classes like the `Student` class, they need to be instantiated before they can be used. The `Student` class can be seen as a blueprint. It exists, but before we can use the properties or methods inside, we first need to create an *instance* of the class. An instance of a class is often called an object as well. A class is a blueprint which you use to create objects. These objects are instances of that particular class.
+
+This instance will contain actual information about a particular student, which the class blueprint does not. In the example below you can see the difference between the class (blueprint) and the instances. While the blueprint dictates what *kind* of information the class can hold, only the instances actually embody this information and represent actual students. 
+
+![An image depicting the student class and its properties, with on the other side of the image two example instances of the student class.](classes-instances.png)
 
 Let's say we wanted to create some instances of `Student`. As of now we do not really have a practical way to do that. We could instantiate empty objects and then add the properties as we go:
 
