@@ -70,9 +70,35 @@ To solve these issues, the instantiating of objects in Java is handled using a s
 <a name="constructor"></a>
 
 ### The constructor
-The constructor is an important and special method inside the class that we can call to create instances of that class. 
+The constructor is an important and special method inside the class that we can call to create instances of that class. By default, classes are provided with a constructor that takes no arguments and does not alter the properties of the class. We called this constructor in the example above: `Student a = new Student();`. It just creates the object with the associated properties, but does not set their values. 
 
-Often the constructor is used to set the properties of the class to meaningful values, in this case we want to set the values of the name, the program the student is attending and the student number. The constructor of the class is made with this in mind, allowing us to insert these values. 
+Often the constructor is used to set the properties of the class to meaningful values. In this case we want to set the values of the name, the program the student is attending and the student number. The constructor of the class can be made with this in mind, allowing us to insert these values.
+
+To do this, we simply need to add the constructor method to the class definition. While the class before only contained the properties and the method `printInfo()` we can now adjust it to hold our constructor as well!
+
+        class Student {
+
+            // Properties of the class
+            private String name;
+            private String program;
+            private int studentNumber; 
+
+            // Constructor of the class
+            public Student(String aName, String aProgram, int aStudentNumber) {
+                name = aName;
+                program = aProgram;
+                studentNumber = aStudentNumber;
+            }
+
+            // Method of the class
+            public void printInfo() {
+                System.out.println("This student is called " + name);
+                System.out.println("they are studying " + program);
+                System.out.println("and their student number is " + studentNumber);
+            }
+        }
+
+
 
 <a name="parameters"></a>
 
