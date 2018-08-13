@@ -182,5 +182,6 @@ With the information we know, `setAdapter()` being called on something that is a
 <a name="when-to-use-try-catch"></a>
 
 ### When to use try catch
+When creating your app, Java sometimes forces you to use a try-catch structure. This is mostly when you are working with I/O such as loading files or reading things from the raw/assets folder. Parsing JSON will also require you to use try-catch.
 
-... 
+It is of course not a solution to surround every potential null pointer with try catch for basic things like initializing views. In general you should still be aware of errors. However if you have an operation that might fail at runtime and crash the app, for example due to loss of connection, files that aren't where they are supposed to be etc. then it is a good idea to use the try-catch structure to prevent a runtime crash. 
