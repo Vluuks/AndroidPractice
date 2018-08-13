@@ -180,8 +180,9 @@ These classes are often depicted in what is called an UML diagram. They are help
 The concept of parameters and return values applies in Android Studio as well. A structure that is often present in Android code is a click handler that responds to click events on some element of the UI, for example a button:
 
         // This method will be called when the button inside the activity is clicked
-        public void buttonClicked(View view) {
-            System.out.println("Clicked!");
+        public void onClick(View view) {
+            int id = view.getId();
+            Log.d("View id:", Integer.toString(id));
         }
 
 This method gets a parameter, a `View` object called `view`. This object refers to the element in the layout, which are called views in Android, that triggered the method. This `View` object is available in the scope of the `buttonClicked` method, which means that we can use methods associated with the `view` object. 
