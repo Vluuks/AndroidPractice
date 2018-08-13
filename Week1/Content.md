@@ -6,7 +6,7 @@ In this course, we will use the programming language Java to create our Android 
     * [Classes](#classes)
     * [Classes and instances](#classes-instances)
     * [The constructor](#constructor)
-    * [Parameters](#parameters)
+    * [Parameters of the constructor](#parameters)
     * [Return values](#return-values)
 - [Practice](#practice)
 	* [Getting started](#getting-started)
@@ -74,14 +74,14 @@ The constructor is an important and special method inside the class that we can 
 
 Often the constructor is used to set the properties of the class to meaningful values. In this case we want to set the values of the name, the program the student is attending and the student number. The constructor of the class can be made with this in mind, allowing us to insert these values.
 
-To do this, we simply need to add the constructor method to the class definition. While the class before only contained the properties and the method `printInfo()` we can now adjust it to hold our constructor as well!
+To do this, we simply need to add the constructor method to the class definition. While the class  only contained the properties and the method `printInfo()` before, we can now adjust it to hold our constructor as well!
 
         class Student {
 
             // Properties of the class
-            private String name;
-            private String program;
-            private int studentNumber; 
+            public String name;
+            public String program;
+            public int studentNumber; 
 
             // Constructor of the class
             public Student(String aName, String aProgram, int aStudentNumber) {
@@ -98,11 +98,11 @@ To do this, we simply need to add the constructor method to the class definition
             }
         }
 
-
+The constructor is defined by using the name of the class as the name of the method, and then specifying the parameters it should take. Inside the method body, these parameters are passed on to the appropriate fields of the class. The next section will cover these parameters in more depth.
 
 <a name="parameters"></a>
 
-### Parameters
+### Parameters of the constructor
 You can see in the method declaration of the constructor that it takes three parameters: two strings and an integer. 
 
          public Student(String aName, String aProgram, int aStudentNumber)
@@ -119,11 +119,20 @@ Now, the variable `al` contains the values we initialized it with, because insid
 
 The variables `al` and `ik` can be seen as references to the respective objects. They each use the `Student` blueprint, but the contents of the properties are different.
 
+Due to the concept of [method overloading](https://beginnersbook.com/2013/05/method-overloading/) in Java, we can also define multiple constructors with different parameters for a class. If we wanted to define a constructor that does not take the program of the student as an argument, but just their name and number, it would look like this:
+
+            public Student(String aName, int aStudentNumber) {
+                name = aName;
+                studentNumber = aStudentNumber;
+            }
+
+We can then add this constructor to the `Student` class as well, and when instantiating students, we can choose which one of the constructors to use. If we know everything we need, we can use the first constructor. If we do not know their program yet, then we can choose the latter. The program will then remain `null` until we set it to a value later. The final file with both constructors present would look like [this](Java/StudentExample.java).
+
 
 <a name="return-values"></a>
 
 ### Return values
-When taking a look at the printInfo() method, another aspect is important: the return type. Methods in Java specify the kind of value they return at the end. In this case, `printInfo()` is preceded by the word `void` which indicates that the method does not return any value. This is true, as it just prints anything but does not return a value to the caller. 
+When taking a look at the `printInfo()` method, another aspect is important: the return type. Methods in Java specify the kind of value they return at the end. In this case, `printInfo()` is preceded by the word `void` which indicates that the method does not return any value. This is true, as it just prints anything but does not return a value to the caller. 
 
 Suppose we had a different structure of the class in mind, which separates the tasks that are going on a bit more. Let's say we would want to split the task of building the string to be printed and the actual printing itself. Our methods could then look something like this:
 
