@@ -21,21 +21,14 @@ In this course, we will use the programming language Java to create our Android 
 <a name="classes"></a>
 
 ### Classes 
-Java is a programming language that makes use of classes. A class is similar to a `struct` in C, but instead of just holding data, they can hold code that can be run as well. The data inside a Java class are commonly called *properties*, whereas the code that can be executed inside the class is called a *method*. Below is a very simple example of a Java class, which depicts a student.
+Java is a programming language that makes use of classes. A class is similar to a `struct` in C, but instead of just holding data, they can hold code that can be run as well. The data inside a Java class are commonly called *properties*, whereas the code that can be executed inside the class is called a *method*. Below is a very simple example of a Java class, which depicts a student with just three properties, and one method.
 
         class Student {
 
             // Properties of the class
-            private String name;
-            private String program;
-            private int studentNumber; 
-
-            // Constructor of the class
-            public Student(String aName, String aProgram, int aStudentNumber) {
-                name = aName;
-                program = aProgram;
-                studentNumber = aStudentNumber;
-            }
+            public String name;
+            public String program;
+            public int studentNumber; 
 
             // Method of the class
             public void printInfo() {
@@ -47,10 +40,29 @@ Java is a programming language that makes use of classes. A class is similar to 
 
 As you can see this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console.
 
+In Java, in order to use classes like the `Student` class, they need to be instantiated before they can be used. The `Student` class can be seen as a blueprint. It exists, but before we can use the properties or methods inside, we first need to create an *instance* of the class. An instance of a class is often called an object. 
+
+Let's say we wanted to create some instances of `Student`. As of now we do not really have a practical way to do that. We could instantiate empty objects and then add the properties as we go:
+
+        Student a = new Student();
+        a.name = "John Smith";
+        a.program = "Chemistry";
+        a.studentNumber = 12824212;
+
+It works as intended, but the problems with this are twofold. We need a lot of lines to create the basics of a `Student` object. For now there are three properties, but if there were more we would need a line for every assignment we make. Furthermore, this structure allows us to create incomplete objects as well:
+
+        Student b = new Student();
+        b.program = "Graphic Design";
+        b.studentNumber = 21401851;
+
+The above is valid syntax, so nothing is stopping us from never assigning a name to a particular student, which would of course not really make sense. You can imagine that missing basic properties might cause issues for other things you might want to represent in a class as well! 
+
+To solve these issues, the instantiating of objects in Java is handled using a special method, the constructor.
+
 <a name="constructor"></a>
 
 ### The constructor
-An important part of the class is the *constructor*. It is a special method inside the class that we can call to create instances of that class. In Java, in order to use classes like the `Student` class, they need to be instantiated before they can be used. The `Student` class can be seen as a blueprint. It exists, but before we can use the properties or methods inside, we first need to create an *instance* of the class. The constructor is used to do so. 
+The constructor is an important and special method inside the class that we can call to create instances of that class. 
 
 Often the constructor is used to set the properties of the class to meaningful values, in this case we want to set the values of the name, the program the student is attending and the student number. The constructor of the class is made with this in mind, allowing us to insert these values. 
 
