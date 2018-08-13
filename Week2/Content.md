@@ -123,7 +123,7 @@ In some cases it is beneficial to have another variable that is not unique for e
             private String name;
             private String program;
             private int studentNumber;
-            private int EC;
+            private int credits;
 
             ...
 
@@ -141,7 +141,7 @@ Now that we have this variable, we of course also want to do something with it. 
         Student.studentCount = 3;
 
 
-If we were to print the value of `Student.studentCount` after running all of this, it would say 3. This is because `studentCount` is a static variable and thus it is updated for the class as a whole! Because the variable `studentCount` is `static`, we can also access through the `Student` class itself, without needing an instance. For things like counters that keep track how many instances have been made, this is very practical. By referring to static variables through the class name like `Student.studentCount` it clear at one glance that the `studentCount` variable is overarching all instances and does not belong to one specific object.
+If we were to print the value of `Student.studentCount` after running all of this, it would say 3. This is because `studentCount` is a static variable and thus it is updated for the class as a whole! Because the variable `studentCount` is `static`, we can also access through the `Student` class itself, without needing an instance. For things like counters that keep track how many instances have been made, this is very practical. We could for example also keep a count of the total credits amassed by all students. By referring to static variables through the class name like `Student.studentCount` it clear at one glance that the `studentCount` variable is overarching all instances and does not belong to one specific object.
 
 You can [compile and run this snippet](http://bit.ly/2NiBDdZ) to see the above in action. Feel free to play around with it a bit. 
 
@@ -273,4 +273,3 @@ Another things that you need to pay attention to is the location of your files. 
 The IDE allows for different depictions of the files representing your app. If yours does look different, try switching the mode to 'Android' instead by using the dropdown in the top left corner as shown in the image above. 
 
 When right clicking this directory, you can easily create a new Java class, which after allows you to to select `enum` in a dropdown as well. For activities however, it's best to go with `New > Activity > Empty Activity` since this also generates the required layout files and standard methods for you. 
-
