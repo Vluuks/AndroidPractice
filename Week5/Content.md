@@ -3,8 +3,8 @@ In this section we will look at asynchronous code and interfaces. When building 
 
 ## Table of contents
 - [Concepts](#concepts)
-	 * [Asynchronous code](#exceptions)
-	 * [Interfaces](#try-catch)
+	 * [Asynchronous code](#asynchronous-code)
+	 * [Interfaces](#interfaces)
 - [Practice](#practice)
 	 * [Exercises](#exercises)
 - [Plain Java vs. Android Studio](#plain-java-vs.-android-studio)
@@ -51,9 +51,6 @@ In this example, there is time to start and finish 5, but then the callback of 3
 Of course, in practice not everything happens on one thread like pictured here. Applications often utilize multiple threads so this example is greatly simplified. It just serves to illustrate the concept of a callback method and how it can be used to invoke methods that are dependent on another method that runs asynchronously. 
 
 
-
-
-
 <a name="interfaces"></a>
 
 ### Interfaces
@@ -65,9 +62,9 @@ When waiting for a response from the server or for some other task to finish, we
 
 Imagine you want to show a list of movies obtained from IMDB in a ListView. You cannot do that until the network request downloading said list has finished. So any code that sets or updates the adapter needs to wait for the request and only fire once the request has completed succesfully and we have our list of data.
 
-However, we don't want all our functionality to reside in the Activity, but separate in classes with each their own responsibility. This meanst that there needs to be a way to invoke a method in the Activity from inside some other class.
+However, we don't want all our functionality to reside in the Activity, but separate in classes with each their own responsibility. This meanst that there needs to be a way to invoke a method in the Activity from inside some other class. In the example below there is an activity, `CategoriesActivity` that uses the helper class `CategoriesRequest` to perform a network request. Then, when this is done, depending on whether it was succesful or not, this class performs a callback. It invokes either ` gotCategories()` (the data was retrieved) or ` gotCategoriesError()` (something failed, like the internet stopped working or there was no response from the server).
 
-INSERT IMAGE THAT DEPICTS THIS HERE
+![](callback-uml.png)
 
 To do this communication between Activity classes and other classes effectively, we can make use of the `interface` functionality of the Java programming language.
 
