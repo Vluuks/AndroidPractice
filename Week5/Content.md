@@ -73,7 +73,7 @@ To do this communication between Activity classes and other classes effectively,
 
 ### Interface syntax
 
-The declaration of an `interface` is somewhat similar to that of a class. Let's assume we want to define an `interface` called `Callback`. This would be the basic structure:
+The declaration of an `interface` is somewhat similar to that of a class. Let's assume we want to define an interface called `Callback`. This would be the basic structure:
 
 		public interface Callback {
 
@@ -86,6 +86,29 @@ The actual implementation of the method is not done in the interface itself howe
 		public interface Callback {
 			public void gotCategories();
 			public void gotCategoriesError();
+		}
+
+
+TODO deze zin/alinea  loopt niet lekker maar ik kom even niet met wat beters
+
+As we can see the interface does not define what happens inside these methods. This is handled by the Activity. To make the connection between the Activity and the interface, we need to specify inside our Activity class declaration that it is connected to that specific interface. We make a promise, so to speak, that the Activity will handle the actual implementation of the method signatures defined in the interface.
+
+		public class MainActivity implements Callback {
+			...
+		}
+
+If we would try to compile this, it does not work. This is because the `implements` clause require us to at least add the empty method bodies to `MainActivity`:
+
+		public class MainActivity implements Callback {
+			...
+
+			public void gotCategories() {
+				// Here we can define what this method should do
+			}
+
+			public void gotCategoriesError() {
+				// Here we can define what this method should do
+			}
 		}
 
 TODO onresponse/errorresponse er uit halen want dat zelf is ook al een callback van de request en is misschien verwarrend. 
