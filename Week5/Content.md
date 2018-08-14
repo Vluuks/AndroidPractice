@@ -126,6 +126,10 @@ MainActivity achtige class, helperclass die iets doet, dat duurt lang, dan callb
 
 Zelf interface laten schrijven en extend etc.
 
+https://www.foreach.be/blog/parallel-and-asynchronous-programming-in-java-8
+
+Werkt niet ivm versie java IDE, kijken of ik het kan updaten.
+
 <a name="practice"></a>
 
 ### Exercises
