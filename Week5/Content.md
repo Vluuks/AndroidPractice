@@ -5,6 +5,7 @@ In this section we will look at asynchronous code and interfaces. When building 
 - [Concepts](#concepts)
 	 * [Asynchronous code](#asynchronous-code)
 	 * [Interfaces](#interfaces)
+	 * [Interface syntax](#interface-syntax)
 - [Practice](#practice)
 	 * [Exercises](#exercises)
 - [Plain Java vs. Android Studio](#plain-java-vs.-android-studio)
@@ -82,6 +83,8 @@ To do this communication between Activity classes and other classes effectively,
 ...
 
 Activity en Java class simuleren? Interface ook gebruiken voor multiple inheritance of alleen callback achtig?
+
+MainActivity achtige class, helperclass die iets doet, dat duurt lang, dan callback naar main class wanneer het klaar is. Gewoon met timer ofzo simuleren dat het lang duurt? Gaat meer om het idee. Dan op basis van die timer een andere method aanroepen. Eerst laten zien dat als je het gewoon onder elkaar zit het niet op elkaar wacht als het async is. Even kijken hoe ik dat moet simuleren in plain java.
 
 Zelf interface laten schrijven en extend etc.
 

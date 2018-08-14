@@ -1,5 +1,5 @@
 # Java Basics for Android
- <img align="left" width="100" height="100" src="Images/robotje.png"> In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you.  Additionally, these concepts will be related to actual "Android" code, showing you how these plain Java concepts are relevant all throughout your app! This will be done using written text and mini exercises.
+ <img align="left" src="Images/robotje.png"> In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you.  Additionally, these concepts will be related to actual "Android" code, showing you how these plain Java concepts are relevant all throughout your app! This will be done using written text and mini exercises.
 
 ## Table of contents
 - [Concepts](#concepts)
