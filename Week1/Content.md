@@ -260,3 +260,5 @@ However, sometimes it's useful to see all of them to understand what they do and
  In addition to methods that we write ourselves and methods that handle events like a click, some methods are called by the app itself automatically when needed. A good example of this is `onCreate`, this method is run when the app starts, but we do not have to call it. 
  
  Even though the method is called automatically, it still gets something passed as a parameter: `Bundle saveInstanceState`. This `Bundle` object can be accessed all throughout the scope of the `onCreate` method, and contains information about the state of the app if it was restored from an earlier time. There are many such methods that are called automatically, a lot of which are part of the [activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle#java) which handles the different states of different screens inside an app throughout time. This week we will use `onCreate()` (of course) and `onSaveInstanceState()` in our app. 
+
+ ![](/Misc/robotje.png)
