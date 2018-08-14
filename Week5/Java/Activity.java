@@ -4,7 +4,7 @@ class Activity implements Callback {
 
     }
 
-    private void taskFinished() {
+    public void taskFinished() {
         System.out.println("all done");
     }
 

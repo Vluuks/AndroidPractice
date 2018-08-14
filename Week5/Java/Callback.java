@@ -1,3 +1,3 @@
 public interface Callback {
-    void taskFinished();
+    public void taskFinished();
 }

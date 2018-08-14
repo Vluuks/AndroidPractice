@@ -5,8 +5,7 @@ public class InterfaceTest {
         Activity a = new Activity();
         
         Helper h = new Helper(a);
-        
-
+        h.getData();
     }
 
 }
