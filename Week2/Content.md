@@ -1,5 +1,8 @@
 # Java Basics for Android
- <img align="left" src="Images/robotje.png"> This week we focus on concepts that have to do with the way variables and methods are accessed and modified. We will also pay attention to what is good practice in regards to structuring your variables and illustrate how these concepts are visible in the Android API. 
+ <img align="left" src="Images/robotje.png"> This week we focus on concepts that have to do with the way classes, variables and methods are accessed and modified. We will also pay attention to what is good practice in regards to structuring your variables and illustrate how these concepts are visible in the Android API. Finally, some issues regarding these concepts you might run in to when creating your apps are shown as well. 
+<br>
+<br>
+<br> 
 
 ## Table of contents
 - [Concepts](#concepts)
