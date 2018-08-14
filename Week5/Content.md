@@ -18,19 +18,19 @@ In this section we will look at asynchronous code and interfaces. When building 
 
 ### Asynchronous code
 
-![](async1.png)
+![Image showing sequential and one threaded execution of tasks, from 1 to 6. The image is accompanied by a horizontal line representing time passed.](async1.png)
 
 In the image above we first see a regular set of tasks that the computer executes sequentially. There is no problem when these things do not take extra time, like adding numbers together.
 
 The second example shows us that task 3 is taking extra time to complete, because for example it performs a network request to download some information off the internet:
 
-![](async2.png)
+![Image showing sequential and one threaded execution of tasks, from 1 to 6. 3 is a task that takes time, like a network request, so the time it takes to execute everything is greatly increased.](async2.png)
 
 If we wanted to keep everything one one thread, we would have to wait for it to complete before continuing, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled.
 
 The last example shows us the effects of asynchronous code. 
 
-![](async3.png)
+![Image showing one threaded execution of tasks, from 1 to 6. 3 still takes extra time, but is not executed asynchronously.](async3.png)
 
 While task 3 is started and still in progress, task 4, 5 and 6 are started in sequence, even though task 3 has not finished yet! This has different implications:
 
@@ -46,7 +46,7 @@ In the last example, we would create a callback inside task 3, so that when it i
 
 In this example, there is time to start and finish 5, but then the callback of 3 is triggered, signaling that 3 has finished and thus 4 can start. 4 is then run. 
 
-![](callback.png)
+![Image showing the sequence of tasks, indicating that when 3 finishes its time consuming task, it invokes a callback that indicates that task 4 can now be started.](callback.png)
 
 Of course, in practice not everything happens on one thread like pictured here. Applications often utilize multiple threads so this example is greatly simplified. It just serves to illustrate the concept of a callback method and how it can be used to invoke methods that are dependent on another method that runs asynchronously. 
 
@@ -62,9 +62,11 @@ When waiting for a response from the server or for some other task to finish, we
 
 Imagine you want to show a list of movies obtained from IMDB in a ListView. You cannot do that until the network request downloading said list has finished. So any code that sets or updates the adapter needs to wait for the request and only fire once the request has completed succesfully and we have our list of data.
 
-However, we don't want all our functionality to reside in the Activity, but separate in classes with each their own responsibility. This meanst that there needs to be a way to invoke a method in the Activity from inside some other class. In the example below there is an activity, `CategoriesActivity` that uses the helper class `CategoriesRequest` to perform a network request. Then, when this is done, depending on whether it was succesful or not, this class performs a callback. It invokes either ` gotCategories()` (the data was retrieved) or ` gotCategoriesError()` (something failed, like the internet stopped working or there was no response from the server).
+However, we don't want all our functionality to reside in the Activity, but separate in classes with each their own responsibility. This meanst that there needs to be a way to invoke a method in the Activity from inside some other class. In the example below there is an activity, `CategoriesActivity` that uses the helper class `CategoriesRequest` to perform a network request. Then, when this is done, depending on whether it was succesful or not, this class performs a callback. It invokes either `gotCategories()` (the data was retrieved) or `gotCategoriesError()` (something failed, like the internet stopped working or there was no response from the server). 
 
-![](callback-uml.png)
+![UML depiction of one activity and class and respective methods, showing that when the helper class is done with a particular task, it invokes the callback and code in the Activity that was dependent on the task can be executed now.](callback-uml.png)
+
+When the callback `gotCategories()` is performed, we can now be sure that the appropriate data is there and continue running code as necessary.
 
 To do this communication between Activity classes and other classes effectively, we can make use of the `interface` functionality of the Java programming language.
 
