@@ -65,7 +65,7 @@ Imagine you want to show a list of movies obtained from IMDB in a ListView. You 
 
 However, we don't want all our functionality to reside in the Activity, but separate in classes with each their own responsibility. This meanst that there needs to be a way to invoke a method in the Activity from inside some other class. In the example below there is an activity, `CategoriesActivity` that uses the helper class `CategoriesRequest` to perform a network request. Then, when this is done, depending on whether it was succesful or not, this class performs a callback. It invokes either `gotCategories()` (the data was retrieved) or `gotCategoriesError()` (something failed, like the internet stopped working or there was no response from the server). 
 
-![UML depiction of one activity and class and respective methods, showing that when the helper class is done with a particular task, it invokes the callback and code in the Activity that was dependent on the task can be executed now.](callback-uml.png)
+ <img align="left" src="callback-uml.png" style="padding: 10px"> 
 
 When the callback `gotCategories()` is performed, we can now be sure that the appropriate data is there and continue running code as necessary.
 

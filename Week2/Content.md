@@ -1,5 +1,5 @@
 # Java Basics for Android
- <img align="left" src="Images/robotje.png"> This week we focus on concepts that have to do with the way classes, variables and methods are accessed and modified. As the scope of your application gets bigger, not everything needs to be reachable from all points in the app. We will also pay attention to what is good practice in regards to structuring your variables and how to incorporate them in control structures. Additionally, the second part of this guide illustrate how these concepts are visible in the Android API. Finally, some issues regarding these concepts you might run in to when creating your apps are shown as well. 
+ <img align="left" src="Images/robotje.png" style="padding: 10px"> This week we focus on concepts that have to do with the way classes, variables and methods are accessed and modified. As the scope of your application gets bigger, not everything needs to be reachable from all points in the app. We will also pay attention to what is good practice in regards to structuring your variables and how to incorporate them in control structures. Additionally, the second part of this guide illustrate how these concepts are visible in the Android API. Finally, some issues regarding these concepts you might run in to when creating your apps are shown as well. 
 <br>
 <br>
 <br> 
