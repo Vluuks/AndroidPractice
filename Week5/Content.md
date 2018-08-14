@@ -70,11 +70,20 @@ When the callback `gotCategories()` is performed, we can now be sure that the ap
 
 To do this communication between Activity classes and other classes effectively, we can make use of the `interface` functionality of the Java programming language.
 
+<a name="interface-syntax"></a>
+
+### Interface syntax
+
+...
 
 <a name="practice"></a>
 
 ## Practice
 ...
+
+Activity en Java class simuleren? Interface ook gebruiken voor multiple inheritance of alleen callback achtig?
+
+Zelf interface laten schrijven en extend etc.
 
 <a name="practice"></a>
 
