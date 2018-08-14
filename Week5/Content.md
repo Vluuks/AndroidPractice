@@ -61,11 +61,9 @@ If we stop all execution of code and wait, that works. However, this also means 
 
 When waiting for a response from the server or for some other task to finish, we need to have a way to communicate back to our activity that the task has finished. This becomes especially important with asynchronous code, because we cannot just continue running things in our Activity that are dependent on our network request, we might need to wait for the other class to finish what we are doing before we want anything to happen. 
 
-Imagine you want to show a list of movies obtained from IMDB in a ListView. You cannot do that until the network request downloading said list has finished. So any code that sets or updates the adapter needs to wait for the request and only fire once the request has completed succesfully and we have our list of data.
+ <img align="left" src="callback-uml.png" style="padding: 10px"> Imagine you want to show a list of movies obtained from IMDB in a ListView. You cannot do that until the network request downloading said list has finished. So any code that sets or updates the adapter needs to wait for the request and only fire once the request has completed succesfully and we have our list of data.
 
-However, we don't want all our functionality to reside in the Activity, but separate in classes with each their own responsibility. This meanst that there needs to be a way to invoke a method in the Activity from inside some other class. In the example below there is an activity, `CategoriesActivity` that uses the helper class `CategoriesRequest` to perform a network request. Then, when this is done, depending on whether it was succesful or not, this class performs a callback. It invokes either `gotCategories()` (the data was retrieved) or `gotCategoriesError()` (something failed, like the internet stopped working or there was no response from the server). 
-
- <img align="left" src="callback-uml.png" style="padding: 10px"> 
+However, we don't want all our functionality to reside in the Activity, but separate in classes with each their own responsibility. This meanst that there needs to be a way to invoke a method in the Activity from inside some other class. In the example UML image there is an activity, `CategoriesActivity` that uses the helper class `CategoriesRequest` to perform a network request. Then, when this is done, depending on whether it was succesful or not, this class performs a callback. It invokes either `gotCategories()` (the data was retrieved) or `gotCategoriesError()` (something failed, like the internet stopped working or there was no response from the server). 
 
 When the callback `gotCategories()` is performed, we can now be sure that the appropriate data is there and continue running code as necessary.
 
@@ -75,7 +73,22 @@ To do this communication between Activity classes and other classes effectively,
 
 ### Interface syntax
 
-...
+The declaration of an `interface` is somewhat similar to that of a class. Let's assume we want to define an `interface` called `Callback`. This would be the basic structure:
+
+		public interface Callback {
+
+		}
+
+Inside the curly brackets we will define the methods that should be covered by it. In the example before we had defined `gotCategories()` and `gotCategoriesError()` as possible outcomes that should be handled by the interface. We want to use these methods to communicate from our helper class to the Activity class that our request was either succesful or failed. 
+
+The actual implementation of the method is not done in the interface itself however, but left to the Activity, the place where we want to handle the result of our request. As such, the interface only contains the method *signature*: the return type, name and argument list.
+
+		public interface Callback {
+			public void gotCategories();
+			public void gotCategoriesError();
+		}
+
+TODO onresponse/errorresponse er uit halen want dat zelf is ook al een callback van de request en is misschien verwarrend. 
 
 <a name="practice"></a>
 
