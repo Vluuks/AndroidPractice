@@ -124,3 +124,8 @@ In this example, the Helper class performs a task `run()` that takes a bit of ti
 
 ### Exercises
  
+ 1. Add a method signature to the interface `Callback`.
+
+ 2. Make the `Activity` class implement this interface correctly. The method body can be a print statement of your choosing.
+
+ 3. Using the reference to the `Activity` 
