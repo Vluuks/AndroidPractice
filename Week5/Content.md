@@ -116,21 +116,11 @@ TODO onresponse/errorresponse er uit halen want dat zelf is ook al een callback 
 <a name="practice"></a>
 
 ## Practice
-...
+For this exercise, we have provided you with a few Java files. Because we simulate the Android environment, we make use of an `Activity` class and a `Helper` class. The idea is that in your apps, you often want to keep network requests, database interactions or other time consuming tasks separate from the activities. The main method inside `InterfaceTest` initiates the `Activity` and the `Helper` class and then starts running the functionality inside the helper class: `new Thread(new Helper(a)).start();`
 
-Work in progress.
-
-Activity en Java class simuleren? Interface ook gebruiken voor multiple inheritance of alleen callback achtig?
-
-MainActivity achtige class, helperclass die iets doet, dat duurt lang, dan callback naar main class wanneer het klaar is. Gewoon met timer ofzo simuleren dat het lang duurt? Gaat meer om het idee. Dan op basis van die timer een andere method aanroepen. Eerst laten zien dat als je het gewoon onder elkaar zit het niet op elkaar wacht als het async is. Even kijken hoe ik dat moet simuleren in plain java.
-
-Zelf interface laten schrijven en extend etc.
-
-https://www.foreach.be/blog/parallel-and-asynchronous-programming-in-java-8
-
-Werkt niet ivm versie java IDE, kijken of ik het kan updaten.
+In this example, the Helper class performs a task `run()` that takes a bit of time, simulated by sleeping the thread for a few seconds. When this task is done, we want to notify your `Activity`, and this is where the interface comes into play. However, it has not been implemented yet!
 
 <a name="practice"></a>
 
 ### Exercises
-...
+ 
