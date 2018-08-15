@@ -17,5 +17,6 @@ public class Helper implements Runnable {
             System.out.println(e.getMessage());
         }
         System.out.println("Thread klaar!");
+        activity.taskFinished();
     }
 }

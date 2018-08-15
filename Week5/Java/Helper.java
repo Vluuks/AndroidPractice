@@ -1,4 +1,6 @@
-public class Helper {
+import java.util.concurrent.*;
+
+public class Helper implements Runnable {
 
     Activity activity;
 
@@ -6,17 +8,15 @@ public class Helper {
         this.activity = callingActivity;
     }
 
-    public void getData() {
-        // sleep for certain amount
+    public void run() {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1000);
         } 
-        catch(InterruptedException e){
+        catch(Exception e) {
             Thread.currentThread().interrupt();
             System.out.println(e.getMessage());
         }
-
+        System.out.println("Thread klaar!");
         activity.taskFinished();
     }
-
 }
