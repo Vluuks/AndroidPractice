@@ -8,6 +8,7 @@ public class InterfaceTest {
         // Run the helper class code in another thread
         new Thread(new Helper(a)).start();
         
+        // This should be executed before the callback finishes, even if it is invoked last.
         System.out.println("Dit komt nog voor de callback.");
         
     }
