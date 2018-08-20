@@ -4,4 +4,5 @@ lab50:
     - readme
     - terminal
   file:
+    - foo.c
     - StudentTest.java
