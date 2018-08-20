@@ -1,5 +1,8 @@
-// The class used to contain the main method
-class StudentTest {
+/*
+    Class that contains the main method.
+    Native App Studio - University of Amsterdam
+*/
+public class StudentTest {
     
     // The main method is the start of the program
     public static void main(String[] args) {

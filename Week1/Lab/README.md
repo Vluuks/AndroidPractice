@@ -228,7 +228,7 @@ constructor: no return type keyword is used in its declaration.
 
 ➡️ *Exercise 5.1:* Create a method inside the student class, which both checks how many credits a certain student has and prints to the console whether they can ask for their diploma (which you need 180 for), or they still have to study some more!
 
-➡️ *Exercise 5.2:* Rewrite the method created at 3 so that instead of just printing everything directly, it makes a call to another method which handles the credit checking part and returns true or false, depending on whether the student is eligible for their diploma. 
+➡️ *Exercise 5.2:* Rewrite the method created at 5.1 so that instead of just printing everything directly, it makes a call to another method which handles the credit checking part and returns true or false, depending on whether the student is eligible for their diploma. 
 
 {% spoiler "Hint: Compiling and running Java code" %}
 To compile your Java file to a .class file, use this command on the terminal:
