@@ -151,9 +151,13 @@ Due to the concept of [method overloading](https://beginnersbook.com/2013/05/met
                 studentNumber = aStudentNumber;
             }
 
-We can then add this constructor to the `Student` class as well, and when instantiating students, we can choose which one of the constructors to use. If we know everything we need, we can use the first constructor. If we do not know their program yet, then we can choose the latter. The program will then remain `null` until we set it to a value later. The final file with both constructors present would look like [this](Java/StudentExample.java).
+We can then add this constructor to the `Student` class as well, and when instantiating students, we can choose which one of the constructors to use. If we know everything we need, we can use the first constructor. If we do not know their program yet, then we can choose the latter. The program will then remain `null` until we set it to a value later. 
+
+➡️ *Exercise 4:* In your `Student.java` file, add a second constructor that takes only two arguments instead of four.
 
 
+{% next "Next: Return values" %}
+&nbsp;
 <a name="return-values"></a>
 
 ### Return values
