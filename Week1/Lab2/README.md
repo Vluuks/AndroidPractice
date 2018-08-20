@@ -1,5 +1,5 @@
 # Java Basics for Android
- <img align="left" src="../Images/robotje.png" style="padding: 10px"> In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you.  Additionally, these concepts will be related to actual "Android" code, showing you how these plain Java concepts are relevant all throughout your app! This will be done using written text and mini exercises. 
+ <img align="left" src="../Images/robotje.png" style="padding: 10px"> In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you. We will do this in "lab" form, which means we make use of a split screen, combining the explanation with an built in editor and terminal.
  
  This week's focus will be on the basic features of Java: classes and their associated methods. Since it's an object oriented language, we will take a look at classes and how to use them. Then we will focus on methods and their parameters and return values.
 <br>
@@ -237,3 +237,6 @@ After compilation, you can run your program using:
 
 {% next "Next: Java vs. Android" %}
 &nbsp;
+
+## Wrapping it up
+You have now seen how to instantiate objects in Java, using a class as a blueprint. You also practiced with methods, including their parameters and return values. These concepts will all be important when you get to building your app!
