@@ -5,9 +5,9 @@
 public class Student {
 
     // Properties of the class
-    private String name;
-    private String program;
-    private int studentNumber; 
+    public String name;
+    public String program;
+    public int studentNumber; 
     // ... add a property
 
     // Method of the class
