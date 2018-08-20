@@ -1,8 +1,4 @@
-lab50:
-  windows:
-    - editor
-    - readme
-    - terminal
+lab50: true
   files:
     - test.c
     - StudentTest.java
