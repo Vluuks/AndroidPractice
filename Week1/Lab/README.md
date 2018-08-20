@@ -47,7 +47,7 @@ Java is a programming language that makes use of classes. A class is similar to 
 
 As you can see this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console. 
 
-➡️ *Exercise 1.1:* In the editor on the right, find the `Student.java` file and add another property to the class, right below the `studentNumber` property. You don't need to alter the `printInfo()` method yet.
+➡️ *Exercise 1:* In the editor on the right, find the `Student.java` file and add another property to the class, right below the `studentNumber` property. You don't need to alter the `printInfo()` method yet.
 
 {% next "Next: Classes and instances" %}
 &nbsp;
@@ -112,9 +112,10 @@ To do this, we simply need to add the constructor method to the class definition
 
 The constructor is defined by using the name of the class as the name of the method, and then specifying the parameters it should take. Inside the method body, these parameters are passed on to the appropriate fields of the class. The next section will cover these parameters in more depth.
 
-➡️ *Exercise 2:* Using the syntax from the example above, add the constructor to `Student.java`. Verify that it works as intended by compiling and running `StudentTest.java`.
+Go to the terminal and look at the file `StudentTest.java` This file contains the `main` method, the point of entry of the program (just like we are used to in C!). The main method needs to be contained in a class as well, which we have called `StudentTest`. 
 
-{% spoiler "Compiling and running Java code" %}
+From this main method, we can access the `Student` class and create instances of it, as well as invoke the methods contained within the student class through the references we created before. Essentially, this is where the action happens most of the time. If you want to make changes to the contents of the `Student` class itself, this should of course be done inside that class instead!
+
 To compile your Java file to a .class file, use this command on the terminal:
 
         javac YourJavaFileName.java
@@ -122,7 +123,8 @@ To compile your Java file to a .class file, use this command on the terminal:
 After compilation, you can run your program using:
 
         java YourJavaFileName
-{% endspoiler %}
+
+➡️ *Exercise 2:* Using the syntax from the example above, add the constructor to `Student.java`. Verify that it works as intended by compiling and running `StudentTest.java`.
 
 {% next "Next: Parameters of the constructor" %}
 &nbsp;
@@ -147,7 +149,17 @@ Now, the variable `al` contains the values we initialized it with, because insid
 
 The variables `al` and `ik` can be seen as references to the respective objects. They each use the `Student` blueprint, but the contents of the properties are different.
 
-➡️ *Exercise 3:* Adjust the constructor to incorporate the property you added in 1.1 and instantiate three student objects in `StudentTest.java`'s `main` method. 
+➡️ *Exercise 3:* Adjust the constructor to incorporate the property you added in 1.1 and instantiate three student objects in `StudentTest.java`'s `main` method. Verify that it works by compiling and running your code.
+
+{% spoiler "Hint: Compiling and running Java code" %}
+To compile your Java file to a .class file, use this command on the terminal:
+
+        javac YourJavaFileName.java
+
+After compilation, you can run your program using:
+
+        java YourJavaFileName
+{% endspoiler %}
 
 {% next "Next: Method overloading" %}
 &nbsp;
@@ -163,7 +175,17 @@ Due to the concept of [method overloading](https://beginnersbook.com/2013/05/met
 
 We can then add this constructor to the `Student` class as well, and when instantiating students, we can choose which one of the constructors to use. If we know everything we need, we can use the first constructor. If we do not know their program yet, then we can choose the latter. The program will then remain `null` until we set it to a value later. 
 
-➡️ *Exercise 4:* In your `Student.java` file, add a second constructor that takes only two arguments instead of four.
+➡️ *Exercise 4:* In your `Student.java` file, add a second constructor that takes only two arguments instead of four. Instantiate some student objects using this alternative constructor as well. Verify that it works by compiling and running the code.
+
+{% spoiler "Hint: Compiling and running Java code" %}
+To compile your Java file to a .class file, use this command on the terminal:
+
+        javac YourJavaFileName.java
+
+After compilation, you can run your program using:
+
+        java YourJavaFileName
+{% endspoiler %}
 
 {% next "Next: Return values" %}
 &nbsp;
@@ -191,26 +213,9 @@ Now, all the `printInfo()` method does is call another method, `createInfoString
 
 However, the kind of variable to be returned must be specified in the method declaration. We can clearly see this, as the declaration of `createInfoString()` is preceded by the keyword `String`. When a method does not return anything, like `printInfo()` we use `void`. An exception to this is the constructor: no return type keyword is used in its declaration. 
 
-<a name="practice"></a>
+➡️ *Exercise 5:* In your `Student.java` file, add a second constructor that takes only two arguments instead of four. Instantiate some student objects using this alternative constructor as well.
 
-## Practice
-You can try this out by grabbing the [following file](Java/StudentTest.java). It contains the code we have seen this far, though the strucure in which we present it in order to be able to run it is slightly different. 
-
-Note that in regular Java, the point of entry of the program is the `main` method (just like we are used to in C!). The main method needs to be contained in a class as well, which we have called `StudentTest`. 
-
-From this main method, we can access the `Student` class and create instances of it, as well as invoke the methods contained within the student class through the references we created before. Essentially, this is where the action happens most of the time. If you want to make changes to the contents of the `Student` class itself, this should of course be done inside that class instead!
-
-<a name="getting-started"></a>
-
-### Getting started
-To run Java programs, you need to have Java installed. You might already have it on your own computer, but if not, use the following instructions to be able to use Java online. If you already have a CS50 IDE, you can just create a new folder in your workspace and start there!
-
-1. First, register for an account on edx.org, which will provide you with an account to log on to the CS50 IDE. If you already have an edX account, it’s no problem to use that one.
-
-2. Now head to cs50.io and log on to the CS50 IDE. You may be prompted (again) for your email address. If so, after providing it, click Private under Hosted workspace, then click Create workspace.
-
-3. You should then be informed that CS50 IDE (aka Cloud9, the software that underlies CS50 IDE) is “creating your workspace” and “creating your container,” which might take a moment. You should eventually see your workspace. If not, do just email your instructor to inquire!
-
+{% spoiler "Hint: Compiling and running Java code" %}
 To compile your Java file to a .class file, use this command on the terminal:
 
         javac YourJavaFileName.java
@@ -218,15 +223,8 @@ To compile your Java file to a .class file, use this command on the terminal:
 After compilation, you can run your program using:
 
         java YourJavaFileName
+{% endspoiler %}
 
-If you have trouble getting your Java programs to run in the IDE, run `update50`. If that does not work try:
-
-        sudo apt-get update
-        sudo apt-get install default-jdk
-
-<a name="exercises"></a>
-
-### Exercises 
 
 0) Instantiate a third student.
 
