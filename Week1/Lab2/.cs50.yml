@@ -4,5 +4,5 @@ lab50:
     - readme
     - terminal
   file: 
-    - Student.java
     - StudentTest.java
+    - Student.java
