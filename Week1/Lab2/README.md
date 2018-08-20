@@ -6,21 +6,6 @@
 <br>
 <br>
 
-## Table of contents
-- [Concepts](#concepts)
-    * [Classes](#classes)
-    * [Classes and instances](#classes-instances)
-    * [The constructor](#constructor)
-    * [Parameters of the constructor](#parameters)
-    * [Method overloading](#method-overloading)
-    * [Return values](#return-values)
-- [Practice](#practice)
-	* [Getting started](#getting-started)
-	* [Exercises](#exercises)
-- [Plain Java vs. Android Studio](#java-vs-android)
-    * [Classes](#android-classes)
-    * [Parameters and return values](#android-params)
-
 <a name="concepts"></a>
 
 ## Concepts
