@@ -46,8 +46,6 @@ Java is a programming language that makes use of classes. A class is similar to 
 
 As you can see this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console.
 
-{% next %}
-
 {% check %}
 {{ compiles }}
 {% endcheck %}
