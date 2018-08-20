@@ -5,3 +5,4 @@ lab50:
         - terminal
     file: 
         - StudentTest.java
+        - test.java
