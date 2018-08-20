@@ -3,6 +3,4 @@ lab50:
     - editor
     - readme
     - terminal
-  file:
-    - foo.c
-    - StudentTest.java
+  file: Test.java
