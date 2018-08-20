@@ -114,6 +114,16 @@ The constructor is defined by using the name of the class as the name of the met
 
 ➡️ *Exercise 2:* Using the syntax from the example above, add the constructor to `Student.java`. Verify that it works as intended by compiling and running `StudentTest.java`.
 
+{% spoiler "Compiling and running Java code" %}
+To compile your Java file to a .class file, use this command on the terminal:
+
+        javac YourJavaFileName.java
+
+After compilation, you can run your program using:
+
+        java YourJavaFileName
+{% endspoiler %}
+
 {% next "Next: Parameters of the constructor" %}
 &nbsp;
 <a name="parameters"></a>
@@ -154,7 +164,6 @@ Due to the concept of [method overloading](https://beginnersbook.com/2013/05/met
 We can then add this constructor to the `Student` class as well, and when instantiating students, we can choose which one of the constructors to use. If we know everything we need, we can use the first constructor. If we do not know their program yet, then we can choose the latter. The program will then remain `null` until we set it to a value later. 
 
 ➡️ *Exercise 4:* In your `Student.java` file, add a second constructor that takes only two arguments instead of four.
-
 
 {% next "Next: Return values" %}
 &nbsp;
