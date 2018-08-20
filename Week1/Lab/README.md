@@ -112,9 +112,13 @@ To do this, we simply need to add the constructor method to the class definition
 
 The constructor is defined by using the name of the class as the name of the method, and then specifying the parameters it should take. Inside the method body, these parameters are passed on to the appropriate fields of the class. The next section will cover these parameters in more depth.
 
-Go to the terminal and look at the file `StudentTest.java` This file contains the `main` method, the point of entry of the program (just like we are used to in C!). The main method needs to be contained in a class as well, which we have called `StudentTest`. 
+#### Exercises
+
+➡️ *Exercise 2.2:* Go to the terminal and look at the file `StudentTest.java` This file contains the `main` method, the point of entry of the program (just like we are used to in C!). The main method needs to be contained in a class as well, which we have called `StudentTest`. 
 
 From this main method, we can access the `Student` class and create instances of it, as well as invoke the methods contained within the student class through the references we created before. Essentially, this is where the action happens most of the time. If you want to make changes to the contents of the `Student` class itself, this should of course be done inside that class instead!
+
+To start, verify that the source code works by compiling and running `StudentTest.java`.
 
 To compile your Java file to a .class file, use this command on the terminal:
 
@@ -124,7 +128,7 @@ After compilation, you can run your program using:
 
         java YourJavaFileName
 
-➡️ *Exercise 2:* Using the syntax from the example above, add the constructor to `Student.java`. Verify that it works as intended by compiling and running `StudentTest.java`.
+➡️ *Exercise 2.2:* Using the syntax from the example above, add the constructor to `Student.java`. Verify that it works as intended by compiling and running `StudentTest.java`.
 
 {% next "Next: Parameters of the constructor" %}
 &nbsp;
@@ -148,6 +152,8 @@ Now, the variable `al` contains the values we initialized it with, because insid
         Student ik = new Student("Immanuel Kant", "Philosophy", 81148);
 
 The variables `al` and `ik` can be seen as references to the respective objects. They each use the `Student` blueprint, but the contents of the properties are different.
+
+#### Exercises
 
 ➡️ *Exercise 3:* Adjust the constructor to incorporate the property you added in 1.1 and instantiate three student objects in `StudentTest.java`'s `main` method. Verify that it works by compiling and running your code.
 
@@ -174,6 +180,8 @@ Due to the concept of [method overloading](https://beginnersbook.com/2013/05/met
             }
 
 We can then add this constructor to the `Student` class as well, and when instantiating students, we can choose which one of the constructors to use. If we know everything we need, we can use the first constructor. If we do not know their program yet, then we can choose the latter. The program will then remain `null` until we set it to a value later. 
+
+#### Exercises
 
 ➡️ *Exercise 4:* In your `Student.java` file, add a second constructor that takes only two arguments instead of four. Instantiate some student objects using this alternative constructor as well. Verify that it works by compiling and running the code.
 
@@ -211,7 +219,10 @@ Suppose we had a different structure of the class in mind, which separates the t
 
 Now, all the `printInfo()` method does is call another method, `createInfoString()` and print the results from calling this method instead. This works because the `createInfoString()` method is defined to return a `String`. In Java, methods can return all kinds of variables and even instances of classes like `Student`! 
 
-However, the kind of variable to be returned must be specified in the method declaration. We can clearly see this, as the declaration of `createInfoString()` is preceded by the keyword `String`. When a method does not return anything, like `printInfo()` we use `void`. An exception to this is the constructor: no return type keyword is used in its declaration. 
+However, the kind of variable to be returned must be specified in the method declaration. We can clearly see this, as the declaration of `createInfoString()` is preceded by the keyword `String`. When a method does not return anything, like `printInfo()` we use `void`. An exception to this is the 
+constructor: no return type keyword is used in its declaration. 
+
+#### Exercises
 
 ➡️ *Exercise 5:* In your `Student.java` file, add a second constructor that takes only two arguments instead of four. Instantiate some student objects using this alternative constructor as well.
 
