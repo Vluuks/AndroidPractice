@@ -114,7 +114,7 @@ The constructor is defined by using the name of the class as the name of the met
 
 #### Exercises
 
-➡️ *Exercise 2.2:* Go to the terminal and look at the file `StudentTest.java` This file contains the `main` method, the point of entry of the program (just like we are used to in C!). The main method needs to be contained in a class as well, which we have called `StudentTest`. 
+➡️ *Exercise 2.2:* Go to the editor on the right and look at the file `StudentTest.java` This file contains the `main` method, the point of entry of the program (just like we are used to in C!). The main method needs to be contained in a class as well, which we have called `StudentTest`. 
 
 From this main method, we can access the `Student` class and create instances of it, as well as invoke the methods contained within the student class through the references we created before. Essentially, this is where the action happens most of the time. If you want to make changes to the contents of the `Student` class itself, this should of course be done inside that class instead!
 
@@ -128,7 +128,7 @@ After compilation, you can run your program using:
 
         java YourJavaFileName
 
-➡️ *Exercise 2.2:* Using the syntax from the example above, add the constructor to `Student.java`. Verify that it works as intended by compiling and running `StudentTest.java`.
+➡️ *Exercise 2.2:* Using the syntax from the example above, add the constructor to `Student.java`. Verify that its syntax is correct by compiling `StudentTest.java`.
 
 {% next "Next: Parameters of the constructor" %}
 &nbsp;
@@ -155,7 +155,9 @@ The variables `al` and `ik` can be seen as references to the respective objects.
 
 #### Exercises
 
-➡️ *Exercise 3:* Adjust the constructor to incorporate the property you added in 1.1 and instantiate three student objects in `StudentTest.java`'s `main` method. Verify that it works by compiling and running your code.
+➡️ *Exercise 3.1:* Adjust the constructor to incorporate the property you added in 1.1 and instantiate three student objects in `StudentTest.java`'s `main` method. Verify that it works by compiling and running your code.
+
+➡️ *Exercise 3.2:* Make calls to the method `printInfo()` so that the information of all three students is printed to the terminal. 
 
 {% spoiler "Hint: Compiling and running Java code" %}
 To compile your Java file to a .class file, use this command on the terminal:
@@ -224,7 +226,9 @@ constructor: no return type keyword is used in its declaration.
 
 #### Exercises
 
-➡️ *Exercise 5:* In your `Student.java` file, add a second constructor that takes only two arguments instead of four. Instantiate some student objects using this alternative constructor as well.
+➡️ *Exercise 5.1:* Create a method inside the student class, which both checks how many credits a certain student has and prints to the console whether they can ask for their diploma (which you need 180 for), or they still have to study some more!
+
+➡️ *Exercise 5.2:* Rewrite the method created at 3 so that instead of just printing everything directly, it makes a call to another method which handles the credit checking part and returns true or false, depending on whether the student is eligible for their diploma. 
 
 {% spoiler "Hint: Compiling and running Java code" %}
 To compile your Java file to a .class file, use this command on the terminal:
@@ -236,19 +240,8 @@ After compilation, you can run your program using:
         java YourJavaFileName
 {% endspoiler %}
 
-
-0) Instantiate a third student.
-
-1) Make calls to the method `printInfo()` so that the information of all three students is printed to the terminal. 
-
-2) Add a property that represents study credits to the student class, and make sure this property is correctly initialized when you create instances of the student object.
-
-3) Create a method inside the student class, which both checks how many credits a certain student has and prints to the console whether they can ask for their diploma (which you need 180 for), or they still have to study some more!
-
-4) Rewrite the method created at 3 so that instead of just printing everything directly, it makes a call to another method which handles the credit checking part and returns true or false, depending on whether the student is eligible for their diploma. 
-
-Be sure to save your final file, as you will need to show us later.
-
+{% next "Next: Java vs. Android" %}
+&nbsp;
 <a name="java-vs-android"></a>
 
 ## Plain Java vs. Android Studio
@@ -305,4 +298,3 @@ However, sometimes it's useful to see all of them to understand what they do and
  In addition to methods that we write ourselves and methods that handle events like a click, some methods are called by the app itself automatically when needed. A good example of this is `onCreate`, this method is run when the app starts, but we do not have to call it. 
  
  Even though the method is called automatically, it still gets something passed as a parameter: `Bundle saveInstanceState`. This `Bundle` object can be accessed all throughout the scope of the `onCreate` method, and contains information about the state of the app if it was restored from an earlier time. There are many such methods that are called automatically, a lot of which are part of the [activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle#java) which handles the different states of different screens inside an app throughout time. This week we will use `onCreate()` (of course) and `onSaveInstanceState()` in our app. 
-
