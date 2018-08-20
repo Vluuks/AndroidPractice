@@ -1,3 +1,4 @@
 lab50:
   files:
+    - test.c
     - StudentTest.java
