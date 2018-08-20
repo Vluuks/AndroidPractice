@@ -1,0 +1,9 @@
+lab50:
+    windows:
+        - editor
+        - readme
+        - terminal
+    file: 
+        - StudentTest.java
+        - test.java
+    checks: true
