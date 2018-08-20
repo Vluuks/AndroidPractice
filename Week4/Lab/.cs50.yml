@@ -6,3 +6,4 @@ lab50:
     file: 
         - StudentTest.java
         - test.java
+    checks: true

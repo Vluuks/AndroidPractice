@@ -48,6 +48,10 @@ As you can see this class does not just hold data (like the name, program and st
 
 {% next %}
 
+{% check %}
+{{ compiles }}
+{% endcheck %}
+
 <a name="classes-instances"></a>
 
 ### Classes and instances
