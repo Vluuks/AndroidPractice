@@ -58,7 +58,7 @@ In Java, in order to use classes like the `Student` class, they need to be insta
 
 This instance will contain actual information about a particular student, which the class blueprint does not. In the example below you can see the difference between the class (blueprint) and the instances. While the blueprint dictates what *kind* of information the class can hold, only the instances actually embody this information and represent actual students. 
 
-![An image depicting the student class and its properties, with on the other side of the image two example instances of the student class.](/Images/classes-instances.png)
+![An image depicting the student class and its properties, with on the other side of the image two example instances of the student class.](../Images/classes-instances.png)
 
 Let's say we wanted to create some instances of `Student`. As of now we do not really have a practical way to do that. We could instantiate empty objects and then add the properties as we go:
 
@@ -270,9 +270,9 @@ Of course, Android Studio allows for you to create custom classes that depict so
 
 Imagine a super simple app that contains information about one student and shows this information when the user clicks a button. In this particular app, there are two classes that interact. These classes are often depicted in what is called an UML diagram. They are helpful because they give a quick overview of what classes, variables and methods are present in the program's architecture. 
 
-![A gif depicting the app described above.](/Images/app-example.gif) 
+![A gif depicting the app described above.](../Images/app-example.gif) 
 
-![A UML diagram showing MainActivity and the Student model class](/Images/mini-uml-classes.png)
+![A UML diagram showing MainActivity and the Student model class](../Images/mini-uml-classes.png)
 
 In the image above, we can see the `Student` model class with its fields and method and a hypothetical `MainActivity` containing a field to hold a `Student` object, a click handler for a button of some sort and of course `onCreate()`. These kind of diagrams are often used to illustrate how classes relate to each other and what kind of content they contain.
 
@@ -291,7 +291,7 @@ This method gets a parameter, a `View` object called `view`. This object refers 
 
 Classes like `View` in Android studio often have a lot of such methods, which are accessed by the dot operator, just like in Exercise 1. Usually the IDE will provide you with a list of these methods once you add a dot after the object and begin typing, like for example to access the `getId()` method, which returns the associated id number (an integer) of the view in question (see the gif below). Many methods like this return a specific type of value, which in turn can be used to determine your program's logic or perform other operations. The return value of the methods is also shown on the right side of the dropdown menu in the IDE.
 
-![A gif depicting a user starting to type,  placing a dot after the View object which prompts the IDE to supply the list of available methods beloning to the View class.](/Images/view-methods-ide.gif)
+![A gif depicting a user starting to type,  placing a dot after the View object which prompts the IDE to supply the list of available methods beloning to the View class.](../Images/view-methods-ide.gif)
 
 However, sometimes it's useful to see all of them to understand what they do and which one you need. For this, [Android's official documentation](https://developer.android.com/reference/) is your best friend! For example, [this page](https://developer.android.com/reference/android/view/View) contains information about the `View` class. Useful!
 
