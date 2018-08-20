@@ -12,6 +12,7 @@
     * [Classes and instances](#classes-instances)
     * [The constructor](#constructor)
     * [Parameters of the constructor](#parameters)
+    * [Method overloading](#method-overloading)
     * [Return values](#return-values)
 - [Practice](#practice)
 	* [Getting started](#getting-started)
@@ -46,11 +47,10 @@ Java is a programming language that makes use of classes. A class is similar to 
 
 As you can see this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console. 
 
-➡️ *Exercise 1:* In the editor on the right, find the Student.java file and add another property to the class, right below the `studentNumber` property. You don't need to alter the `printInfo()` method yet.
+➡️ *Exercise 1.1:* In the editor on the right, find the `Student.java` file and add another property to the class, right below the `studentNumber` property. You don't need to alter the `printInfo()` method yet.
 
-{% next "Classes and instances" %}
+{% next "Next: Classes and instances" %}
 &nbsp;
-
 <a name="classes-instances"></a>
 
 ### Classes and instances
@@ -67,7 +67,7 @@ Let's say we wanted to create some instances of `Student`. As of now we do not r
         a.program = "Chemistry";
         a.studentNumber = 12824212;
 
-It works as intended, but the problems with this are twofold. We need a lot of lines to create the basics of a `Student` object. For now there are three properties, but if there were more we would need a line for every assignment we make. Furthermore, this structure allows us to create incomplete objects as well:
+It works as intended, but the problems with this are twofold. We need a lot of lines to create the basics of a `Student` object. For now there are three properties, plus the one you added, but if there were more we would need a line for every assignment we make. Furthermore, this structure allows us to create incomplete objects as well:
 
         Student b = new Student();
         b.program = "Graphic Design";
@@ -77,6 +77,8 @@ The above is valid syntax, so nothing is stopping us from never assigning a name
 
 To solve these issues, the instantiating of objects in Java is handled using a special method, the constructor.
 
+{% next "Next: The constructor" %}
+&nbsp;
 <a name="constructor"></a>
 
 ### The constructor
@@ -110,6 +112,10 @@ To do this, we simply need to add the constructor method to the class definition
 
 The constructor is defined by using the name of the class as the name of the method, and then specifying the parameters it should take. Inside the method body, these parameters are passed on to the appropriate fields of the class. The next section will cover these parameters in more depth.
 
+➡️ *Exercise 2:* Using the syntax from the example above, add the constructor to `Student.java`. Verify that it works as intended by compiling and running `StudentTest.java`.
+
+{% next "Next: Parameters of the constructor" %}
+&nbsp;
 <a name="parameters"></a>
 
 ### Parameters of the constructor
@@ -131,6 +137,13 @@ Now, the variable `al` contains the values we initialized it with, because insid
 
 The variables `al` and `ik` can be seen as references to the respective objects. They each use the `Student` blueprint, but the contents of the properties are different.
 
+➡️ *Exercise 3:* Adjust the constructor to incorporate the property you added in 1.1 and instantiate three student objects in `StudentTest.java`'s `main` method. 
+
+{% next "Next: Method overloading" %}
+&nbsp;
+<a name="method-overloading"></a>
+
+### Method overloading
 Due to the concept of [method overloading](https://beginnersbook.com/2013/05/method-overloading/) in Java, we can also define multiple constructors with different parameters for a class. If we wanted to define a constructor that does not take the program of the student as an argument, but just their name and number, it would look like this:
 
             public Student(String aName, int aStudentNumber) {
