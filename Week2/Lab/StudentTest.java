@@ -20,6 +20,7 @@ class Student {
         studentNumber = aStudentNumber;
         EC = someEC;
     }
+
 }
 
 // The class used to contain the main method

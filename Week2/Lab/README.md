@@ -25,11 +25,11 @@ In general, it is good practice to keep the access of your variables and methods
 
 Most of the time we will make use of `private` and `public` for the classes and variables we construct ourselves, as during this course we do not make a lot of use of different packages, since the apps are rather small.
 
-➡️ **Exercise 2:** *Inside the `Student` class shown in the editor on the right, change the properties present from public variables to private variables.*
+➡️ **Exercise 1:** *Inside the `Student` class shown in the editor on the right, change the properties present from public variables to private variables.*
 
-➡️ **Exercise 2.1:** *In `StudentTest.java`, write code that changes the name of the program of the student after it has been instantiated. What happens when you try to access or modify the properties of the student object?*
+➡️ **Exercise 1.1:** *In `StudentTest.java`, write code that changes the name of the program of the student after it has been instantiated. What happens when you try to access or modify the properties of the student object?*
 
-➡️ **Exercise 2.2:** *What do you think would happen if we gave the constructor private access as well?*
+➡️ **Exercise 1.2:** *What do you think would happen if we gave the constructor private access as well?*
 
 {% next "Next: Getters and setters" %}
 &nbsp;
@@ -37,20 +37,29 @@ Most of the time we will make use of `private` and `public` for the classes and 
 
 ### Getters and setters
 
-Consider the `Student` class once again, with the adjustments you made to its properties, making them `private`. Often when a class has private properties that does not mean they should never be accessed at all. Most of the time this is done through getter and setter methods. This is also called *encapsulation*. This means that instead of changing or adding an object's properties through the dot operator, we use a method to do this. 
+Consider the `Student` class once again, with the adjustments you made to its properties, making them `private`. Often when a class has private properties that does not mean they should never be accessed at all. Most of the time this is done through getter and setter methods. This is also called *encapsulation*. This means that instead of changing or adding an object's properties through the dot operator, we use a method to do this. These methods are contained in the class, just like the constructor.
+
+        public void setName(String aName) {
+            name = aName;
+        }
+
+        public String getName() {
+            return name;
+        }
 
 Since they can be modified from iside the class, the so called getter and setter methods handle this part. This changes our syntax, instead of doing this when a student changes program:
 
-    student.program = "New Program";
-    System.out.println("This student is studying: " + student.program);
+        student.program = "New Program";
+        System.out.println("This student is studying: " + student.program);
 
 We call a method that does it for us, passing the new value as its parameter. This concept can also be applied in reverse, returning the string to us whenever we ask for it with `getProgram()`.
 
-    student.setProgram("New Program")
-    System.out.println("This student is studying: " + student.getProgram());
+        student.setProgram("New Program")
+        System.out.println("This student is studying: " + student.getProgram());
 
+Of course, these getter and setter methods need to be created for the other properties as well.
 
-Of course, these getter and setter methods 
+➡️ **Exercise 2.1:** *Add the getter and setter for the name property to the class and create the getters and setters for the other properties in the `Student` class.*
 
 A benefit of encapsulation is that instead of allowing someone to edit properties of an object using the dot operator, this must be done through a method. This method takes as an argument the new value to be set, but can of course also check whether this value makes sense at all. 
 
@@ -62,45 +71,13 @@ However, nothing really stops us from supplying a bogus value, like `-30` or som
 
 Instead of having the `credits` property be public, we could set it to `private` instead, like we did in the first part of this tutorial. By doing this, it can only be accessed from within the class, thus we are required to call the `setCredits()` method if we want to modify it. 
 
-This method could not just adjust the credits, but also verify that the number makes sense and act appropriately. In this case we check if it's above zero and only then set the new value, otherwise we keep it at zero. 
+This method could not just adjust the credits, but also verify that the number makes sense and act appropriately. 
 
-    class Student {
+➡️ **Exercise 2.2:** *Adjust the set method for the credits property so that it performs a correction when the supplied value is negative.*
 
-        // Properties of the class
-        private String name;
-        private String program;
-        private int studentNumber;
-        private int credits;
+The point is that through this method, the handling of the `credits` property is much more foolproof. It is managed through its respective getter and setter methods. By keeping the access inside the class, you have much more control over the values of variables.
 
-        // Constructor of the class
-        public Student(String aName, String aProgram, int aStudentNumber, int someCredits) {
-            name = aName;
-            program = aProgram;
-            studentNumber = aStudentNumber;
-            credits = someCredits;
-        }
-
-        public void setCredits(int someCredits) {
-            if(someCredits > 0) {
-                credits = someCredits;
-            }
-            else {
-                credits = 0;
-            }
-        }
-
-        public int getCredits() {
-            return credits;
-        }
-    }
-
-The point is that through this method, the handling of the `credits` property is much more foolproof. It is managed through its respective getter and setter methods. By keeping the access inside the class, you have much more control over which values should be adjustable from outside the class and which ones shouldn't.
-
-Of course, to be able to get and set all of the other properties of the `Student` class now that their access is also set to `private`, extra getter and setter methods would have to be added.
-
-➡️ **Exercise 2.1:** *Create the getters and setters for the other properties in the `Student` class.*
-
-➡️ **Exercise 2.2:** *You can imagine that for EC it might not be the most useful to set the value every time. A method that increments them makes way more sense. Add a method to your Student class that increments a student's current EC by a given amount. Does this interfere with the getters and setters, why (not)?*
+➡️ **Exercise 2.3:** *You can imagine that for EC it might not be the most useful to set the value every time. A method that increments them makes way more sense. Add a method to your Student class that increments a student's current EC by a given amount. Does this interfere with the getters and setters, why (not)?*
 
 {% next "Next: Static vs. non-static" %}
 &nbsp;
