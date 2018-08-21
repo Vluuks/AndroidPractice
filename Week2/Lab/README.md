@@ -54,6 +54,8 @@ Often when a class has private properties that does not mean they should never b
 
 A benefit of encapsulation is that instead of allowing someone to edit properties of an object using the dot operator, this must be done through a set method. This method takes as an argument the new value to be set, but can of course also check whether this value makes sense at all. 
 
+➡️ *Exercise 1:* In `StudentTest.java`, write code that changes the name of the program of the student after it has been instantiated. What happens when you try to access or modify the properties of the student object?
+
 A good example could be the `credits` property. In this case its access is public so that means we can access it through the dot operator. Imagine we want to adjust the credits for the student object `s`. Using the dot operator we might do something like this:
 
         s.credits = 40;
