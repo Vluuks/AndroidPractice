@@ -1,8 +1,0 @@
-lab50:
-  windows:
-    - editor
-    - readme
-    - terminal
-  file: 
-    - StudentTest.java
-    - Student.java
