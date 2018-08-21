@@ -25,9 +25,9 @@ In general, it is good practice to keep the access of your variables and methods
 
 Most of the time we will make use of `private` and `public` for the classes and variables we construct ourselves, as during this course we do not make a lot of use of different packages, since the apps are rather small.
 
-➡️ **Exercise 1:** *Inside the `Student` class shown in the editor on the right, change the properties present from public variables to private variables.*
+➡️ **Exercise 1:** *Inside `StudentTest.java`, shown in the editor on the right, change the properties present from public variables to private variables.*
 
-➡️ **Exercise 1.1:** *In `StudentTest.java`, write code that changes the name of the program of the student after it has been instantiated. What happens when you try to access or modify the properties of the student object?*
+➡️ **Exercise 1.1:** *Write some code that changes the name of the study program of the student after it has been instantiated. What happens when you try to access or modify the properties of the student object?*
 
 ➡️ **Exercise 1.2:** *What do you think would happen if we gave the constructor private access as well?*
 
