@@ -39,7 +39,7 @@ In Java, in order to use classes like the `Student` class, they need to be insta
 
 This instance will contain actual information about a particular student, which the class blueprint does not. In the example below you can see the difference between the class (blueprint) and the instances. While the blueprint dictates what *kind* of information the class can hold, only the instances actually embody this information and represent actual students. 
 
-![An image depicting the student class and its properties, with on the other side of the image two example instances of the student class.](classes-instances-robotje.png)
+![An image depicting the student class and its properties, with on the other side of the image two example instances of the student class.](classes-instances-robot.png)
 
 Let's say we wanted to create some instances of `Student`. As of now we do not really have a practical way to do that. We could instantiate empty objects and then add the properties as we go:
 
