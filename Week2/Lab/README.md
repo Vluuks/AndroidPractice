@@ -120,9 +120,9 @@ If we were to print the value of `Student.studentCount` after running all of thi
 For things like counters that keep track how many instances have been made, this is very practical. We could for example also keep a count of the total credits amassed by all students. By referring to static variables through the class name like `Student.studentCount` it clear at one glance that the `studentCount` variable is overarching all instances and does not belong to one specific object.
 
 
-➡️ **Exercise 3.1** *Open `StudentFinalTest.java`. Instead of incrementing the count manually every time we instantiate a student like in the example, move this functionality to the constructor.*
+➡️ **Exercise 3.1** *Open `StaticTest.java`. Instead of incrementing the count manually every time we instantiate a student like in the example, move this functionality to the constructor.*
 
-➡️ **Exercise 3.2** *Create a get-method that returns the count, instead of having to access it using the dot operator. The counter can now be set to private without problems, because access is managed through the constructor and get method.*
+➡️ **Exercise 3.2** *Set the access of the count variable to `private` and define a method that returns the count of students. Bear in mind we want this method to be accessible even when we do not have an instance of a `Student` present: what does this mean for the method's access modifier definition?*
 
 {% next "Next: Constants" %}
 &nbsp;
@@ -138,6 +138,8 @@ It is customary to use uppercase letters and underscores for the names of your c
 Now, the `UNIVERSITY_NAME` string is immutable. This means that any attempts to alter it at runtime will make the compiler complain. You can try this out in [the following snippet](http://bit.ly/2NXgGGO). 
 
 ➡️ **Exercise 4.1** *Compile and run `ConstantTest.java`. Does the compiler allow you to run this code?*
+
+➡️ **Exercise 4.2** *Add another constant to the Student class and print it to the terminal.*
 
 Notice how in the `ConstantTest.java` file, `UNIVERSITY_NAME` is both `static` and `final` in this example? This means that even though it's immutable, we still want it to be accessible without having to instantiate any students, because we assume the university is the same for all of them.
 
@@ -169,11 +171,14 @@ To solve this problem (among other things) we can use the `enum` feature of Java
             RECTANGLE, CIRCLE, TRIANGLE, SQUARE
         }
 
-Now that the options are contained within the `enum`, we can use it to declare and modify variables. The main difference is that now we can only assign values that are part of the `Shape` `enum`. 
+
+➡️ **Exercise 5.1** *Open `EnumTest.java` in the editor. Think of another shape and add it to the `enum` using the syntax explained above.*
+
+Now that the options are contained within the `enum`, we can use it to declare and modify variables. The main difference is that now we can only assign values that are part of the `Shape` `enum` because we declared the variable to be of type `Shape`. 
 
         Shape shapeToShow = Shape.TRIANGLE;
 
-Using `enum` has other benefits as well. Because all values are contained within `Shape`, it's much easier to iterate over them. They can also easily be incorporated into a `Switch` statement, which executes different code depending on the value of the variable supplied. You can see this in action in [this snippet](http://bit.ly/2JuN9R2).
+Using `enum` has other benefits as well. Because all values are contained within `Shape`, it's much easier to iterate over them. They can also easily be incorporated into a `Switch` statement, which executes different code depending on the value of the variable supplied. 
 
         switch(shapeToShow) {
             case RECTANGLE: System.out.println("It's a rectangle!");     
@@ -185,6 +190,12 @@ Using `enum` has other benefits as well. Because all values are contained within
             case SQUARE:    System.out.println("It's a square!");
                             break;
         }
+
+➡️ **Exercise 5.2** *Add a case to the `switch` statement for the shape you added to the `enum` in 5.1 and change the code above to test whether your case is recognized.*
+
+➡️ **Exercise 5.3** *Go back to `StaticTest.java`. Implement an `enum` that represents the various levels that exist: bachelor, master, PhD or some other set of constants you feel is appropriate to represent in an `enum`.*
+
+➡️ **Exercise 5.4** *Add a method to the `Student` class that uses the `Switch` statement to print something to the terminal.*
 
 {% next "Next: Wrapping it up" %}
 &nbsp;
@@ -204,35 +215,3 @@ We have seen three types of modifiers related to the way variables are accessed.
         public static final String UNIVERSITY_NAME = "University of Amsterdam";
 
 We also saw that to define multiple constants, the `enum` is an elegant solution that helps avoid wrong assignments, simplifies iteration of the possible values and is easy to use inside a `Switch` statement. 
-
-<a name="practice"></a>
-
-## Practice
-Grab the [following file](Java/StudentTest.java). It contains the Student class once again, in addition to the `getEC` and `setEC` methods. You can add the file to your CS50 IDE. If you are not sure anymore how to set this IDE up, refer to the practice section of [Week 1](SOME URL TODO). 
-
-To compile your Java file to a .class file, use this command on the terminal:
-
-        javac YourJavaFileName.java
-
-After compilation, you can run your program using:
-
-        java YourJavaFileName
-
-If you have trouble getting your Java programs to run in the IDE, run `update50`. If that does not work try:
-
-        sudo apt-get update
-        sudo apt-get install default-jdk
-
-<a name="exercises"></a>
-
-### Exercises
-
-
-
-3) Implement a counter that keeps track of how many student objects have been instantiated, but without incrementing it manually like in the *Static vs. non-static* section! 
-
-4) Set the access of the count variable to `private` and define a method that returns the count of students. Bear in mind we want this method to be accessible even when we do not have an instance of a `Student` present. 
-
-5) Implement an `enum` that represents the various levels that exist: bachelor, master, PhD or some other set of constants you feel is appropriate to represent in an `enum`. 
-
-5) Add a method to the `Student` class that uses the `Switch` statement to print something to the terminal.
