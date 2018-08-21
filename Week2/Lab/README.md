@@ -1,5 +1,5 @@
 # Java Basics for Android
- <img align="left" src="robotje.png" style="padding: 10px"> This week we focus on concepts that have to do with the way classes, variables and methods are accessed and modified. As the scope of your application gets bigger, not everything needs to be reachable from all points in the app. A good understanding of what can be accessed or modified helps you keep control over all your program's components. We will also pay attention to what is good practice in regards to structuring your variables and how to incorporate them in control structures.
+ <img align="left" src="https://github.com/Vluuks/AndroidPractice/raw/labified/Week2/Lab/robotje.png" style="padding: 10px"> This week we focus on concepts that have to do with the way classes, variables and methods are accessed and modified. As the scope of your application gets bigger, not everything needs to be reachable from all points in the app. A good understanding of what can be accessed or modified helps you keep control over all your program's components. We will also pay attention to what is good practice in regards to structuring your variables and how to incorporate them in control structures.
 <br>
 <br>
 <br> 
@@ -121,7 +121,7 @@ You can [compile and run this snippet](http://bit.ly/2NiBDdZ) to see the above i
 
 ➡️ **Exercise 3.1** *Instead of incrementing the count manually every time we instantiate a student, move this functionality to the constructor.*
 
-➡️ **Exercise 3.2** *Create a get-method that returns the count, instead of having to access it using the dot operator.*
+➡️ **Exercise 3.2** *Create a get-method that returns the count, instead of having to access it using the dot operator. The counter can now be set to private without problems, because access is managed through the constructor and get method.*
 
 {% next "Next: Constants" %}
 &nbsp;
@@ -136,7 +136,9 @@ It is customary to use uppercase letters and underscores for the names of your c
 
 Now, the `UNIVERSITY_NAME` string is immutable. This means that any attempts to alter it at runtime will make the compiler complain. You can try this out in [the following snippet](http://bit.ly/2NXgGGO). 
 
-Notice how in the snippet linked above, `UNIVERSITY_NAME` is both `static` and `final` in this example? This means that even though it's immutable, we still want it to be accessible without having to instantiate any students, because we assume the university is the same for all of them.
+➡️ **Exercise 4.1** *Compile and run `ConstantTest.java`. Does the compiler allow you to run this code?*
+
+Notice how in the `ConstantTest.java` file, `UNIVERSITY_NAME` is both `static` and `final` in this example? This means that even though it's immutable, we still want it to be accessible without having to instantiate any students, because we assume the university is the same for all of them.
 
 {% next "Next: Enums" %}
 &nbsp;
