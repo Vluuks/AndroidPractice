@@ -6,6 +6,8 @@
 <br>
 <br> 
 
+{% next "Next: access" %}
+&nbsp;
 <a name="access"></a>
 
 ### Access 
@@ -24,6 +26,10 @@ You might have noticed that many of the variables and methods used in your code 
 In general, it is good practice to keep the access of your variables and methods as limited as possible, ensuring that only the parts of the program that really *need* access are getting it. 
 
 Most of the time we will make use of `private` and `public` for the classes and variables we construct ourselves, as during this course we do not make a lot of use of different packages, since the apps are rather small.
+
+➡️ **Exercise 2:** *Inside the `Student` class shown in the editor on the right, change the properties present from public variables to private variables.*
+
+➡️ **Exercise 2.1:** *What do you think would happen if we gave the constructor private access as well?*
 
 {% next "Next: Getters and setters" %}
 &nbsp;
@@ -54,7 +60,7 @@ Often when a class has private properties that does not mean they should never b
 
 A benefit of encapsulation is that instead of allowing someone to edit properties of an object using the dot operator, this must be done through a set method. This method takes as an argument the new value to be set, but can of course also check whether this value makes sense at all. 
 
-➡️ *Exercise 1:* In `StudentTest.java`, write code that changes the name of the program of the student after it has been instantiated. What happens when you try to access or modify the properties of the student object?
+➡️ **Exercise 2:** *In `StudentTest.java`, write code that changes the name of the program of the student after it has been instantiated. What happens when you try to access or modify the properties of the student object?*
 
 A good example could be the `credits` property. In this case its access is public so that means we can access it through the dot operator. Imagine we want to adjust the credits for the student object `s`. Using the dot operator we might do something like this:
 
