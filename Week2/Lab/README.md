@@ -1,184 +1,225 @@
 # Java Basics for Android
- <img align="left" src="Images/robotje.png" style="padding: 10px"> In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you.  Additionally, these concepts will be related to actual "Android" code, showing you how these plain Java concepts are relevant all throughout your app! This will be done using written text and mini exercises. 
+ <img align="left" src="robotje.png" style="padding: 10px"> This week we focus on concepts that have to do with the way classes, variables and methods are accessed and modified. As the scope of your application gets bigger, not everything needs to be reachable from all points in the app. A good understanding of what can be accessed or modified helps you keep control over all your program's components.
  
- This week's focus will be on the basic features of Java: classes and their associated methods. Since it's an object oriented language, we will take a look at classes and how to use them. Then we will focus on methods and their parameters and return values.
+ We will also pay attention to what is good practice in regards to structuring your variables and how to incorporate them in control structures. Additionally, the second part of this guide illustrate how these concepts are visible in the Android API. Finally, some issues regarding these concepts you might run in to when creating your apps are shown as well. 
 <br>
 <br>
-<br>
+<br> 
 
-## Table of contents
-- [Concepts](#concepts)
-    * [Classes](#classes)
-    * [Classes and instances](#classes-instances)
-    * [The constructor](#constructor)
-    * [Parameters of the constructor](#parameters)
-    * [Return values](#return-values)
-- [Practice](#practice)
-	* [Getting started](#getting-started)
-	* [Exercises](#exercises)
-- [Plain Java vs. Android Studio](#java-vs-android)
-    * [Classes](#android-classes)
-    * [Parameters and return values](#android-params)
+<a name="access"></a>
 
-<a name="concepts"></a>
+### Access 
+This week we will focus on the different access rights that methods and variables can have in Java. This will matter once the scope of your apps gets bigger and you work with more different activities and model classes. Sometimes you don’t want certain variables from a class to be accessed outside it, for example.
 
-## Concepts
+You might have noticed that many of the variables and methods used in your code have a keyword such as `private`, `public` or `protected`. This has to do with the location from which these variables and methods can be accessed.
 
-<a name="classes"></a>
+- `private` access restricts the access of a variable or method to within that class. 
 
-### Classes 
-Java is a programming language that makes use of classes. A class is similar to a `struct` in C, but instead of just holding data, they can hold code that can be run as well. The data inside a Java class are commonly called *properties*, whereas the code that can be executed inside the class is called a *method*. Below is a very simple example of a Java class, which depicts a student with just three properties, and one method.
+- `public` is quite the opposite, allowing access from outside the class, as well as from other [packages](https://docs.oracle.com/javase/tutorial/java/concepts/package.html). This is the least restrictive access modifier. Basically, the variable or method is usable all throughout your app.
+
+- `protected` is a term we sometimes see in Android Studio as well, it refers to a more toned down version of `public`. This modifier allows for access from within a package and subclasses that are located in other packages, but not for access from unrelated classes in other packages. In practice, you will rarely use this one yourself, but it can be seen in pre-generated code and libraries.
+
+- If you omit the access keyword, the variable or method is accessible within its own package only. Subclasses in other packages do not get access, as opposed to the `protected` keyword.
+
+In general, it is good practice to keep the access of your variables and methods as limited as possible, ensuring that only the parts of the program that really *need* access are getting it. 
+
+Most of the time we will make use of `private` and `public` for the classes and variables we construct ourselves, as during this course we do not make a lot of use of different packages, since the apps are rather small.
+
+{% next "Next: Getters and setters" %}
+&nbsp;
+<a name="getters-setters"></a>
+
+### Getters and setters
+
+Consider the `Student` class once again, with some adjustments:
 
         class Student {
 
             // Properties of the class
-            public String name;
-            public String program;
-            public int studentNumber; 
-
-            // Method of the class
-            public void printInfo() {
-                System.out.println("This student is called " + name);
-                System.out.println("they are studying " + program);
-                System.out.println("and their student number is " + studentNumber);
-            }
-        }
-
-As you can see this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console.
-
-<a name="classes-instances"></a>
-
-### Classes and instances
-In Java, in order to use classes like the `Student` class, they need to be instantiated before they can be used. The `Student` class can be seen as a blueprint. It exists, but before we can use the properties or methods inside, we first need to create an *instance* of the class. An instance of a class is often called an object as well. A class is a blueprint which you use to create objects. These objects are instances of that particular class.
-
-This instance will contain actual information about a particular student, which the class blueprint does not. In the example below you can see the difference between the class (blueprint) and the instances. While the blueprint dictates what *kind* of information the class can hold, only the instances actually embody this information and represent actual students. 
-
-![An image depicting the student class and its properties, with on the other side of the image two example instances of the student class.](Images/classes-instances.png)
-
-Let's say we wanted to create some instances of `Student`. As of now we do not really have a practical way to do that. We could instantiate empty objects and then add the properties as we go:
-
-        Student a = new Student();
-        a.name = "John Smith";
-        a.program = "Chemistry";
-        a.studentNumber = 12824212;
-
-It works as intended, but the problems with this are twofold. We need a lot of lines to create the basics of a `Student` object. For now there are three properties, but if there were more we would need a line for every assignment we make. Furthermore, this structure allows us to create incomplete objects as well:
-
-        Student b = new Student();
-        b.program = "Graphic Design";
-        b.studentNumber = 21401851;
-
-The above is valid syntax, so nothing is stopping us from never assigning a name to a particular student, which would of course not really make sense. You can imagine that missing basic properties might cause issues for other things you might want to represent in a class as well! 
-
-To solve these issues, the instantiating of objects in Java is handled using a special method, the constructor.
-
-<a name="constructor"></a>
-
-### The constructor
-The constructor is an important and special method inside the class that we can call to create instances of that class. By default, classes are provided with a constructor that takes no arguments and does not alter the properties of the class. We called this constructor in the example above: `Student a = new Student();`. It just creates the object with the associated properties, but does not set their values. 
-
-Often the constructor is used to set the properties of the class to meaningful values. In this case we want to set the values of the name, the program the student is attending and the student number. The constructor of the class can be made with this in mind, allowing us to insert these values.
-
-To do this, we simply need to add the constructor method to the class definition. While the class  only contained the properties and the method `printInfo()` before, we can now adjust it to hold our constructor as well!
-
-        class Student {
-
-            // Properties of the class
-            public String name;
-            public String program;
-            public int studentNumber; 
+            private String name;
+            private String program;
+            private int studentNumber;
+            private int credits;
 
             // Constructor of the class
-            public Student(String aName, String aProgram, int aStudentNumber) {
+            public Student(String aName, String aProgram, int aStudentNumber, int someCredits) {
                 name = aName;
                 program = aProgram;
                 studentNumber = aStudentNumber;
-            }
-
-            // Method of the class
-            public void printInfo() {
-                System.out.println("This student is called " + name);
-                System.out.println("they are studying " + program);
-                System.out.println("and their student number is " + studentNumber);
+                credits = someCredits;
             }
         }
 
-The constructor is defined by using the name of the class as the name of the method, and then specifying the parameters it should take. Inside the method body, these parameters are passed on to the appropriate fields of the class. The next section will cover these parameters in more depth.
+Often when a class has private properties that does not mean they should never be accessed at all. Most of the time this is done through getter and setter methods. This is also called *encapsulation*.
 
-<a name="parameters"></a>
+A benefit of encapsulation is that instead of allowing someone to edit properties of an object using the dot operator, this must be done through a set method. This method takes as an argument the new value to be set, but can of course also check whether this value makes sense at all. 
 
-### Parameters of the constructor
-Parameters determine what kind of information can be passed on to a method. You are probably familiar with this concept as it exists in other languages as well. In Java, they are specified between the `()` of the method declaration, stating the name of the parameter and its type. 
+A good example could be the `credits` property. In this case its access is public so that means we can access it through the dot operator. Imagine we want to adjust the credits for the student object `s`. Using the dot operator we might do something like this:
 
-You can see in the method declaration of the constructor that it takes three parameters: two strings and an integer. 
+        s.credits = 40;
 
-         public Student(String aName, String aProgram, int aStudentNumber)
+However, nothing really stops us from supplying a bogus value, like `-30` or some other integer that does not make sense. This is the case for many other properties classes could have, even for something as simple as a `Student` class!
 
-When creating a method in Java, this is the way in which you specify if and which values should be passed on to that method when it is called. The arguments that are passed will be accessible within the scope of the method to which they are passed. 
+Instead of having the `credits` property be public, we could set it to `private` instead. By doing this, it can only be accessed from within the class, thus we are required to call the `setCredits()` method if we want to modify it. This method does not just adjust the credits, but also verify that the number makes sense and act appropriately. In this case we check if it's above zero and only then set the new value, otherwise we keep it at zero. 
 
-Suppose we wanted to create a new student object for the student Ada Lovelace and store it in the variable `al`:
+    class Student {
 
-        Student al = new Student("Ada Lovelace", "Computer Science", 61283);
+        // Properties of the class
+        private String name;
+        private String program;
+        private int studentNumber;
+        private int credits;
 
-Now, the variable `al` contains the values we initialized it with, because inside the constructor method, the values are stored in the properties of the student object. If we wanted to initialize another student as well, we can of course do so! 
+        // Constructor of the class
+        public Student(String aName, String aProgram, int aStudentNumber, int someCredits) {
+            name = aName;
+            program = aProgram;
+            studentNumber = aStudentNumber;
+            credits = someCredits;
+        }
 
-        Student ik = new Student("Immanuel Kant", "Philosophy", 81148);
-
-The variables `al` and `ik` can be seen as references to the respective objects. They each use the `Student` blueprint, but the contents of the properties are different.
-
-Due to the concept of [method overloading](https://beginnersbook.com/2013/05/method-overloading/) in Java, we can also define multiple constructors with different parameters for a class. If we wanted to define a constructor that does not take the program of the student as an argument, but just their name and number, it would look like this:
-
-            public Student(String aName, int aStudentNumber) {
-                name = aName;
-                studentNumber = aStudentNumber;
+        public void setCredits(int someCredits) {
+            if(someCredits > 0) {
+                credits = someCredits;
             }
-
-We can then add this constructor to the `Student` class as well, and when instantiating students, we can choose which one of the constructors to use. If we know everything we need, we can use the first constructor. If we do not know their program yet, then we can choose the latter. The program will then remain `null` until we set it to a value later. The final file with both constructors present would look like [this](Java/StudentExample.java).
-
-
-<a name="return-values"></a>
-
-### Return values
-When taking a look at the `printInfo()` method, another aspect is important: the return type. Methods in Java specify the kind of value they return at the end. In this case, `printInfo()` is preceded by the word `void` which indicates that the method does not return any value. This is true, as it just prints anything but does not return a value to the caller. 
-
-Suppose we had a different structure of the class in mind, which separates the tasks that are going on a bit more. Let's say we would want to split the task of building the string to be printed and the actual printing itself. Our methods could then look something like this:
-
-        // Creates and returns a string with all info
-        private String createInfoString() {
-            String infoString = "This student is called " + name + 
-                "they are studying " + program + " and their student number is " + studentNumber;
-            return infoString;
+            else {
+                credits = 0;
+            }
         }
 
-        // Prints the string info to the terminal
-        public void printInfo() {
-            String toPrint = createInfoString();
-            System.out.println(toPrint);
+        public int getCredits() {
+            return credits;
+        }
+    }
+
+The point is that through this method, the handling of the `credits` property is much more foolproof. It is managed through its respective getter and setter methods. By keeping the access inside the class, you have much more control over which values should be adjustable from outside the class and which ones shouldn't.
+
+Of course, to be able to get and set all of the other properties of the `Student` class now that their access is also set to `private`, extra getter and setter methods would have to be added.
+
+{% next "Next: Static vs. non-static" %}
+&nbsp;
+<a name="static"></a>
+
+### Static vs. non-static
+Another modifier that can be added to the declaration of a method or variable is the `static` keyword. This modifier also has to do with access, but has to do with whether a class is instantiated or not. 
+
+In our `Student` class, we have different variables that represent properties of a student, these are called instance variables (`name`, `program`, `studentNumber`, `credits`). They differ across instances of the Student object, as every time we create a new one, we supply new values for these variables to the constructor. These variables are unique for every instance of the class, as it makes sense that not all students have the same name, student number etc. The class says: all students have a name, but the instance says: "This specific student's name is Ada Lovelace".
+
+In some cases it is beneficial to have another variable that is not unique for every instance, but instead applies to all instances of the class. Imagine we want to keep track of how many students there are in total. It would not make sense to keep a unique copy of that number for every student object we create, because that would be a waste of memory. Instead, we want one variable that can keep track of this count. To do this, we use a `static` variable that is common to all instances of the class.
+
+        class Student {
+
+            static int studentCount;
+
+            // Properties of the class
+            private String name;
+            private String program;
+            private int studentNumber;
+            private int credits;
+
+            ...
+
         }
 
-Now, all the `printInfo()` method does is call another method, `createInfoString()` and print the results from calling this method instead. This works because the `createInfoString()` method is defined to return a `String`. In Java, methods can return all kinds of variables and even instances of classes like `Student`! 
+Now that we have this variable, we of course also want to do something with it. Let's say we use this (admittedly inefficient) way of updating the student count every time we create a new student object:
 
-However, the kind of variable to be returned must be specified in the method declaration. We can clearly see this, as the declaration of `createInfoString()` is preceded by the keyword `String`. When a method does not return anything, like `printInfo()` we use `void`. An exception to this is the constructor: no return type keyword is used in its declaration. 
+        Student al = new Student("Ada Lovelace", "Computer Science", 61283, 180);
+        Student.studentCount = 1;
+        
+        Student ik = new Student("Immanuel Kant", "Philosophy", 81148, 180);
+        Student.studentCount = 2;
+        
+        Student ja = new Student("Jeanne d'Arc", "History", 90382, 40);
+        Student.studentCount = 3;
+
+
+If we were to print the value of `Student.studentCount` after running all of this, it would say 3. This is because `studentCount` is a static variable and thus it is updated for the class as a whole! Because the variable `studentCount` is `static`, we can also access through the `Student` class itself, without needing an instance. For things like counters that keep track how many instances have been made, this is very practical. We could for example also keep a count of the total credits amassed by all students. By referring to static variables through the class name like `Student.studentCount` it clear at one glance that the `studentCount` variable is overarching all instances and does not belong to one specific object.
+
+You can [compile and run this snippet](http://bit.ly/2NiBDdZ) to see the above in action. Feel free to play around with it a bit. 
+
+{% next "Next: Constants" %}
+&nbsp;
+<a name="constants"></a>
+
+### Constants
+Let's say you want to use variables that really do not have to change at all during the runtime of your program. For this, we can use a constant. A constant in Java is denoted using the keyword `final`. If we were for example to define the name of the university as a constant within the student class, it would look like this:
+
+    final String UNIVERSITY_NAME = "University of Amsterdam";
+
+It is customary to use uppercase letters and underscores for the names of your constants, a concept you might be familiar with from C's `#define` functionality.
+
+Now, the `UNIVERSITY_NAME` string is immutable. This means that any attempts to alter it at runtime will make the compiler complain. You can try this out in [the following snippet](http://bit.ly/2NXgGGO). 
+
+Notice how in the snippet linked above, `UNIVERSITY_NAME` is both `static` and `final` in this example? This means that even though it's immutable, we still want it to be accessible without having to instantiate any students, because we assume the university is the same for all of them.
+
+{% next "Next: Enums" %}
+&nbsp;
+<a name="enums"></a>
+
+### Enums
+Sometimes you have a program that requires multiple constants. Let's say you need to define a set of shapes. You could of course define them using the `final` keyword:
+
+        public static final int RECTANGLE = 0;
+        public static final int CIRCLE = 1;
+        public static final int TRIANGLE = 2;
+        public static final int SQUARE = 3;
+
+While it does the job, it is not the best solution. Because the constants are integers, nothing stops us from assigning another integer that does not represent a shape:
+
+This is valid:
+
+        int shapeToShow = TRIANGLE;
+
+But this, although illogical, is not illegal and will compile:
+
+        int shapeToShow = -22;
+
+To solve this problem (among other things) we can use the `enum` feature of Java. Defining an `enum` is somewhat similar to defining a class. You will have to determine the access modifier, a name for your Enum and of course the possible values that it can take. If we were to translate the constants from earlier into an enum, it would look like this:
+
+        public enum Shape { 
+            RECTANGLE, CIRCLE, TRIANGLE, SQUARE
+        }
+
+Now that the options are contained within the `enum`, we can use it to declare and modify variables. The main difference is that now we can only assign values that are part of the `Shape` `enum`. 
+
+        Shape shapeToShow = Shape.TRIANGLE;
+
+Using `enum` has other benefits as well. Because all values are contained within `Shape`, it's much easier to iterate over them. They can also easily be incorporated into a `Switch` statement, which executes different code depending on the value of the variable supplied. You can see this in action in [this snippet](http://bit.ly/2JuN9R2).
+
+        switch(shapeToShow) {
+            case RECTANGLE: System.out.println("It's a rectangle!");     
+                            break;
+            case CIRCLE:    System.out.println("It's a circle!");
+                            break;
+            case TRIANGLE:  System.out.println("It's a triangle!");
+                            break;
+            case SQUARE:    System.out.println("It's a square!");
+                            break;
+        }
+
+{% next "Next: Wrapping it up" %}
+&nbsp;
+<a name="wrapup"></a>
+
+### Wrapping it up
+We have seen three types of modifiers related to the way variables are accessed. Each of these concepts came with its own keywords.
+
+- The location from which classes, variables or methods can be accessed it determined through the absence of a keyword, `public`, `protected` or `private`. 
+
+- Determining whether a variable is an instance variable or belongs to the class as a whole is done using the `static` keyword.
+
+- Denoting a constant is done using the `final` keyword, which makes the variable immutable and comes with its own naming conventions.  
+
+ These three can be combined to fit your specific needs. This for example, is valid syntax:
+
+        public static final String UNIVERSITY_NAME = "University of Amsterdam";
+
+We also saw that to define multiple constants, the `enum` is an elegant solution that helps avoid wrong assignments, simplifies iteration of the possible values and is easy to use inside a `Switch` statement. 
 
 <a name="practice"></a>
 
 ## Practice
-You can try this out by grabbing the [following file](Java/StudentTest.java). It contains the code we have seen this far, though the strucure in which we present it in order to be able to run it is slightly different. 
-
-Note that in regular Java, the point of entry of the program is the `main` method (just like we are used to in C!). The main method needs to be contained in a class as well, which we have called `StudentTest`. 
-
-From this main method, we can access the `Student` class and create instances of it, as well as invoke the methods contained within the student class through the references we created before. Essentially, this is where the action happens most of the time. If you want to make changes to the contents of the `Student` class itself, this should of course be done inside that class instead!
-
-<a name="getting-started"></a>
-
-### Getting started
-To run Java programs, you need to have Java installed. You might already have it on your own computer, but if not, use the following instructions to be able to use Java online. If you already have a CS50 IDE, you can just create a new folder in your workspace and start there!
-
-1. First, register for an account on edx.org, which will provide you with an account to log on to the CS50 IDE. If you already have an edX account, it’s no problem to use that one.
-
-2. Now head to cs50.io and log on to the CS50 IDE. You may be prompted (again) for your email address. If so, after providing it, click Private under Hosted workspace, then click Create workspace.
-
-3. You should then be informed that CS50 IDE (aka Cloud9, the software that underlies CS50 IDE) is “creating your workspace” and “creating your container,” which might take a moment. You should eventually see your workspace. If not, do just email your instructor to inquire!
+Grab the [following file](Java/StudentTest.java). It contains the Student class once again, in addition to the `getEC` and `setEC` methods. You can add the file to your CS50 IDE. If you are not sure anymore how to set this IDE up, refer to the practice section of [Week 1](SOME URL TODO). 
 
 To compile your Java file to a .class file, use this command on the terminal:
 
@@ -195,74 +236,16 @@ If you have trouble getting your Java programs to run in the IDE, run `update50`
 
 <a name="exercises"></a>
 
-### Exercises 
+### Exercises
 
-0) Instantiate a third student.
+1) Create the getters and setters for the other properties in the `Student` class.
 
-1) Make calls to the method `printInfo()` so that the information of all three students is printed to the terminal. 
+2) You can imagine that for EC it might not be the most useful to set the value every time. A method that increments them makes way more sense. Add a method to your Student class that increments a student's current EC by a given amount. Does this interfere with the getters and setters, why (not)?
 
-2) Add a property that represents study credits to the student class, and make sure this property is correctly initialized when you create instances of the student object.
+3) Implement a counter that keeps track of how many student objects have been instantiated, but without incrementing it manually like in the *Static vs. non-static* section! 
 
-3) Create a method inside the student class, which both checks how many credits a certain student has and prints to the console whether they can ask for their diploma (which you need 180 for), or they still have to study some more!
+4) Set the access of the count variable to `private` and define a method that returns the count of students. Bear in mind we want this method to be accessible even when we do not have an instance of a `Student` present. 
 
-4) Rewrite the method created at 3 so that instead of just printing everything directly, it makes a call to another method which handles the credit checking part and returns true or false, depending on whether the student is eligible for their diploma. 
+5) Implement an `enum` that represents the various levels that exist: bachelor, master, PhD or some other set of constants you feel is appropriate to represent in an `enum`. 
 
-Be sure to save your final file, as you will need to show us later.
-
-<a name="java-vs-android"></a>
-
-## Plain Java vs. Android Studio
-Most concepts in Java also apply to the way we write code in Android Studio, however they might take a slightly different shape. In this section we will review how the concepts of this week are used in Android Studio. This can help you understand the tools needed to build this week's app. 
-
-<a name="android-classes"></a>
-
-###  Classes in Android Studio
-In Android Studio, you will see classes as well, though the way in which they are used is slightly different. In your app, the different screens are represented by `Activities`. These activities are actually classes as well! 
-
-However, instead of having a `main` method associated with them as in the example above, they make use of the method `onCreate` which is called when the respective activity is (surprise) created. Inside this method, the corresponding layout for the activity is set, after which you can start adding your own code.
-
-        public class MainActivity extends AppCompatActivity {
-
-            @Override
-            protected void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
-                setContentView(R.layout.activity_main);
-
-                // Now we can start doing things!
-            }
-            
-        }
-
-Of course, Android Studio allows for you to create custom classes that depict something tangible, like the `Student` one as well. However throughout an app you will see classes that take many other shapes. All runnable code you write for your app will be contained inside a method of some kind, which is in turn containde inside a class.
-
-Imagine a super simple app that contains information about one student and shows this information when the user clicks a button. In this particular app, there are two classes that interact. These classes are often depicted in what is called an UML diagram. They are helpful because they give a quick overview of what classes, variables and methods are present in the program's architecture. 
-
-![A gif depicting the app described above.](Images/app-example.gif) 
-
-![A UML diagram showing MainActivity and the Student model class](Images/mini-uml-classes.png)
-
-In the image above, we can see the `Student` model class with its fields and method and a hypothetical `MainActivity` containing a field to hold a `Student` object, a click handler for a button of some sort and of course `onCreate()`. These kind of diagrams are often used to illustrate how classes relate to each other and what kind of content they contain.
-
-<a name="android-params"></a>
-
-## Parameters and return values in Android Studio
-The concept of parameters and return values applies in Android Studio as well. A structure that is often present in Android code is a click handler that responds to click events on some element of the UI, for example a button:
-
-        // This method will be called when the button inside the activity is clicked
-        public void onClick(View view) {
-            int id = view.getId();
-            Log.d("View id:", Integer.toString(id));
-        }
-
-This method gets a parameter, a `View` object called `view`. This object refers to the element in the layout, which are called views in Android, that triggered the method. This `View` object is available in the scope of the `buttonClicked` method, which means that we can use methods associated with the `view` object. 
-
-Classes like `View` in Android studio often have a lot of such methods, which are accessed by the dot operator, just like in Exercise 1. Usually the IDE will provide you with a list of these methods once you add a dot after the object and begin typing, like for example to access the `getId()` method, which returns the associated id number (an integer) of the view in question (see the gif below). Many methods like this return a specific type of value, which in turn can be used to determine your program's logic or perform other operations. The return value of the methods is also shown on the right side of the dropdown menu in the IDE.
-
-![A gif depicting a user starting to type,  placing a dot after the View object which prompts the IDE to supply the list of available methods beloning to the View class.](Images/view-methods-ide.gif)
-
-However, sometimes it's useful to see all of them to understand what they do and which one you need. For this, [Android's official documentation](https://developer.android.com/reference/) is your best friend! For example, [this page](https://developer.android.com/reference/android/view/View) contains information about the `View` class. Useful!
-
- In addition to methods that we write ourselves and methods that handle events like a click, some methods are called by the app itself automatically when needed. A good example of this is `onCreate`, this method is run when the app starts, but we do not have to call it. 
- 
- Even though the method is called automatically, it still gets something passed as a parameter: `Bundle saveInstanceState`. This `Bundle` object can be accessed all throughout the scope of the `onCreate` method, and contains information about the state of the app if it was restored from an earlier time. There are many such methods that are called automatically, a lot of which are part of the [activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle#java) which handles the different states of different screens inside an app throughout time. This week we will use `onCreate()` (of course) and `onSaveInstanceState()` in our app. 
-
+5) Add a method to the `Student` class that uses the `Switch` statement to print something to the terminal.
