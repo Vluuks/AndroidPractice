@@ -6,5 +6,4 @@ lab50:
   files:
     - EnumTest.java
     - ConstantTest.java
-    - StaticTest.java
-    - AccessTest.java
+    - StudentTest.java

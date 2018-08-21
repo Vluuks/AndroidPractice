@@ -31,6 +31,18 @@ Most of the time we will make use of `private` and `public` for the classes and 
 
 ➡️ **Exercise 1.2:** *What do you think would happen if we gave the constructor private access as well?*
 
+{% spoiler "Reminder: Compiling and running Java code" %}
+To compile your Java file to a .class file, use this command on the terminal:
+
+        javac YourJavaFileName.java
+
+After compilation, you can run your program using:
+
+        java YourJavaFileName
+{% endspoiler %}
+
+{% next "Next: Java vs. Android" %}
+
 {% next "Next: Getters and setters" %}
 &nbsp;
 <a name="getters-setters"></a>
@@ -59,7 +71,7 @@ We call a method that does it for us, passing the new value as its parameter. Th
 
 Of course, these getter and setter methods need to be created for the other properties as well.
 
-➡️ **Exercise 2.1:** *Add the getter and setter for the name property to the class and create the getters and setters for the other properties in the `Student` class.*
+➡️ **Exercise 2.1:** *Inside `StudentTest.java`, add the getter and setter for the name property to the class and create the getters and setters for the other properties in the `Student` class.*
 
 A benefit of encapsulation is that instead of allowing someone to edit properties of an object using the dot operator, this must be done through a method. This method takes as an argument the new value to be set, but can of course also check whether this value makes sense at all. 
 
@@ -120,9 +132,11 @@ If we were to print the value of `Student.studentCount` after running all of thi
 For things like counters that keep track how many instances have been made, this is very practical. We could for example also keep a count of the total credits amassed by all students. By referring to static variables through the class name like `Student.studentCount` it clear at one glance that the `studentCount` variable is overarching all instances and does not belong to one specific object.
 
 
-➡️ **Exercise 3.1** *Open `StaticTest.java`. Instead of incrementing the count manually every time we instantiate a student like in the example, move this functionality to the constructor.*
+➡️ **Exercise 3.1** *Continue working in `StudentTest.java`. Add the static property `studentCount` to the `Student` class like in the example.*
 
-➡️ **Exercise 3.2** *Set the access of the count variable to `private` and define a method that returns the count of students. Bear in mind we want this method to be accessible even when we do not have an instance of a `Student` present: what does this mean for the method's access modifier definition?*
+➡️ **Exercise 3.2** *Instead of incrementing the count manually every time we instantiate a student like in the example, move this functionality to the constructor.*
+
+➡️ **Exercise 3.3** *Set the access of the `studentCount` variable to `private` and define a method that returns the count of students. Bear in mind we want this method to be accessible even when we do not have an instance of a `Student` present: what does this mean for the method's access modifier definition?*
 
 {% next "Next: Constants" %}
 &nbsp;
@@ -193,7 +207,7 @@ Using `enum` has other benefits as well. Because all values are contained within
 
 ➡️ **Exercise 5.2** *Add a case to the `switch` statement for the shape you added to the `enum` in 5.1 and change the code above to test whether your case is recognized.*
 
-➡️ **Exercise 5.3** *Go back to `StaticTest.java`. Implement an `enum` that represents the various levels that exist: bachelor, master, PhD or some other set of constants you feel is appropriate to represent in an `enum`.*
+➡️ **Exercise 5.3** *Go back to `StudentTest.java`. Implement an `enum` that represents the various levels that exist: bachelor, master, PhD or some other set of constants you feel is appropriate to represent in an `enum`.*
 
 ➡️ **Exercise 5.4** *Add a method to the `Student` class that uses the `Switch` statement to print something to the terminal.*
 

@@ -28,7 +28,7 @@ Java is a programming language that makes use of classes. A class is similar to 
 
 As you can see this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console. 
 
-➡️ *Exercise 1:* In the editor on the right, find the `Student.java` file and add another property to the class, right below the `studentNumber` property. You don't need to alter the `printInfo()` method yet.
+➡️ *Exercise 1:* *In the editor on the right, find the `Student.java` file and add another property to the class, right below the `studentNumber` property. You don't need to alter the `printInfo()` method yet.*
 
 {% next "Next: Classes and instances" %}
 &nbsp;
@@ -48,7 +48,7 @@ Let's say we wanted to create some instances of `Student`. As of now we do not r
         a.program = "Chemistry";
         a.studentNumber = 12824212;
 
-➡️ *Exercise 2.1:* Go to the editor on the right and look at the file `StudentTest.java` This file contains the `main` method, the point of entry of the program (just like we are used to in C!). The main method needs to be contained in a class as well, which we have called `StudentTest`. 
+➡️ *Exercise 2.1:* *Go to the editor on the right and look at the file `StudentTest.java` This file contains the `main` method, the point of entry of the program (just like we are used to in C!). The main method needs to be contained in a class as well, which we have called `StudentTest`.*
 
 From this main method, we can access the `Student` class and create instances of it, as well as invoke the methods contained within the student class through the references we created before. Essentially, this is where the action happens most of the time. If you want to make changes to the contents of the `Student` class itself, this should of course be done inside that class instead!
 
@@ -62,9 +62,9 @@ After compilation, you can run your program using:
 
         java YourJavaFileName
 
-➡️ *Exercise 2.2:* Using the syntax described above, create three instances of the `Student` class inside the `main` method and assign them values for the three properties and the property you added yourself in exercise 1. Compile and run your code.
+➡️ *Exercise 2.2:* *Using the syntax described above, create three instances of the `Student` class inside the `main` method and assign them values for the three properties and the property you added yourself in exercise 1. Compile and run your code.*
 
-➡️ *Exercise 2.3:* Make calls to the method `printInfo()` so that the information of all three students is printed to the terminal. 
+➡️ *Exercise 2.3:* *Make calls to the method `printInfo()` so that the information of all three students is printed to the terminal.* 
 
 If you did everything right, the code you just wrote works as intended, but the problems with this are twofold. We need a lot of lines to create the basics of a `Student` object. For now there are three properties, plus the one you added, but if there were more we would need a line for every assignment we make. Furthermore, this structure allows us to create incomplete objects as well:
 
@@ -72,7 +72,7 @@ If you did everything right, the code you just wrote works as intended, but the 
         b.program = "Graphic Design";
         b.studentNumber = 21401851;
 
-➡️ *Exercise 2.4:* Instantiate another student, but this time without assigning values to their properties. What happens when you call `printInfo()` on this student? Why do you think that is? 
+➡️ *Exercise 2.4:* *Instantiate another student, but this time without assigning values to their properties. What happens when you call `printInfo()` on this student? Why do you think that is?* 
 
 The above is valid syntax, so nothing is stopping us from never assigning a name to a particular student, which would of course not really make sense. You can imagine that missing basic properties might cause issues for other things you might want to represent in a class as well! To solve these issues, the instantiating of objects in Java is handled using a special method, the constructor.
 
@@ -111,7 +111,7 @@ To do this, we simply need to add the constructor method to the class definition
 
 The constructor is defined by using the name of the class as the name of the method, and then specifying the parameters it should take. Inside the method body, these parameters are passed on to the appropriate fields of the class. The next section will cover these parameters in more depth.
 
-➡️ *Exercise 3* Using the syntax from the example above, add the constructor to `Student.java`. Verify that its syntax is correct by compiling `StudentTest.java`.
+➡️ *Exercise 3* *Using the syntax from the example above, add the constructor to `Student.java`. Verify that its syntax is correct by compiling `StudentTest.java`.*
 
 {% spoiler "Hint: Compiling and running Java code" %}
 To compile your Java file to a .class file, use this command on the terminal:
@@ -146,9 +146,9 @@ Now, the variable `al` contains the values we initialized it with, because insid
 
 The variables `al` and `ik` can be seen as references to the respective objects. They each use the `Student` blueprint, but the contents of the properties are different.
 
-➡️ *Exercise 4.1* Use the constructor we added in exercise 3, and replace the instantiation of the first three student objects with this constructor.
+➡️ *Exercise 4.1* *Use the constructor we added in exercise 3, and replace the instantiation of the first three student objects with this constructor.*
 
-➡️ *Exercise 4.2* Adjust the constructor to incorporate the property you added in 1.1 and instantiate three student objects in `StudentTest.java`'s `main` method with this new constructor. Verify that it works by compiling and running your code.
+➡️ *Exercise 4.2* *Adjust the constructor to incorporate the property you added in 1.1 and instantiate three student objects in `StudentTest.java`'s `main` method with this new constructor. Verify that it works by compiling and running your code.*
 
 {% spoiler "Hint: Compiling and running Java code" %}
 To compile your Java file to a .class file, use this command on the terminal:
@@ -176,7 +176,7 @@ We can then add this constructor to the `Student` class as well, and when instan
 
 #### Exercises
 
-➡️ *Exercise 5:* In your `Student.java` file, add a second constructor that takes only two arguments instead of four. Instantiate some student objects using this alternative constructor as well. Verify that it works by compiling and running the code.
+➡️ *Exercise 5:* *In your `Student.java` file, add a second constructor that takes only two arguments instead of four. Instantiate some student objects using this alternative constructor as well. Verify that it works by compiling and running the code.*
 
 {% spoiler "Hint: Compiling and running Java code" %}
 To compile your Java file to a .class file, use this command on the terminal:
@@ -215,11 +215,9 @@ Now, all the `printInfo()` method does is call another method, `createInfoString
 However, the kind of variable to be returned must be specified in the method declaration. We can clearly see this, as the declaration of `createInfoString()` is preceded by the keyword `String`. When a method does not return anything, like `printInfo()` we use `void`. An exception to this is the 
 constructor: no return type keyword is used in its declaration. 
 
-#### Exercises
+➡️ *Exercise 6.1:* *Create a method inside the student class, which both checks how many credits a certain student has and prints to the console whether they can ask for their diploma (which you need 180 for), or they still have to study some more!*
 
-➡️ *Exercise 6.1:* Create a method inside the student class, which both checks how many credits a certain student has and prints to the console whether they can ask for their diploma (which you need 180 for), or they still have to study some more!
-
-➡️ *Exercise 6.2:* Rewrite the method created at 5.1 so that instead of just printing everything directly, it makes a call to another method which handles the credit checking part and returns true or false, depending on whether the student is eligible for their diploma. 
+➡️ *Exercise 6.2:* *Rewrite the method created at 5.1 so that instead of just printing everything directly, it makes a call to another method which handles the credit checking part and returns true or false, depending on whether the student is eligible for their diploma.*
 
 {% spoiler "Hint: Compiling and running Java code" %}
 To compile your Java file to a .class file, use this command on the terminal:
@@ -231,7 +229,7 @@ After compilation, you can run your program using:
         java YourJavaFileName
 {% endspoiler %}
 
-{% next "Next: Java vs. Android" %}
+{% next "Next: Wrapping it up" %}
 &nbsp;
 
 ## Wrapping it up

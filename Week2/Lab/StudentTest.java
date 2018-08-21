@@ -2,8 +2,8 @@
      Native App Studio - University of Amsterdam
      Demonstrating encapsulation and various access rights
      
-     To compile: javac AccessTest.java
-     To run: java AccessTest
+     To compile: javac StudentTest.java
+     To run: java StudentTest
      
 */
 class Student {
@@ -32,11 +32,13 @@ class Student {
 }
 
 // The class used to contain the main method
-class AccessTest {
+class StudentTest {
     
     // The main method is the start of the program
     public static void main(String[] args) {
         
-        Student a = ("Tim Steward", "Business Administration", 12487142, 60);
+        Student al = new Student("Ada Lovelace", "Computer Science", 61283, 180);
+        Student ik = new Student("Immanuel Kant", "Philosophy", 81148, 180);
+        Student ja = new Student("Jeanne d'Arc", "History", 90382, 40);
     }
 }
