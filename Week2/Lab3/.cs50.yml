@@ -3,7 +3,7 @@ lab50:
     - editor
     - readme
     - terminal
-  files:
+  file:
     - EnumTest.java
     - ConstantTest.java
     - StudentTest.java
