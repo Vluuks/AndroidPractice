@@ -1,7 +1,5 @@
 # Java Basics for Android
- <img align="left" src="robotje.png" style="padding: 10px"> This week we focus on concepts that have to do with the way classes, variables and methods are accessed and modified. As the scope of your application gets bigger, not everything needs to be reachable from all points in the app. A good understanding of what can be accessed or modified helps you keep control over all your program's components.
- 
- We will also pay attention to what is good practice in regards to structuring your variables and how to incorporate them in control structures. Additionally, the second part of this guide illustrate how these concepts are visible in the Android API. Finally, some issues regarding these concepts you might run in to when creating your apps are shown as well. 
+ <img align="left" src="robotje.png" style="padding: 10px"> This week we focus on concepts that have to do with the way classes, variables and methods are accessed and modified. As the scope of your application gets bigger, not everything needs to be reachable from all points in the app. A good understanding of what can be accessed or modified helps you keep control over all your program's components. We will also pay attention to what is good practice in regards to structuring your variables and how to incorporate them in control structures.
 <br>
 <br>
 <br> 
@@ -39,7 +37,20 @@ Most of the time we will make use of `private` and `public` for the classes and 
 
 ### Getters and setters
 
-Consider the `Student` class once again, with the adjustments you made to its properties, making them `private`. Often when a class has private properties that does not mean they should never be accessed at all. Most of the time this is done through getter and setter methods. This is also called *encapsulation*.
+Consider the `Student` class once again, with the adjustments you made to its properties, making them `private`. Often when a class has private properties that does not mean they should never be accessed at all. Most of the time this is done through getter and setter methods. This is also called *encapsulation*. This means that instead of changing or adding an object's properties through the dot operator, we use a method to do this. 
+
+Since they can be modified from iside the class, the so called getter and setter methods handle this part. This changes our syntax, instead of doing this when a student changes program:
+
+    student.program = "New Program";
+    System.out.println("This student is studying: " + student.program);
+
+We call a method that does it for us, passing the new value as its parameter. This concept can also be applied in reverse, returning the string to us whenever we ask for it with `getProgram()`.
+
+    student.setProgram("New Program")
+    System.out.println("This student is studying: " + student.getProgram());
+
+
+Of course, these getter and setter methods 
 
 A benefit of encapsulation is that instead of allowing someone to edit properties of an object using the dot operator, this must be done through a method. This method takes as an argument the new value to be set, but can of course also check whether this value makes sense at all. 
 
