@@ -115,11 +115,12 @@ Now that we have this variable, we of course also want to do something with it. 
         Student ja = new Student("Jeanne d'Arc", "History", 90382, 40);
         Student.studentCount = 3;
 
-If we were to print the value of `Student.studentCount` after running all of this, it would say 3. This is because `studentCount` is a static variable and thus it is updated for the class as a whole! Because the variable `studentCount` is `static`, we can also access through the `Student` class itself, without needing an instance. For things like counters that keep track how many instances have been made, this is very practical. We could for example also keep a count of the total credits amassed by all students. By referring to static variables through the class name like `Student.studentCount` it clear at one glance that the `studentCount` variable is overarching all instances and does not belong to one specific object.
+If we were to print the value of `Student.studentCount` after running all of this, it would say 3. This is because `studentCount` is a static variable and thus it is updated for the class as a whole! Because the variable `studentCount` is `static`, we can also access through the `Student` class itself, without needing an instance. 
 
-You can [compile and run this snippet](http://bit.ly/2NiBDdZ) to see the above in action. Feel free to play around with it a bit. 
+For things like counters that keep track how many instances have been made, this is very practical. We could for example also keep a count of the total credits amassed by all students. By referring to static variables through the class name like `Student.studentCount` it clear at one glance that the `studentCount` variable is overarching all instances and does not belong to one specific object.
 
-➡️ **Exercise 3.1** *Instead of incrementing the count manually every time we instantiate a student, move this functionality to the constructor.*
+
+➡️ **Exercise 3.1** *Open `StudentFinalTest.java`. Instead of incrementing the count manually every time we instantiate a student like in the example, move this functionality to the constructor.*
 
 ➡️ **Exercise 3.2** *Create a get-method that returns the count, instead of having to access it using the dot operator. The counter can now be set to private without problems, because access is managed through the constructor and get method.*
 

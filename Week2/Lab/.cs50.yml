@@ -4,5 +4,7 @@ lab50:
     - readme
     - terminal
   files:
-    - test.c
-    - StudentTest.java
+    - EnumTest.java
+    - ConstantTest.java
+    - StaticTest.java
+    - AccessTest.java
