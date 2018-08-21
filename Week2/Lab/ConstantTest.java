@@ -1,6 +1,6 @@
 /* 
      Native App Studio Course UvA
-     The class depicting a Student demonstrating the behaviour of a final variable
+     Demonstrating the behaviour of a final variable
      
      To compile: javac ConstantTest.java
      To run: java ConstantTest

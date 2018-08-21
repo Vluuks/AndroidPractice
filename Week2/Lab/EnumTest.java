@@ -1,5 +1,5 @@
 /* 
-     Native App Studio Course UvA
+     Native App Studio - University of Amsterdam
      Class showing the use of an enum in Java
      
      To compile: javac EnumTest.java

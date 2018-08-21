@@ -1,8 +1,9 @@
 /* 
      Native App Studio - University of Amsterdam
+     Demonstrating encapsulation and various access rights
      
-     To compile: javac StudentTest.java
-     To run: java StudentTest
+     To compile: javac AccessTest.java
+     To run: java AccessTest
      
 */
 class Student {
@@ -21,10 +22,17 @@ class Student {
         EC = someEC;
     }
 
+    // Method of the class
+    public void printInfo() {
+        System.out.println("This student is called " + name);
+        System.out.println("they are studying " + program);
+        System.out.println("and their student number is " + studentNumber);
+    }
+
 }
 
 // The class used to contain the main method
-class StudentTest {
+class AccessTest {
     
     // The main method is the start of the program
     public static void main(String[] args) {
