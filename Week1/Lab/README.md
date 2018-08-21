@@ -174,8 +174,6 @@ Due to the concept of [method overloading](https://beginnersbook.com/2013/05/met
 
 We can then add this constructor to the `Student` class as well, and when instantiating students, we can choose which one of the constructors to use. If we know everything we need, we can use the first constructor. If we do not know their program yet, then we can choose the latter. The program will then remain `null` until we set it to a value later. 
 
-#### Exercises
-
 ➡️ *Exercise 5:* *In your `Student.java` file, add a second constructor that takes only two arguments instead of four. Instantiate some student objects using this alternative constructor as well. Verify that it works by compiling and running the code.*
 
 {% spoiler "Hint: Compiling and running Java code" %}
