@@ -8,10 +8,10 @@
 class Student {
 
     // Properties of the class
-    private String name;
-    private String program;
-    private int studentNumber;
-    private int EC;
+    public String name;
+    public String program;
+    public int studentNumber;
+    public int EC;
 
     // Constructor of the class
     public Student(String aName, String aProgram, int aStudentNumber, int someEC) {

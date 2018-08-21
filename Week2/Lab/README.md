@@ -29,7 +29,9 @@ Most of the time we will make use of `private` and `public` for the classes and 
 
 ➡️ **Exercise 2:** *Inside the `Student` class shown in the editor on the right, change the properties present from public variables to private variables.*
 
-➡️ **Exercise 2.1:** *What do you think would happen if we gave the constructor private access as well?*
+➡️ **Exercise 2.1:** *In `StudentTest.java`, write code that changes the name of the program of the student after it has been instantiated. What happens when you try to access or modify the properties of the student object?*
+
+➡️ **Exercise 2.2:** *What do you think would happen if we gave the constructor private access as well?*
 
 {% next "Next: Getters and setters" %}
 &nbsp;
@@ -37,30 +39,9 @@ Most of the time we will make use of `private` and `public` for the classes and 
 
 ### Getters and setters
 
-Consider the `Student` class once again, with some adjustments:
+Consider the `Student` class once again, with the adjustments you made to its properties, making them `private`. Often when a class has private properties that does not mean they should never be accessed at all. Most of the time this is done through getter and setter methods. This is also called *encapsulation*.
 
-        class Student {
-
-            // Properties of the class
-            private String name;
-            private String program;
-            private int studentNumber;
-            private int credits;
-
-            // Constructor of the class
-            public Student(String aName, String aProgram, int aStudentNumber, int someCredits) {
-                name = aName;
-                program = aProgram;
-                studentNumber = aStudentNumber;
-                credits = someCredits;
-            }
-        }
-
-Often when a class has private properties that does not mean they should never be accessed at all. Most of the time this is done through getter and setter methods. This is also called *encapsulation*.
-
-A benefit of encapsulation is that instead of allowing someone to edit properties of an object using the dot operator, this must be done through a set method. This method takes as an argument the new value to be set, but can of course also check whether this value makes sense at all. 
-
-➡️ **Exercise 2:** *In `StudentTest.java`, write code that changes the name of the program of the student after it has been instantiated. What happens when you try to access or modify the properties of the student object?*
+A benefit of encapsulation is that instead of allowing someone to edit properties of an object using the dot operator, this must be done through a method. This method takes as an argument the new value to be set, but can of course also check whether this value makes sense at all. 
 
 A good example could be the `credits` property. In this case its access is public so that means we can access it through the dot operator. Imagine we want to adjust the credits for the student object `s`. Using the dot operator we might do something like this:
 
@@ -68,7 +49,9 @@ A good example could be the `credits` property. In this case its access is publi
 
 However, nothing really stops us from supplying a bogus value, like `-30` or some other integer that does not make sense. This is the case for many other properties classes could have, even for something as simple as a `Student` class!
 
-Instead of having the `credits` property be public, we could set it to `private` instead. By doing this, it can only be accessed from within the class, thus we are required to call the `setCredits()` method if we want to modify it. This method does not just adjust the credits, but also verify that the number makes sense and act appropriately. In this case we check if it's above zero and only then set the new value, otherwise we keep it at zero. 
+Instead of having the `credits` property be public, we could set it to `private` instead, like we did in the first part of this tutorial. By doing this, it can only be accessed from within the class, thus we are required to call the `setCredits()` method if we want to modify it. 
+
+This method could not just adjust the credits, but also verify that the number makes sense and act appropriately. In this case we check if it's above zero and only then set the new value, otherwise we keep it at zero. 
 
     class Student {
 
@@ -103,6 +86,10 @@ Instead of having the `credits` property be public, we could set it to `private`
 The point is that through this method, the handling of the `credits` property is much more foolproof. It is managed through its respective getter and setter methods. By keeping the access inside the class, you have much more control over which values should be adjustable from outside the class and which ones shouldn't.
 
 Of course, to be able to get and set all of the other properties of the `Student` class now that their access is also set to `private`, extra getter and setter methods would have to be added.
+
+➡️ **Exercise 2.1:** *Create the getters and setters for the other properties in the `Student` class.*
+
+➡️ **Exercise 2.2:** *You can imagine that for EC it might not be the most useful to set the value every time. A method that increments them makes way more sense. Add a method to your Student class that increments a student's current EC by a given amount. Does this interfere with the getters and setters, why (not)?*
 
 {% next "Next: Static vs. non-static" %}
 &nbsp;
@@ -246,9 +233,7 @@ If you have trouble getting your Java programs to run in the IDE, run `update50`
 
 ### Exercises
 
-1) Create the getters and setters for the other properties in the `Student` class.
 
-2) You can imagine that for EC it might not be the most useful to set the value every time. A method that increments them makes way more sense. Add a method to your Student class that increments a student's current EC by a given amount. Does this interfere with the getters and setters, why (not)?
 
 3) Implement a counter that keeps track of how many student objects have been instantiated, but without incrementing it manually like in the *Static vs. non-static* section! 
 
