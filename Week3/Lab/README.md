@@ -42,8 +42,8 @@ The class contains many functionalities. Below is a list of ones that will be us
 - `contains(Object o)` returns true if this list contains the specified element.
 - `indexOf(Object o)` returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
 
-{% next "Next: From list to layout" %}
-### From list to layout
+{% next "Next: From list to layout: Constructor" %}
+### From list to layout: Constructor
 In Android, you often want to display your lists of data in an appropriate way. Imagine a restaurant's menu, a list of contacts, a playlist in a video app... There are countless applications for lists that require some layout to display them in. 
 
 This is where the `Adapter` class comes into play. Because the Android API `Adapter` class can be overwhelming at first glance, we have created a plain Java adapter that kind of does the same thing, but takes it down to the basics.  Its prime functionality is that it can take in a list of data, either a regular array or an `ArrayList` and usually some kind of layout definition. 
@@ -52,73 +52,22 @@ It then combines these two to generate the appropriate layout for each element i
 
 The adapter class can be instantiated using the constructor, which creates the `ArrayAdapter` object. In this example, we created an adapter that can create a (very simple) graphical representation of `Student` objects, but many kinds of adapters are of course possible! 
 
-        class ArrayAdapter {
-            
-            private Student[] studentArray;
-            private LayoutType layoutType;
-            
-            public ArrayAdapter(Student[] studentArray, LayoutType layoutType) {
-                this.studentArray = studentArray;
-                this.layoutType = layoutType;
-            }
-            
-            public String createRow(int index) {
+{% next "Next: From list to layout: Enum" %}
+### From list to layout: Enum
+The enum `LayoutType` contains the information about the layout. It does not much, except determine that certain string patterns belong with a certain name. This avoids having to define the options as constants elsewhere in the code and keeps everything layout related neatly together.
 
-                String row;
-                String horizontalBorder, verticalBorder;
-                
-                Student currentStudent = studentArray[index];
 
-                horizontalBorder = layoutType.horizontalBorder;
-                verticalBorder = layoutType.verticalBorder;
-
-                row = horizontalBorder + verticalBorder + " " + currentStudent.getName() + " " + horizontalBorder;
-                return row;
-            }
-            
-            public int getItemCount() {
-                return studentArray.length;
-            }
-        }
-
-The following enum contains the information about the layout. It does not much, except determine that certain string patterns belong with a certain name. This avoids having to define the options as constants elsewhere in the code and keeps everything layout related neatly together.
-
-        enum LayoutType {
-            DASH("\n---------------------\n", "|"), 
-            CIRCLE("\no 0 o 0 o 0 o 0 o 0 o\n", "0"), 
-            STAR("\n*********************\n", "*");
-            
-            String horizontalBorder, verticalBorder;
-            
-            // Constructor
-            private LayoutType(String horizontalBorder, String verticalBorder) {
-                this.horizontalBorder = horizontalBorder;
-                this.verticalBorder = verticalBorder;
-            }
-        }
-
+{% next "Next: From list to layout: Enum" %}
+### From list to layout: List container
 As mentioned before, the adapter is not used on its own, it is paired with a list container. This list container is in control how much room there is on the screen, or how many rows we actually want to show. On a screen with limited space, like a phone, you don't want to do unnecessary work, thus you only want to ask the adapter to do things for the items you have room for. We simulate this in the terminal by having a predetermined number of rows that we want to show. 
-
-        class ListContainer {
-            
-            private int rowsToShow;
-
-            public ListContainer(int rowsToShow) {
-                this.rowsToShow = rowsToShow;
-            }
-            
-            public void setAdapter(ArrayAdapter adapter) {
-                for (int i = 0; i < Math.min(adapter.getItemCount(), rowsToShow); i++) {
-                    String currentRow = adapter.createRow(i);
-                    System.out.println(currentRow);
-                }
-            }
-        }
 
 Because the container class is in control of the amount of rows shown, it is also the one that is used to iterate over the items in the list inside the `setAdapter()` method. 
 
 Through the instance of `ArrayAdapter`, it calls the `createRow()` method which then creates the "layout" using the strings defined in the `enum`. The method then uses the index it received from the container class to get the right `Student` object out of the array. With this object, the correct data can be displayed in the row. This string representing the row is returned to the instance of `ListContainer` that called it, which then prints the result to the terminal.
 
+
+{% next "Next: From list to layout: Everything together" %}
+### From list to layout: Everything together
 What is essential is that there is some kind of information on what the layout should look like (what kind of border to use), and there is a list (the student objects). To determine how many elements are shown, there is also a container. This information is then combined, having the container determine what index should be rendered, which is then passed on to the adapter, which generates the appropriate layout for every item. 
 
 This is all very similar to what the actual adapter class does in Android Studio. But more on that later!
