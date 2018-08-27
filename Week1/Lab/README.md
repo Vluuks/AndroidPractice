@@ -135,10 +135,6 @@ Suppose we wanted to create a new student object for the student Ada Lovelace an
 
 Now, the variable `al` contains the values we initialized it with, because inside the constructor method, the values are stored in the properties of the student object. If we wanted to initialize another student as well, we can of course do so! 
 
-        Student ik = new Student("Immanuel Kant", "Philosophy", 81148);
-
-The variables `al` and `ik` can be seen as references to the respective objects. They each use the `Student` blueprint, but the contents of the properties are different.
-
 ➡️ *Exercise 4.1* *Use the constructor we added in exercise 3, and replace the instantiation of the first three student objects with this constructor.*
 
 ➡️ *Exercise 4.2* *Adjust the constructor to incorporate the property you added in 1.1 and instantiate three student objects in `StudentTest.java`'s `main` method with this new constructor. Verify that it works by compiling and running your code.*
