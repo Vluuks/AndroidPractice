@@ -1,5 +1,5 @@
 # Java Basics for Android
- <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week1/Lab/robotje.png" style="padding: 10px"> In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you. We will do this in "lab" form, which means we make use of a split screen, combining the explanation with an built-in editor and terminal. This week's focus will be on the basic features of Java: classes and their associated methods. Since it's an object oriented language, we will take a look at classes and how to use them. Then we will focus on methods and their parameters and return values.
+ <img align="right" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week1/Lab/robotje.png" style="padding: 10px"> In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you. We will do this in "lab" form, which means we make use of a split screen, combining the explanation with an built-in editor and terminal. This week's focus will be on the basic features of Java: classes and their associated methods. Since it's an object oriented language, we will take a look at classes and how to use them. Then we will focus on methods and their parameters and return values.
 <br>
 <br>
 <br>
@@ -15,6 +15,7 @@
 <br>
 <br>
 <br>
+
 {% next "Next: Working with Java classes" %}
 ### Working with Java classes
 Java is a programming language that makes use of classes. A class is similar to a `struct` in C, but instead of just holding data, they can hold code that can be run as well. The data inside a Java class are commonly called *properties*, whereas the code that can be executed inside the class is called a *method*. In the editor on the right is a very simple example of a Java class called `Student`, which depicts a student with just three properties, and one method.
