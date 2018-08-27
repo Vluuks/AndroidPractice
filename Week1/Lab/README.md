@@ -11,22 +11,7 @@
 ### Classes 
 Java is a programming language that makes use of classes. A class is similar to a `struct` in C, but instead of just holding data, they can hold code that can be run as well. The data inside a Java class are commonly called *properties*, whereas the code that can be executed inside the class is called a *method*. Below is a very simple example of a Java class, which depicts a student with just three properties, and one method.
 
-        class Student {
-
-            // Properties of the class
-            public String name;
-            public String program;
-            public int studentNumber; 
-
-            // Method of the class
-            public void printInfo() {
-                System.out.println("This student is called " + name);
-                System.out.println("they are studying " + program);
-                System.out.println("and their student number is " + studentNumber);
-            }
-        }
-
-As you can see this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console. 
+As you can see in the editor on the right, this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console. 
 
 ➡️ *Exercise 1:* *In the editor on the right, find the `Student.java` file and add another property to the class, right below the `studentNumber` property. You don't need to alter the `printInfo()` method yet.*
 
@@ -50,7 +35,7 @@ Let's say we wanted to create some instances of `Student`. As of now we do not r
 
 ➡️ *Exercise 2.1:* *Go to the editor on the right and look at the file `StudentTest.java` This file contains the `main` method, the point of entry of the program (just like we are used to in C!). The main method needs to be contained in a class as well, which we have called `StudentTest`.*
 
-From this main method, we can access the `Student` class and create instances of it, as well as invoke the methods contained within the student class through the references we created before. Essentially, this is where the action happens most of the time. If you want to make changes to the contents of the `Student` class itself, this should of course be done inside that class instead!
+From this main method, we can access the `Student` class and create instances of it, as well as invoke the methods contained within the student class through the references we created before. Essentially, this main method is where the action happens most of the time. If you want to make changes to the contents of the `Student` class itself, this should of course be done inside that class instead!
 
 To start, verify that the source code works by compiling and running `StudentTest.java`.
 
@@ -83,33 +68,16 @@ The above is valid syntax, so nothing is stopping us from never assigning a name
 ### The constructor
 The constructor is an important and special method inside the class that we can call to create instances of that class. By default, classes are provided with a constructor that takes no arguments and does not alter the properties of the class. We called this constructor in the example above: `Student a = new Student();`. It just creates the object with the associated properties, but does not set their values. 
 
-Often the constructor is used to set the properties of the class to meaningful values. In this case we want to set the values of the name, the program the student is attending and the student number. The constructor of the class can be made with this in mind, allowing us to insert these values.
+Often the constructor is used to set the properties of the class to meaningful values. In this case we want to set the values of the name, the program the student is attending and the student number. The constructor of the class can be made with this in mind, allowing us to insert these values. The constructor is defined by using the name of the class as the name of the method, and then specifying the parameters it should take. Inside the method body, these parameters are passed on to the appropriate fields of the class. The next section will cover these parameters in more depth.
 
-To do this, we simply need to add the constructor method to the class definition. While the class  only contained the properties and the method `printInfo()` before, we can now adjust it to hold our constructor as well!
-
-        class Student {
-
-            // Properties of the class
-            public String name;
-            public String program;
-            public int studentNumber; 
-
-            // Constructor of the class
-            public Student(String aName, String aProgram, int aStudentNumber) {
+        // Constructor of the class
+        public Student(String aName, String aProgram, int aStudentNumber) {
                 name = aName;
                 program = aProgram;
                 studentNumber = aStudentNumber;
-            }
-
-            // Method of the class
-            public void printInfo() {
-                System.out.println("This student is called " + name);
-                System.out.println("they are studying " + program);
-                System.out.println("and their student number is " + studentNumber);
-            }
         }
 
-The constructor is defined by using the name of the class as the name of the method, and then specifying the parameters it should take. Inside the method body, these parameters are passed on to the appropriate fields of the class. The next section will cover these parameters in more depth.
+To use the constructor with the parameters we defined, we simply need to add it to the class definition. While the class  only contained the properties and the method `printInfo()` before, we can now adjust it to hold our constructor as well!
 
 ➡️ *Exercise 3* *Using the syntax from the example above, add the constructor to `Student.java`. Verify that its syntax is correct by compiling `StudentTest.java`.*
 
