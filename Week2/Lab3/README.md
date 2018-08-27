@@ -1,5 +1,7 @@
 # Java Basics for Android
- <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week2/Lab3/robotje.png" style="padding: 10px"> This week we focus on concepts that have to do with the way classes, variables and methods are accessed and modified. As the scope of your application gets bigger, not everything needs to be reachable from all points in the app. A good understanding of what can be accessed or modified helps you keep control over all your program's components. We will also pay attention to what is good practice in regards to structuring your variables and how to incorporate them in control structures.
+ <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week2/Lab3/robotje.png" style="padding: 10px"> This week we focus on concepts that have to do with the way classes, variables and methods are accessed and modified. As the scope of your application gets bigger, not everything needs to be reachable from all points in the app. This week we will focus on the different access rights that methods and variables can have in Java. This will matter once the scope of your apps gets bigger and you work with more different activities and model classes. Sometimes you don’t want certain variables from a class to be accessed outside it, for example.
+ 
+ A good understanding of what can be accessed or modified helps you keep control over all your program's components. We will also pay attention to what is good practice in regards to structuring your variables and how to incorporate them in control structures.
 <br>
 <br>
 <br> 
@@ -21,8 +23,6 @@ This week's practice content consists of the following parts:
 <a name="access"></a>
 
 ### Access 
-This week we will focus on the different access rights that methods and variables can have in Java. This will matter once the scope of your apps gets bigger and you work with more different activities and model classes. Sometimes you don’t want certain variables from a class to be accessed outside it, for example.
-
 You might have noticed that many of the variables and methods used in your code have a keyword such as `private`, `public` or `protected`. This has to do with the location from which these variables and methods can be accessed.
 
 - `private` access restricts the access of a variable or method to within that class. 
@@ -37,11 +37,9 @@ In general, it is good practice to keep the access of your variables and methods
 
 Most of the time we will make use of `private` and `public` for the classes and variables we construct ourselves, as during this course we do not make a lot of use of different packages, since the apps are rather small.
 
-➡️ **Exercise 1:** *Inside `StudentTest.java`, shown in the editor on the right, change the properties present from public variables to private variables.*
+➡️ **Exercise 1.1:** *Inside `StudentTest.java`, shown in the editor on the right, change the properties present from public variables to private variables.*
 
-➡️ **Exercise 1.1:** *Write some code that changes the name of the study program of the student after it has been instantiated. What happens when you try to access or modify the properties of the student object?*
-
-➡️ **Exercise 1.2:** *What do you think would happen if we gave the constructor private access as well?*
+➡️ **Exercise 1.2:** *Write some code that changes the name of the study program of the student after it has been instantiated. What happens when you try to access or modify the properties of the student object? What do you think would happen if we gave the constructor private access as well?*
 
 {% spoiler "Reminder: Compiling and running Java code" %}
 To compile your Java file to a .class file, use this command on the terminal:
@@ -56,9 +54,6 @@ After compilation, you can run your program using:
 {% next "Next: Java vs. Android" %}
 
 {% next "Next: Getters and setters" %}
-&nbsp;
-<a name="getters-setters"></a>
-
 ### Getters and setters
 
 Consider the `Student` class once again, with the adjustments you made to its properties, making them `private`. Often when a class has private properties that does not mean they should never be accessed at all. Most of the time this is done through getter and setter methods. This is also called *encapsulation*. This means that instead of changing or adding an object's properties through the dot operator, we use a method to do this. These methods are contained in the class, just like the constructor.
@@ -104,9 +99,6 @@ The point is that through this method, the handling of the `credits` property is
 ➡️ **Exercise 2.3:** *You can imagine that for EC it might not be the most useful to set the value every time. A method that increments them makes way more sense. Add a method to your Student class that increments a student's current EC by a given amount. Does this interfere with the getters and setters, why (not)?*
 
 {% next "Next: Static vs. non-static" %}
-&nbsp;
-<a name="static"></a>
-
 ### Static vs. non-static
 Another modifier that can be added to the declaration of a method or variable is the `static` keyword. This modifier also has to do with access, but has to do with whether a class is instantiated or not. 
 
@@ -151,9 +143,6 @@ For things like counters that keep track how many instances have been made, this
 ➡️ **Exercise 3.3** *Set the access of the `studentCount` variable to `private` and define a method that returns the count of students. Bear in mind we want this method to be accessible even when we do not have an instance of a `Student` present: what does this mean for the method's access modifier definition?*
 
 {% next "Next: Constants" %}
-&nbsp;
-<a name="constants"></a>
-
 ### Constants
 Let's say you want to use variables that really do not have to change at all during the runtime of your program. For this, we can use a constant. A constant in Java is denoted using the keyword `final`. If we were for example to define the name of the university as a constant within the student class, it would look like this:
 
@@ -170,9 +159,6 @@ Now, the `UNIVERSITY_NAME` string is immutable. This means that any attempts to 
 Notice how in the `ConstantTest.java` file, `UNIVERSITY_NAME` is both `static` and `final` in this example? This means that even though it's immutable, we still want it to be accessible without having to instantiate any students, because we assume the university is the same for all of them.
 
 {% next "Next: Enums" %}
-&nbsp;
-<a name="enums"></a>
-
 ### Enums
 Sometimes you have a program that requires multiple constants. Let's say you need to define a set of shapes. You could of course define them using the `final` keyword:
 
@@ -224,9 +210,6 @@ Using `enum` has other benefits as well. Because all values are contained within
 ➡️ **Exercise 5.4** *Add a method to the `Student` class that uses the `Switch` statement to print something to the terminal.*
 
 {% next "Next: Wrapping it up" %}
-&nbsp;
-<a name="wrapup"></a>
-
 ### Wrapping it up
 We have seen three types of modifiers related to the way variables are accessed. Each of these concepts came with its own keywords.
 
