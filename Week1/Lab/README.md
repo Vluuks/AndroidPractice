@@ -168,11 +168,11 @@ After compilation, you can run your program using:
 {% next "Next: Return values" %}
 &nbsp;
 ### Return values
-When taking a look at the `printInfo()` method, another aspect is important: the return type. Methods in Java specify the kind of value they return at the end. In this case, `printInfo()` is preceded by the word `void` which indicates that the method does not return any value. Suppose we had a different structure of the class in mind, which separates the tasks that are going on a bit more:
+When taking a look at methods, another aspect is important: the return type. Methods in Java specify the kind of value they return at the end their declaration. In this case, `printInfo()` is preceded by the word `void` which indicates that the method does not return any value. Suppose we had a different structure of the class in mind, which separates the tasks that are going on a bit more:
 
         private String createInfoString() {
-            String infoString = "This student is called " + name + 
-                "they are studying " + program + " and their student number is " + studentNumber;
+            String infoString = "This student is called " + name + "they are studying " + 
+            program + " and their student number is " + studentNumber;
             return infoString;
         }
 
@@ -181,11 +181,11 @@ When taking a look at the `printInfo()` method, another aspect is important: the
             System.out.println(toPrint);
         }
 
-Now, all the `printInfo()` method does is call another method, `createInfoString()` and print the results from calling this method instead. This works because the `createInfoString()` method is defined to return a `String`. In Java, methods can return all kinds of variables and even instances of classes like `Student`. The kind of variable to be returned must be specified in the method declaration. We can clearly see this, as the declaration of `createInfoString()` is preceded by the keyword `String`. When a method does not return anything, like `printInfo()` we use `void`. An exception to this is the constructor: no return type keyword is used in its declaration. 
+Now, all the `printInfo()` method does is call another method, `createInfoString()` and print the results from calling this method instead. This works because the `createInfoString()` method is defined to return a `String`.  We can clearly see this, as the declaration of `createInfoString()` is preceded by the keyword `String`. In Java, methods can return all kinds of variables and even instances of classes like `Student`. When a method does not return anything, like `printInfo()` we use `void`. An exception to this is the constructor: no return type keyword is used in its declaration. 
 
 ➡️ *Exercise 6.1:* *Create a method inside the student class, which both checks how many credits a certain student has and prints to the console whether they can ask for their diploma (which you need 180 for), or they still have to study some more!*
 
-➡️ *Exercise 6.2:* *Split the functionality of the method created at 6.1, so that instead of just printing everything directly, it makes a call to another method and prints something depending on the result. This other method should handle the credit checking part and returns true or false, depending on whether the student is eligible for their diploma.*
+➡️ *Exercise 6.2:* *Split the functionality of the method created at 6.1, so that instead of just printing everything directly, it makes a call to another method and prints something depending on the result. This other method should handle the credit checking part and return `true` or `false`, depending on whether the student is eligible for their diploma.*
 
 {% spoiler "Hint: Compiling and running Java code" %}
 To compile your Java file to a .class file, use this command on the terminal:
