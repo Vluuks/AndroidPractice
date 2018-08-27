@@ -10,7 +10,8 @@
 This week's practice content consists of the following parts:
 
 - Access
-- Getters and setters
+- Getters and setters - part 1
+- Getters and setters - part 2
 - Static vs. non-static
 - Constants
 - Enums
@@ -51,11 +52,8 @@ After compilation, you can run your program using:
         java YourJavaFileName
 {% endspoiler %}
 
-{% next "Next: Java vs. Android" %}
-
-{% next "Next: Getters and setters" %}
-### Getters and setters
-
+{% next "Next: Getters and setters - part 1" %}
+### Getters and setters - part 1
 Consider the `Student` class once again, with the adjustments you made to its properties, making them `private`. Often when a class has private properties that does not mean they should never be accessed at all. Most of the time this is done through getter and setter methods. This is also called *encapsulation*. This means that instead of changing or adding an object's properties through the dot operator, we use a method to do this. These methods are contained in the class, just like the constructor.
 
         public void setName(String aName) {
@@ -80,6 +78,8 @@ Of course, these getter and setter methods need to be created for the other prop
 
 ➡️ **Exercise 2.1:** *Inside `StudentTest.java`, add the getter and setter for the name property to the class and create the getters and setters for the other properties in the `Student` class.*
 
+{% next "Next: Getters and setters - part 2" %}
+### Getters and setters - part 2
 A benefit of encapsulation is that instead of allowing someone to edit properties of an object using the dot operator, this must be done through a method. This method takes as an argument the new value to be set, but can of course also check whether this value makes sense at all. 
 
 A good example could be the `credits` property. In this case its access is public so that means we can access it through the dot operator. Imagine we want to adjust the credits for the student object `s`. Using the dot operator we might do something like this:
