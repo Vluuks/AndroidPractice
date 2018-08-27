@@ -82,21 +82,19 @@ Of course, these getter and setter methods need to be created for the other prop
 ### Getters and setters - part 2
 A benefit of encapsulation is that instead of allowing someone to edit properties of an object using the dot operator, this must be done through a method. This method takes as an argument the new value to be set, but can of course also check whether this value makes sense at all. 
 
-A good example could be the `credits` property. In this case its access is public so that means we can access it through the dot operator. Imagine we want to adjust the credits for the student object `s`. Using the dot operator we might do something like this:
+A good example could be the `credits` property. Before its access was public, allowing modification through the dot operator. Imagine we want to adjust the credits for the student object `s`. Using the dot operator we might do something like this:
 
         s.credits = 40;
 
 However, nothing really stops us from supplying a bogus value, like `-30` or some other integer that does not make sense. This is the case for many other properties classes could have, even for something as simple as a `Student` class!
 
-Instead of having the `credits` property be public, we could set it to `private` instead, like we did in the first part of this tutorial. By doing this, it can only be accessed from within the class, thus we are required to call the `setCredits()` method if we want to modify it. 
-
-This method could not just adjust the credits, but also verify that the number makes sense and act appropriately. 
+ By setting the access to `private` instead, it can only be accessed from within the class, thus we are required to call the `setCredits()` method if we want to modify it. This method could not just adjust the credits, but also verify that the number makes sense and act appropriately. 
 
 ➡️ **Exercise 2.2:** *Adjust the set method for the credits property so that it performs a correction when the supplied value is negative.*
 
-The point is that through this method, the handling of the `credits` property is much more foolproof. It is managed through its respective getter and setter methods. By keeping the access inside the class, you have much more control over the values of variables.
+The point is that through this method, the handling of the `credits` property is much more foolproof. By keeping the access inside the class, you have much more control over the values of variables.
 
-➡️ **Exercise 2.3:** *You can imagine that for EC it might not be the most useful to set the value every time. A method that increments them makes way more sense. Add a method to your Student class that increments a student's current EC by a given amount. Does this interfere with the getters and setters, why (not)?*
+➡️ **Exercise 2.3:** *You can imagine that for credits it might not be the most useful to set the value every time. A method that increments them makes way more sense. Add a method to your Student class that increments a student's current credits by a given amount. Does this interfere with the getters and setters, why (not)?*
 
 {% next "Next: Static vs. non-static" %}
 ### Static vs. non-static
