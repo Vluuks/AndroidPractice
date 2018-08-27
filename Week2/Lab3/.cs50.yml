@@ -7,3 +7,4 @@ lab50:
     - EnumTest.java
     - ConstantTest.java
     - StudentTest.java
+    - Student.java
