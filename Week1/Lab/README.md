@@ -180,18 +180,14 @@ After compilation, you can run your program using:
 <a name="return-values"></a>
 
 ### Return values
-When taking a look at the `printInfo()` method, another aspect is important: the return type. Methods in Java specify the kind of value they return at the end. In this case, `printInfo()` is preceded by the word `void` which indicates that the method does not return any value. This is true, as it just prints anything but does not return a value to the caller. 
+When taking a look at the `printInfo()` method, another aspect is important: the return type. Methods in Java specify the kind of value they return at the end. In this case, `printInfo()` is preceded by the word `void` which indicates that the method does not return any value. This is true, as it just prints anything but does not return a value to the caller. Suppose we had a different structure of the class in mind, which separates the tasks that are going on a bit more. Let's say we would want to split the task of building the string to be printed and the actual printing itself. Our methods could then look something like this:
 
-Suppose we had a different structure of the class in mind, which separates the tasks that are going on a bit more. Let's say we would want to split the task of building the string to be printed and the actual printing itself. Our methods could then look something like this:
-
-        // Creates and returns a string with all info
         private String createInfoString() {
             String infoString = "This student is called " + name + 
                 "they are studying " + program + " and their student number is " + studentNumber;
             return infoString;
         }
 
-        // Prints the string info to the terminal
         public void printInfo() {
             String toPrint = createInfoString();
             System.out.println(toPrint);
