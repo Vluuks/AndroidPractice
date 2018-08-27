@@ -1,5 +1,5 @@
 # Java Basics for Android
- <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week1/Lab/robotje.png" style="padding: 10px"> In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you. We will do this in "lab" form, which means we make use of a split screen, combining the explanation with an built in editor and terminal.
+ <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week1/Lab/robotje.png" style="padding: 10px"> In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you. We will do this in "lab" form, which means we make use of a split screen, combining the explanation with an built-in editor and terminal.
  
  This week's focus will be on the basic features of Java: classes and their associated methods. Since it's an object oriented language, we will take a look at classes and how to use them. Then we will focus on methods and their parameters and return values.
 <br>
@@ -42,14 +42,14 @@ In Java, variable and method names are written using camelCase, such as `student
 
 Verify that your code still compiles by executing `javac StudentTest.java` at the terminal. You can also run the code by using `java StudentTest` afterwards, but the output will still be the same. (Why?)
 
-{% next "Next: Classes and instances" %}
+{% next "Next: Classes and instances - part 1" %}
 &nbsp;
 <a name="classes-instances"></a>
 
 ### Classes and instances
-In Java, in order to use classes like the `Student` class, they need to be instantiated before they can be used. The `Student` class can be seen as a blueprint. It exists, but before we can use the properties or methods inside, we first need to create an *instance* of the class. An instance of a class is often called an object as well. A class is a blueprint which you use to create objects. These objects are instances of that particular class.
+In Java, in order to use classes like the `Student` class, they need to be instantiated. The `Student` class can be seen as a blueprint. It exists, but before we can use the properties or methods inside, we first need to create an *instance* of the class. An instance of a class is often called an object as well. 
 
-This instance will contain actual information about a particular student, which the class blueprint does not. In the example below you can see the difference between the class (blueprint) and the instances. While the blueprint dictates what *kind* of information the class can hold, only the instances actually embody this information and represent actual students. 
+This instance will contain actual information about a particular student, which the class blueprint does not. In the example below you can see the difference between the class (blueprint) and the instances. While the blueprint dictates what *kind* of information the class can hold, only the instances actually embody this information and represent actual students. A class is a blueprint which you use to create objects. These objects are instances of that particular class.
 
 ![An image depicting the student class and its properties, with on the other side of the image two example instances of the student class.](classes-instances-robot.png)
 
@@ -61,6 +61,12 @@ Let's say we wanted to create some instances of `Student`. As of now we do not r
         a.studentNumber = 12458824;
 
 ➡️ *Exercise 2.2:* *Using the syntax described above, create three instances of the `Student` class inside the `main` method and assign them values for the three properties and the property you added yourself in exercise 1. Compile and run your code.*
+
+{% next "Next: Classes and instances - part 2" %}
+&nbsp;
+<a name="classes-instances"></a>
+
+### Classes and instances
 
 As you can see in the editor on the right, this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console. 
 
