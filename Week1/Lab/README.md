@@ -1,9 +1,11 @@
 # Java Basics for Android
- <img align="right" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week1/Lab/robotje.png" style="padding: 10px"> In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you. We will do this in "lab" form, which means we make use of a split screen, combining the explanation with an built-in editor and terminal. This week's focus will be on the basic features of Java: classes and their associated methods. Since it's an object oriented language, we will take a look at classes and how to use them. Then we will focus on methods and their parameters and return values.
+ <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week1/Lab/robotje.png" style="padding: 10px"> In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you. We will do this in "lab" form, which means we make use of a split screen, combining the explanation with an built-in editor and terminal. This week's focus will be on the basic features of Java: classes and their associated methods. Since it's an object oriented language, we will take a look at classes and how to use them. Then we will focus on methods and their parameters and return values.
 <br>
 <br>
 <br>
 ## Table of Contents
+This week's practice content consists of the following parts:
+
 - Working with Java classes
 - Classes and properties
 - Classes and instances - part 1
