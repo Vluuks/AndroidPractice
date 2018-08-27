@@ -33,11 +33,13 @@ You might have noticed that many of the variables and methods used in your code 
 
 - If you omit the access keyword, the variable or method is accessible within its own package only. Subclasses in other packages do not get access, as opposed to the `protected` keyword.
 
-In general, it is good practice to keep the access of your variables and methods as limited as possible, ensuring that only the parts of the program that really *need* access are getting it. Most of the time we will make use of `private` and `public` for the classes and variables we construct ourselves, as during this course we do not make a lot of use of different packages, since the apps are rather small.
+In general, it is good practice to keep the access of your variables and methods as limited as possible, ensuring that only the parts of the program that really *need* access are getting it. 
 
-➡️ **Exercise 1.1:** *Inside `StudentTest.java`, shown in the editor on the right, change the properties present from public variables to private variables.*
+Most of the time we will make use of `private` and `public` for the classes and variables we construct ourselves, as during this course we do not make a lot of use of different packages, since the apps are rather small.
 
-➡️ **Exercise 1.2:** *Write some code that changes the name of the study program of the student after it has been instantiated. What happens when you try to access or modify the properties of the student object? What do you think would happen if we gave the constructor private access as well?*
+➡️ **Exercise 1.1:** *Inside `Student.java`, shown in the editor on the right, change the properties present from public variables to private variables.*
+
+➡️ **Exercise 1.2:** *Inside `AccessTest.java`, write some code that changes the name of the study program of the student after it has been instantiated. What happens when you try to access or modify the properties of the student object? What do you think would happen if we gave the constructor private access as well?*
 
 {% spoiler "Reminder: Compiling and running Java code" %}
 To compile your Java file to a .class file, use this command on the terminal:
