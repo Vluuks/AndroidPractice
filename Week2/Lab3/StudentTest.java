@@ -1,4 +1,3 @@
-// The class used to contain the main method
 class StudentTest {
     
     // The main method is the start of the program

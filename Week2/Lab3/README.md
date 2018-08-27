@@ -27,15 +27,13 @@ You might have noticed that many of the variables and methods used in your code 
 
 - `private` access restricts the access of a variable or method to within that class. 
 
-- `public` is quite the opposite, allowing access from outside the class, as well as from other [packages](https://docs.oracle.com/javase/tutorial/java/concepts/package.html). This is the least restrictive access modifier. Basically, the variable or method is usable all throughout your app.
+- `public` is quite the opposite, allowing access from outside the class, as well as from other [packages](https://docs.oracle.com/javase/tutorial/java/concepts/package.html). This is the least restrictive access modifier. 
 
-- `protected` is a term we sometimes see in Android Studio as well, it refers to a more toned down version of `public`. This modifier allows for access from within a package and subclasses that are located in other packages, but not for access from unrelated classes in other packages. In practice, you will rarely use this one yourself, but it can be seen in pre-generated code and libraries.
+- `protected` allows for access from within a package and subclasses that are located in other packages, but not for access from unrelated classes in other packages. In practice, you will rarely use this one yourself, but it can be seen in pre-generated code and libraries.
 
 - If you omit the access keyword, the variable or method is accessible within its own package only. Subclasses in other packages do not get access, as opposed to the `protected` keyword.
 
-In general, it is good practice to keep the access of your variables and methods as limited as possible, ensuring that only the parts of the program that really *need* access are getting it. 
-
-Most of the time we will make use of `private` and `public` for the classes and variables we construct ourselves, as during this course we do not make a lot of use of different packages, since the apps are rather small.
+In general, it is good practice to keep the access of your variables and methods as limited as possible, ensuring that only the parts of the program that really *need* access are getting it. Most of the time we will make use of `private` and `public` for the classes and variables we construct ourselves, as during this course we do not make a lot of use of different packages, since the apps are rather small.
 
 ➡️ **Exercise 1.1:** *Inside `StudentTest.java`, shown in the editor on the right, change the properties present from public variables to private variables.*
 

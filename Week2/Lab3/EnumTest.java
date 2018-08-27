@@ -1,12 +1,3 @@
-/* 
-     Native App Studio - University of Amsterdam
-     Class showing the use of an enum in Java
-     
-     To compile: javac EnumTest.java
-     To run: java EnumTest
-     
-*/
-
 class EnumTest {
     
     private enum Shape { 
