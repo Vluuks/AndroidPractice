@@ -191,9 +191,9 @@ Using `enum` has other benefits as well. Because all values are contained within
 
 ➡️ **Exercise 5.2** *Add a case to the `switch` statement for the shape you added to the `enum` in 5.1 and change the code above to test whether your case is recognized.*
 
-➡️ **Exercise 5.3** *Go back to `StudentTest.java`. Implement an `enum` that represents the various levels that exist: bachelor, master, PhD or some other set of constants you feel is appropriate to represent in an `enum`.*
+➡️ **Exercise 5.3** *Go back to `Student.java`. Implement an `enum` that represents the various levels that exist: bachelor, master, PhD or some other set of constants you feel is appropriate to represent in an `enum`.*
 
-➡️ **Exercise 5.4** *Add a method to the `Student` class that uses the `Switch` statement to print something to the terminal.*
+➡️ **Exercise 5.4** *Add a method to the `Student` class that uses the `Switch` statement to print something to the terminal based on the enum implemented in 5.2.*
 
 {% next "Next: Wrapping it up" %}
 ### Wrapping it up
