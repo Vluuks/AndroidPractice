@@ -16,7 +16,6 @@
 
 {% next "Next: Working with Java classes" %}
 &nbsp;
-
 ### Working with Java classes
 Java is a programming language that makes use of classes. A class is similar to a `struct` in C, but instead of just holding data, they can hold code that can be run as well. The data inside a Java class are commonly called *properties*, whereas the code that can be executed inside the class is called a *method*. In the editor on the right is a very simple example of a Java class called `Student`, which depicts a student with just three properties, and one method.
 
@@ -38,7 +37,6 @@ It will now execute the code inside the main method. Meaning, "Running main!" sh
 
 {% next "Next: Classes and properties" %}
 &nbsp;
-
 ### Classes and properties
 Classes in Java like the `Student` class can contain various properties. These properties can have all kind of types. They can represent simple things like an `int`, `boolean`,  or `String`, but also lists of items and even other classes! Properties represent information that can be contained in the class. 
 
@@ -49,8 +47,6 @@ In Java, variable and method names are written using camelCase, such as `student
 Verify that your code still compiles by executing `javac StudentTest.java` at the terminal. You can also run the code by using `java StudentTest` afterwards, but the output will still be the same. (Why?)
 
 {% next "Next: Classes and instances - part 1" %}
-&nbsp;
-
 ### Classes and instances
 In Java, in order to use classes like the `Student` class, they need to be instantiated. The `Student` class can be seen as a blueprint. It exists, but before we can use the properties or methods inside, we first need to create an *instance* of the class. An instance of a class is often called an object as well. 
 
@@ -68,8 +64,6 @@ Let's say we wanted to create some instances of `Student`. As of now we do not r
 ➡️ *Exercise 2.2:* *Using the syntax described above, create three instances of the `Student` class inside the `main` method and assign them values for the three properties and the property you added yourself in exercise 1. Compile and run your code.*
 
 {% next "Next: Classes and instances - part 2" %}
-&nbsp;
-
 ### Classes and instances
 
 As you can see in the editor on the right, this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console. 
@@ -88,8 +82,6 @@ The above is valid syntax, so nothing is stopping us from never assigning a name
 
 {% next "Next: The constructor" %}
 &nbsp;
-<a name="constructor"></a>
-
 ### The constructor
 The constructor is an important and special method inside the class that we can call to create instances of that class. By default, classes are provided with a constructor that takes no arguments and does not alter the properties of the class. We called this constructor in the example above: `Student a = new Student();`. It just creates the object with the associated properties, but does not set their values. 
 
@@ -118,8 +110,6 @@ After compilation, you can run your program using:
 
 {% next "Next: Parameters of the constructor" %}
 &nbsp;
-<a name="parameters"></a>
-
 ### Parameters of the constructor
 Parameters determine what kind of information can be passed on to a method. You are probably familiar with this concept as it exists in other languages as well. In Java, they are specified between the `()` of the method declaration, stating the name of the parameter and its type. 
 
@@ -151,8 +141,6 @@ After compilation, you can run your program using:
 
 {% next "Next: Method overloading" %}
 &nbsp;
-<a name="method-overloading"></a>
-
 ### Method overloading
 Due to the concept of [method overloading](https://beginnersbook.com/2013/05/method-overloading/) in Java, we can also define multiple constructors with different parameters for a class. If we wanted to define a constructor that does not take the program of the student as an argument, but just their name and number, it would look like this:
 
@@ -177,8 +165,6 @@ After compilation, you can run your program using:
 
 {% next "Next: Return values" %}
 &nbsp;
-<a name="return-values"></a>
-
 ### Return values
 When taking a look at the `printInfo()` method, another aspect is important: the return type. Methods in Java specify the kind of value they return at the end. In this case, `printInfo()` is preceded by the word `void` which indicates that the method does not return any value. This is true, as it just prints anything but does not return a value to the caller. Suppose we had a different structure of the class in mind, which separates the tasks that are going on a bit more. Let's say we would want to split the task of building the string to be printed and the actual printing itself. Our methods could then look something like this:
 
@@ -214,6 +200,5 @@ After compilation, you can run your program using:
 
 {% next "Next: Wrapping it up" %}
 &nbsp;
-
 ## Wrapping it up
 You have now seen how to instantiate objects in Java, using a class as a blueprint. You also practiced with methods, including their parameters and return values. These concepts will all be important when you get to building your app!
