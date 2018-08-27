@@ -34,9 +34,11 @@ It will now execute the code inside the main method. Meaning, "Running main!" sh
 &nbsp;
 
 ### Classes and properties
-As you can see in the editor on the right, this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console. 
+Classes in Java like the `Student` class can contain various properties. These properties can have all kind of types. They can represent simple things like an `int`, `boolean`,  or `String`, but also lists of items and even other classes! Properties represent information that can be contained in the class. 
 
-➡️ *Exercise 1:* *In the editor on the right, find the `Student.java` file and add another property to the class, right below the `studentNumber` property. You don't need to alter the `printInfo()` method yet.*
+➡️ *Exercise 1.1:* *In the editor on the right, find the `Student.java` file and add another property to the class, right below the `studentNumber` property.*
+
+Verify that your code still compiles by executing `javac StudentTest.java` at the terminal. You can also run the code by using `java StudentTest` afterwards, but the output will still be the same. (Why?)
 
 {% next "Next: Classes and instances" %}
 &nbsp;
@@ -52,11 +54,13 @@ This instance will contain actual information about a particular student, which 
 Let's say we wanted to create some instances of `Student`. As of now we do not really have a practical way to do that. We could instantiate empty objects and then add the properties as we go:
 
         Student a = new Student();
-        a.name = "John Smith";
-        a.program = "Chemistry";
-        a.studentNumber = 12824212;
+        a.name = "Tim Steward";
+        a.program = "Business & IT";
+        a.studentNumber = 12458824;
 
 ➡️ *Exercise 2.2:* *Using the syntax described above, create three instances of the `Student` class inside the `main` method and assign them values for the three properties and the property you added yourself in exercise 1. Compile and run your code.*
+
+As you can see in the editor on the right, this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console. 
 
 ➡️ *Exercise 2.3:* *Make calls to the method `printInfo()` so that the information of all three students is printed to the terminal.* 
 
