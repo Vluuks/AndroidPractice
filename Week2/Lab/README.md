@@ -14,7 +14,8 @@ This week's practice content consists of the following parts:
 - Getters and setters - part 2
 - Static vs. non-static
 - Constants
-- Enums
+- Enums - part 1
+- Enums - part 2
 <br>
 <br>
 <br>
@@ -134,8 +135,8 @@ Now, the `UNIVERSITY_NAME` string is immutable. This means that any attempts to 
 
 Notice how in the `ConstantTest.java` file, `UNIVERSITY_NAME` is both `static` and `final` in this example? This means that even though it's immutable, we still want it to be accessible without having to instantiate any students, because we assume the university is the same for all of them.
 
-{% next "Next: Enums" %}
-### Enums
+{% next "Next: Enums - part 1" %}
+### Enums - part 1
 Sometimes you have a program that requires multiple constants. Let's say you need to define a set of shapes. You could of course define them using the `final` keyword:
 
         public static final int RECTANGLE = 0;
@@ -162,6 +163,8 @@ To solve this problem (among other things) we can use the `enum` feature of Java
 
 ➡️ **Exercise 5.1** *Open `EnumTest.java` in the editor. Think of another shape and add it to the `enum` using the syntax explained above.*
 
+{% next "Next: Enums - part 2" %}
+### Enums - part 2
 Now that the options are contained within the `enum`, we can use it to declare and modify variables. The main difference is that now we can only assign values that are part of the `Shape` `enum` because we declared the variable to be of type `Shape`. 
 
         Shape shapeToShow = Shape.TRIANGLE;
