@@ -5,10 +5,17 @@
 <br>
 <br>
 <br>
+## Table of Contents
+- Working with Java classes
+- Classes and properties
+- Classes and instances
+- The constructor
+- Parameters of the constructor
+- Method overloading
+- Return values
 
 {% next "Next: Working with Java classes" %}
 &nbsp;
-<a name="classes"></a>
 
 ### Working with Java classes
 Java is a programming language that makes use of classes. A class is similar to a `struct` in C, but instead of just holding data, they can hold code that can be run as well. The data inside a Java class are commonly called *properties*, whereas the code that can be executed inside the class is called a *method*. In the editor on the right is a very simple example of a Java class called `Student`, which depicts a student with just three properties, and one method.
@@ -29,7 +36,6 @@ After compilation, you can run your program using:
 
 It will now execute the code inside the main method. Meaning, "Running main!" should be printed to the terminal. If you run into problems, ask for help! 
 
-<a name="classes"></a>
 {% next "Next: Classes and properties" %}
 &nbsp;
 
@@ -44,7 +50,6 @@ Verify that your code still compiles by executing `javac StudentTest.java` at th
 
 {% next "Next: Classes and instances - part 1" %}
 &nbsp;
-<a name="classes-instances"></a>
 
 ### Classes and instances
 In Java, in order to use classes like the `Student` class, they need to be instantiated. The `Student` class can be seen as a blueprint. It exists, but before we can use the properties or methods inside, we first need to create an *instance* of the class. An instance of a class is often called an object as well. 
@@ -64,7 +69,6 @@ Let's say we wanted to create some instances of `Student`. As of now we do not r
 
 {% next "Next: Classes and instances - part 2" %}
 &nbsp;
-<a name="classes-instances"></a>
 
 ### Classes and instances
 
