@@ -12,7 +12,8 @@ This week's practice content consists of the following parts:
 - Access
 - Getters and setters - part 1
 - Getters and setters - part 2
-- Static vs. non-static
+- Static vs. non-static - part 1
+- Static vs. non-static - part 2
 - Constants
 - Enums - part 1
 - Enums - part 2
