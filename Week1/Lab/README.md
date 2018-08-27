@@ -1,14 +1,13 @@
 # Java Basics for Android
- <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week1/Lab/robotje.png" style="padding: 10px"> In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you. We will do this in "lab" form, which means we make use of a split screen, combining the explanation with an built-in editor and terminal.
- 
- This week's focus will be on the basic features of Java: classes and their associated methods. Since it's an object oriented language, we will take a look at classes and how to use them. Then we will focus on methods and their parameters and return values.
+ <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week1/Lab/robotje.png" style="padding: 10px"> In this course, we will use the programming language Java to create our Android apps, so the first part of each week will focus on explaining Java concepts to you. We will do this in "lab" form, which means we make use of a split screen, combining the explanation with an built-in editor and terminal. This week's focus will be on the basic features of Java: classes and their associated methods. Since it's an object oriented language, we will take a look at classes and how to use them. Then we will focus on methods and their parameters and return values.
 <br>
 <br>
 <br>
 ## Table of Contents
 - Working with Java classes
 - Classes and properties
-- Classes and instances
+- Classes and instances - part 1
+- Classes and instances - part 2
 - The constructor
 - Parameters of the constructor
 - Method overloading
@@ -17,7 +16,6 @@
 <br>
 <br>
 {% next "Next: Working with Java classes" %}
-&nbsp;
 ### Working with Java classes
 Java is a programming language that makes use of classes. A class is similar to a `struct` in C, but instead of just holding data, they can hold code that can be run as well. The data inside a Java class are commonly called *properties*, whereas the code that can be executed inside the class is called a *method*. In the editor on the right is a very simple example of a Java class called `Student`, which depicts a student with just three properties, and one method.
 
@@ -38,7 +36,6 @@ After compilation, you can run your program using:
 It will now execute the code inside the main method. Meaning, "Running main!" should be printed to the terminal. If you run into problems, ask for help! 
 
 {% next "Next: Classes and properties" %}
-&nbsp;
 ### Classes and properties
 Classes in Java like the `Student` class can contain various properties. These properties can have all kind of types. They can represent simple things like an `int`, `boolean`,  or `String`, but also lists of items and even other classes! Properties represent information that can be contained in the class. 
 
@@ -83,7 +80,6 @@ If you did everything right, the code you just wrote works as intended, but the 
 The above is valid syntax, so nothing is stopping us from never assigning a name to a particular student, which would of course not really make sense. You can imagine that missing basic properties might cause issues for other things you might want to represent in a class as well! To solve these issues, the instantiating of objects in Java is handled using a special method, the constructor.
 
 {% next "Next: The constructor" %}
-&nbsp;
 ### The constructor
 The constructor is an important and special method inside the class that we can call to create instances of that class. By default, classes are provided with a constructor that takes no arguments and does not alter the properties of the class. We called this constructor in the example above: `Student a = new Student();`. It just creates the object with the associated properties, but does not set their values. 
 
@@ -111,7 +107,6 @@ After compilation, you can run your program using:
 {% endspoiler %}
 
 {% next "Next: Parameters of the constructor" %}
-&nbsp;
 ### Parameters of the constructor
 Parameters determine what kind of information can be passed on to a method. You are probably familiar with this concept as it exists in other languages as well. In Java, they are specified between the `()` of the method declaration, stating the name of the parameter and its type. 
 
@@ -142,7 +137,6 @@ After compilation, you can run your program using:
 {% endspoiler %}
 
 {% next "Next: Method overloading" %}
-&nbsp;
 ### Method overloading
 Due to the concept of [method overloading](https://beginnersbook.com/2013/05/method-overloading/) in Java, we can also define multiple constructors with different parameters for a class. If we wanted to define a constructor that does not take the program of the student as an argument, but just their name and number, it would look like this:
 
@@ -166,7 +160,6 @@ After compilation, you can run your program using:
 {% endspoiler %}
 
 {% next "Next: Return values" %}
-&nbsp;
 ### Return values
 When taking a look at methods, another aspect is important: the return type. Methods in Java specify the kind of value they return at the end their declaration. In this case, `printInfo()` is preceded by the word `void` which indicates that the method does not return any value. Suppose we had a different structure of the class in mind, which separates the tasks that are going on a bit more:
 
@@ -198,6 +191,5 @@ After compilation, you can run your program using:
 {% endspoiler %}
 
 {% next "Next: Wrapping it up" %}
-&nbsp;
 ## Wrapping it up
 You have now seen how to instantiate objects in Java, using a class as a blueprint. You also practiced with methods, including their parameters and return values. These concepts will all be important when you get to building your app!
