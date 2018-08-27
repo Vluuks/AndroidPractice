@@ -36,6 +36,8 @@ It will now execute the code inside the main method. Meaning, "Running main!" sh
 ### Classes and properties
 Classes in Java like the `Student` class can contain various properties. These properties can have all kind of types. They can represent simple things like an `int`, `boolean`,  or `String`, but also lists of items and even other classes! Properties represent information that can be contained in the class. 
 
+In Java, variable and method names are written using camelCase, such as `studentNumber`. Classes on the other hand, use PascalCase, such as `StudentTest`. This is the standard for Android apps as well, so get used to this kind of casing!
+
 ➡️ *Exercise 1.1:* *In the editor on the right, find the `Student.java` file and add another property to the class, right below the `studentNumber` property.*
 
 Verify that your code still compiles by executing `javac StudentTest.java` at the terminal. You can also run the code by using `java StudentTest` afterwards, but the output will still be the same. (Why?)
