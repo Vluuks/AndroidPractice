@@ -1,12 +1,3 @@
-/* 
-     Native App Studio - University of Amsterdam
-     Demonstrating encapsulation and various access rights
-     
-     To compile: javac StudentTest.java
-     To run: java StudentTest
-     
-*/
-
 // The class used to contain the main method
 class StudentTest {
     

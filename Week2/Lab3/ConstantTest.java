@@ -1,13 +1,3 @@
-/* 
-     Native App Studio Course UvA
-     Demonstrating the behaviour of a final variable
-     
-     To compile: javac ConstantTest.java
-     To run: java ConstantTest
-     
-*/
-
-// The class used to contain the main method
 class ConstantTest {
     
     // The main method is the start of the program
