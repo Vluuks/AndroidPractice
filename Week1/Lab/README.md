@@ -6,11 +6,34 @@
 <br>
 <br>
 
+{% next "Next: Working with Java classes" %}
+&nbsp;
 <a name="classes"></a>
 
-### Classes 
-Java is a programming language that makes use of classes. A class is similar to a `struct` in C, but instead of just holding data, they can hold code that can be run as well. The data inside a Java class are commonly called *properties*, whereas the code that can be executed inside the class is called a *method*. Below is a very simple example of a Java class, which depicts a student with just three properties, and one method.
+### Working with Java classes
+Java is a programming language that makes use of classes. A class is similar to a `struct` in C, but instead of just holding data, they can hold code that can be run as well. The data inside a Java class are commonly called *properties*, whereas the code that can be executed inside the class is called a *method*. In the editor on the right is a very simple example of a Java class called `Student`, which depicts a student with just three properties, and one method.
 
+To make use of this class and run code, we use another class. This class is called `StudentTest` and can also be found in the editor's other tab. This class does not contain properties, but rather just a method called `main`. This method is the point of entry of the program (just like we are used to in C!). Because of the way Java works, this main method needs to be contained in a class as well, hence we've got the class `StudentTest` surrounding it.
+
+From this main method, we can access the `Student` class and create instances of it, as well as invoke the methods contained within the student class through the references we created before. Essentially, this main method is where the action happens most of the time. If you want to make changes to the contents of the `Student` class itself, this should of course be done inside that class instead!
+
+Java is a compiled language, and as such we need to compile our code before we can run it. We will compile the file that contains the main method, and because it contains code that makes use of the `Student` class, `Student.java` will automatically be compiled as well! 
+
+To compile your `StudentTest.java` to a .class file, use this command on the terminal:
+
+        javac StudentTest.java
+
+After compilation, you can run your program using:
+
+        java StudentTest
+
+It will now execute the code inside the main method. Meaning, "Running main!" should be printed to the terminal. If you run into problems, ask for help! 
+
+<a name="classes"></a>
+{% next "Next: Classes and properties" %}
+&nbsp;
+
+### Classes and properties
 As you can see in the editor on the right, this class does not just hold data (like the name, program and student number), it contains runnable code as well, in the form of the method `printInfo()`. When called, this method will print information about the student to the console. 
 
 ➡️ *Exercise 1:* *In the editor on the right, find the `Student.java` file and add another property to the class, right below the `studentNumber` property. You don't need to alter the `printInfo()` method yet.*
@@ -32,20 +55,6 @@ Let's say we wanted to create some instances of `Student`. As of now we do not r
         a.name = "John Smith";
         a.program = "Chemistry";
         a.studentNumber = 12824212;
-
-➡️ *Exercise 2.1:* *Go to the editor on the right and look at the file `StudentTest.java` This file contains the `main` method, the point of entry of the program (just like we are used to in C!). The main method needs to be contained in a class as well, which we have called `StudentTest`.*
-
-From this main method, we can access the `Student` class and create instances of it, as well as invoke the methods contained within the student class through the references we created before. Essentially, this main method is where the action happens most of the time. If you want to make changes to the contents of the `Student` class itself, this should of course be done inside that class instead!
-
-To start, verify that the source code works by compiling and running `StudentTest.java`.
-
-To compile your Java file to a .class file, use this command on the terminal:
-
-        javac YourJavaFileName.java
-
-After compilation, you can run your program using:
-
-        java YourJavaFileName
 
 ➡️ *Exercise 2.2:* *Using the syntax described above, create three instances of the `Student` class inside the `main` method and assign them values for the three properties and the property you added yourself in exercise 1. Compile and run your code.*
 
