@@ -104,37 +104,15 @@ In our `Student` class, we have different variables that represent properties of
 
 In some cases it is beneficial to have another variable that is not unique for every instance, but instead applies to all instances of the class. Imagine we want to keep track of how many students there are in total. It would not make sense to keep a unique copy of that number for every student object we create, because that would be a waste of memory. Instead, we want one variable that can keep track of this count. To do this, we use a `static` variable that is common to all instances of the class.
 
-        class Student {
-
             static int studentCount;
 
-            // Properties of the class
-            private String name;
-            private String program;
-            private int studentNumber;
-            private int credits;
-
-            ...
-
-        }
-
-Now that we have this variable, we of course also want to do something with it. Let's say we use this (admittedly inefficient) way of updating the student count every time we create a new student object:
-
-        Student al = new Student("Ada Lovelace", "Computer Science", 61283, 180);
-        Student.studentCount = 1;
-        
-        Student ik = new Student("Immanuel Kant", "Philosophy", 81148, 180);
-        Student.studentCount = 2;
-        
-        Student ja = new Student("Jeanne d'Arc", "History", 90382, 40);
-        Student.studentCount = 3;
+Now that we have this variable, we of course also want to do something with it. Let's say we use this (admittedly inefficient) way of updating the student count every time we create a new student object, as seen in `StaticTest.java`.
 
 If we were to print the value of `Student.studentCount` after running all of this, it would say 3. This is because `studentCount` is a static variable and thus it is updated for the class as a whole! Because the variable `studentCount` is `static`, we can also access through the `Student` class itself, without needing an instance. 
 
 For things like counters that keep track how many instances have been made, this is very practical. We could for example also keep a count of the total credits amassed by all students. By referring to static variables through the class name like `Student.studentCount` it clear at one glance that the `studentCount` variable is overarching all instances and does not belong to one specific object.
 
-
-➡️ **Exercise 3.1** *Continue working in `StudentTest.java`. Add the static property `studentCount` to the `Student` class like in the example.*
+➡️ **Exercise 3.1** *Add the static property `studentCount` to the `Student` class like in the example.*
 
 ➡️ **Exercise 3.2** *Instead of incrementing the count manually every time we instantiate a student like in the example, move this functionality to the constructor.*
 
