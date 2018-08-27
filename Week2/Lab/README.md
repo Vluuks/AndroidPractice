@@ -97,27 +97,33 @@ The point is that through this method, the handling of the `credits` property is
 
 ➡️ **Exercise 2.3:** *You can imagine that for credits it might not be the most useful to set the value every time. A method that increments them makes way more sense. Add a method to your Student class that increments a student's current credits by a given amount. Does this interfere with the getters and setters, why (not)?*
 
-{% next "Next: Static vs. non-static" %}
-### Static vs. non-static
-Another modifier that can be added to the declaration of a method or variable is the `static` keyword. This modifier also has to do with access, but has to do with whether a class is instantiated or not. 
+{% next "Next: Static vs. non-static - part 1" %}
+### Static vs. non-static - part 1
+Another modifier that can be added to the declaration of a method or variable is the `static` keyword. 
 
-In our `Student` class, we have different variables that represent properties of a student, these are called instance variables (`name`, `program`, `studentNumber`, `credits`). They differ across instances of the Student object, as every time we create a new one, we supply new values for these variables to the constructor. These variables are unique for every instance of the class, as it makes sense that not all students have the same name, student number etc. The class says: all students have a name, but the instance says: "This specific student's name is Tim Steward".
+In our `Student` class, we have different variables that represent properties of a student, these are called instance variables (`name`, `program`, `studentNumber`, `credits`). They differ across instances of the Student object, as every time we create a new one, we supply new values for these variables to the constructor. 
 
-In some cases it is beneficial to have another variable that is not unique for every instance, but instead applies to all instances of the class. Imagine we want to keep track of how many students there are in total. It would not make sense to keep a unique copy of that number for every student object we create, because that would be a waste of memory. Instead, we want one variable that can keep track of this count. To do this, we use a `static` variable that is common to all instances of the class.
+These variables are unique for every instance of the class, as it makes sense that not all students have the same name, student number etc. The class says: all students have a name, but the instance says: "This specific student's name is Tim Steward".
 
-            static int studentCount;
+In some cases it is beneficial to have another variable that is not unique for every instance, but instead applies to all instances of the class. Imagine we want to keep track of how many students there are in total. It would not make sense to keep a unique copy of that number for every student object we create, because that would be a waste of memory. Instead, we want one variable that can keep track of this count. To do this, we use a `static` variable that is common to all instances of the class, like for example a `static int` or a `static String`. 
+
+➡️ **Exercise 3.1** *Add the static property `studentCount` to the `Student` class like in the example.*
 
 Now that we have this variable, we of course also want to do something with it. Let's say we use this (admittedly inefficient) way of updating the student count every time we create a new student object, as seen in `StaticTest.java`.
 
 If we were to print the value of `Student.studentCount` after running all of this, it would say 3. This is because `studentCount` is a static variable and thus it is updated for the class as a whole! Because the variable `studentCount` is `static`, we can also access through the `Student` class itself, without needing an instance. 
 
-For things like counters that keep track how many instances have been made, this is very practical. We could for example also keep a count of the total credits amassed by all students. By referring to static variables through the class name like `Student.studentCount` it clear at one glance that the `studentCount` variable is overarching all instances and does not belong to one specific object.
-
-➡️ **Exercise 3.1** *Add the static property `studentCount` to the `Student` class like in the example.*
-
 ➡️ **Exercise 3.2** *Instead of incrementing the count manually every time we instantiate a student like in the example, move this functionality to the constructor.*
 
+{% next "Next: Static vs. non-static - part 2" %}
+### Static vs. non-static - part 2
+For things like counters that keep track how many instances have been made, this is very practical. We could for example also keep a count of the total credits amassed by all students. By referring to static variables through the class name like `Student.studentCount` it clear at one glance that the `studentCount` variable is overarching all instances and does not belong to one specific object.
+
+Not just variables can be static, methods as well! This means that the method can be invoked on the class as a whole, without needing an instance. 
+
 ➡️ **Exercise 3.3** *Set the access of the `studentCount` variable to `private` and define a method that returns the count of students. Bear in mind we want this method to be accessible even when we do not have an instance of a `Student` present: what does this mean for the method's access modifier definition?*
+
+➡️ **Exercise 3.4** *Say we wanted to keep track of how many student's we've got versus the number of students allowed at the university. Define a static method for this, using the count and another static variable representing the max amount of students.*
 
 {% next "Next: Constants" %}
 ### Constants
