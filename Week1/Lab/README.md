@@ -13,7 +13,8 @@
 - Parameters of the constructor
 - Method overloading
 - Return values
-
+&nbsp;
+&nbsp;
 {% next "Next: Working with Java classes" %}
 &nbsp;
 ### Working with Java classes
