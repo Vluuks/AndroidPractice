@@ -13,7 +13,7 @@ This week's practice content consists of the following parts:
 <br>
 
 {% next "Next: Arrays and lists" %}
-### Arrays and lists
+### Regular arrays
 While programming applications, you often have to represent lists of data. In Java, there are different ways to do this. We will discuss the array and the list. A regular array can be used to store a fixed number of elements. This means that upon declaring it, you must specify the amount of elements:
 
 ```java
@@ -23,6 +23,9 @@ While programming applications, you often have to represent lists of data. In Ja
 
 The line of code above creates an array that has space for 10 integers and another array that has space for 10 strings. Because the array's size cannot be changed, we would have to reinitialize the array if we wanted to have 11 elements, for example. 
 
+
+{% next "Next: ArrayList" %}
+### ArrayList
 To solve this problem and also allow for easier modification of the array's contents (adding/removing/sorting elements for example) the `ArrayList` exists. It functions as a dynamically re-sizing array. It allows you to add or remove elements at specific indices or just the end. 
 
 For most operations using lists of data that require you to have a dynamically resizable list, `ArrayList` is the way to go. Its main strength is that it is fast to read data at specific indices. To initialize an `ArrayList` you can use the following syntax:
