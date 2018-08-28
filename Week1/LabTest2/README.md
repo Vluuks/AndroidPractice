@@ -21,9 +21,6 @@ This week's practice content consists of the following parts:
 {% next "Next: Working with Java classes" %}
 ### Working with Java classes
 
-{% check %}
-{{ compiles }}
-{% endcheck %}
 
 Java is a programming language that makes use of classes. A class is similar to a `struct` in C, but instead of just holding data, they can hold code that can be run as well. The data inside a Java class are commonly called *properties*, whereas the code that can be executed inside the class is called a *method*. In the editor on the right is a very simple example of a Java class called `Student`, which depicts a student with just three properties, and one method.
 
