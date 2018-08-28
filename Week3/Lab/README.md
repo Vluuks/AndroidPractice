@@ -6,7 +6,7 @@ To help you understand how it works, we will first take a look at different kind
 ## Table of Contents
 This week's practice content consists of the following parts:
 
- - ...
+ - Arrays and lists
  - ...
 <br>
 <br>
