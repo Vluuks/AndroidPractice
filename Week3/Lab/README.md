@@ -17,8 +17,8 @@ This week's practice content consists of the following parts:
 While programming applications, you often have to represent lists of data. In Java, there are different ways to do this. We will discuss the array and the list. A regular array can be used to store a fixed number of elements. This means that upon declaring it, you must specify the amount of elements:
 
 ```java
-int[] intArray = new int[10];
-String[] stringArray = new String[10]
+        int[] intArray = new int[10];
+        String[] stringArray = new String[10]
 ```
 
 The line of code above creates an array that has space for 10 integers and another array that has space for 10 strings. Because the array's size cannot be changed, we would have to reinitialize the array if we wanted to have 11 elements, for example. 
@@ -28,8 +28,8 @@ To solve this problem and also allow for easier modification of the array's cont
 For most operations using lists of data that require you to have a dynamically resizable list, `ArrayList` is the way to go. Its main strength is that it is fast to read data at specific indices. To initialize an `ArrayList` you can use the following syntax:
 
 ```java
-ArrayList<Integer> integerList = new ArrayList<String>();
-ArrayList<String> stringList = new ArrayList<String>(20);
+        ArrayList<Integer> integerList = new ArrayList<String>();
+        ArrayList<String> stringList = new ArrayList<String>(20);
 ```
 
 The type between the `<>` tells the compiler what the type of the elements you want to store in the list is. This can be a type such as `String`, but also a custom object such as `Student`. If practical, you can also specify the initial size of your `ArrayList`. However since it can be dynamically resized, you are free to add extra elements at any point!
@@ -43,6 +43,8 @@ The class contains many functionalities. Refer to [the documentation](https://de
 ➡️ *Exercise 1.2:* *Use the documentation to find a way to add the student objects to the `ArrayList`.*
 
 ➡️ *Exercise 1.3:* *Use the documentation and find a way to discover the exact index where the object `c` resides.*
+
+➡️ *Exercise 1.4:* *What is the difference between `remove(Object o)` and `remove(int index)`?* 
 
 {% next "Next: From list to layout: Constructor" %}
 ### From list to layout: Constructor

@@ -4,20 +4,14 @@
 */
 class Student {
 
-    static final String UNIVERSITY_NAME = "University of Amsterdam";
-    static int studentCount;
-    
     // Properties of the class
     private String name;
     private String program;
-    private int studentNumber;
-    private int EC;
 
     // Constructor of the class
-    public Student(String aName, String aProgram, int aStudentNumber) {
+    public Student(String aName, String aProgram) {
         name = aName;
         program = aProgram;
-        studentNumber = aStudentNumber;
     }
 
     public String getName() {
@@ -26,9 +20,5 @@ class Student {
 
     public String getProgram() {
         return program;
-    }
-
-    public int getStudentNumber() {
-        return studentNumber;
     }
 }
