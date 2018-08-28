@@ -51,7 +51,7 @@ The class contains many functionalities. Refer to [the documentation](https://de
 
 {% next "Next: From list to layout - part 1" %}
 ### From list to layout
- <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week3/Images/robotje.png" style="padding: 10px"> In Android, you often want to display your lists of data in an appropriate way. Imagine a restaurant's menu, a list of contacts, a playlist in a video app... There are countless applications for lists that require some layout to display them in. 
+ <img align="right" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week3/Images/robotje.png" style="padding: 10px"> In Android, you often want to display your lists of data in an appropriate way. Imagine a restaurant's menu, a list of contacts, a playlist in a video app... There are countless applications for lists that require some layout to display them in. 
 
 This is where the `Adapter` class comes into play. Because the Android API `Adapter` class can be overwhelming at first glance, we have created a plain Java adapter that kind of does the same thing, but takes it down to the basics. 
 
@@ -69,10 +69,17 @@ The adapter class can be instantiated using the constructor, which creates the `
 
 The enum `LayoutType` contains the information about the layout. It does not much, except determine that certain string patterns belong with a certain name. This avoids having to define the options as constants elsewhere in the code and keeps everything layout related neatly together.
 
-➡️ *Exercise 2.2:* *Instantiate the `ArrayAdapter`class with the right parameters.*
+➡️ *Exercise 2.2:* *Although the adapter class is given to you, it is not instantiated yet in our `AdapterTest`'s `main` method. Think about what the adapter needs to be instantiated and pass the correct parameters to it. Compile your code to verify that its syntax is correct*
 
-➡️ *Exercise 2.3:* *There are no comments present in the `ArrayAdapter` class, add a header comment atop of the class and both methods.*
+{% spoiler "Hint: Compiling and running Java code" %}
+To compile your Java file to a .class file, use this command on the terminal:
 
+        javac YourJavaFileName.java
+
+After compilation, you can run your program using:
+
+        java YourJavaFileName
+{% endspoiler %}
 
 {% next "Next: From list to layout: List container" %}
 ### From list to layout: List container
@@ -82,6 +89,11 @@ Because the container class is in control of the amount of rows shown, it is als
 
 Through the instance of `ArrayAdapter`, it calls the `createRow()` method which then creates the "layout" using the strings defined in the `enum`. The method then uses the index it received from the container class to get the right `Student` object out of the array. With this object, the correct data can be displayed in the row. This string representing the row is returned to the instance of `ListContainer` that called it, which then prints the result to the terminal.
 
+➡️ *Exercise 2.3:* *There are no comments present in the `ArrayAdapter` and `ListContainer` class, add a header comment atop of the class and add comments to the methods inside as well. If you feel like certain lines of code warrant a comment, feel free to do so!*
+
+➡️ *Exercise 2.4:* *Since the adapter goes together with the `ListContainer`, you need to instantiate this one as well.*
+
+➡️ *Exercise 2.5:* *Now that you have both instantiated the adapter class and the container, you can combine these two to set the adapter. Remember how?*
 
 {% next "Next: From list to layout: Everything together" %}
 ### From list to layout: Everything together
@@ -94,9 +106,9 @@ This is all very similar to what the actual adapter class does in Android Studio
 
 
 
-You are encouraged to discuss the purpose of the code with others (without completely spoiling the answer of course) and asking the TA's if in doubt! Adapters are a recurring topic in the course so a good understanding of them will go a long way!
 
-2. Although the adapter class is given to you, it is not called yet in our plain Java example. Think about what the adapter needs to be instantiated and pass the correct parameters to it. Since the adapter goes together with the `ListContainer`, you need to instantiate this one as well. After instantiating both, call `setAdapter()`.
+
+2. 
 
 3. Reset the adapter, but with a different `enum` as a parameter. What happens when you do this?
 
@@ -107,4 +119,6 @@ You are encouraged to discuss the purpose of the code with others (without compl
 The adapter sees a lot of use in various apps, not just in this course. A lot of apps use lists of items, whether horizontally, vertically or on a grid. The items shown in the adapter can contain all kinds of view: text, images, buttons, checkboxes, etc. Different variations of adapters exist, but the basic principles are the same. 
 
 Adapters can be used to render lists of custom objects, like the `Student` object, which requires you to create your custom adapter class and define the contents of `getView()`. In this tutorial, we saw what an adapter and list container do behind the scenes, using a plain Java example. The tasks boil down to iterating over the list, which is handled by the list container, and rendering the correct contents, which is handled by the adapter. The adapter and the container are strongly connected, because the container dictates what items need to be shown and thus what items should be created by the adapter. 
+
+You are encouraged to discuss the purpose of the code with others (without completely spoiling the answer of course) and asking the TA's if in doubt! Adapters are a recurring topic in the course so a good understanding of them will go a long way!
 
