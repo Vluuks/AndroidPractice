@@ -59,18 +59,22 @@ Its prime functionality is that it can take in a list of data, either a regular 
 
 ![](adapter-example.png)
 
-In this example we just use the terminal for the visual representation, but we have still constructed a container class to represent the idea of a container.
+In this example we just use the terminal for the visual representation, but we have still constructed a container class to represent the idea of a container. This time we will not write that much new code ourselves, but mostly use existing functionality. This is in line with the idea that the Adapter provided by the Android API does already a lot of the work for us as well. However, sometimes code that is given to you can be complex and its purpose not clear at first glance. In such a case, it's important to look at every part of the code and think about what it does.
 
 ➡️ *Exercise 2.1:* *Look through the files `AdapterTest.java`, `ArrayAdapter.java`, `LayoutType.java` and `ListContainer.java` to get an overview of their purpose.*
 
-{% next "Next: From list to layout: Enum" %}
-### From list to layout: Enum
+{% next "Next: From list to layout: ArrayAdapter and LayoutType" %}
+### From list to layout: ArrayAdapter and LayoutType
 The adapter class can be instantiated using the constructor, which creates the `ArrayAdapter` object. In this example, we created an adapter that can create a (very simple) graphical representation of `Student` objects, but many kinds of adapters are of course possible! 
 
 The enum `LayoutType` contains the information about the layout. It does not much, except determine that certain string patterns belong with a certain name. This avoids having to define the options as constants elsewhere in the code and keeps everything layout related neatly together.
 
+➡️ *Exercise 2.2:* *Instantiate the `ArrayAdapter`class with the right parameters.*
 
-{% next "Next: From list to layout: Enum" %}
+➡️ *Exercise 2.3:* *There are no comments present in the `ArrayAdapter` class, add a header comment atop of the class and both methods.*
+
+
+{% next "Next: From list to layout: List container" %}
 ### From list to layout: List container
 As mentioned before, the adapter is not used on its own, it is paired with a list container. This list container is in control how much room there is on the screen, or how many rows we actually want to show. On a screen with limited space, like a phone, you don't want to do unnecessary work, thus you only want to ask the adapter to do things for the items you have room for. We simulate this in the terminal by having a predetermined number of rows that we want to show. 
 
@@ -87,17 +91,8 @@ This is all very similar to what the actual adapter class does in Android Studio
 
 <a name="practice"></a>
 
-## Practice
 
-This time we will not write that much new code ourselves, but mostly use existing functionality. This is in line with the idea that the Adapter provided by the Android API does already a lot of the work for us as well. However, sometimes code that is given to you can be complex and its purpose not clear at first glance. In such a case, it's important to look at every part of the code and think about what it does.
 
-<a name="exercise"></a>
-
-### Exercises
-
-[Get this file](AdapterTest.java) and read through the code in the adapter class carefully. As you can see, it has not been commented. 
-
-1. Add a header comment to each of the three adapter-related classes explaining their purpose. Also add header comments to the methods inside the classes. If you think some lines of code are in need of extra explanation, comment those as well. 
 
 You are encouraged to discuss the purpose of the code with others (without completely spoiling the answer of course) and asking the TA's if in doubt! Adapters are a recurring topic in the course so a good understanding of them will go a long way!
 
