@@ -11,5 +11,7 @@ class StaticTest {
         
         Student ja = new Student("Jeanne d'Arc", "History", 90382, 40);
         Student.studentCount = 3;
+
+        
     }
 }
