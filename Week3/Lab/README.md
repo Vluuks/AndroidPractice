@@ -16,8 +16,10 @@ This week's practice content consists of the following parts:
 ### Arrays and lists
 While programming applications, you often have to represent lists of data. In Java, there are different ways to do this. We will discuss the array and the list. A regular array can be used to store a fixed number of elements. This means that upon declaring it, you must specify the amount of elements:
 
-        int[] intArray = new int[10];
-        String[] stringArray = new String[10]
+```java
+int[] intArray = new int[10];
+String[] stringArray = new String[10]
+```
 
 The line of code above creates an array that has space for 10 integers and another array that has space for 10 strings. Because the array's size cannot be changed, we would have to reinitialize the array if we wanted to have 11 elements, for example. 
 
@@ -34,13 +36,13 @@ The type between the `<>` tells the compiler what the type of the elements you w
 
 > While you can declare regular arrays with primitive types such as `int` and `boolean`, the `List` interface requires you to use their respective wrapper classes `Integer` and `Boolean`. All primitive types have such a wrapper class, should you need it.
 
-➡️ *Exercise 1.1:* *Inside ArrayListTest.java, declare a new ArrayList that holds elements of the type `Student`.*
+➡️ *Exercise 1.1:* *Inside `ArrayListTest.java`, declare a new `ArrayList` that holds elements of the type `Student`.*
 
 The class contains many functionalities. Refer to [the documentation](https://developer.android.com/reference/java/util/ArrayList) for a full overview of the available methods. 
 
-➡️ *Exercise 1.2:* *Use the documentation to find a way to add the student objects to the ArrayList.*
+➡️ *Exercise 1.2:* *Use the documentation to find a way to add the student objects to the `ArrayList`.*
 
-➡️ *Exercise 1.3:* *Use the documentation and .*
+➡️ *Exercise 1.3:* *Use the documentation and find a way to discover the exact index where the object `c` resides.*
 
 {% next "Next: From list to layout: Constructor" %}
 ### From list to layout: Constructor
