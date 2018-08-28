@@ -6,3 +6,6 @@ lab50:
   file: 
     - StudentTest.java
     - Student.java
+  checks: Vluuks/AndroidPractice/labified/Week1/LabTest
+check50:
+  true
