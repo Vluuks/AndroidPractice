@@ -25,8 +25,10 @@ To solve this problem and also allow for easier modification of the array's cont
 
 For most operations using lists of data that require you to have a dynamically resizable list, `ArrayList` is the way to go. Its main strength is that it is fast to read data at specific indices. To initialize an `ArrayList` you can use the following syntax:
 
-        ArrayList<Integer> integerList = new ArrayList<String>();
-        ArrayList<String> stringList = new ArrayList<String>(20);
+```java
+ArrayList<Integer> integerList = new ArrayList<String>();
+ArrayList<String> stringList = new ArrayList<String>(20);
+```
 
 The type between the `<>` tells the compiler what the type of the elements you want to store in the list is. This can be a type such as `String`, but also a custom object such as `Student`. If practical, you can also specify the initial size of your `ArrayList`. However since it can be dynamically resized, you are free to add extra elements at any point!
 
@@ -38,7 +40,7 @@ The class contains many functionalities. Refer to [the documentation](https://de
 
 ➡️ *Exercise 1.2:* *Use the documentation to find a way to add the student objects to the ArrayList.*
 
-➡️ *Exercise 1.3:* *Use the documentation to find a way to add the student objects to the ArrayList.*
+➡️ *Exercise 1.3:* *Use the documentation and .*
 
 {% next "Next: From list to layout: Constructor" %}
 ### From list to layout: Constructor

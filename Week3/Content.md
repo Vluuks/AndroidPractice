@@ -66,36 +66,34 @@ It then combines these two to generate the appropriate layout for each element i
 
 The adapter class can be instantiated using the constructor, which creates the `ArrayAdapter` object. In this example, we created an adapter that can create a (very simple) graphical representation of `Student` objects, but many kinds of adapters are of course possible! 
 
-```java 
-class ArrayAdapter {
-    
-    private Student[] studentArray;
-    private LayoutType layoutType;
-    
-    public ArrayAdapter(Student[] studentArray, LayoutType layoutType) {
-        this.studentArray = studentArray;
-        this.layoutType = layoutType;
-    }
-    
-    public String createRow(int index) {
+        class ArrayAdapter {
+            
+            private Student[] studentArray;
+            private LayoutType layoutType;
+            
+            public ArrayAdapter(Student[] studentArray, LayoutType layoutType) {
+                this.studentArray = studentArray;
+                this.layoutType = layoutType;
+            }
+            
+            public String createRow(int index) {
 
-        String row;
-        String horizontalBorder, verticalBorder;
-        
-        Student currentStudent = studentArray[index];
+                String row;
+                String horizontalBorder, verticalBorder;
+                
+                Student currentStudent = studentArray[index];
 
-        horizontalBorder = layoutType.horizontalBorder;
-        verticalBorder = layoutType.verticalBorder;
+                horizontalBorder = layoutType.horizontalBorder;
+                verticalBorder = layoutType.verticalBorder;
 
-        row = horizontalBorder + verticalBorder + " " + currentStudent.getName() + " " + horizontalBorder;
-        return row;
-    }
-    
-    public int getItemCount() {
-        return studentArray.length;
-    }
-}
-```
+                row = horizontalBorder + verticalBorder + " " + currentStudent.getName() + " " + horizontalBorder;
+                return row;
+            }
+            
+            public int getItemCount() {
+                return studentArray.length;
+            }
+        }
 
 The following enum contains the information about the layout. It does not much, except determine that certain string patterns belong with a certain name. This avoids having to define the options as constants elsewhere in the code and keeps everything layout related neatly together.
 
