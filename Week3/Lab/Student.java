@@ -14,26 +14,19 @@ class Student {
     private int EC;
 
     // Constructor of the class
-    public Student(String aName, String aProgram, int aStudentNumber, int someEC) {
+    public Student(String aName, String aProgram, int aStudentNumber) {
         name = aName;
         program = aProgram;
         studentNumber = aStudentNumber;
-        EC = someEC;
-    }
-
-    public int getEC() {
-        return EC;
     }
 
     public String getName() {
         return name;
     }
 
-
     public String getProgram() {
         return program;
     }
-
 
     public int getStudentNumber() {
         return studentNumber;
