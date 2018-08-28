@@ -37,7 +37,7 @@ For most operations using lists of data that require you to have a dynamically r
 
 The type between the `<>` tells the compiler what the type of the elements you want to store in the list is. This can be a type such as `String`, but also a custom object such as `Student`. If practical, you can also specify the initial size of your `ArrayList`. However since it can be dynamically resized, you are free to add extra elements at any point!
 
-> While you can declare regular arrays with primitive types such as `int` and `boolean`, the `List` interface requires you to use their respective wrapper classes `Integer` and `Boolean`. All primitive types have such a wrapper class, should you need it.
+While you can declare regular arrays with primitive types such as `int` and `boolean`, the `List` interface requires you to use their respective wrapper classes `Integer` and `Boolean`. All primitive types have such a wrapper class, should you need it.
 
 ➡️ *Exercise 1.1:* *Inside `ArrayListTest.java`, declare a new `ArrayList` that holds elements of the type `Student`.*
 
@@ -49,18 +49,24 @@ The class contains many functionalities. Refer to [the documentation](https://de
 
 ➡️ *Exercise 1.4:* *What is the difference between `remove(Object o)` and `remove(int index)`?* 
 
-{% next "Next: From list to layout: Constructor" %}
-### From list to layout: Constructor
+{% next "Next: From list to layout - part 1" %}
+### From list to layout
 In Android, you often want to display your lists of data in an appropriate way. Imagine a restaurant's menu, a list of contacts, a playlist in a video app... There are countless applications for lists that require some layout to display them in. 
 
-This is where the `Adapter` class comes into play. Because the Android API `Adapter` class can be overwhelming at first glance, we have created a plain Java adapter that kind of does the same thing, but takes it down to the basics.  Its prime functionality is that it can take in a list of data, either a regular array or an `ArrayList` and usually some kind of layout definition. 
+This is where the `Adapter` class comes into play. Because the Android API `Adapter` class can be overwhelming at first glance, we have created a plain Java adapter that kind of does the same thing, but takes it down to the basics. 
 
-It then combines these two to generate the appropriate layout for each element in the list. This layout is then shown in a container of some sort. In this example we just use the terminal, but we have still constructed a container class to represent the idea of a container.
+Its prime functionality is that it can take in a list of data, either a regular array or an `ArrayList` and usually some kind of layout definition, represented by `LayoutType`. It then combines these two to generate the appropriate layout for each element in the list. This layout is then shown in a container of some sort, `ListContainer`. 
 
-The adapter class can be instantiated using the constructor, which creates the `ArrayAdapter` object. In this example, we created an adapter that can create a (very simple) graphical representation of `Student` objects, but many kinds of adapters are of course possible! 
+![](adapter-example.png)
+
+In this example we just use the terminal for the visual representation, but we have still constructed a container class to represent the idea of a container.
+
+➡️ *Exercise 2.1:* *Look through the files `AdapterTest.java`, `ArrayAdapter.java`, `LayoutType.java` and `ListContainer.java` to get an overview of their purpose.*
 
 {% next "Next: From list to layout: Enum" %}
 ### From list to layout: Enum
+The adapter class can be instantiated using the constructor, which creates the `ArrayAdapter` object. In this example, we created an adapter that can create a (very simple) graphical representation of `Student` objects, but many kinds of adapters are of course possible! 
+
 The enum `LayoutType` contains the information about the layout. It does not much, except determine that certain string patterns belong with a certain name. This avoids having to define the options as constants elsewhere in the code and keeps everything layout related neatly together.
 
 
