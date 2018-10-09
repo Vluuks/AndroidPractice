@@ -3,9 +3,10 @@ lab50:
     - editor
     - readme
     - terminal
-  file:
-    - EnumTest.java
-    - ConstantTest.java
-    - StaticTest.java
-    - AccessTest.java
-    - Student.java
+  files:
+    - !exclude "*"
+    - !include EnumTest.java
+    - !include ConstantTest.java
+    - !include StaticTest.java
+    - !include AccessTest.java
+    - !include Student.java

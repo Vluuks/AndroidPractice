@@ -3,7 +3,6 @@ lab50:
         - editor
         - readme
         - terminal
-    file: 
-        - StudentTest.java
-        - test.java
-    checks: true
+    files: 
+        - !exclude "*"
+        - !include Test.java

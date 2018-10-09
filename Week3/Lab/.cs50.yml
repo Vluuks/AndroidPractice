@@ -1,0 +1,12 @@
+lab50:
+    windows:
+        - editor
+        - readme
+        - terminal
+    files:
+        - !exclude "*"
+        - !include Student.java
+        - !include LayoutType.java
+        - !include ListContainer.java
+        - !include ArrayAdapter.java 
+        - !include AdapterTest.java
