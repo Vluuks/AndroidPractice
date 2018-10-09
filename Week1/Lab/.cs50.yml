@@ -3,9 +3,8 @@ lab50:
     - editor
     - readme
     - terminal
-  file: 
+  files: 
     - StudentTest.java
     - Student.java
-  # checks: Vluuks/AndroidPractice/labified/Week1/LabTest
 check50:
   true
