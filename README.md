@@ -1,6 +1,6 @@
 # Android Practice
 
-<img align="left" src="Misc/robotje.png" style="padding: 10px"> A set of guides and exercises made for the [Native App Studio](https://github.com/uva/app-studio) course at the [Minor Programmeren](http://www.mprog.nl/) at the University of Amsterdam.
+<img align="right" src="Misc/robotje.png" style="padding: 10px"> A set of guides and exercises made for the [Native App Studio](https://github.com/uva/app-studio) course at the [Minor Programmeren](http://www.mprog.nl/) at the University of Amsterdam.
 
 **Current Labs**
 * https://lab.cs50.io/Vluuks/AndroidPractice/labified/Week1/Lab/
