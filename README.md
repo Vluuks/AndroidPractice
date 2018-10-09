@@ -6,3 +6,8 @@ This repository contains 6 weeks of content that focuses on introducing concepts
 
 Each week starts with an introduction of one or more concepts, which are accompanied  by small exercises and sometimes demos using [CS50's lab](https://cs50.readthedocs.io/lab/) format. These concepts are then related to the Android API in a second part, using a lot of examples and explaining how the functionalities are similar to those that can be found in more simple Java programs. 
 
+**Current Labs**
+* https://lab.cs50.io/Vluuks/AndroidPractice/labified/Week1/Lab/
+* https://lab.cs50.io/Vluuks/AndroidPractice/labified/Week2/Lab/
+* https://lab.cs50.io/Vluuks/AndroidPractice/labified/Week3/Lab/
+
