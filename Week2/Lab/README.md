@@ -161,7 +161,7 @@ But this, although illogical, is not illegal and will compile:
 
         int shapeToShow = -22;
 
-To solve this problem (among other things) we can use the `enum` feature of Java. Defining an `enum` is somewhat similar to defining a class. You will have to determine the access modifier, a name for your Enum and of course the possible values that it can take. If we were to translate the constants from earlier into an enum, it would look like this:
+To solve this problem (among other things) we can use the `enum` feature of Java. Defining an `enum` is somewhat similar to defining a class. You will have to determine the access modifier, a name for your `enum` and of course the possible values that it can take. If we were to translate the constants from earlier into an `enum`, it would look like this:
 
         public enum Shape { 
             RECTANGLE, CIRCLE, TRIANGLE, SQUARE
