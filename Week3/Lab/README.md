@@ -123,26 +123,19 @@ Through the instance of `ArrayAdapter`, it calls the `createRow()` method which 
 ### From list to layout: Everything together
 What is essential is that there is some kind of information on what the layout should look like (what kind of border to use), and there is a list (the student objects). To determine how many elements are shown, there is also a container. This information is then combined, having the container determine what index should be rendered, which is then passed on to the adapter, which generates the appropriate layout for every item. 
 
-This is all very similar to what the actual adapter class does in Android Studio. But more on that later!
+This is all very similar to what the actual adapter class does in Android Studio, as you will see later! 
 
-<a name="practice"></a>
+➡️ *Exercise 2.6:* *Recreate and reset the adapter on the list container, but with a different `enum` as a parameter. What happens when you do this?*
 
-
-
-
-
-
-2. 
-
-3. Reset the adapter, but with a different `enum` as a parameter. What happens when you do this?
-
-4. Instead of printing just the student's name, add another variable that is printed for every student as well. You can also add another layout variation to the `enum`, if you wish.
+➡️ *Exercise 2.7:* *Instead of printing just the student's name, add another variable that is printed for every student as well. You can also add another layout variation to the `enum`, if you wish.*
 
 {% next "Next: wrapping it up" %}
 ## Wrapping it up
 The adapter sees a lot of use in various apps, not just in this course. A lot of apps use lists of items, whether horizontally, vertically or on a grid. The items shown in the adapter can contain all kinds of view: text, images, buttons, checkboxes, etc. Different variations of adapters exist, but the basic principles are the same. 
 
-Adapters can be used to render lists of custom objects, like the `Student` object, which requires you to create your custom adapter class and define the contents of `getView()`. In this tutorial, we saw what an adapter and list container do behind the scenes, using a plain Java example. The tasks boil down to iterating over the list, which is handled by the list container, and rendering the correct contents, which is handled by the adapter. The adapter and the container are strongly connected, because the container dictates what items need to be shown and thus what items should be created by the adapter. 
+Adapters can be used to render lists of custom objects, like the `Student` object, which requires you to create your custom adapter class and define the contents of the method that generates each row. In this tutorial, we saw what an adapter and list container do behind the scenes, using a plain Java example. 
+
+The tasks boil down to iterating over the list, which is handled by the list container, and rendering the correct contents, which is handled by the adapter. The adapter and the container are strongly connected, because the container dictates what items need to be shown and thus what items should be created by the adapter. 
 
 You are encouraged to discuss the purpose of the code with others (without completely spoiling the answer of course) and asking the TA's if in doubt! Adapters are a recurring topic in the course so a good understanding of them will go a long way!
 
