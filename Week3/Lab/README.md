@@ -1,7 +1,7 @@
 # Java Basics for Android
  <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week3/Images/robotje-array-small.png" style="padding: 10px"> This week, we will focus on an important part of Android: the adapter. Android's `Adapter` class helps you translate lists of data to layout objects on the screen. Lists are everywhere in apps, the most classic example perhaps being an inbox.
 
-To help you understand how it works, we will first take a look at different kinds of arrays and lists in Java and then provide a very barebones example of what an adapter does in plain Java. Finally, we will use this knowledge to use Android's actual `Adapter` class effectively and practice with this as well.
+To help you understand how it works, we will take a look at different kinds of arrays and lists in Java and then provide a very barebones example of what an adapter does in plain Java. This will help you understand the way the actual adapter class in Android Studio works. 
 
 ## Table of Contents
 This week's practice content consists of the following parts:
