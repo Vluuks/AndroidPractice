@@ -6,8 +6,15 @@ To help you understand how it works, we will first take a look at different kind
 ## Table of Contents
 This week's practice content consists of the following parts:
 
- - Arrays and lists
- - ...
+Introduction
+ - Regular Arrays
+ - ArrayList
+
+Creating a ListAdapter
+ - From list to layout
+ - From list to layout: ArrayAdapter and LayoutType
+ - From list to layout: List container
+ - From list to layout: Everything together
 <br>
 <br>
 <br>
@@ -43,7 +50,7 @@ The type between the `<>` tells the compiler what the type of the elements you w
 
 The class contains many functionalities. Refer to [the documentation](https://developer.android.com/reference/java/util/ArrayList) for a full overview of the available methods. 
 
-➡️ *Exercise 1.2:* *Once you have created some student objects according to the constructor, you can add these to the list. Use the documentation to find a way to add the student objects to the `ArrayList`. Do this at the bottom of the `main` method.*
+➡️ *Exercise 1.2:* *Once you have created some student objects according to the constructor, you can add these to the list. Use the documentation to find a way to add the student objects to the `ArrayList`. You should do this inside the `main` method, but of course after the instances of `Student` have been created.*
 
 ➡️ *Exercise 1.3:* *Use the documentation and find a way to discover the exact index where the object `c` resides.*
 
