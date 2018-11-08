@@ -1,13 +1,15 @@
+import java.util.ArrayList;
+
 /* 
     ...
 */
 public class ArrayAdapter {
     
-    private Student[] studentArray;
+    private ArrayList<Student> studentList;
     private LayoutType layoutType;
     
-    public ArrayAdapter(Student[] studentArray, LayoutType layoutType) {
-        this.studentArray = studentArray;
+    public ArrayAdapter(ArrayList<Student> studentList, LayoutType layoutType) {
+        this.studentList = studentList;
         this.layoutType = layoutType;
     }
     
@@ -16,7 +18,7 @@ public class ArrayAdapter {
         String row;
         String horizontalBorder, verticalBorder;
         
-        Student currentStudent = studentArray[index];
+        Student currentStudent = studentList.get(index);
 
         horizontalBorder = layoutType.horizontalBorder;
         verticalBorder = layoutType.verticalBorder;
@@ -26,6 +28,6 @@ public class ArrayAdapter {
     }
     
     public int getItemCount() {
-        return studentArray.length;
+        return studentList.size();
     }
 }
