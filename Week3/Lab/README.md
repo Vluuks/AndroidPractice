@@ -58,7 +58,20 @@ The class contains many functionalities. Refer to [the documentation](https://de
 
 ➡️ *Exercise 1.5:* *What is the difference between `remove(Object o)` and `remove(int index)`?* 
 
+{% spoiler "Reminder: Compiling and running Java code" %}
+To compile your Java file to a .class file, use this command on the terminal:
 
+        javac YourJavaFileName.java
+
+After compilation, you can run your program using:
+
+        java YourJavaFileName
+
+You can print things to the terminal with:
+
+        System.out.println();
+        
+{% endspoiler %}
 
 {% next "Next: From list to layout - part 1" %}
 ### From list to layout
