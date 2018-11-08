@@ -10,3 +10,4 @@ lab50:
         - !include ListContainer.java
         - !include ArrayAdapter.java 
         - !include AdapterTest.java
+        - !include ArrayListTest.java
