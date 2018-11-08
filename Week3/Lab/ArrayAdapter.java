@@ -6,14 +6,14 @@ import java.util.ArrayList;
 public class ArrayAdapter {
     
     private ArrayList<Student> studentList;
-    private LayoutType layoutType;
+    private Formatter formatter;
     
     /*
         ...
     */
-    public ArrayAdapter(ArrayList<Student> studentList, LayoutType layoutType) {
+    public ArrayAdapter(ArrayList<Student> studentList, Formatter formatter) {
         this.studentList = studentList;
-        this.layoutType = layoutType;
+        this.formatter = formatter;
     }
     
     /*
@@ -26,8 +26,8 @@ public class ArrayAdapter {
         
         Student currentStudent = studentList.get(index);
 
-        horizontalBorder = layoutType.horizontalBorder;
-        verticalBorder = layoutType.verticalBorder;
+        horizontalBorder = formatter.horizontalBorder;
+        verticalBorder = formatter.verticalBorder;
 
         row = horizontalBorder + verticalBorder + " " + currentStudent.getName() + " " + horizontalBorder;
         return row;

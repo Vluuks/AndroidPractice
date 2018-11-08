@@ -53,11 +53,11 @@ class Student {
 /*
     ...
 */
-class ListContainer {
+class Printer {
     
     private int rowsToShow;
 
-    public ListContainer(int rowsToShow) {
+    public Printer(int rowsToShow) {
         this.rowsToShow = rowsToShow;
     }
     
@@ -72,7 +72,7 @@ class ListContainer {
 /*
     ...
 */
-enum LayoutType {
+enum Formatter {
     DASH("\n---------------------\n", "|"), 
     CIRCLE("\no 0 o 0 o 0 o 0 o 0 o\n", "0"), 
     STAR("\n*********************\n", "*");
@@ -80,7 +80,7 @@ enum LayoutType {
     String horizontalBorder, verticalBorder;
     
     // Constructor
-    private LayoutType(String horizontalBorder, String verticalBorder) {
+    private Formatter(String horizontalBorder, String verticalBorder) {
         this.horizontalBorder = horizontalBorder;
         this.verticalBorder = verticalBorder;
     }
@@ -92,11 +92,11 @@ enum LayoutType {
 class ArrayAdapter {
     
     private Student[] studentArray;
-    private LayoutType layoutType;
+    private Formatter formatter;
     
-    public ArrayAdapter(Student[] studentArray, LayoutType layoutType) {
+    public ArrayAdapter(Student[] studentArray, Formatter formatter) {
         this.studentArray = studentArray;
-        this.layoutType = layoutType;
+        this.formatter = formatter;
     }
     
     public String createRow(int index) {
@@ -106,8 +106,8 @@ class ArrayAdapter {
         
         Student currentStudent = studentArray[index];
 
-        horizontalBorder = layoutType.horizontalBorder;
-        verticalBorder = layoutType.verticalBorder;
+        horizontalBorder = formatter.horizontalBorder;
+        verticalBorder = formatter.verticalBorder;
 
         row = horizontalBorder + verticalBorder + " " + currentStudent.getName() + " " + horizontalBorder;
         return row;

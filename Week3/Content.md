@@ -62,18 +62,18 @@ In Android, you often want to display your lists of data in an appropriate way. 
 
 This is where the `Adapter` class comes into play. Because the Android API `Adapter` class can be overwhelming at first glance, we have created a plain Java adapter that kind of does the same thing, but takes it down to the basics.  Its prime functionality is that it can take in a list of data, either a regular array or an `ArrayList` and usually some kind of layout definition. 
 
-It then combines these two to generate the appropriate layout for each element in the list. This layout is then shown in a container of some sort. In this example we just use the terminal, but we have still constructed a container class to represent the idea of a container.
+It then combines these two to generate the appropriate layout for each element in the list. This layout is then shown in a container of some sort. In this example we just use the terminal, but we have still constructed a printer class to represent the idea of a printer.
 
 The adapter class can be instantiated using the constructor, which creates the `ArrayAdapter` object. In this example, we created an adapter that can create a (very simple) graphical representation of `Student` objects, but many kinds of adapters are of course possible! 
 
         class ArrayAdapter {
             
             private Student[] studentArray;
-            private LayoutType layoutType;
+            private Formatter formatter;
             
-            public ArrayAdapter(Student[] studentArray, LayoutType layoutType) {
+            public ArrayAdapter(Student[] studentArray, Formatter formatter) {
                 this.studentArray = studentArray;
-                this.layoutType = layoutType;
+                this.formatter = formatter;
             }
             
             public String createRow(int index) {
@@ -83,8 +83,8 @@ The adapter class can be instantiated using the constructor, which creates the `
                 
                 Student currentStudent = studentArray[index];
 
-                horizontalBorder = layoutType.horizontalBorder;
-                verticalBorder = layoutType.verticalBorder;
+                horizontalBorder = formatter.horizontalBorder;
+                verticalBorder = formatter.verticalBorder;
 
                 row = horizontalBorder + verticalBorder + " " + currentStudent.getName() + " " + horizontalBorder;
                 return row;
@@ -97,7 +97,7 @@ The adapter class can be instantiated using the constructor, which creates the `
 
 The following enum contains the information about the layout. It does not much, except determine that certain string patterns belong with a certain name. This avoids having to define the options as constants elsewhere in the code and keeps everything layout related neatly together.
 
-        enum LayoutType {
+        enum Formatter {
             DASH("\n---------------------\n", "|"), 
             CIRCLE("\no 0 o 0 o 0 o 0 o 0 o\n", "0"), 
             STAR("\n*********************\n", "*");
@@ -105,19 +105,19 @@ The following enum contains the information about the layout. It does not much, 
             String horizontalBorder, verticalBorder;
             
             // Constructor
-            private LayoutType(String horizontalBorder, String verticalBorder) {
+            private Formatter(String horizontalBorder, String verticalBorder) {
                 this.horizontalBorder = horizontalBorder;
                 this.verticalBorder = verticalBorder;
             }
         }
 
-As mentioned before, the adapter is not used on its own, it is paired with a list container. This list container is in control how much room there is on the screen, or how many rows we actually want to show. On a screen with limited space, like a phone, you don't want to do unnecessary work, thus you only want to ask the adapter to do things for the items you have room for. We simulate this in the terminal by having a predetermined number of rows that we want to show. 
+As mentioned before, the adapter is not used on its own, it is paired with a list printer. This list printer is in control how much room there is on the screen, or how many rows we actually want to show. On a screen with limited space, like a phone, you don't want to do unnecessary work, thus you only want to ask the adapter to do things for the items you have room for. We simulate this in the terminal by having a predetermined number of rows that we want to show. 
 
-        class ListContainer {
+        class Printer {
             
             private int rowsToShow;
 
-            public ListContainer(int rowsToShow) {
+            public Printer(int rowsToShow) {
                 this.rowsToShow = rowsToShow;
             }
             
@@ -129,11 +129,11 @@ As mentioned before, the adapter is not used on its own, it is paired with a lis
             }
         }
 
-Because the container class is in control of the amount of rows shown, it is also the one that is used to iterate over the items in the list inside the `setAdapter()` method. 
+Because the printer class is in control of the amount of rows shown, it is also the one that is used to iterate over the items in the list inside the `setAdapter()` method. 
 
-Through the instance of `ArrayAdapter`, it calls the `createRow()` method which then creates the "layout" using the strings defined in the `enum`. The method then uses the index it received from the container class to get the right `Student` object out of the array. With this object, the correct data can be displayed in the row. This string representing the row is returned to the instance of `ListContainer` that called it, which then prints the result to the terminal.
+Through the instance of `ArrayAdapter`, it calls the `createRow()` method which then creates the "layout" using the strings defined in the `enum`. The method then uses the index it received from the printer class to get the right `Student` object out of the array. With this object, the correct data can be displayed in the row. This string representing the row is returned to the instance of `Printer` that called it, which then prints the result to the terminal.
 
-What is essential is that there is some kind of information on what the layout should look like (what kind of border to use), and there is a list (the student objects). To determine how many elements are shown, there is also a container. This information is then combined, having the container determine what index should be rendered, which is then passed on to the adapter, which generates the appropriate layout for every item. 
+What is essential is that there is some kind of information on what the layout should look like (what kind of border to use), and there is a list (the student objects). To determine how many elements are shown, there is also a printer. This information is then combined, having the printer determine what index should be rendered, which is then passed on to the adapter, which generates the appropriate layout for every item. 
 
 This is all very similar to what the actual adapter class does in Android Studio. But more on that later!
 
@@ -153,7 +153,7 @@ This time we will not write that much new code ourselves, but mostly use existin
 
 You are encouraged to discuss the purpose of the code with others (without completely spoiling the answer of course) and asking the TA's if in doubt! Adapters are a recurring topic in the course so a good understanding of them will go a long way!
 
-2. Although the adapter class is given to you, it is not called yet in our plain Java example. Think about what the adapter needs to be instantiated and pass the correct parameters to it. Since the adapter goes together with the `ListContainer`, you need to instantiate this one as well. After instantiating both, call `setAdapter()`.
+2. Although the adapter class is given to you, it is not called yet in our plain Java example. Think about what the adapter needs to be instantiated and pass the correct parameters to it. Since the adapter goes together with the `Printer`, you need to instantiate this one as well. After instantiating both, call `setAdapter()`.
 
 3. Reset the adapter, but with a different `enum` as a parameter. What happens when you do this?
 
@@ -179,7 +179,7 @@ Because we use the Android API and not just plain Java, a lot of functionality i
 
 This will leave us with some things to take care of: we need to be able to instantiate our adapter and we need to define what should be rendered for every entry in our list. This is similar to the functionalities of the plain Java adapter class, which also had some representation of a layout (the `enum`) and of course a constructor.
 
-Like with our plain Java class, the actual iteration is handled behind the scenes. In the plain Java example, the `ListContainer` class handled making calls to the adapter's `createRow()` method. In Android, the iteration is handled by the list container as well. This means that there is no need to iterate over your list inside the adapter class.  
+Like with our plain Java class, the actual iteration is handled behind the scenes. In the plain Java example, the `Printer` class handled making calls to the adapter's `createRow()` method. In Android, the iteration is handled by the list printer as well. This means that there is no need to iterate over your list inside the adapter class.  
 
 <a name="adding-constructor"></a>
 
@@ -291,12 +291,12 @@ Notice that we return the altered `convertView`? Using this method, we now made 
 <a name="setup"></a>
 
 ### Setting everything up
-Now that the adapter has been defined and the methods inside as well, we can couple it with a list container. This, again, is similar to the plain Java example. The container is initialized at some point, then the adapter is created using its constructor. Finally, the adapter is passed to the container.
+Now that the adapter has been defined and the methods inside as well, we can couple it with a list printer. This, again, is similar to the plain Java example. The printer is initialized at some point, then the adapter is created using its constructor. Finally, the adapter is passed to the printer.
 
         StudentAdapter adapter = new StudentAdapter(this, R.layout.row_item, studentList);
         listView.setAdapter(adapter);
 
-If you do not set your adapter on the container, nothing will happen on the screen yet. The actual rendering of list items only starts once the adapter is connected to the container using `setAdapter()`. 
+If you do not set your adapter on the printer, nothing will happen on the screen yet. The actual rendering of list items only starts once the adapter is connected to the printer using `setAdapter()`. 
 
 
 <a name="practice"></a>
@@ -328,5 +328,5 @@ This time we will also practice with code in Android Studio, to try and make the
 ## Wrapping it up
 The adapter sees a lot of use in various apps, not just in this course. A lot of apps use lists of items, whether horizontally, vertically or on a grid. The items shown in the adapter can contain all kinds of view: text, images, buttons, checkboxes, etc. Different variations of adapters exist, but the basic principles are the same. 
 
-Adapters can be used to render lists of custom objects, like the `Student` object, which requires you to create your custom adapter class and define the contents of `getView()`. In this tutorial, we saw what an adapter and list container do behind the scenes, using a plain Java example. The tasks boil down to iterating over the list, which is handled by the list container, and rendering the correct contents, which is handled by the adapter. The adapter and the container are strongly connected, because the container dictates what items need to be shown and thus what items should be created by the adapter. 
+Adapters can be used to render lists of custom objects, like the `Student` object, which requires you to create your custom adapter class and define the contents of `getView()`. In this tutorial, we saw what an adapter and list printer do behind the scenes, using a plain Java example. The tasks boil down to iterating over the list, which is handled by the list printer, and rendering the correct contents, which is handled by the adapter. The adapter and the printer are strongly connected, because the printer dictates what items need to be shown and thus what items should be created by the adapter. 
 

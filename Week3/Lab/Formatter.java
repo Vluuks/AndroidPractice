@@ -1,7 +1,7 @@
 /*
     ...
 */
-public enum LayoutType {
+public enum Formatter {
     DASH("\n---------------------\n", "|"), 
     CIRCLE("\no 0 o 0 o 0 o 0 o 0 o\n", "0"), 
     STAR("\n*********************\n", "*");
@@ -9,7 +9,7 @@ public enum LayoutType {
     String horizontalBorder, verticalBorder;
     
     // Constructor
-    private LayoutType(String horizontalBorder, String verticalBorder) {
+    private Formatter(String horizontalBorder, String verticalBorder) {
         this.horizontalBorder = horizontalBorder;
         this.verticalBorder = verticalBorder;
     }

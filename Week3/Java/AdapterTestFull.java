@@ -50,11 +50,11 @@ class Student {
     }
 }
 
-class ListContainer {
+class Printer {
     
     private int rowsToShow;
 
-    public ListContainer(int rowsToShow) {
+    public Printer(int rowsToShow) {
         this.rowsToShow = rowsToShow;
     }
     
@@ -70,7 +70,7 @@ class ListContainer {
     Enum to hold the constants that users can pick to determine what the borders of the
     data printed to the console look like.
 */
-enum LayoutType {
+enum Formatter {
     DASH("\n---------------------\n", "|"), 
     CIRCLE("\no 0 o 0 o 0 o 0 o 0 o\n", "0"), 
     STAR("\n*********************\n", "*");
@@ -78,7 +78,7 @@ enum LayoutType {
     String horizontalBorder, verticalBorder;
     
     // Constructor
-    private LayoutType(String horizontalBorder, String verticalBorder) {
+    private Formatter(String horizontalBorder, String verticalBorder) {
         this.horizontalBorder = horizontalBorder;
         this.verticalBorder = verticalBorder;
     }
@@ -92,11 +92,11 @@ enum LayoutType {
 class ArrayAdapter {
     
     private Student[] studentArray;
-    private LayoutType layoutType;
+    private Formatter formatter;
     
-    public ArrayAdapter(Student[] studentArray, LayoutType layoutType) {
+    public ArrayAdapter(Student[] studentArray, Formatter formatter) {
         this.studentArray = studentArray;
-        this.layoutType = layoutType;
+        this.formatter = formatter;
     }
     
     public String createRow(int index) {
@@ -107,8 +107,8 @@ class ArrayAdapter {
         Student currentStudent = studentArray[index];
 
         // Determine layout type
-        horizontalBorder = layoutType.horizontalBorder;
-        verticalBorder = layoutType.verticalBorder;
+        horizontalBorder = formatter.horizontalBorder;
+        verticalBorder = formatter.verticalBorder;
 
         row = horizontalBorder + verticalBorder + " " + currentStudent.getName() + " " + horizontalBorder;
         return row;
@@ -140,9 +140,9 @@ class AdapterTest {
         };
         
         // Constructing the adapter and starting it
-        ArrayAdapter adapter = new ArrayAdapter(students, LayoutType.DASH);
-        ListContainer container = new ListContainer(12);
+        ArrayAdapter adapter = new ArrayAdapter(students, Formatter.DASH);
+        Printer printer = new Printer(12);
         
-        container.setAdapter(adapter);
+        printer.setAdapter(adapter);
     }
 }
