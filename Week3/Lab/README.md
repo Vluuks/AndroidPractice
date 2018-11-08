@@ -52,9 +52,13 @@ The class contains many functionalities. Refer to [the documentation](https://de
 
 ➡️ *Exercise 1.2:* *Once you have created some student objects according to the constructor, you can add these to the list. Use the documentation to find a way to add the student objects to the `ArrayList`. You should do this inside the `main` method, but of course after the instances of `Student` have been created.*
 
-➡️ *Exercise 1.3:* *Use the documentation and find a way to discover the exact index where the object `c` resides.*
+➡️ *Exercise 1.3:* *Verify that the objects have been succesfully added by using the `size()` method.*
 
-➡️ *Exercise 1.4:* *What is the difference between `remove(Object o)` and `remove(int index)`?* 
+➡️ *Exercise 1.4:* *Use the documentation and find a way to discover the exact index where the object `c` resides.*
+
+➡️ *Exercise 1.5:* *What is the difference between `remove(Object o)` and `remove(int index)`?* 
+
+
 
 {% next "Next: From list to layout - part 1" %}
 ### From list to layout
