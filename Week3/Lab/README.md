@@ -44,7 +44,7 @@ The type between the `<>` tells the compiler what the type of the elements you w
 
 ➡️ *Exercise 1.1:* *In the class `ArrayListTest` (but outside the main method!), declare a new `public static` `ArrayList` that holds elements of type `Student`.*
 
-The class contains many functionalities. Refer to [the documentation](https://developer.android.com/reference/java/util/ArrayList) for a full overview of the available methods. 
+The `ArrayList` class contains many functionalities. Refer to [the documentation](https://developer.android.com/reference/java/util/ArrayList) for a full overview of the available methods. 
 
 ➡️ *Exercise 1.2:* *Once you have created some student objects, you can add these to the list. Use the documentation to find a way to add the student objects to the `ArrayList`.*
 
