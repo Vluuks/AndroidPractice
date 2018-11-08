@@ -33,15 +33,11 @@ The line of code above creates an array that has space for 10 integers and anoth
 
 {% next "Next: ArrayList" %}
 ### ArrayList
-To solve this problem and also allow for easier modification of the array's contents (adding/removing/sorting elements for example) the `ArrayList` exists. It functions as a dynamically re-sizing array. It allows you to add or remove elements at specific indices or just the end. 
-
-For most operations using lists of data that require you to have a dynamically resizable list, `ArrayList` is the way to go. Its main strength is that it is fast to read data at specific indices. To initialize an `ArrayList` you can use the following syntax:
-
+To solve this problem and also allow for easier modification of the array's contents (adding/removing/sorting elements for example) the `ArrayList` exists. It functions as a dynamically re-sizing array. It allows you to add or remove elements at specific indices or just the end. For most operations using lists of data that require you to have a dynamically resizable list, `ArrayList` is the way to go. Its main strength is that it is fast to read data at specific indices. To initialize an `ArrayList` you can use the following syntax:
 ```java
 ArrayList<Integer> integerList = new ArrayList<String>();
 ArrayList<String> stringList = new ArrayList<String>(20);
 ```
-
 The type between the `<>` tells the compiler what the type of the elements you want to store in the list is. This can be a type such as `String`, but also a custom class such as `Student`. If practical, you can also specify the initial size of your `ArrayList`. However, since it can be dynamically resized, you are free to add extra elements at any point!
 
 > Note: while you can declare regular arrays with primitive types such as `int` and `boolean`, the `List` interface requires you to use their respective wrapper classes `Integer` and `Boolean`. All primitive types have such a wrapper class, should you need it.
