@@ -91,6 +91,8 @@ The adapter class can be instantiated using the constructor, which creates the `
 
 The enum `LayoutType` contains the information about the layout. It does not much, except determine that certain string patterns belong with a certain name. This avoids having to define the options as constants elsewhere in the code and keeps everything layout related neatly together.
 
+Furthermore, we have reused the list previously created in `ArrayListTest`. Notice how we can access it from this class as well, without instantiating `ArrayListTest` because it is `static`? The same goes for the `main` method as well. 
+
 ➡️ *Exercise 2.2:* *Although the adapter class is given to you, it is not instantiated yet in our `AdapterTest`'s `main` method. Think about what the adapter needs to be instantiated and pass the correct parameters to it. Compile your code to verify that its syntax is correct*
 
 {% spoiler "Hint: Compiling and running Java code" %}
