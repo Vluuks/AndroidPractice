@@ -8,11 +8,17 @@ public class ArrayAdapter {
     private ArrayList<Student> studentList;
     private LayoutType layoutType;
     
+    /*
+        ...
+    */
     public ArrayAdapter(ArrayList<Student> studentList, LayoutType layoutType) {
         this.studentList = studentList;
         this.layoutType = layoutType;
     }
     
+    /*
+        ...
+    */
     public String createRow(int index) {
 
         String row;
@@ -27,6 +33,9 @@ public class ArrayAdapter {
         return row;
     }
     
+    /*
+        ...
+    */
     public int getItemCount() {
         return studentList.size();
     }
