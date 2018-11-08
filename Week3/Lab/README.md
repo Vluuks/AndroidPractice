@@ -50,13 +50,11 @@ The type between the `<>` tells the compiler what the type of the elements you w
 
 The class contains many functionalities. Refer to [the documentation](https://developer.android.com/reference/java/util/ArrayList) for a full overview of the available methods. 
 
-➡️ *Exercise 1.2:* *Once you have created some student objects according to the constructor, you can add these to the list. Use the documentation to find a way to add the student objects to the `ArrayList`. You should do this inside the `main` method, but of course after the instances of `Student` have been created.*
+➡️ *Exercise 1.2:* *Once you have created some student objects, you can add these to the list. Use the documentation to find a way to add the student objects to the `ArrayList`.*
 
 ➡️ *Exercise 1.3:* *Verify that the objects have been succesfully added by using the `size()` method.*
 
 ➡️ *Exercise 1.4:* *Use the documentation and find a way to discover the exact index where the object `c` resides.*
-
-➡️ *Exercise 1.5:* *What is the difference between `remove(Object o)` and `remove(int index)`?* 
 
 {% spoiler "Reminder: Compiling and running Java code" %}
 To compile your Java file to a .class file, use this command on the terminal:
@@ -70,7 +68,7 @@ After compilation, you can run your program using:
 You can print things to the terminal with:
 
         System.out.println();
-        
+
 {% endspoiler %}
 
 {% next "Next: From list to layout - part 1" %}
@@ -109,15 +107,15 @@ After compilation, you can run your program using:
 ### From list to layout: List container
 As mentioned before, the adapter is not used on its own, it is paired with a list container. This list container is in control how much room there is on the screen, or how many rows we actually want to show. On a screen with limited space, like a phone, you don't want to do unnecessary work, thus you only want to ask the adapter to do things for the items you have room for. We simulate this in the terminal by having a predetermined number of rows that we want to show. 
 
-Because the container class is in control of the amount of rows shown, it is also the one that is used to iterate over the items in the list inside the `setAdapter()` method. 
+Because the container class is in control of the amount of rows shown, it is also the one that is used to iterate over the items in the list inside the `setAdapter()` method. Once tihs method is called, the adapter actually takes effect, so to speak.
 
 Through the instance of `ArrayAdapter`, it calls the `createRow()` method which then creates the "layout" using the strings defined in the `enum`. The method then uses the index it received from the container class to get the right `Student` object out of the array. With this object, the correct data can be displayed in the row. This string representing the row is returned to the instance of `ListContainer` that called it, which then prints the result to the terminal.
 
 ➡️ *Exercise 2.3:* *There are no comments present in the `ArrayAdapter` and `ListContainer` class, add a header comment atop of the class and add comments to the methods inside as well. If you feel like certain lines of code warrant a comment, feel free to do so!*
 
-➡️ *Exercise 2.4:* *Since the adapter goes together with the `ListContainer`, you need to instantiate this one as well.*
+➡️ *Exercise 2.4:* *Since the adapter requires the presence of a `ListContainer`, you need to instantiate this one as well.*
 
-➡️ *Exercise 2.5:* *Now that you have both instantiated the adapter class and the container, you can combine these two to set the adapter. Remember how?*
+➡️ *Exercise 2.5:* *Now that you have both instantiated the adapter class and the container, you can combine these two to set the adapter. Remember how to do this?*
 
 {% next "Next: From list to layout: Everything together" %}
 ### From list to layout: Everything together
