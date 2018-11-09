@@ -6,8 +6,6 @@ lab50:
     files:
         - !exclude "*"
         - !include Student.java
-        - !include Formatter.java
         - !include Printer.java
         - !include ArrayAdapter.java 
         - !include AdapterTest.java
-        - !include ArrayListTest.java
