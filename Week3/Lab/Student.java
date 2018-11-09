@@ -21,4 +21,8 @@ class Student {
     public String getProgram() {
         return program;
     }
+    
+    public static ArrayList<Student> createSampleList() {
+        // TODO
+    }
 }

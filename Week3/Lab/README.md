@@ -42,34 +42,30 @@ The type between the `<>` tells the compiler what the type of the elements you w
 
 > Note: while you can declare regular arrays with primitive types such as `int` and `boolean`, the `List` interface requires you to use their respective wrapper classes `Integer` and `Boolean`. All primitive types have such a wrapper class, should you need it.
 
-➡️ *Exercise 1.1:* *In the class `ArrayListTest` (but outside the main method!), declare a new `public static` `ArrayList` that holds elements of type `Student`.*
+➡️ *Exercise 1.1:* *In the static method `Student.createSampleList()`, declare a new `ArrayList` that holds elements of type `Student`. Instantiate 5 sample objects of type `Student`.*
 
-The `ArrayList` class contains many functionalities. Refer to [the documentation](https://developer.android.com/reference/java/util/ArrayList) for a full overview of the available methods. 
+> The `ArrayList` class contains many methods to manipulate lists' contents. Refer to [the documentation](https://developer.android.com/reference/java/util/ArrayList) for a full overview of the available methods.
 
-➡️ *Exercise 1.2:* *Once you have created some student objects, you can add these to the list. Use the documentation to find a way to add the student objects to the `ArrayList`.*
+➡️ *Exercise 1.2:* *Once you have created `Student` objects, you can add these to the list. Use the docs to find a way to add the student objects to the `ArrayList`.*
 
-➡️ *Exercise 1.3:* *Verify that the objects have been succesfully added. Print the size using the `size()` method.*
+{% next %}
 
-➡️ *Exercise 1.4:* *For `ArrayList`s, you can't use indexing like `[0]` to retrieve items at a given position. Check the docs to find what **method** can be called instead to retrieve items like that.*
+### Testing
+
+The `AdapterTest` class contains testing code that should now work with the student class, if implemented correctly.
+
+> Note the call of the static method `Student.createSampleList()`, which can be used anywhere in your program to generate the list.
+
+➡️ *Exercise 1.3:* *Verify that the objects have been succesfully added. Compile and run `AdapterTest.java`.*
+
+> We have used the `size()` method that comes with the `ArrayList` class.
+
+➡️ *Exercise 1.4:* *For `ArrayList`s, you can't use indexing like `[0]` to retrieve items at a given position. Check the docs to find what **method** can be called instead to retrieve items like that. Try printing information about sample students.*
 
 ➡️ *Exercise 1.5:* *Also check the docs to find a way to do the reverse of indexing: how can you get the index of an item that should be in the list?*
 
-{% spoiler "Reminder: Compiling and running Java code" %}
-To compile your Java file to a .class file, use this command on the terminal:
+{% next %}
 
-        javac YourJavaFileName.java
-
-After compilation, you can run your program using:
-
-        java YourJavaFileName
-
-You can print things to the terminal with:
-
-        System.out.println();
-
-{% endspoiler %}
-
-{% next "Next: From list to layout - part 1" %}
 ### From list to layout
  <img align="right" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week3/Images/robotje.png" style="padding: 10px"> In Android, you often want to display your lists of data in an appropriate way. Imagine a restaurant's menu, a list of contacts, a playlist in a video app... There are countless applications for lists that require some layout to display them in. 
 
