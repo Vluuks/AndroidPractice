@@ -3,21 +3,6 @@
 
 To help you understand how it works, we will take a look at different kinds of arrays and lists in Java and then provide a very barebones example of what an adapter does in plain Java. This will help you understand the way the actual adapter class in Android Studio works. 
 
-## Table of Contents
-This week's practice content consists of the following parts:
-
-Introduction
- - Regular Arrays
- - ArrayList
-
-Creating a ListAdapter
- - From list to layout
- - From list to layout: ArrayAdapter and Formatter
- - From list to layout: List printer
- - From list to layout: Everything together
-<br>
-<br>
-<br>
 
 {% next "Next: Arrays and lists" %}
 ### Regular arrays
