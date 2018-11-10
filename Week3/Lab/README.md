@@ -27,7 +27,7 @@ The type between the `<>` tells the compiler what the type of the elements you w
 
 > Note: while you can declare regular arrays with primitive types such as `int` and `boolean`, the `List` interface requires you to use their respective wrapper classes `Integer` and `Boolean`. All primitive types have such a wrapper class, should you need it.
 
-➡️ *Exercise 1.1:* *In the static method `Student.createSampleList()`, declare a new `ArrayList` that holds elements of type `Student`. Instantiate 5 sample objects of type `Student`.*
+➡️ *Exercise 1.1:* *In `Student.java`, you will find the static method `Student.createSampleList()`, declare a new `ArrayList` that holds elements of type `Student`. Instantiate 5 sample objects of type `Student`.*
 
 > The `ArrayList` class contains many methods to manipulate lists' contents. Refer to [the documentation](https://developer.android.com/reference/java/util/ArrayList) for a full overview of the available methods.
 
