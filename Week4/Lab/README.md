@@ -1,5 +1,5 @@
 # Java Basics for Android
- <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week4/Lab/robotje.png" style="padding: 10px"> This week the focus will be on exceptions. You probably already have encoutered them a few times in your programming, especially the famous `NullPointerException`. The focus in this tutorial will be on different kind of exceptions, when they might occur and how to handle them appropriately. Furthermore, starting this week we will put additional focus on code quality, which is also tied to handling exceptions well!
+ <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week4/Lab/Images/robotje.png" style="padding: 10px"> This week the focus will be on exceptions. You probably already have encoutered them a few times in your programming, especially the famous `NullPointerException`. The focus in this tutorial will be on different kind of exceptions, when they might occur and how to handle them appropriately. Furthermore, starting this week we will put additional focus on code quality, which is also tied to handling exceptions well!
  <br>
  <br>
  <br>
@@ -30,14 +30,7 @@ A lot of times the Java Virtual Machine (which takes care of running the code) i
 
 {% next "Try Catch - part 1" %}
 ### Try Catch
-Because exceptions are objects, we can do more things with them. A common structure to prevent runtime crashes but still be aware that things went wrong is the `try catch` block. This block consists of two parts:
-
-        try {
-            int i = integerArray[10];
-        }
-        catch(Exception e) {
-            ...
-        }
+Because exceptions are objects, we can do more things with them. A common structure to prevent runtime crashes but still be aware that things went wrong is the `try catch` block. Take a look at `ExceptionTest.java` and see what it looks like.
 
 In the first part between the curly braces, code is run as usual. The difference is that when an exception is encountered, instead of crashing, the catch block will be executed instead. In this case we are catching any exception (`Exception e`) that might occur. 
 
@@ -51,6 +44,16 @@ In addition to that, when debugging you are very interested in what caused excep
 
 ➡️ *Exercise 1.2:* *To ensure the rest of the program can run normally, also add a line of code that sets the variable `i` to a value that makes sense, even if the exception occurs.*
 
+{% spoiler "Reminder: Compiling and running Java code" %}
+To compile your Java file to a .class file, use this command on the terminal:
+
+        javac YourJavaFileName.java
+
+After compilation, you can run your program using:
+
+        java YourJavaFileName
+
+{% endspoiler %}
 
 {% next "Try Catch - part 2" %}
 ### Try Catch
@@ -63,7 +66,9 @@ If the catch can prevent crashes, why not just wrap everything in try-catch stru
 
         }
 
-While the generic catch might seem a great solution, catching all exceptions ever with just one, it is actually bad practice. In almost all cases, different exceptions should not be treated the same way, especially as applications get bigger. In large projects, new exceptions might be added and you would never know, due to the super generic catch. 
+While the generic catch might seem a great solution, catching all exceptions ever with just one, it is actually bad practice. In almost all cases, different exceptions should not be treated the same way, especially as applications get bigger. In large projects, new exceptions might be added and you would never know, due to the super generic catch.
+
+➡️ *Exercise 1.3:* *Your call to `printStackTrace()` should have told you what kind of exact exception occured. Adjust the catch part so that this exact exception is caught, instead of just generic exceptions.*
 
 {% next "TODO" %}
 ### TODO
