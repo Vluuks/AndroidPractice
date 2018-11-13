@@ -12,5 +12,7 @@ class ExceptionTest {
         catch(Exception e) {
             // ...
         }
+
+        System.out.println(i + 1);
     }
 }

@@ -1,4 +1,4 @@
-class ExceptionTest2 {
+class RandomExceptions {
     
     // The main method is the start of the program
     public static void main(String[] args) {

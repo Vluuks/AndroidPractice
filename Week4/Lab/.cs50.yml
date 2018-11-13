@@ -5,7 +5,7 @@ lab50:
         - terminal
     files: 
         - !exclude "*"
-        - !include ExceptionTest2.java
+        - !include RandomExceptions.java
         - !include SomeClass.class
         - !include SomeClass$A.class
         - !include SomeClass$B.class

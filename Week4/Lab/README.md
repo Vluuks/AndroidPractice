@@ -72,9 +72,9 @@ While the generic catch might seem a great solution, catching all exceptions eve
 ### Multiple errors
  Oh no! A very sloppy programmer has made a weird class with a method inside that throws all kind of exceptions and thus crashes almost every time it is run. When it runs succesfully, it prints "Success!" to the console, but as of now the program usually crashes before that ever happens. Luckily, we now know what to do about that.
 
- Take a look at `ExceptionTest2.java`. In this file, the main method makes calls to the `doSomething()` method of `SomeClass`. We do not know what is inside `SomeClass`, but it surely isn't very good code!
+ Take a look at `RandomExceptions.java`. In this file, the main method makes calls to the `doSomething()` method of `SomeClass`. We do not know what is inside `SomeClass`, but it surely isn't very good code!
 
-➡️ *Exercise 2.1:* *Compile and run `ExceptionTest.java`. What happens? Does it run `doSomething()` the expected 50 times?*
+➡️ *Exercise 2.1:* *Compile and run `RandomExceptions.java`. What happens? Does it run `doSomething()` the expected 50 times?*
 
 ➡️ *Exercise 2.2:* *Add a `try catch` block to the code that catches all exceptions. What does catching all exceptions do in this case?*
 
