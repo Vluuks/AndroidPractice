@@ -1,4 +1,4 @@
-class ExceptionTestStaff {
+class ExceptionTest {
     
     // The main method is the start of the program
     public static void main(String[] args) {
