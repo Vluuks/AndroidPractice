@@ -36,11 +36,9 @@ In the first part between the curly braces, code is run as usual. The difference
 
 The catch block should then of course do something to alleviate the problem and/or alert the user that something went wrong. Chances are that if the app would have crashed otherwise, something is amiss and you might want to notify the user that something unexpected happened. 
 
-In this example, you might want to set `i` to another number if index 10 does not exist because it is out of bounds. The program can continue running, even if an otherwise fatal error occured.
+In this example, you might want to set `i` to another number if index 10 does not exist because it is out of bounds. The program can continue running, even if an otherwise fatal error occured. In addition to that, when debugging you are very interested in what caused exceptions. So inside the catch block, you want to obtain this information. 
 
-In addition to that, when debugging you are very interested in what caused exceptions. So inside the catch block, you want to obtain this information. 
-
-➡️ *Exercise 1.1:* *Inside ExceptionTest.java, add a statement to the catch block that prints the details of the exception. Since exceptions are objects of a certain class and thus also contain methods, you call the method `printStackTrace()` on the exception in question.*
+➡️ *Exercise 1.1:* *Inside ExceptionTest.java, add a statement to the catch block that prints the details of the exception. Since exceptions are instances of a certain class and thus also contain methods, you call the method `printStackTrace()` on the exception in question.*
 
 ➡️ *Exercise 1.2:* *To ensure the rest of the program can run normally, also add a line of code that sets the variable `i` to a value that makes sense, even if the exception occurs.*
 
@@ -60,10 +58,10 @@ After compilation, you can run your program using:
 If the catch can prevent crashes, why not just wrap everything in try-catch structures and be safe from exceptions? Some solution to that might be to just catch everything:
 
         try {
-
+            // the full program
         }
         catch(Exception e) {
-
+            // any error ever will be caught by this catch
         }
 
 While the generic catch might seem a great solution, catching all exceptions ever with just one, it is actually bad practice. In almost all cases, different exceptions should not be treated the same way, especially as applications get bigger. In large projects, new exceptions might be added and you would never know, due to the super generic catch.
