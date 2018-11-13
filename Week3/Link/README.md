@@ -21,7 +21,7 @@ Like with our plain Java class, the actual iteration is handled behind the scene
 <a name="adding-constructor"></a>
 
 ### Adding the constructor
-Our class does not have a constructor yet, which is the first thing we need. Just like in the Java example, we need a way to instantiate our `StudentAdapter` class. So hit `CTRL+O` (Windows) or [MAC SNELTOETS] to open the override dialog and choose the constructor that takes the following three arguments: the context, a resource id, and a list of objects. It should look like this once overridden:
+Our class does not have a constructor yet, which is the first thing we need. Just like in the Java example, we need a way to instantiate our `StudentAdapter` class. So hit `CTRL+O` to open the override dialog and choose the constructor that takes the following three arguments: the context, a resource id, and a list of objects. It should look like this once overridden:
 
         public StudentAdapter(@NonNull Context context, int resource, @NonNull List objects) {
             super(context, resource, objects);
