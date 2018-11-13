@@ -2,11 +2,15 @@ class ExceptionTest {
     
     // The main method is the start of the program
     public static void main(String[] args) {
-     
-        // Call doSomething() from SomeClass multiple times to produce errors
-        for(int i = 0; i < 50; i++) {
-            
-            SomeClass.doSomething();
-        }  
+        
+        int[] data = {10,20,30,40,50,60,70,80,90};
+        int i;
+
+        try {
+            i = data[10];
+        }
+        catch(Exception e) {
+            // ...
+        }
     }
 }

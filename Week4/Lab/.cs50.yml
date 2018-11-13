@@ -6,4 +6,5 @@ lab50:
     files: 
         - !exclude "*"
         - !include ExceptionTest.java
+        - !include ExceptionTest2.java
         - !include SomeClass.class

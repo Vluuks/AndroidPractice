@@ -35,15 +35,21 @@ Because exceptions are objects, we can do more things with them. A common struct
         try {
             int i = integerArray[10];
         }
-        catch(ArrayIndexOutOfBoundsException e) {
+        catch(Exception e) {
             ...
         }
 
-In the first part between the curly braces, code is run as usual. The difference is that when an exception is encountered, instead of crashing, the catch block will be executed instead. In this case we are catching the `ArrayIndexOutOfBoundsException`. 
+In the first part between the curly braces, code is run as usual. The difference is that when an exception is encountered, instead of crashing, the catch block will be executed instead. In this case we are catching any exception (`Exception e`) that might occur. 
 
-The catch block should then of course do something to alleviate the problem and/or alert the user that something went wrong. Chances are that if the app would have crashed otherwise, something is amiss and you might want to notify the user that something unexpected happened. In this example, you might want to set `i` to another number if index 10 does not exist because it is out of bounds. The program can continue running, even if an otherwise fatal error occured.
+The catch block should then of course do something to alleviate the problem and/or alert the user that something went wrong. Chances are that if the app would have crashed otherwise, something is amiss and you might want to notify the user that something unexpected happened. 
 
-➡️ *Exercise 1.1:* .....
+In this example, you might want to set `i` to another number if index 10 does not exist because it is out of bounds. The program can continue running, even if an otherwise fatal error occured.
+
+In addition to that, when debugging you are very interested in what caused exceptions. So inside the catch block, you want to obtain this information. 
+
+➡️ *Exercise 1.1:* *Inside ExceptionTest.java, add a statement to the catch block that prints the details of the exception. Since exceptions are objects of a certain class and thus also contain methods, you call the method `printStackTrace()` on the exception in question.*
+
+➡️ *Exercise 1.2:* *To ensure the rest of the program can run normally, also add a line of code that sets the variable `i` to a value that makes sense, even if the exception occurs.*
 
 
 {% next "Try Catch - part 2" %}
