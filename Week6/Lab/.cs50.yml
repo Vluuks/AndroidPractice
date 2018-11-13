@@ -1,8 +1,0 @@
-lab50:
-    windows:
-        - editor
-        - readme
-        - terminal
-    files: 
-        - !exclude "*"
-        - !include Test.java
