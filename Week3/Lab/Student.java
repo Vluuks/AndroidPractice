@@ -1,14 +1,16 @@
+import java.util.ArrayList;
+
 /*
-    A class depicting a student. For this example it contains only getters since we do not
+    A class that represents a student. For this example it contains only getters since we do not
     actually need to set values.
 */
 class Student {
 
-    // Properties of the class
+    // Instance variables
     private String name;
     private String program;
 
-    // Constructor of the class
+    // Constructor
     public Student(String aName, String aProgram) {
         name = aName;
         program = aProgram;
@@ -20,5 +22,9 @@ class Student {
 
     public String getProgram() {
         return program;
+    }
+    
+    public static ArrayList<Student> createSampleList() {
+        // TODO
     }
 }

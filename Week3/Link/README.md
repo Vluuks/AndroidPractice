@@ -16,7 +16,7 @@ Because we use the Android API and not just plain Java, a lot of functionality i
 
 This will leave us with some things to take care of: we need to be able to instantiate our adapter and we need to define what should be rendered for every entry in our list. This is similar to the functionalities of the plain Java adapter class, which also had some representation of a layout (the `enum`) and of course a constructor.
 
-Like with our plain Java class, the actual iteration is handled behind the scenes. In the plain Java example, the `ListContainer` class handled making calls to the adapter's `createRow()` method. In Android, the iteration is handled by the list container as well. This means that there is no need to iterate over your list inside the adapter class.  
+Like with our plain Java class, the actual iteration is handled behind the scenes. In the plain Java example, the `Printer` class handled making calls to the adapter's `createRow()` method. In Android, the iteration is handled by the list printer as well. This means that there is no need to iterate over your list inside the adapter class.  
 
 <a name="adding-constructor"></a>
 
@@ -128,12 +128,12 @@ Notice that we return the altered `convertView`? Using this method, we now made 
 <a name="setup"></a>
 
 ### Setting everything up
-Now that the adapter has been defined and the methods inside as well, we can couple it with a list container. This, again, is similar to the plain Java example. The container is initialized at some point, then the adapter is created using its constructor. Finally, the adapter is passed to the container.
+Now that the adapter has been defined and the methods inside as well, we can couple it with a list printer. This, again, is similar to the plain Java example. The printer is initialized at some point, then the adapter is created using its constructor. Finally, the adapter is passed to the printer.
 
         StudentAdapter adapter = new StudentAdapter(this, R.layout.row_item, studentList);
         listView.setAdapter(adapter);
 
-If you do not set your adapter on the container, nothing will happen on the screen yet. The actual rendering of list items only starts once the adapter is connected to the container using `setAdapter()`. 
+If you do not set your adapter on the printer, nothing will happen on the screen yet. The actual rendering of list items only starts once the adapter is connected to the printer using `setAdapter()`. 
 
 
 <a name="practice"></a>
@@ -165,4 +165,4 @@ This time we will also practice with code in Android Studio, to try and make the
 ## Wrapping it up
 The adapter sees a lot of use in various apps, not just in this course. A lot of apps use lists of items, whether horizontally, vertically or on a grid. The items shown in the adapter can contain all kinds of view: text, images, buttons, checkboxes, etc. Different variations of adapters exist, but the basic principles are the same. 
 
-Adapters can be used to render lists of custom objects, like the `Student` object, which requires you to create your custom adapter class and define the contents of `getView()`. In this tutorial, we saw what an adapter and list container do behind the scenes, using a plain Java example. The tasks boil down to iterating over the list, which is handled by the list container, and rendering the correct contents, which is handled by the adapter. The adapter and the container are strongly connected, because the container dictates what items need to be shown and thus what items should be created by the adapter. 
+Adapters can be used to render lists of custom objects, like the `Student` object, which requires you to create your custom adapter class and define the contents of `getView()`. In this tutorial, we saw what an adapter and list printer do behind the scenes, using a plain Java example. The tasks boil down to iterating over the list, which is handled by the list printer, and rendering the correct contents, which is handled by the adapter. The adapter and the printer are strongly connected, because the printer dictates what items need to be shown and thus what items should be created by the adapter. 
