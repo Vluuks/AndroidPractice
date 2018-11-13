@@ -70,5 +70,29 @@ While the generic catch might seem a great solution, catching all exceptions eve
 
 ➡️ *Exercise 1.3:* *Your call to `printStackTrace()` should have told you what kind of exact exception occured. Adjust the catch part so that this exact exception is caught, instead of just generic exceptions.*
 
-{% next "TODO" %}
-### TODO
+{% next "Multiple errors" %}
+### Multiple errors
+ Oh no! A very sloppy programmer has made a weird class with a method inside that throws all kind of exceptions and thus crashes almost every time it is run. When it runs succesfully, it prints "Success!" to the console, but as of now the program usually crashes before that ever happens. Luckily, we now know what to do about that.
+
+ Take a look at `ExceptionTest2.java`. In this file, the main method makes calls to the `doSomething()` method of `SomeClass`. We do not know what is inside `SomeClass`, but it surely isn't very good code!
+
+➡️ *Exercise 2.1:* *Compile and run `ExceptionTest.java`. What happens? Does it run `doSomething()` the expected 50 times?*
+
+➡️ *Exercise 2.2:* *Add a `try catch` block to the code that catches all exceptions. What does catching all exceptions do in this case?*
+
+➡️ *Exercise 2.3:* *Inside the catch block, find a way to discover what kind of exceptions are thrown by the method. Remember that exceptions were in fact objects? This means they have methods associated with them as well. Use [the documentation](https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Exception.html) to your advantage!*
+
+➡️ *Exercise 2.4:* *When you have discovered the different errors the `doSomething()` method produces, change your generic catch block to multiple catch blocks that each handle a specific exception.*
+
+{% spoiler "Reminder: Compiling and running Java code" %}
+To compile your Java file to a .class file, use this command on the terminal:
+
+        javac YourJavaFileName.java
+
+After compilation, you can run your program using:
+
+        java YourJavaFileName
+
+{% endspoiler %}
+
+
