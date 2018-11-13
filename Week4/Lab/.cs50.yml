@@ -5,4 +5,5 @@ lab50:
         - terminal
     files: 
         - !exclude "*"
-        - !include Test.java
+        - !include ExceptionTest.java
+        - !include SomeClass.class
