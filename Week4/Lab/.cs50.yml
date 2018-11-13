@@ -8,3 +8,6 @@ lab50:
         - !include ExceptionTest.java
         - !include ExceptionTest2.java
         - !include SomeClass.class
+        - !include SomeClass$A.class
+        - !include SomeClass$B.class
+        - !include SomeClass$C.class
