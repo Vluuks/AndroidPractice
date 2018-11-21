@@ -5,4 +5,7 @@ lab50:
         - terminal
     files: 
         - !exclude "*"
-        - !include Test.java
+        - !include Activity.java
+        - !include Callback.java
+        - !include Helper.java
+        - !include InterfaceTest.java
