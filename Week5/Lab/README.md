@@ -109,7 +109,11 @@ If we would try to compile this, it does not work. This is because the `implemen
 
 ➡️ **Exercise 1.2:** *Inside `Activity.java`, make sure that the class implements the interface we just created and add the method body (without content for now) to the class.*
 
-➡️ **Exercise 1.3:** *The main method inside `InterfaceTest` initiates the `Activity` and the `Helper` class and then starts running the functionality inside the helper class: `new Thread(new Helper(a)).start();`. Make sure that you understand what this line of code does.*
+➡️ **Exercise 1.3:** *The main method inside `InterfaceTest` initiates the `Activity` and the `Helper` class and then starts running the functionality inside the helper class: `new Thread(new Helper(a)).start();`. Make sure that you understand what this line of code does and that you also understand the contents of the helper class.*
+
+➡️ **Exercise 1.4:** *Add something to the method body of your callback method. It should print a message to the console indicating that the callback was performed succesfully.*
+
+➡️ **Exercise 1.5:** *Compile and run your program and observe in what order the calls to `println()` are printed to the console.*
 
 {% next "Dingen" %}
 ### Wrapping it up
