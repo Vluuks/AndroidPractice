@@ -7,8 +7,10 @@
 ## Table of contents
 - Asynchronous code - part 1
 - Asynchronous code - part 2
-- Callbacks
+- Callbacks - part 1
+- Callbacks - part 2
 - Interfaces
+- Interface syntax
 
 {% next "Asynchronous code - part 1" %}
 ### Asynchronous code - part 1
@@ -35,14 +37,16 @@ While task 3 is started and still in progress, task 4, 5 and 6 are started in se
 - However, tasks that are dependent on task 3 cannot be called in sequence after starting task 3 (like in example 2), because there is no way of knowing whether task 3 has finished yet.
 
 
-{% next "Callbacks" %}
-### Callbacks
+{% next "Callbacks - part 1" %}
+### Callbacks -  part 1
 Asynchronous code can greatly boost efficiency of things, but it adds a layer of difficulty as well, because you have to be aware of the duration of tasks and the dependency of other tasks on them. If task 4 were dependent on 3, then the third example it would fail, because task 4 is started before task 3 has acquired the appropriate data.
 
 To benefit from continuing the regular program flow and still know when to call 4 as soon as task 3 is done, we can use a concept called the *callback*. A callback is used to inform the program that a certain task that was running has finished. 
 
 In the last example, we would create a callback inside task 3, so that when it is finished, it can notify the other tasks that depend on it, like task 4. This allows tasks 5 and 6 to be executed without having to wait for 3 if there is time to do so, but prevents task 4 from failing because task 3 is not done yet. 
 
+{% next "Callbacks - part 2" %}
+### Callbacks -  part 2
 In this example, there is time to start and finish 5, but then the callback of 3 is triggered, signaling that 3 has finished and thus 4 can start. 4 is then run. 
 
 ![Image showing the sequence of tasks, indicating that when 3 finishes its time consuming task, it invokes a callback that indicates that task 4 can now be started.](callback.png)
