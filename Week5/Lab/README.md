@@ -26,7 +26,7 @@ The second example shows us that task 3 is taking extra time to complete, becaus
 
 {% next "Asynchronous code - part 2" %}
 ### Asynchronous code - part 2
-If we wanted to keep everything one one thread, we would have to wait for it to complete before continuing, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled. The last example shows us the effects of asynchronous code. 
+If we wanted to keep everything one one thread, we would have to wait for it to complete before continuing, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled. This is usually undesirable, hence the solution of asynchronity: 
 
 ![Image showing one threaded execution of tasks, from 1 to 6. 3 still takes extra time, but is not executed asynchronously.](async3.png)
 
