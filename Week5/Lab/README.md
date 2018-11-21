@@ -8,24 +8,28 @@
 ## Table of contents
 - Asynchronous code - part 1
 - Asynchronous code - part 2
+- Callbacks
 - Interfaces
 
 {% next "Asynchronous code - part 1" %}
 ### Asynchronous code - part 1
 
-![Image showing sequential and one threaded execution of tasks, from 1 to 6. The image is accompanied by a horizontal line representing time passed.](Images/async1.png)
+![Image showing sequential and one threaded execution of tasks, from 1 to 6. The image is accompanied by a horizontal line representing time passed.](async1.png)
 
 In the image above we first see a regular set of tasks that the computer executes sequentially. There is no problem when these things do not take extra time, like adding numbers together.
 
 The second example shows us that task 3 is taking extra time to complete, because for example it performs a network request to download some information off the internet:
 
-![Image showing sequential and one threaded execution of tasks, from 1 to 6. 3 is a task that takes time, like a network request, so the time it takes to execute everything is greatly increased.](Images/async2.png)
+![Image showing sequential and one threaded execution of tasks, from 1 to 6. 3 is a task that takes time, like a network request, so the time it takes to execute everything is greatly increased.](async2.png)
 
+
+{% next "Asynchronous code - part 2" %}
+### Asynchronous code - part 2
 If we wanted to keep everything one one thread, we would have to wait for it to complete before continuing, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled.
 
 The last example shows us the effects of asynchronous code. 
 
-![Image showing one threaded execution of tasks, from 1 to 6. 3 still takes extra time, but is not executed asynchronously.](Images/async3.png)
+![Image showing one threaded execution of tasks, from 1 to 6. 3 still takes extra time, but is not executed asynchronously.](async3.png)
 
 While task 3 is started and still in progress, task 4, 5 and 6 are started in sequence, even though task 3 has not finished yet! This has different implications:
 
@@ -34,8 +38,8 @@ While task 3 is started and still in progress, task 4, 5 and 6 are started in se
 - However, tasks that are dependent on task 3 cannot be called in sequence after starting task 3 (like in example 2), because there is no way of knowing whether task 3 has finished yet.
 
 
-{% next "Asynchronous code - part 2" %}
-### Asynchronous code - part 2
+{% next "Callbacks" %}
+### Callbacks
 Asynchronous code can greatly boost efficiency of things, but it adds a layer of difficulty as well, because you have to be aware of the duration of tasks and the dependency of other tasks on them. If task 4 were dependent on 3, then the third example it would fail, because task 4 is started before task 3 has acquired the appropriate data.
 
 To benefit from continuing the regular program flow and still know when to call 4 as soon as task 3 is done, we can use a concept called the *callback*. A callback is used to inform the program that a certain task that was running has finished. 
