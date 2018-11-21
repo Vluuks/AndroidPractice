@@ -1,5 +1,5 @@
 # Java Basics for Android
- <img align="left" src="Images/robotje.png" style="padding: 10px"> In this section we will look at asynchronous code and interfaces. When building apps that require content from the internet, you often have to wait for requests to complete before things can continue. Since code runs very fast, this often causes issues where the code has already continued running while the request is done yet. The callback is a principle that takes care of this issue. To implement callbacks into your apps, the interface functionality of the Java language is used. 
+ <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week5/Images/robotje.png" style="padding: 10px"> In this section we will look at asynchronous code and interfaces. When building apps that require content from the internet, you often have to wait for requests to complete before things can continue. Since code runs very fast, this often causes issues where the code has already continued running while the request is done yet. The callback is a principle that takes care of this issue. To implement callbacks into your apps, the interface functionality of the Java language is used. 
 
  <br>
  <br>
@@ -52,9 +52,7 @@ In this example, there is time to start and finish 5, but then the callback of 3
 
 Of course, in practice not everything happens on one thread like pictured here. Applications often utilize multiple threads so this example is greatly simplified. It just serves to illustrate the concept of a callback method and how it can be used to invoke methods that are dependent on another method that runs asynchronously. 
 
-
-<a name="interfaces"></a>
-
+{% next "Interfaces" %}
 ### Interfaces
 When building your apps, code with different functionality is often spread over multiple files. Classes that take care of contacting an API or making another web request are not contained in the Activity, but have their own files. When a class in one of those files is working on a task that takes some time, we can of course wait until it is finished. 
 
