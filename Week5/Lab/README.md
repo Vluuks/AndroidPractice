@@ -24,9 +24,7 @@ The second example shows us that task 3 is taking extra time to complete, becaus
 
 {% next "Asynchronous code - part 2" %}
 ### Asynchronous code - part 2
-If we wanted to keep everything one one thread, we would have to wait for it to complete before continuing, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled.
-
-The last example shows us the effects of asynchronous code. 
+If we wanted to keep everything one one thread, we would have to wait for it to complete before continuing, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled. The last example shows us the effects of asynchronous code. 
 
 ![Image showing one threaded execution of tasks, from 1 to 6. 3 still takes extra time, but is not executed asynchronously.](async3.png)
 
@@ -47,7 +45,7 @@ In the last example, we would create a callback inside task 3, so that when it i
 
 In this example, there is time to start and finish 5, but then the callback of 3 is triggered, signaling that 3 has finished and thus 4 can start. 4 is then run. 
 
-![Image showing the sequence of tasks, indicating that when 3 finishes its time consuming task, it invokes a callback that indicates that task 4 can now be started.](Images/callback.png)
+![Image showing the sequence of tasks, indicating that when 3 finishes its time consuming task, it invokes a callback that indicates that task 4 can now be started.](callback.png)
 
 Of course, in practice not everything happens on one thread like pictured here. Applications often utilize multiple threads so this example is greatly simplified. It just serves to illustrate the concept of a callback method and how it can be used to invoke methods that are dependent on another method that runs asynchronously. 
 
@@ -59,7 +57,7 @@ If we stop all execution of code and wait, that works. However, this also means 
 
 When waiting for a response from the server or for some other task to finish, we need to have a way to communicate back to our activity that the task has finished. This becomes especially important with asynchronous code, because we cannot just continue running things in our Activity that are dependent on our network request, we might need to wait for the other class to finish what we are doing before we want anything to happen. 
 
- <img align="left" src="Images/callback-uml.png" style="padding: 10px"> Imagine you want to show a list of movies obtained from IMDB in a ListView. You cannot do that until the network request downloading said list has finished. So any code that sets or updates the adapter needs to wait for the request and only fire once the request has completed succesfully and we have our list of data.
+ <img align="left" src="callback-uml.png" style="padding: 10px"> Imagine you want to show a list of movies obtained from IMDB in a ListView. You cannot do that until the network request downloading said list has finished. So any code that sets or updates the adapter needs to wait for the request and only fire once the request has completed succesfully and we have our list of data.
 
 However, we don't want all our functionality to reside in the Activity, but separate in classes with each their own responsibility. This meanst that there needs to be a way to invoke a method in the Activity from inside some other class. In the example UML image there is an activity, `CategoriesActivity` that uses the helper class `CategoriesRequest` to perform a network request. Then, when this is done, depending on whether it was succesful or not, this class performs a callback. It invokes either `gotCategories()` (the data was retrieved) or `gotCategoriesError()` (something failed, like the internet stopped working or there was no response from the server). 
 
