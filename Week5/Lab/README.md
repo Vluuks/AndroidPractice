@@ -6,22 +6,12 @@
  <br>
 
 ## Table of contents
-- [Concepts](#concepts)
-	 * [Asynchronous code](#asynchronous-code)
-	 * [Interfaces](#interfaces)
-	 * [Interface syntax](#interface-syntax)
-- [Practice](#practice)
-	 * [Exercises](#exercises)
-- [Plain Java vs. Android Studio](#plain-java-vs.-android-studio)
-     * ...
+- Asynchronous code - part 1
+- Asynchronous code - part 2
+- Interfaces
 
-<a name="concepts"></a>
-
-## Concepts
-
-<a name="asynchronous-code"></a>
-
-### Asynchronous code
+{% next "Asynchronous code - part 1" %}
+### Asynchronous code - part 1
 
 ![Image showing sequential and one threaded execution of tasks, from 1 to 6. The image is accompanied by a horizontal line representing time passed.](Images/async1.png)
 
@@ -43,6 +33,9 @@ While task 3 is started and still in progress, task 4, 5 and 6 are started in se
 
 - However, tasks that are dependent on task 3 cannot be called in sequence after starting task 3 (like in example 2), because there is no way of knowing whether task 3 has finished yet.
 
+
+{% next "Asynchronous code - part 2" %}
+### Asynchronous code - part 2
 Asynchronous code can greatly boost efficiency of things, but it adds a layer of difficulty as well, because you have to be aware of the duration of tasks and the dependency of other tasks on them. If task 4 were dependent on 3, then the third example it would fail, because task 4 is started before task 3 has acquired the appropriate data.
 
 To benefit from continuing the regular program flow and still know when to call 4 as soon as task 3 is done, we can use a concept called the *callback*. A callback is used to inform the program that a certain task that was running has finished. 
