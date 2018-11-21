@@ -5,10 +5,8 @@
  Since code runs very fast, this often causes issues where the code has already continued running while the request is done yet. The callback is a principle that takes care of this issue. To implement callbacks into your apps, the interface functionality of the Java language is used. 
 
 ## Table of contents
-- Asynchronous code - part 1
-- Asynchronous code - part 2
-- Callbacks - part 1
-- Callbacks - part 2
+- Asynchronous code
+- Callbacks
 - Interfaces
 - Interface syntax
 
@@ -53,15 +51,17 @@ In this example, there is time to start and finish 5, but then the callback of 3
 
 Of course, in practice not everything happens on one thread like pictured here. Applications often utilize multiple threads so this example is greatly simplified. It just serves to illustrate the concept of a callback method and how it can be used to invoke methods that are dependent on another method that runs asynchronously. 
 
-{% next "Interfaces" %}
-### Interfaces
+{% next "Interfaces - part 1" %}
+### Interfaces - part 1
 When building your apps, code with different functionality is often spread over multiple files. Classes that take care of contacting an API or making another web request are not contained in the Activity, but have their own files. When a class in one of those files is working on a task that takes some time, we can of course wait until it is finished. 
 
 If we stop all execution of code and wait, that works. However, this also means that the app will be unresponsive for the duration of that task. For this reason, Android Studio does not allow you to make network requests on the main thread, because that would mean the app freezes during these requests. It's not hard to imagine that using such an app would be very frustrating! 
 
 When waiting for a response from the server or for some other task to finish, we need to have a way to communicate back to our activity that the task has finished. This becomes especially important with asynchronous code, because we cannot just continue running things in our Activity that are dependent on our network request, we might need to wait for the other class to finish what we are doing before we want anything to happen. 
 
- <img align="left" src="callback-uml.png" style="padding: 10px"> Imagine you want to show a list of movies obtained from IMDB in a ListView. You cannot do that until the network request downloading said list has finished. So any code that sets or updates the adapter needs to wait for the request and only fire once the request has completed succesfully and we have our list of data.
+{% next "Interfaces - part 2" %}
+### Interfaces - part 2
+ <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week5/Lab/callback-uml.png" style="padding: 10px"> Imagine you want to show a list of movies obtained from IMDB in a ListView. You cannot do that until the network request downloading said list has finished. So any code that sets or updates the adapter needs to wait for the request and only fire once the request has completed succesfully and we have our list of data.
 
 However, we don't want all our functionality to reside in the Activity, but separate in classes with each their own responsibility. This meanst that there needs to be a way to invoke a method in the Activity from inside some other class. In the example UML image there is an activity, `CategoriesActivity` that uses the helper class `CategoriesRequest` to perform a network request. Then, when this is done, depending on whether it was succesful or not, this class performs a callback. It invokes either `gotCategories()` (the data was retrieved) or `gotCategoriesError()` (something failed, like the internet stopped working or there was no response from the server). 
 
