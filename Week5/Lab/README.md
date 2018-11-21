@@ -105,6 +105,8 @@ If we would try to compile this, it does not work. This is because the `implemen
 			}
 		} 
 
+➡️ **Exercise 1.2:** *Inside `Activity.java`, make sure that the class implements the interface we just created and add the method body (without content for now) to the class.*
+
 <a name="practice"></a>
 
 ## Practice
