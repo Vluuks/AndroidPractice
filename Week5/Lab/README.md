@@ -24,7 +24,7 @@ The second example shows us that task 3 is taking extra time to complete, becaus
 
 {% next "Asynchronous code - part 2" %}
 ### Asynchronous code - part 2
-If we wanted to keep everything one one thread, we would have to wait for it to complete before continuing, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled. This is usually undesirable, hence the solution of asynchronity: 
+If we wanted to keep everything one one thread, we would have to wait for it to complete before continueing, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled. This is usually undesirable, hence the solution of asynchronity: 
 
 ![Image showing one threaded execution of tasks, from 1 to 6. 3 still takes extra time, but is not executed asynchronously.](async3.png)
 
@@ -109,10 +109,11 @@ If we would try to compile this, it does not work. This is because the `implemen
 
 ➡️ **Exercise 1.2:** *Inside `Activity.java`, make sure that the class implements the interface we just created and add the method body (without content for now) to the class.*
 
-<a name="practice"></a>
+➡️ **Exercise 1.3:** *The main method inside `InterfaceTest` initiates the `Activity` and the `Helper` class and then starts running the functionality inside the helper class: `new Thread(new Helper(a)).start();`. Make sure that you understand what this line of code does.*
 
-## Practice
-For this exercise, we have provided you with a few Java files. Because we simulate the Android environment, we make use of an `Activity` class and a `Helper` class. The idea is that in your apps, you often want to keep network requests, database interactions or other time consuming tasks separate from the activities. The main method inside `InterfaceTest` initiates the `Activity` and the `Helper` class and then starts running the functionality inside the helper class: `new Thread(new Helper(a)).start();`
+{% next "Dingen" %}
+### Wrapping it up
+For this exercise, we have provided you with a few Java files. Because we simulate the Android environment, we make use of an `Activity` class and a `Helper` class. The idea is that in your apps, you often want to keep network requests, database interactions or other time consuming tasks separate from the activities. 
 
 In this example, the Helper class performs a task `run()` that takes a bit of time, simulated by sleeping the thread for a few seconds. When this task is done, we want to notify your `Activity`, and this is where the interface comes into play. However, it has not been implemented yet!
 

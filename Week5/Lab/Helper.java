@@ -30,7 +30,7 @@ public class Helper implements Runnable {
         }
 
         // When we are done, perform the callback.
-        System.out.println("Thread klaar!");
+        System.out.println("Thread finished!");
         activity.taskFinished();
     }
 }
