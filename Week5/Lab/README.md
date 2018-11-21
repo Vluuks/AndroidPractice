@@ -1,9 +1,7 @@
 # Java Basics for Android
- <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week5/Images/robotje.png" style="padding: 10px"> In this section we will look at asynchronous code and interfaces. When building apps that require content from the internet, you often have to wait for requests to complete before things can continue. Since code runs very fast, this often causes issues where the code has already continued running while the request is done yet. The callback is a principle that takes care of this issue. To implement callbacks into your apps, the interface functionality of the Java language is used. 
-
+ <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week5/Images/robotje.png" style="padding: 10px"> In this section we will look at asynchronous code and interfaces. When building apps that require content from the internet, you often have to wait for requests to complete before things can continue. 
  <br>
- <br>
- <br>
+ Since code runs very fast, this often causes issues where the code has already continued running while the request is done yet. The callback is a principle that takes care of this issue. To implement callbacks into your apps, the interface functionality of the Java language is used. 
 
 ## Table of contents
 - Asynchronous code - part 1
