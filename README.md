@@ -6,7 +6,8 @@
 * https://lab.cs50.io/Vluuks/AndroidPractice/labified/Week1/Lab/
 * https://lab.cs50.io/Vluuks/AndroidPractice/labified/Week2/Lab/
 * https://lab.cs50.io/Vluuks/AndroidPractice/labified/Week3/Lab/
-* https://lab.cs50.io/Vluuks/AndroidPractice/labified/Week4/Lab/ (WIP)
+* https://lab.cs50.io/Vluuks/AndroidPractice/labified/Week4/Lab/ 
+* https://lab.cs50.io/Vluuks/AndroidPractice/labified/Week5/Lab/ 
 
 This repository contains 6 weeks of content that focuses on introducing concepts in plain Java and relates them to how Java is used in Android Studio afterwards as well. Often students starting to create apps. Students may have some degree of experience with OOP but are often overwhelmed by the sheer amount of options and different terminology present in the Android API. The contents of this repository aim to (at least partly) resolve that and help students gain a better understanding of using Java for the Android platform.
 
