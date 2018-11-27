@@ -85,6 +85,17 @@ The actual implementation of the method is not done in the interface itself howe
 
 ➡️ **Exercise 1.2:** *Inside `Callback.java`, write code that declares an interface with the method `taskFinished()` which takes no arguments and returns no value.*
 
+{% spoiler "Reminder: Compiling and running Java code" %}
+To compile your Java file to a .class file, use this command on the terminal:
+
+        javac YourJavaFileName.java
+
+After compilation, you can run your program using:
+
+        java YourJavaFileName
+
+{% endspoiler %}
+
 As we can see the interface does not define what happens inside these methods. This is handled by the Activity. To make the connection between the Activity and the interface, we need to specify inside our Activity class declaration that it is connected to that specific interface. We make a promise, so to speak, that the Activity will handle the actual implementation of the method signatures defined in the interface.
 
 		public class MainActivity implements Callback {
