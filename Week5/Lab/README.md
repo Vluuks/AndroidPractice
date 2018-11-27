@@ -20,13 +20,12 @@ The second example shows us that task 3 is taking extra time to complete, becaus
 
 ![Image showing sequential and one threaded execution of tasks, from 1 to 6. 3 is a task that takes time, like a network request, so the time it takes to execute everything is greatly increased.](async2.png)
 
-If we wanted to keep everything one one thread, we would have to wait for it to complete before continueing, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled.
-
+If we wanted to keep everything one one thread, we would have to wait for it to complete before proceeding, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled.
 
 {% next "Asynchronous code - part 2" %}
 ### Asynchronous code - part 2
 The approach we saw above works, but is usually undesirable. We don't want our applications to halt all progress when a time-consuming task is initiated. Luckily, there exists a solution in the form of asynchronity: 
-![Image showing one threaded execution of tasks, from 1 to 6. 3 still takes extra time, but is not executed asynchronously.](async3.png)
+![Image showing one threaded execution of tasks, from 1 to 6. 3 still takes extra time, but is now executed asynchronously.](async3.png)
 While task 3 is started and still in progress on another thread, task 4, 5 and 6 are started in sequence, even though task 3 has not finished yet! This has different implications:
 
 - It is faster, because tasks after task 3 do not have to wait for its completion if they are independent of it. Because of this the program is not unresponsive during the wait for 3.
@@ -60,7 +59,9 @@ When waiting for a response from the server or for some other task to finish, we
 ### Interfaces - part 2
  <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week5/Lab/callback-uml.png" style="padding: 10px"> Imagine you want to show a list of movies obtained from IMDB in a ListView. You cannot do that until the network request downloading said list has finished. So any code that sets or updates the adapter needs to wait for the request and only fire once the request has completed succesfully and we have our list of data.
 
-However, we don't want all our functionality to reside in the Activity, but separate in classes with each their own responsibility. This meanst that there needs to be a way to invoke a method in the Activity from inside some other class. In the example UML image there is an activity, `CategoriesActivity` that uses the helper class `CategoriesRequest` to perform a network request. Then, when this is done, depending on whether it was succesful or not, this class performs a callback. It invokes either `gotCategories()` (the data was retrieved) or `gotCategoriesError()` (something failed, like the internet stopped working or there was no response from the server). 
+However, we don't want all our functionality to reside in the Activity, but separate in classes with each their own responsibility. This means that there needs to be a way to invoke a method in the Activity from inside some other class. In the example UML image there is an activity, `CategoriesActivity` that uses the helper class `CategoriesRequest` to perform a network request. Then, when this is done, depending on whether it was succesful or not, this class performs a callback. It invokes either `gotCategories()` (the data was retrieved) or `gotCategoriesError()` (something failed, like the internet stopped working or there was no response from the server). 
+
+➡️ **Exercise 1.1:** *What is the advantage of not performing a network request inside the activity? What would happen if we did and just waited for the result?*
 
 When the callback `gotCategories()` is performed, we can now be sure that the appropriate data is there and continue running code as necessary. To do this communication between Activity classes and other classes effectively, we can make use of the `interface` functionality of the Java programming language.
 
@@ -82,7 +83,7 @@ The actual implementation of the method is not done in the interface itself howe
 			public void gotCategoriesError();
 		}
 
-➡️ **Exercise 1.1:** *Inside `Callback.java`, write code that declares an interface with the method `taskFinished()` which takes no arguments and returns no value.*
+➡️ **Exercise 1.2:** *Inside `Callback.java`, write code that declares an interface with the method `taskFinished()` which takes no arguments and returns no value.*
 
 As we can see the interface does not define what happens inside these methods. This is handled by the Activity. To make the connection between the Activity and the interface, we need to specify inside our Activity class declaration that it is connected to that specific interface. We make a promise, so to speak, that the Activity will handle the actual implementation of the method signatures defined in the interface.
 
@@ -104,13 +105,13 @@ If we would try to compile this, it does not work. This is because the `implemen
 			}
 		} 
 
-➡️ **Exercise 1.2:** *Inside `Activity.java`, make sure that the class implements the interface we just created and add the method body (without content for now) to the class.*
+➡️ **Exercise 1.3:** *Inside `Activity.java`, make sure that the class implements the interface we just created and add the method body (without content for now) to the class.*
 
-➡️ **Exercise 1.3:** *The main method inside `InterfaceTest` initiates the `Activity` and the `LongRunningTask` class and then starts running the functionality inside said class on another thread: `new Thread(new Helper(a)).start();`. Make sure that you understand what this line of code does and that you also understand the contents of the helper class to some degree.*
+➡️ **Exercise 1.4:** *The main method inside `InterfaceTest` initiates the `Activity` and the `LongRunningTask` class and then starts running the functionality inside said class on another thread: `new Thread(new Helper(a)).start();`. Make sure that you understand what this line of code does and that you also understand the contents of the helper class to some degree.*
 
-➡️ **Exercise 1.4:** *Now it's time to add something to the method body of your callback method. It should print a message to the console indicating that the callback was performed succesfully.*
+➡️ **Exercise 1.5:** *Now it's time to add something to the method body of your callback method. It should print a message to the console indicating that the callback was performed succesfully.*
 
-➡️ **Exercise 1.5:** *Compile and run your program and observe in what order the calls to `println()` are printed to the console.*
+➡️ **Exercise 1.6:** *Compile and run your program and observe in what order the calls to `println()` are printed to the console.*
 
 {% next "Wrapping it up" %}
 ### Wrapping it up
