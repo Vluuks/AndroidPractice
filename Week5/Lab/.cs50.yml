@@ -7,5 +7,5 @@ lab50:
         - !exclude "*"
         - !include Activity.java
         - !include Callback.java
-        - !include Helper.java
+        - !include LongRunningTask.java
         - !include InterfaceTest.java
