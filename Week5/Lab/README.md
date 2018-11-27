@@ -20,10 +20,12 @@ The second example shows us that task 3 is taking extra time to complete, becaus
 
 ![Image showing sequential and one threaded execution of tasks, from 1 to 6. 3 is a task that takes time, like a network request, so the time it takes to execute everything is greatly increased.](async2.png)
 
+If we wanted to keep everything one one thread, we would have to wait for it to complete before continueing, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled.
+
 
 {% next "Asynchronous code - part 2" %}
 ### Asynchronous code - part 2
-If we wanted to keep everything one one thread, we would have to wait for it to complete before continueing, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled. This is usually undesirable, hence the solution of asynchronity: 
+The approach we saw above works, but is usually undesirable. We don't want our applications to halt all progress when a time-consuming task is initiated. Luckily, there exists a solution in the form of asynchronity: 
 ![Image showing one threaded execution of tasks, from 1 to 6. 3 still takes extra time, but is not executed asynchronously.](async3.png)
 While task 3 is started and still in progress on another thread, task 4, 5 and 6 are started in sequence, even though task 3 has not finished yet! This has different implications:
 
