@@ -4,7 +4,7 @@ import java.util.concurrent.*;
     A helper class that simulates time consuming functionality
     not contained in the Activity.
 */
-public class Helper implements Runnable {
+public class LongRunningTask implements Runnable {
 
     Activity activity;
 
@@ -12,7 +12,7 @@ public class Helper implements Runnable {
         Constructor that takes a reference to the activity, so that
         we know where to invoke our callback from!
     */
-    public Helper(Activity callingActivity) {
+    public LongRunningTask(Activity callingActivity) {
         this.activity = callingActivity;
     }
 

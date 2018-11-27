@@ -14,7 +14,6 @@
 ### Asynchronous code - part 1
 
 ![Image showing sequential and one threaded execution of tasks, from 1 to 6. The image is accompanied by a horizontal line representing time passed.](async1.png)
-
 In the image above we first see a regular set of tasks that the computer executes sequentially. There is no problem when these things do not take extra time, like adding numbers together.
 
 The second example shows us that task 3 is taking extra time to complete, because for example it performs a network request to download some information off the internet:
@@ -25,9 +24,7 @@ The second example shows us that task 3 is taking extra time to complete, becaus
 {% next "Asynchronous code - part 2" %}
 ### Asynchronous code - part 2
 If we wanted to keep everything one one thread, we would have to wait for it to complete before continueing, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled. This is usually undesirable, hence the solution of asynchronity: 
-
 ![Image showing one threaded execution of tasks, from 1 to 6. 3 still takes extra time, but is not executed asynchronously.](async3.png)
-
 While task 3 is started and still in progress, task 4, 5 and 6 are started in sequence, even though task 3 has not finished yet! This has different implications:
 
 - It is faster, because tasks after task 3 do not have to wait for its completion if they are independent of it. Because of this the program is not unresponsive during the wait for 3.
@@ -46,9 +43,7 @@ In the last example, we would create a callback inside task 3, so that when it i
 {% next "Callbacks - part 2" %}
 ### Callbacks -  part 2
 In this example, there is time to start and finish 5, but then the callback of 3 is triggered, signaling that 3 has finished and thus 4 can start. 4 is then run. 
-
 ![Image showing the sequence of tasks, indicating that when 3 finishes its time consuming task, it invokes a callback that indicates that task 4 can now be started.](callback.png)
-
 Of course, in practice not everything happens on one thread like pictured here. Applications often utilize multiple threads so this example is greatly simplified. It just serves to illustrate the concept of a callback method and how it can be used to invoke methods that are dependent on another method that runs asynchronously. 
 
 {% next "Interfaces - part 1" %}
