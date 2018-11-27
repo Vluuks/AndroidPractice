@@ -65,13 +65,12 @@ However, we don't want all our functionality to reside in the Activity, but sepa
 
 When the callback `gotCategories()` is performed, we can now be sure that the appropriate data is there and continue running code as necessary. To do this communication between Activity classes and other classes effectively, we can make use of the `interface` functionality of the Java programming language.
 
-{% next "Interface syntax" %}
+{% next "Interface syntax - part 1" %}
 ### Interface syntax - part 1
 
 The declaration of an `interface` is somewhat similar to that of a class. Let's assume we want to define an interface called `Callback`. This would be the basic structure:
 
 		public interface Callback {
-
 		}
 
 Inside the curly brackets we will define the methods that should be covered by it. In the example before, we had defined `gotCategories()` and `gotCategoriesError()` as possible callback outcomes that should be handled by the interface. We want to use these methods to communicate from our helper class to the Activity class that our request was either succesful or failed. 
@@ -82,9 +81,6 @@ The actual implementation of the method is not done in the interface itself howe
 			public void gotCategories();
 			public void gotCategoriesError();
 		}
-
-{% next "Interface syntax" %}
-### Interface syntax - part 2
 
 ➡️ **Exercise 1.2:** *Inside `Callback.java`, write code that declares an interface with the method `taskFinished()` which takes no arguments and returns no value.*
 
@@ -99,6 +95,8 @@ After compilation, you can run your program using:
 
 {% endspoiler %}
 
+{% next "Interface syntax - part 2" %}
+### Interface syntax - part 2
 As we can see the interface does not define what happens inside these methods. The content of the method body is handled by the Activity. To make the connection between the Activity and the interface, we need to specify inside our Activity class declaration that it is connected to that specific interface. We make a promise, so to speak, that the Activity will handle the actual implementation of the method signatures defined in the interface.
 
 		public class MainActivity implements Callback {
