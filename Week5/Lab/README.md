@@ -129,4 +129,6 @@ If we would try to compile this, it does not work. This is because the `implemen
 ### Wrapping it up
 For this exercise, we have provided you with a few Java files. Because we simulate the Android environment, we make use of an `Activity` class and a `LongRunningTask` class which simulated some kind of task that takes a lot of time. The idea is that in your apps, you often want to keep network requests, database interactions or other time consuming tasks separate from the activities. 
 
-In this example, the `LongRunningTask` class performs a task `run()` that takes a bit of time, simulated by sleeping the thread for a few seconds. When this task is done, we want to notify your `Activity`, and this is where the interface comes into play. However, it has not been implemented yet!
+In this example, the `LongRunningTask` class performs a task `run()` that takes a bit of time, simulated by sleeping the thread for a few seconds. When this task is done, we want to notify your `Activity`, and this is where the interface comes into play to communicate this through a callback method. 
+
+The concept of asynchronous code will be present in many of your apps from now on, especially when you want to do interesting things with web APIs or other online resources!
