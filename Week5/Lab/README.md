@@ -25,7 +25,7 @@ The second example shows us that task 3 is taking extra time to complete, becaus
 ### Asynchronous code - part 2
 If we wanted to keep everything one one thread, we would have to wait for it to complete before continueing, especially if some task at a later point in time is dependent on the information acquired during task 3. This renders the program unresponsive for the time it takes for 3 to complete, because no other tasks can be executed: progress has stalled. This is usually undesirable, hence the solution of asynchronity: 
 ![Image showing one threaded execution of tasks, from 1 to 6. 3 still takes extra time, but is not executed asynchronously.](async3.png)
-While task 3 is started and still in progress, task 4, 5 and 6 are started in sequence, even though task 3 has not finished yet! This has different implications:
+While task 3 is started and still in progress on another thread, task 4, 5 and 6 are started in sequence, even though task 3 has not finished yet! This has different implications:
 
 - It is faster, because tasks after task 3 do not have to wait for its completion if they are independent of it. Because of this the program is not unresponsive during the wait for 3.
 
@@ -71,7 +71,7 @@ The declaration of an `interface` is somewhat similar to that of a class. Let's 
 
 		}
 
-Inside the curly brackets we will define the methods that should be covered by it. In the example before we had defined `gotCategories()` and `gotCategoriesError()` as possible outcomes that should be handled by the interface. We want to use these methods to communicate from our helper class to the Activity class that our request was either succesful or failed. 
+Inside the curly brackets we will define the methods that should be covered by it. In the example before, we had defined `gotCategories()` and `gotCategoriesError()` as possible outcomes that should be handled by the interface. We want to use these methods to communicate from our helper class to the Activity class that our request was either succesful or failed. 
 
 The actual implementation of the method is not done in the interface itself however, but left to the Activity, the place where we want to handle the result of our request. As such, the interface only contains the method *signature*: the return type, name and argument list.
 
@@ -104,24 +104,14 @@ If we would try to compile this, it does not work. This is because the `implemen
 
 ➡️ **Exercise 1.2:** *Inside `Activity.java`, make sure that the class implements the interface we just created and add the method body (without content for now) to the class.*
 
-➡️ **Exercise 1.3:** *The main method inside `InterfaceTest` initiates the `Activity` and the `Helper` class and then starts running the functionality inside the helper class: `new Thread(new Helper(a)).start();`. Make sure that you understand what this line of code does and that you also understand the contents of the helper class.*
+➡️ **Exercise 1.3:** *The main method inside `InterfaceTest` initiates the `Activity` and the `LongRunningTask` class and then starts running the functionality inside said class on another thread: `new Thread(new Helper(a)).start();`. Make sure that you understand what this line of code does and that you also understand the contents of the helper class to some degree.*
 
-➡️ **Exercise 1.4:** *Add something to the method body of your callback method. It should print a message to the console indicating that the callback was performed succesfully.*
+➡️ **Exercise 1.4:** *Now it's time to add something to the method body of your callback method. It should print a message to the console indicating that the callback was performed succesfully.*
 
 ➡️ **Exercise 1.5:** *Compile and run your program and observe in what order the calls to `println()` are printed to the console.*
 
-{% next "Dingen" %}
+{% next "Wrapping it up" %}
 ### Wrapping it up
-For this exercise, we have provided you with a few Java files. Because we simulate the Android environment, we make use of an `Activity` class and a `Helper` class. The idea is that in your apps, you often want to keep network requests, database interactions or other time consuming tasks separate from the activities. 
+For this exercise, we have provided you with a few Java files. Because we simulate the Android environment, we make use of an `Activity` class and a `LongRunningTask` class which simulated some kind of task that takes a lot of time. The idea is that in your apps, you often want to keep network requests, database interactions or other time consuming tasks separate from the activities. 
 
-In this example, the Helper class performs a task `run()` that takes a bit of time, simulated by sleeping the thread for a few seconds. When this task is done, we want to notify your `Activity`, and this is where the interface comes into play. However, it has not been implemented yet!
-
-<a name="practice"></a>
-
-### Exercises
- 
- 1. Add a method signature to the interface `Callback`.
-
- 2. Make the `Activity` class implement this interface correctly. The method body can be a print statement of your choosing.
-
- 3. Using the reference to the `Activity` 
+In this example, the `LongRunningTask` class performs a task `run()` that takes a bit of time, simulated by sleeping the thread for a few seconds. When this task is done, we want to notify your `Activity`, and this is where the interface comes into play. However, it has not been implemented yet!
