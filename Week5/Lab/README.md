@@ -53,15 +53,15 @@ When building your apps, code with different functionality is often spread over 
 
 > As a preventive measure, Android Studio does not allow you to make network requests on the main thread, because that would mean the app freezes during these requests. It's not hard to imagine that using such an app would be very frustrating! 
 
-When waiting for a response from the server or for some other task to finish, we need to have a way to communicate back to our activity that the task has finished. This becomes especially important with asynchronous code, because we cannot just continue running things in our Activity that are dependent on our network request, we might need to wait for the other class to finish what we are doing before we want anything to happen. 
+When waiting for a response from the server or for some other task to finish, we need to have a way to communicate back to our Activity that the task has finished. This becomes especially important with asynchronous code, because we cannot just continue running things in our Activity that are dependent on our network request, we might need to wait for the other class to finish what it's doing, before we want anything to happen. 
 
 {% next "Interfaces - part 2" %}
 ### Interfaces - part 2
  <img align="left" src="https://raw.githubusercontent.com/Vluuks/AndroidPractice/labified/Week5/Lab/callback-uml.png" style="padding: 10px"> Imagine you want to show a list of movies obtained from IMDB in a ListView. You cannot do that until the network request downloading said list has finished. So any code that sets or updates the adapter needs to wait for the request and only fire once the request has completed succesfully and we have our list of data.
 
-However, we don't want all our functionality to reside in the Activity, but separate in classes with each their own responsibility. This means that there needs to be a way to invoke a method in the Activity from inside some other class. In the example UML image there is an activity, `CategoriesActivity` that uses the helper class `CategoriesRequest` to perform a network request. Then, when this is done, depending on whether it was succesful or not, this class performs a callback. It invokes either `gotCategories()` (the data was retrieved) or `gotCategoriesError()` (something failed, like the internet stopped working or there was no response from the server). 
+However, we don't want all our functionality to reside in the Activity, but separate in classes with each their own responsibility. This means that there needs to be a way to invoke a method in the Activity from inside some other class. In the example UML image there is an activity, `CategoriesActivity` that uses the helper class `CategoriesRequest` to perform a network request using the method `getCategories()`. Then, when this is done, depending on whether it was succesful or not, this class performs a callback. It invokes either `gotCategories()` (the data was retrieved) or `gotCategoriesError()` (something failed, like the internet stopped working or there was no response from the server). 
 
-➡️ **Exercise 1.1:** *What is the advantage of not performing a network request inside the activity? What would happen if we did and just waited for the result?*
+➡️ **Exercise 1.1:** *What is the advantage of not performing a network request inside the activity? What would happen if we could and just waited for the result?*
 
 When the callback `gotCategories()` is performed, we can now be sure that the appropriate data is there and continue running code as necessary. To do this communication between Activity classes and other classes effectively, we can make use of the `interface` functionality of the Java programming language.
 
@@ -74,7 +74,7 @@ The declaration of an `interface` is somewhat similar to that of a class. Let's 
 
 		}
 
-Inside the curly brackets we will define the methods that should be covered by it. In the example before, we had defined `gotCategories()` and `gotCategoriesError()` as possible outcomes that should be handled by the interface. We want to use these methods to communicate from our helper class to the Activity class that our request was either succesful or failed. 
+Inside the curly brackets we will define the methods that should be covered by it. In the example before, we had defined `gotCategories()` and `gotCategoriesError()` as possible callback outcomes that should be handled by the interface. We want to use these methods to communicate from our helper class to the Activity class that our request was either succesful or failed. 
 
 The actual implementation of the method is not done in the interface itself however, but left to the Activity, the place where we want to handle the result of our request. As such, the interface only contains the method *signature*: the return type, name and argument list.
 
@@ -96,7 +96,7 @@ After compilation, you can run your program using:
 
 {% endspoiler %}
 
-As we can see the interface does not define what happens inside these methods. This is handled by the Activity. To make the connection between the Activity and the interface, we need to specify inside our Activity class declaration that it is connected to that specific interface. We make a promise, so to speak, that the Activity will handle the actual implementation of the method signatures defined in the interface.
+As we can see the interface does not define what happens inside these methods. The content of the method body is handled by the Activity. To make the connection between the Activity and the interface, we need to specify inside our Activity class declaration that it is connected to that specific interface. We make a promise, so to speak, that the Activity will handle the actual implementation of the method signatures defined in the interface.
 
 		public class MainActivity implements Callback {
 			...
