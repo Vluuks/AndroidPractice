@@ -66,7 +66,7 @@ However, we don't want all our functionality to reside in the Activity, but sepa
 When the callback `gotCategories()` is performed, we can now be sure that the appropriate data is there and continue running code as necessary. To do this communication between Activity classes and other classes effectively, we can make use of the `interface` functionality of the Java programming language.
 
 {% next "Interface syntax" %}
-### Interface syntax
+### Interface syntax - part 1
 
 The declaration of an `interface` is somewhat similar to that of a class. Let's assume we want to define an interface called `Callback`. This would be the basic structure:
 
@@ -82,6 +82,9 @@ The actual implementation of the method is not done in the interface itself howe
 			public void gotCategories();
 			public void gotCategoriesError();
 		}
+
+{% next "Interface syntax" %}
+### Interface syntax - part 2
 
 ➡️ **Exercise 1.2:** *Inside `Callback.java`, write code that declares an interface with the method `taskFinished()` which takes no arguments and returns no value.*
 
