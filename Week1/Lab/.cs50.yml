@@ -5,6 +5,6 @@ lab50:
     - terminal
   files: 
     - !exclude "*"
-    - !include ShowEditorTest.java
     - !include StudentTest.java
     - !include Student.java
+    - !include ShowEditorTest.java
