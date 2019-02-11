@@ -78,7 +78,7 @@ We call a method that does it for us, passing the new value as its parameter. Th
 
 Of course, these getter and setter methods need to be created for the other properties as well.
 
-➡️ **Exercise 2.1:** *Inside `StudentTest.java`, add the getter and setter for the  `name` property to the class, following the syntax specified above. Then, create the getters and setters for the other properties in the `Student` class as well.*
+➡️ **Exercise 2.1:** *Inside `Student.java`, add the getter and setter for the  `name` property to the class, following the syntax specified above. Then, create the getters and setters for the other properties in the `Student` class as well.*
 
 {% next "Next: Getters and setters - part 2" %}
 ### Getters and setters - part 2
