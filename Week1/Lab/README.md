@@ -197,4 +197,4 @@ After compilation, you can run your program using:
 
 {% next "Next: Wrapping it up" %}
 ## Wrapping it up
-You have now seen how to instantiate objects in Java, using a class as a blueprint. You also practiced with methods, including their parameters and return values. These concepts will all be important when you get to building your app!
+You have now seen how to instantiate objects in Java, using a class as a blueprint. You also practiced with methods, including their parameters and return values. These concepts will all be important when you get to building your app! You can continue to take a look [**here**](https://github.com/Vluuks/AndroidPractice/tree/labified/Week1/Link), which will explain how these classes are present in Android as well. 
